@@ -4,7 +4,7 @@
   justify-content: center
   align-items: center
   width: 240px
-  padding: 10px 20px 13px
+  padding: 15px 20px 16px
   border-radius: 5px
   border: none
   text-decoration: none
@@ -30,13 +30,18 @@
       background-color: darken($blue, 3)
       transition: none
   &--secondary
-    padding: 9px 19px
-    border: 1px solid $dark-blue
+    padding: 13px 20px 14px
+    border: 2px solid $blue
     color: $dark-blue
     &:hover
-      background-color: $dark-blue
+      background-color: $blue
       color: #fff
     &:active
-      border-color: lighten($dark-blue, 7)
-      background-color: lighten($dark-blue, 7)
+      border-color: lighten($blue, 7)
+      background-color: lighten($blue, 7)
       transition: none
+  &--tertiary
+    background-color: #fff
+    color: $blue
+    &:hover
+      background-color: darken(#fff, 3)

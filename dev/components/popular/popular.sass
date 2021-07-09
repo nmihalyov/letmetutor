@@ -1,0 +1,63 @@
+.popular
+  margin-bottom: 110px
+  &__grid
+    display: flex
+    justify-content: space-between
+    margin-bottom: 50px
+  &__item
+    overflow: hidden
+    position: relative
+    width: 277px
+    height: 350px
+    border-radius: 10px
+    text-align: center
+    background:
+      size: cover
+      position: center
+      repeat: no-repeat
+    &:hover .popular__item
+      &-overlay
+        transform: translateY(0)
+      &-inner
+        top: 50%
+        transform: translateY(-50%)
+      &-desc,
+      &-btn
+        opacity: 1
+    &-overlay
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      color: #fff
+      background-color: transparentize($blue, .2)
+      transform: translateY(300px)
+      transition: transform .5s ease
+    &-inner
+      position: absolute
+      width: 100%
+      top: 13px
+      left: 0
+      transition: all .5s ease
+    &-title
+      margin-bottom: 10px
+      line-height: 1.375
+      font:
+        size: 16px
+        weight: 500
+    &-desc,
+    &-btn
+      opacity: 0
+      transition: all .3s ease
+    &-desc
+      width: 210px
+      margin: 0 auto 18px
+      font-size: 14px
+    &-btn
+      width: 150px
+      padding: 11px 5px 12px
+      font-size: 13px
+  &__btn
+    display: flex
+    justify-content: center

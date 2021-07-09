@@ -1,0 +1,34 @@
+include ../_ui/heading/heading
+include ../_ui/button/button
+
+mixin popular
+  section.popular.container
+    .popular__wrapper.wrapper
+      +heading('Популярные предметы')
+      .popular__grid
+        a.popular__item(href="#", style="background-image: url('img/inhtml/popular-item-1.jpg');")
+          .popular__item-overlay
+            .popular__item-inner
+              p.popular__item-title Английский язык
+              p.popular__item-desc 1200 репетиторов готовы Вам помочь!
+              +button('tertiary', 'button', 'Найти репетитора', 'popular__item-btn')
+        a.popular__item(href="#", style="background-image: url('img/inhtml/popular-item-2.jpg');")
+          .popular__item-overlay
+            .popular__item-inner
+              p.popular__item-title Математика
+              p.popular__item-desc 1200 репетиторов готовы Вам помочь!
+              +button('tertiary', 'button', 'Найти репетитора', 'popular__item-btn')
+        a.popular__item(href="#", style="background-image: url('img/inhtml/popular-item-3.jpg');")
+          .popular__item-overlay
+            .popular__item-inner
+              p.popular__item-title Программирование
+              p.popular__item-desc 1200 репетиторов готовы Вам помочь!
+              +button('tertiary', 'button', 'Найти репетитора', 'popular__item-btn')
+        a.popular__item(href="#", style="background-image: url('img/inhtml/popular-item-4.jpg');")
+          .popular__item-overlay
+            .popular__item-inner
+              p.popular__item-title Химия
+              p.popular__item-desc 1200 репетиторов готовы Вам помочь!
+              +button('tertiary', 'button', 'Найти репетитора', 'popular__item-btn')
+      .popular__btn
+        +button('secondary', 'link', 'Посмотреть все', 'popular__more', {link: '#'})
