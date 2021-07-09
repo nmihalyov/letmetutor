@@ -1,0 +1,102 @@
+.hero
+  height: 500px
+  background:
+    color: #152764
+    size: cover
+    position: center
+    repeat: no-repeat
+  &__wrapper
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    height: 100%
+  &__heading
+    max-width: 600px
+    margin-bottom: 30px
+    color: #fff
+    text-align: center
+    line-height: 1.33
+    font:
+      size: 36px
+      weight: 700
+  &__form
+    display: flex
+    align-items: center
+    padding: 7px
+    background-color: #fff
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05)
+    border-radius: 10px
+  &__input
+    position: relative
+    &:not(:first-child)
+      padding-left: 17px
+      border-left: 1px solid #DCDCDC
+      &:before
+        left: 30px
+    &:before
+      content: ''
+      position: absolute
+      top: calc(50% - 8px)
+      left: 13px
+      width: 16px
+      height: 16px
+      background:
+        size: contain
+        position: center
+        repeat: no-repeat
+    &[data-input="subject"]:before
+      background-image: url('../img/icons/list.svg')
+    &[data-input="location"]:before
+      background-image: url('../img/icons/pin.svg')
+    &-field
+      width: 270px
+      padding: 6px 6px 6px 38px
+      outline: 0
+      border: none
+      line-height: 1.33
+      word-break: keep-all
+      -webkit-appearance: none
+      transition: border-color .3s ease
+      font:
+        family: 'OpenSans', Helvetica, sans-serif
+        size: 15px
+        weight: 300
+      &::placeholder
+        opacity: 1
+        color: #A0A4B9
+      &::-webkit-input-placeholder
+        opacity: 1
+        color: #A0A4B9
+      &::-moz-placeholder
+        opacity: 1
+        color: #A0A4B9
+      &:-ms-input-placeholder
+        opacity: 1
+        color: #A0A4B9
+      &:-moz-placeholder
+        opacity: 1
+        color: #A0A4B9
+  &__dropdown
+    overflow: auto
+    left: 0
+    max-height: 238px
+    width: 280px
+    padding: 20px 10px 20px 0
+    border-radius: 10px
+    &::-webkit-scrollbar
+      width: 4px
+    &::-webkit-scrollbar-track
+      background-color: transparent
+    &::-webkit-scrollbar-thumb
+      border-radius: 3px
+      background-color: transparentize(#000, .8)
+    &-item
+      padding: 6px 6px 6px 30px
+      transition: opacity .3s ease
+      &:hover
+        opacity: 0.8
+        background-color: transparent
+  &__btn
+    width: 200px
+    padding: 14px 20px 17px

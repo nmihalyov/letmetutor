@@ -1,0 +1,26 @@
+include ../_ui/button/button
+
+mixin hero
+  section.hero.container(style="background-image: url('img/inhtml/hero-bg.png')")
+    .hero__wrapper.wrapper
+      h1.hero__heading Мы поможем вам найти лучшего репетитора
+      form.hero__form(action="")
+        label.hero__input.dropdown(data-input="subject")
+          input.hero__input-field(type="text", name="subject", placeholder="Выберите предмет", readonly)
+          .hero__dropdown.dropdown__menu
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") Английский язык
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") Математика
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") Украинский язык
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") Программирование
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") Физика
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") Химия
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") Биология
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") Русский язык
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") История
+        label.hero__input.dropdown(data-input="location")
+          input.hero__input-field(type="text", name="location", placeholder="Выберите вашу локацию", readonly)
+          .hero__dropdown.dropdown__menu
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") Россия
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") Украина
+            a.hero__dropdown-item.dropdown__menu-item(href="javascript:void(0)") Онлайн
+        +button('primary', 'submit', 'Найти', 'hero__btn')
