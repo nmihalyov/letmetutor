@@ -1,0 +1,37 @@
+.advantages
+  margin-top: -30px
+  margin-bottom: 100px
+  &__wrapper
+    display: flex
+    justify-content: space-between
+  &__item
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 375px
+    height: 220px
+    padding: 30px
+    border-radius: 3px
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.04)
+    background-color: #fff
+    text-align: center
+  &__heading
+    position: relative
+    margin-bottom: 20px
+    padding-bottom: 20px
+    line-height: 0.995
+    font:
+      size: 18px
+      weight: 700
+    &:after
+      position: absolute
+      content: ''
+      left: calc(50% - 38px)
+      bottom: 0
+      width: 75px
+      height: 2px
+      background-color: $blue
+  &__desc
+    color: $gray
+    font-size: 16px
