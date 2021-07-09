@@ -1,0 +1,5 @@
+mixin tabs(arr)
+  .tabs
+    .tabs__inner
+      each val, i in arr
+        button.tabs__item(data-tab=i + 1, class=`${i === 0 ? 'tabs__item--active' : ''}`)= val

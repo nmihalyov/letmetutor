@@ -1,0 +1,26 @@
+.tabs
+  padding: 7px
+  border-radius: 10px
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
+  background-color: #fff
+  &__inner
+    display: flex
+    border-radius: 5px
+    background-color: #F8F8FB
+  &__item
+    width: 280px
+    padding: 14px 5px
+    border-radius: 5px
+    border: none
+    -webkit-appearance: none
+    cursor: pointer
+    color: $gray
+    transition: all .3s ease
+    font:
+      family: 'OpenSans', Helvetica, sans-serif
+      size: 16px
+      weight: 500
+    &--active
+      pointer-events: none
+      color: #fff
+      background-color: $blue

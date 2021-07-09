@@ -1,0 +1,35 @@
+.hiw
+  margin-bottom: 100px
+  padding: 100px 0
+  background-color: #F8F8FB
+  &__tabs
+    &-grid
+      display: flex
+      justify-content: center
+      margin-bottom: 50px
+  &__content
+    display: none
+    &[data-active]
+      display: block
+  &__row
+    display: flex
+    justify-content: center
+    align-items: center
+    &:nth-child(odd) .hiw__box:first-child
+      display: flex
+      justify-content: flex-end
+    &:not(:last-child)
+      margin-bottom: 50px
+  &__box
+    width: 575px
+    margin: 0 10px
+  &__heading
+    margin-bottom: 20px
+    line-height: 1.375
+    font:
+      size: 24px
+      weight: 500
+  &__desc
+    color: $gray
+    line-height: 1.35
+    font-size: 20px

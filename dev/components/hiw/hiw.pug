@@ -1,0 +1,54 @@
+include ../_ui/heading/heading
+include ../_ui/tabs/tabs
+
+mixin hiw
+  section.hiw.container
+    .hiw__wrapper.wrapper
+      +heading('Как это работает?')
+      .hiw__tabs(data-tabs)
+        .hiw__tabs-grid
+          +tabs(['Ученику', 'Репетитору'])
+        .hiw__content(data-content="1", data-active)
+          .hiw__row
+            .hiw__box
+              img(src="img/inhtml/hiw-1.svg", alt="")
+            .hiw__box
+              .hiw__info
+                p.hiw__heading 1. Обращение
+                p.hiw__desc Это быстро! Заполните несколько обязательных полей, обозначив интересующий предмет, желаемую стоимость занятия, оставьте контактную информацию о себе и отправьте заявку на поиск репетитора.
+          .hiw__row
+            .hiw__box
+              .hiw__info
+                p.hiw__heading 2. Обратная связь
+                p.hiw__desc Как только на вашу заявку откликнется преподаватель, вы сможете связаться с ним и обсудить подходящее вам обоим время для проведения занятия. Выбирайте время и место для урока!
+            .hiw__box
+              img.hiw__image(src="img/inhtml/hiw-2.svg", alt="")
+          .hiw__row
+            .hiw__box
+              img.hiw__image(src="img/inhtml/hiw-3.svg", alt="")
+            .hiw__box
+              .hiw__info
+                p.hiw__heading 3. Учёба
+                p.hiw__desc Ваше занятие будет максимально результативным: на платформе собраны только самые опытные и эффективные преподаватели. Экономьте деньги и время, получая лучшее образование.
+        .hiw__content(data-content="2")
+          .hiw__row
+            .hiw__box
+              img(src="img/inhtml/hiw-1.svg", alt="")
+            .hiw__box
+              .hiw__info
+                p.hiw__heading 1. Регистрация
+                p.hiw__desc Регистрация откроет вам безграничные возможности по поиску учеников по всему миру. Наша команда будет помогать укреплять ваши навыки, чтобы вы могли увеличить собственную капитализацию.
+          .hiw__row
+            .hiw__box
+              .hiw__info
+                p.hiw__heading 2. Верификация
+                p.hiw__desc Необходимо подтвердить номер телефона и загрузить ваши документы и дипломы в центре верификации. Так вы быстро и достоверно подтвердите свою квалификацию.
+            .hiw__box
+              img.hiw__image(src="img/inhtml/hiw-2.svg", alt="")
+          .hiw__row
+            .hiw__box
+              img.hiw__image(src="img/inhtml/hiw-3.svg", alt="")
+            .hiw__box
+              .hiw__info
+                p.hiw__heading 3. Связь с учеником
+                p.hiw__desc Выбирайте заявку из уже выставленных на сайте или дождитесь, когда напишет ученик. Обсудите удобное время для урока и приступайте к занятиям. Проводите уроки, не покидая дома, цените своё время. 
