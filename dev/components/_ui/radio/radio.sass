@@ -5,7 +5,7 @@
   cursor: pointer
   &:hover
     .radio__box
-      border-color: $black
+      border-color: $dark-blue
   &__input
     opacity: 0
     visibility: hidden
@@ -13,7 +13,7 @@
     height: 0
     margin: 0
     &:checked ~ .radio__box
-      border-color: $black
+      border-color: $dark-blue
       &:after
         opacity: 1
   &__box
@@ -22,7 +22,7 @@
     width: 18px
     height: 18px
     margin-right: 10px
-    border: 1px solid transparentize($black, 0.5)
+    border: 1px solid transparentize($dark-blue, 0.5)
     border-radius: 50%
     transition: border-color .3s ease
     &:after
@@ -34,7 +34,7 @@
       width: 9px
       height: 9px
       position: absolute
-      background-color: $black
+      background-color: $dark-blue
       border-radius: 50%
       transform: translate(-50%, -50%)
       transition: opacity .3s ease

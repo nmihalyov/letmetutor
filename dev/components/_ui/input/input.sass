@@ -2,13 +2,13 @@
   display: block
   &:hover
     .input__field:not([readonly])
-      border-color: $black
+      border-color: $dark-blue
   &--error
     .input__error
       display: block;
   &__label
     margin-bottom: 5px
-    color: $black
+    color: $dark-blue
     font:
       size: 14px
       weight: 500
@@ -16,7 +16,7 @@
     display: block
     width: 100%
     padding: 10px 15px
-    border: 1px solid transparentize($black, 0.5)
+    border: 1px solid transparentize($dark-blue, 0.5)
     border-radius: 4px
     background-color: #fff
     outline: 0
@@ -25,28 +25,28 @@
     -webkit-appearance: none
     transition: border-color .3s ease
     font:
-      family: 'Montserrat', Helvetica, sans-serif
+      family: 'OpenSans', Helvetica, sans-serif
       size: 14px
       weight: 500
     &[readonly]
       background-color: #efefef
     &:not([readonly]):focus
-      border-color: $black
+      border-color: $dark-blue
     &::placeholder
       opacity: 0.5
-      color: $black
+      color: $dark-blue
     &::-webkit-input-placeholder
       opacity: 0.5
-      color: $black
+      color: $dark-blue
     &::-moz-placeholder
       opacity: 0.5
-      color: $black
+      color: $dark-blue
     &:-ms-input-placeholder
       opacity: 0.5
-      color: $black
+      color: $dark-blue
     &:-moz-placeholder
       opacity: 0.5
-      color: $black
+      color: $dark-blue
   &__error
     display: none
     margin: 5px 0

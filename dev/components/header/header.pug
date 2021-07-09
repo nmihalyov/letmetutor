@@ -1,3 +1,30 @@
 mixin header
-	header.header.container
-		.header__wrapper.wrapper
+  header.header.container
+    .header__banner(style="background-image: url('img/inhtml/header-banner-bg.png'), linear-gradient(180deg, #FECD08 0%, #F2C94C 100%)")
+      img.header__banner-img(src="img/inhtml/banner-img.svg", alt="", style="width: 94px; margin-top: 7px")
+      p.header__banner-title Мы запустили YouDo Бизнес — сервис для работы компаний с самозанятыми.
+      .header__banner-close
+    .header__wrapper.wrapper
+      img.header__logo(src="img/logo.svg", alt="LetMeTutor logo")
+      nav.header__nav
+        a.header__nav-link(href="#") Репетиторы
+        a.header__nav-link(href="#") Как это работает
+        a.header__nav-link(href="#") Стать репетитором
+        .header__nav-link.dropdown.dropdown--arrow Больше
+          .header__nav-dropdown.dropdown__menu
+            a.dropdown__menu-item(href="#") Вопрос - ответ
+            a.dropdown__menu-item(href="#") Помощь
+            a.dropdown__menu-item(href="#") Тех. поддержка
+            a.dropdown__menu-item(href="#") Правила сервиса
+      .header__actions
+        .header__nav-link.dropdown.dropdown--arrow 
+          p.dropdown__value RU
+          .dropdown__menu.dropdown__menu--small
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UA
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) EN
+        .header__nav-link.dropdown.dropdown--arrow 
+          p.dropdown__value RUB
+          .dropdown__menu.dropdown__menu--small
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) USD
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UAH
+        a.header__signin(href="javascript:void(0)") Войти / Регистрация

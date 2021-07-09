@@ -5,7 +5,7 @@
   cursor: pointer
   &:hover
     .checkbox__box
-      border-color: $black
+      border-color: $dark-blue
   &__input
     opacity: 0
     visibility: hidden
@@ -13,8 +13,8 @@
     height: 0
     margin: 0
     &:checked ~ .checkbox__box
-      background-color: $black
-      border-color: $black
+      background-color: $dark-blue
+      border-color: $dark-blue
     &:checked ~ .checkbox__box .checkbox__box-mark:before
       height: 7px
       transition: all .15s ease-in
@@ -26,7 +26,7 @@
     width: 20px
     height: 20px
     margin-right: 10px
-    border: 1px solid transparentize($black, 0.5)
+    border: 1px solid transparentize($dark-blue, 0.5)
     border-radius: 4px
     background-color: #fff
     transition: all .3s ease
