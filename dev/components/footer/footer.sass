@@ -1,1 +1,51 @@
 .footer
+  &__top
+    display: flex
+    justify-content: space-between
+    padding: 50px 0 40px
+  &__logo
+    margin-bottom: 25px
+  &__copyright
+    color: #A0A4B9
+    font-size: 14px
+  &__title
+    margin: 4px 0 7px
+    color: #666666
+    line-height: 2.14
+    font:
+      size: 14px
+      weight: 500
+  &__link
+    display: block
+    color: #A0A4B9
+    line-height: 2.14
+    font-size: 14px
+  &__desc
+    color: #A0A4B9
+    font-size: 14px
+  &__bottom
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 30px 0
+    border-top: 1px solid #ECECEC
+  &__policy
+    color: #757575
+    font-size: 14p
+  &__socials
+    display: flex
+    align-items: center
+    &-item
+      width: 16px
+      height: 16px
+      margin-left: 30px
+      background:
+        size: contain
+        position: center
+        repeat: no-repeat
+      &[data-social="fb"]
+        background-image: url('../img/icons/fb.svg')
+      &[data-social="inst"]
+        background-image: url('../img/icons/inst.svg')
+      &[data-social="vk"]
+        background-image: url('../img/icons/vk.svg')
