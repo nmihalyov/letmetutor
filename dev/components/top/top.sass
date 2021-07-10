@@ -1,0 +1,87 @@
+.top
+  padding-bottom: 100px
+  &__grid
+    position: relative
+    display: flex
+    flex-wrap: wrap
+    align-items: stretch
+    &:after
+      z-index: 1
+      position: absolute
+      content: ''
+      bottom: -150px
+      right: 50%
+      width: 1px
+      height: 150px
+      background-color: #ECECEC
+  &__item
+    width: 25%
+    height: 260px
+    padding-top: 15px
+    text-align: center
+    &:nth-child(4n-2)
+      border-right: 1px solid #ECECEC
+    &:nth-child(n+5)
+      border-top: 1px solid #ECECEC
+    &:nth-child(4n+8)
+      position: relative
+      &:after
+        position: absolute
+        content: ''
+        top: -1px
+        right: calc(-50vw + 585px)
+        width: calc(50vw - 585px)
+        height: 1px
+        background-color: #ECECEC
+    &:nth-child(n+5)
+      position: relative
+      &:before
+        position: absolute
+        content: ''
+        top: -1px
+        left: calc(-50vw + 585px)
+        width: calc(50vw - 585px)
+        height: 1px
+        background-color: #ECECEC
+    &-pic
+      width: 120px
+      height: 120px
+      margin: 0 auto 15px
+      background:
+        position: center
+        size: cover
+        repeat: no-repeat
+    &-name
+      margin-bottom: 10px
+      font:
+        size: 16px
+        weight: 700
+    &-feedback
+      margin-bottom: 10px
+      font-size: 13px
+    &-rating
+      position: relative
+      color: #FFB500
+      &:before
+        content: ''
+        position: absolute
+        top: -1px
+        left: -20px
+        width: 16px
+        height: 16px
+        background:
+          image: url('../img/icons/star.svg')
+          position: center
+          size: contain
+          repeat: no-repeat
+    &-reviews
+      margin-left: 5px
+      color: $gray
+    &-subjects
+      color: $gray
+      font-size: 14px
+  &__btn
+    z-index: 2
+    position: relative
+    display: flex
+    justify-content: center
