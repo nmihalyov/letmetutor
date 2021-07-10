@@ -1,0 +1,93 @@
+.reviews
+  padding: 100px 0
+  background-color: #F8F8FB
+  &__subheading
+    margin-bottom: 5px
+    color: $gray
+    text-align: center
+    line-height: 1.11
+    font-weight: 500
+  &__desc
+    margin-bottom: 20px
+    color: $gray
+    text-align: center
+  &__slider
+    overflow: visible
+    opacity: 0
+    transition: opacity .3s ease
+    &.swiper-container-initialized
+      opacity: 1
+    .swiper-pagination
+      position: static
+      margin-top: 30px
+      &-bullet
+        opacity: 1
+        width: 50px
+        height: 3px
+        margin: 0 5px
+        border-radius: 3px
+        background-color: #ccc
+        &-active
+          background-color: $blue
+  &__slide
+    display: flex
+    flex-direction: column
+    width: 376px
+    height: auto
+    padding: 30px
+    border-radius: 3px
+    background-color: #fff
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
+    &-head
+      display: flex
+      align-items: center
+      margin-bottom: 12px
+    &-img
+      width: 50px
+      height: 50px
+      margin-right: 10px
+      border-radius: 50%
+      background:
+        size: cover
+        position: center
+        repeat: no-repeat
+    &-name
+      margin-bottom: 5px
+      font:
+        size: 14px
+        weight: 500
+    &-location
+      position: relative
+      padding-left: 25px
+      color: $gray
+      font:
+        size: 14px
+        weight: 500
+      &:after
+        content: ''
+        position: absolute
+        top: calc(50% - 8px)
+        left: 0
+        width: 16px
+        height: 16px
+        background:
+          image: url('../img/icons/pin.svg')
+          size: contain
+          position: center
+          repeat: no-repeat
+    &-feedback
+      margin-bottom: 15px
+      color: $gray
+      font-size: 14px
+    &-rating
+      display: flex
+      margin-top: auto
+    &-star
+      width: 16px
+      height: 16px
+      margin-right: 1px
+      background:
+        image: url('../img/icons/star-blue.svg')
+        position: center
+        size: contain
+        repeat: no-repeat
