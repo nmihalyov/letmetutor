@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: http://ogp.me/ns#">
+  <head>
+    <title>Главная | LetMeTutor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Платформа для репетиторов и учеников">
+    <meta name="keywords" content="letmetutor, let, me, tutor, репетитор, репетиторство">
+    <meta name="theme-color" content="#152764">
+    <meta name="copyright" content="nmihalyov.tk">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#152764">
+    <meta name="apple-mobile-web-app-title" content="LetMeTutor">
+    <meta name="msapplication-TileImage" content="img/favicons/144x144.png">
+    <meta name="msapplication-TileColor" content="#152764">
+    <meta name="format-detection" content="telephone=no">
+        <meta property="og:title" content="LetMeTutor">
+        <meta property="og:url" content="">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="">
+        <meta property="og:description" content="">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="shortcut icon" href="img/favicons/64x64.png" type="image/png">
+    <link rel="icon" href="img/favicons/152x152.png" type="image/png" sizes="152x152">
+    <link rel="icon" href="img/favicons/256x256.png" type="image/png" sizes="256x256">
+    <link rel="icon" href="img/favicons/512x512.png" type="image/png" sizes="512x512">
+    <link rel="apple-touch-icon" href="img/favicons/152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="img/favicons/256x256.png" sizes="256x256">
+    <link rel="apple-touch-icon" href="img/favicons/512x512.png" sizes="512x512">
+    <link rel="manifest" href="manifest.json">
+    <script defer src="js/libs.min.js"></script>
+    <script defer src="js/common.min.js"></script>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="cookies">
+        <p class="cookies__text">Мы используем cookies, для вашего удобства на сайте. Просматривая наш веб-сайт, вы соглашаетесь на использование нами файлов cookies.</p>
+        <button class="button button--primary cookies__btn">Хорошо!</button>
+      </div>
+      <header class="header container">
+        <div class="header__banner" style="background-image: url('img/inhtml/header-banner-bg.png'), linear-gradient(180deg, #FECD08 0%, #F2C94C 100%)"><img class="header__banner-img" src="img/inhtml/banner-img.svg" alt="" style="width: 94px; margin-top: 7px"/>
+          <p class="header__banner-title">Мы запустили YouDo Бизнес — сервис для работы компаний с самозанятыми.</p>
+          <div class="header__banner-close"></div>
+        </div>
+        <div class="header__wrapper wrapper"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/>
+          <nav class="header__nav"><a class="header__nav-link" href="#">Репетиторы</a><a class="header__nav-link" href="#">Как это работает</a><a class="header__nav-link" href="#">Стать репетитором</a>
+            <div class="header__nav-link dropdown dropdown--arrow">Больше
+              <div class="header__nav-dropdown dropdown__menu"><a class="dropdown__menu-item" href="#">Вопрос - ответ</a><a class="dropdown__menu-item" href="#">Помощь</a><a class="dropdown__menu-item" href="#">Тех. поддержка</a><a class="dropdown__menu-item" href="#">Правила сервиса</a></div>
+            </div>
+          </nav>
+          <div class="header__actions">
+            <div class="header__nav-link dropdown dropdown--arrow"> 
+              <p class="dropdown__value">RU</p>
+              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UA</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">EN</a></div>
+            </div>
+            <div class="header__nav-link dropdown dropdown--arrow"> 
+              <p class="dropdown__value">RUB</p>
+              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">USD</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UAH</a></div>
+            </div>
+            <div class="header__profile">
+              <div class="header__profile-notifications dropdown">
+                <p class="header__profile-counter">2</p>
+                <div class="header__notifications dropdown__menu">
+                  <p class="header__notifications-title dropdown__menu-item">Уведомления</p>
+                  <div class="header__notifications-item dropdown__menu-item">
+                    <p class="header__notifications-date">03.07.2021</p>
+                    <p class="header__notifications-text">Ваши данные подтверждены</p>
+                  </div>
+                  <div class="header__notifications-item dropdown__menu-item">
+                    <p class="header__notifications-date">03.07.2021</p>
+                    <p class="header__notifications-text"><b>Осталось только установить пароль</b><br>Чтобы не потерять доступ к вашему аккаунту, рекомендуем вам установить пароль. Сделать это можно в профиле, раздел "Настройки".</p>
+                  </div>
+                </div>
+              </div><a class="header__profile-messages" href="#"></a><a class="header__profile-wallet" href="#">1 000 р.</a><a class="header__profile-pic" style="background-image: url('img/inhtml/profile.png')" href="#"></a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="hero container" style="background-image: url('img/inhtml/hero-bg.png')">
+        <div class="hero__wrapper wrapper">
+          <h1 class="hero__heading">Мы поможем вам найти лучшего репетитора</h1>
+          <form class="hero__form" action="">
+            <label class="hero__input dropdown" data-input="subject">
+              <input class="hero__input-field" type="text" name="subject" placeholder="Выберите предмет" readonly="readonly"/>
+              <div class="hero__dropdown dropdown__menu"><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Английский язык</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Математика</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Украинский язык</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Программирование</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Физика</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Химия</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Биология</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Русский язык</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">История</a></div>
+            </label>
+            <label class="hero__input dropdown" data-input="location">
+              <input class="hero__input-field" type="text" name="location" placeholder="Выберите вашу локацию" readonly="readonly"/>
+              <div class="hero__dropdown dropdown__menu"><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Россия</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Украина</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Онлайн</a></div>
+            </label>
+            <button class="button button--primary hero__btn" type="submit">Найти</button>
+          </form>
+        </div>
+      </section>
+      <section class="advantages container">
+        <div class="advantages__wrapper wrapper">
+          <div class="advantages__item">
+            <p class="advantages__heading">Мобильность</p>
+            <p class="advantages__desc">Гибкий, подстроенный под вас график обучения. Учитесь и преподавайте в любом месте, в удобное время.</p>
+          </div>
+          <div class="advantages__item">
+            <p class="advantages__heading">Любой бюджет и уровень</p>
+            <p class="advantages__desc">Преподаватель на любой бюджет. Ученик из любого региона - оттуда, где репетитор востребован.</p>
+          </div>
+          <div class="advantages__item">
+            <p class="advantages__heading">Безопасность</p>
+            <p class="advantages__desc">Полноценная платформа для связи и тщательная проверка преподавателей перед доступом к работе.</p>
+          </div>
+        </div>
+      </section>
+      <section class="popular container">
+        <div class="popular__wrapper wrapper">
+          <h3 class="heading">Популярные предметы</h3>
+          <div class="popular__grid"><a class="popular__item" href="#" style="background-image: url('img/inhtml/popular-item-1.jpg');">
+              <div class="popular__item-overlay">
+                <div class="popular__item-inner">
+                  <p class="popular__item-title">Английский язык</p>
+                  <p class="popular__item-desc">1200 репетиторов готовы Вам помочь!</p>
+                  <button class="button button--tertiary popular__item-btn">Найти репетитора</button>
+                </div>
+              </div></a><a class="popular__item" href="#" style="background-image: url('img/inhtml/popular-item-2.jpg');">
+              <div class="popular__item-overlay">
+                <div class="popular__item-inner">
+                  <p class="popular__item-title">Математика</p>
+                  <p class="popular__item-desc">1200 репетиторов готовы Вам помочь!</p>
+                  <button class="button button--tertiary popular__item-btn">Найти репетитора</button>
+                </div>
+              </div></a><a class="popular__item" href="#" style="background-image: url('img/inhtml/popular-item-3.jpg');">
+              <div class="popular__item-overlay">
+                <div class="popular__item-inner">
+                  <p class="popular__item-title">Программирование</p>
+                  <p class="popular__item-desc">1200 репетиторов готовы Вам помочь!</p>
+                  <button class="button button--tertiary popular__item-btn">Найти репетитора</button>
+                </div>
+              </div></a><a class="popular__item" href="#" style="background-image: url('img/inhtml/popular-item-4.jpg');">
+              <div class="popular__item-overlay">
+                <div class="popular__item-inner">
+                  <p class="popular__item-title">Химия</p>
+                  <p class="popular__item-desc">1200 репетиторов готовы Вам помочь!</p>
+                  <button class="button button--tertiary popular__item-btn">Найти репетитора</button>
+                </div>
+              </div></a></div>
+          <div class="popular__btn"><a class="button button--secondary " href="#">Посмотреть все</a>
+          </div>
+        </div>
+      </section>
+      <section class="hiw container">
+        <div class="hiw__wrapper wrapper">
+          <h3 class="heading">Как это работает?</h3>
+          <div class="hiw__tabs" data-tabs="data-tabs">
+            <div class="hiw__tabs-grid">
+              <div class="tabs">
+                <div class="tabs__inner">
+                  <button class="tabs__item tabs__item--active" data-tab="1">Ученику</button>
+                  <button class="tabs__item" data-tab="2">Репетитору</button>
+                </div>
+              </div>
+            </div>
+            <div class="hiw__content" data-content="1" data-active="data-active">
+              <div class="hiw__row">
+                <div class="hiw__box"><img src="img/inhtml/hiw-1.svg" alt=""/></div>
+                <div class="hiw__box">
+                  <div class="hiw__info">
+                    <p class="hiw__heading">1. Обращение</p>
+                    <p class="hiw__desc">Это быстро! Заполните несколько обязательных полей, обозначив интересующий предмет, желаемую стоимость занятия, оставьте контактную информацию о себе и отправьте заявку на поиск репетитора.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="hiw__row">
+                <div class="hiw__box">
+                  <div class="hiw__info">
+                    <p class="hiw__heading">2. Обратная связь</p>
+                    <p class="hiw__desc">Как только на вашу заявку откликнется преподаватель, вы сможете связаться с ним и обсудить подходящее вам обоим время для проведения занятия. Выбирайте время и место для урока!</p>
+                  </div>
+                </div>
+                <div class="hiw__box"><img class="hiw__image" src="img/inhtml/hiw-2.svg" alt=""/></div>
+              </div>
+              <div class="hiw__row">
+                <div class="hiw__box"><img class="hiw__image" src="img/inhtml/hiw-3.svg" alt=""/></div>
+                <div class="hiw__box">
+                  <div class="hiw__info">
+                    <p class="hiw__heading">3. Учёба</p>
+                    <p class="hiw__desc">Ваше занятие будет максимально результативным: на платформе собраны только самые опытные и эффективные преподаватели. Экономьте деньги и время, получая лучшее образование.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hiw__content" data-content="2">
+              <div class="hiw__row">
+                <div class="hiw__box"><img src="img/inhtml/hiw-1.svg" alt=""/></div>
+                <div class="hiw__box">
+                  <div class="hiw__info">
+                    <p class="hiw__heading">1. Регистрация</p>
+                    <p class="hiw__desc">Регистрация откроет вам безграничные возможности по поиску учеников по всему миру. Наша команда будет помогать укреплять ваши навыки, чтобы вы могли увеличить собственную капитализацию.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="hiw__row">
+                <div class="hiw__box">
+                  <div class="hiw__info">
+                    <p class="hiw__heading">2. Верификация</p>
+                    <p class="hiw__desc">Необходимо подтвердить номер телефона и загрузить ваши документы и дипломы в центре верификации. Так вы быстро и достоверно подтвердите свою квалификацию.</p>
+                  </div>
+                </div>
+                <div class="hiw__box"><img class="hiw__image" src="img/inhtml/hiw-2.svg" alt=""/></div>
+              </div>
+              <div class="hiw__row">
+                <div class="hiw__box"><img class="hiw__image" src="img/inhtml/hiw-3.svg" alt=""/></div>
+                <div class="hiw__box">
+                  <div class="hiw__info">
+                    <p class="hiw__heading">3. Связь с учеником</p>
+                    <p class="hiw__desc">Выбирайте заявку из уже выставленных на сайте или дождитесь, когда напишет ученик. Обсудите удобное время для урока и приступайте к занятиям. Проводите уроки, не покидая дома, цените своё время. </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="top container">
+        <div class="top__wrapper wrapper">
+          <h3 class="heading">Топ репетиторов</h3>
+          <div class="top__grid"><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-1.png&quot;)"></div>
+              <p class="top__item-name">Ирина Иванова</p>
+              <div class="top__item-feedback"><span class="top__item-rating">5.0</span><span class="top__item-reviews">(15 отзывов)</span></div>
+              <p class="top__item-subjects">Английский язык, Немецкий язык, Украинский язык</p></a><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-2.png&quot;)"></div>
+              <p class="top__item-name">Степан Пупкин</p>
+              <div class="top__item-feedback"><span class="top__item-rating">4.0</span><span class="top__item-reviews">(10 отзывов)</span></div>
+              <p class="top__item-subjects">Немецкий язык, Украинский язык</p></a><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-3.png&quot;)"></div>
+              <p class="top__item-name">Василий Сидоров</p>
+              <div class="top__item-feedback"><span class="top__item-rating">4.5</span><span class="top__item-reviews">(11 отзывов)</span></div>
+              <p class="top__item-subjects">Английский язык, Украинский язык</p></a><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-4.png&quot;)"></div>
+              <p class="top__item-name">Анна Пупкина</p>
+              <div class="top__item-feedback"><span class="top__item-rating">5.0</span><span class="top__item-reviews">(20 отзывов)</span></div>
+              <p class="top__item-subjects">Английский язык, Немецкий язык, Французский язык</p></a><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-5.png&quot;)"></div>
+              <p class="top__item-name">Людмила Сидорова</p>
+              <div class="top__item-feedback"><span class="top__item-rating">4.0</span><span class="top__item-reviews">(99 отзывов)</span></div>
+              <p class="top__item-subjects">История, География, Политология, Социология</p></a><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-6.png&quot;)"></div>
+              <p class="top__item-name">Анастасия Петрова</p>
+              <div class="top__item-feedback"><span class="top__item-rating">4.7</span><span class="top__item-reviews">(24 отзывов)</span></div>
+              <p class="top__item-subjects">Физика, Химия</p></a><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-7.png&quot;)"></div>
+              <p class="top__item-name">Ольга Пупкина</p>
+              <div class="top__item-feedback"><span class="top__item-rating">4.9</span><span class="top__item-reviews">(50 отзывов)</span></div>
+              <p class="top__item-subjects">Программирование</p></a><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-8.png&quot;)"></div>
+              <p class="top__item-name">Анжела Иванова</p>
+              <div class="top__item-feedback"><span class="top__item-rating">4.2</span><span class="top__item-reviews">(70 отзывов)</span></div>
+              <p class="top__item-subjects">Психология</p></a><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-9.png&quot;)"></div>
+              <p class="top__item-name">Анна Пупкина</p>
+              <div class="top__item-feedback"><span class="top__item-rating">4.8</span><span class="top__item-reviews">(45 отзывов)</span></div>
+              <p class="top__item-subjects">Украинский язык</p></a><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-10.png&quot;)"></div>
+              <p class="top__item-name">Александра Сидорова</p>
+              <div class="top__item-feedback"><span class="top__item-rating">4.0</span><span class="top__item-reviews">(35 отзывов)</span></div>
+              <p class="top__item-subjects">Основы педагогики и психологии</p></a><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-11.png&quot;)"></div>
+              <p class="top__item-name">Елена Петрова</p>
+              <div class="top__item-feedback"><span class="top__item-rating">5.0</span><span class="top__item-reviews">(17 отзывов)</span></div>
+              <p class="top__item-subjects">Итальянский язык</p></a><a class="top__item" href="#">
+              <div class="top__item-pic" style="background-image: url(&quot;img/inhtml/top-12.png&quot;)"></div>
+              <p class="top__item-name">Алина Иванова</p>
+              <div class="top__item-feedback"><span class="top__item-rating">4.1</span><span class="top__item-reviews">(18 отзывов)</span></div>
+              <p class="top__item-subjects">Английский язык</p></a>
+          </div>
+          <div class="top__btn"><a class="button button--primary " href="#">Присоединиться</a>
+          </div>
+        </div>
+      </section>
+      <section class="reviews container">
+        <div class="reviews__wrapper wrapper">
+          <h3 class="heading">Отзывы учеников</h3>
+          <p class="reviews__subheading">95% положительных отзывов</p>
+          <p class="reviews__desc">551 426 отзывов оставили клиенты за последние 12 месяцев. Из них 520 711 — положительные.</p>
+          <div class="reviews__slider swiper-container">
+            <div class="swiper-wrapper">
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-1.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Татьяна Горяйнова</p>
+                    <p class="reviews__slide-location">Россия, Санкт-Петербург</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Вежливый, пунктуальный человек. Мастер своего дела. Все быстро и четко. Рекомендую!!!</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-2.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Владимир Тихонов</p>
+                    <p class="reviews__slide-location">Украина, Киев</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Перевозили мебель из Москвы в область. Все в итоге получилось, несмотря на непредвиденные трудности. Шкафы не влезли в лифт и по лестнице тоже не прошли. Пришлось разбирать.</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-3.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Алина Сергеевна Трошина</p>
+                    <p class="reviews__slide-location">Россия, Москва</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Спасибо большое за продуктивные занятия! Очень удобно все устроено, цена полностью оправдана. Не могу не посоветовать уроки с Алиной Сергеевной, потому что она профессионал своего дела)</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-1.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Татьяна Горяйнова</p>
+                    <p class="reviews__slide-location">Россия, Санкт-Петербург</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Вежливый, пунктуальный человек. Мастер своего дела. Все быстро и четко. Рекомендую!!!</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-4.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Иван</p>
+                    <p class="reviews__slide-location">Россия, Москва</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Спасибо большое за продуктивные занятия! Очень удобно все устроено, цена полностью оправдана. Не могу не посоветовать уроки с Алиной Сергеевной, потому что она профессионал своего дела)</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-2.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Владимир Тихонов</p>
+                    <p class="reviews__slide-location">Украина, Киев</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Перевозили мебель из Москвы в область. Все в итоге получилось, несмотря на непредвиденные трудности. Шкафы не влезли в лифт и по лестнице тоже не прошли. Пришлось разбирать.</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-2.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Владимир Тихонов</p>
+                    <p class="reviews__slide-location">Украина, Киев</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Перевозили мебель из Москвы в область. Все в итоге получилось, несмотря на непредвиденные трудности. Шкафы не влезли в лифт и по лестнице тоже не прошли. Пришлось разбирать.</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-1.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Татьяна Горяйнова</p>
+                    <p class="reviews__slide-location">Россия, Санкт-Петербург</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Вежливый, пунктуальный человек. Мастер своего дела. Все быстро и четко. Рекомендую!!!</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-3.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Алина Сергеевна Трошина</p>
+                    <p class="reviews__slide-location">Россия, Москва</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Спасибо большое за продуктивные занятия! Очень удобно все устроено, цена полностью оправдана. Не могу не посоветовать уроки с Алиной Сергеевной, потому что она профессионал своего дела)</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer container">
+        <div class="footer__wrapper wrapper">
+          <div class="footer__top">
+            <div class="footer__col"><img class="footer__logo" src="img/logo-gray.svg" alt="LetMeTutor logo gray"/>
+              <p class="footer__copyright">&copy; 2021 letmetutor.com <br>Все права защищены</p>
+            </div>
+            <div class="footer__col">
+              <p class="footer__title">Главная</p><a class="footer__link" href="#">Репетиторы</a><a class="footer__link" href="#">Как это работает</a><a class="footer__link" href="#">Стать репетитором</a>
+            </div>
+            <div class="footer__col">
+              <p class="footer__title">Полезная информация</p><a class="footer__link" href="#">Вопрос - ответ</a><a class="footer__link" href="#">Помощь</a><a class="footer__link" href="#">Тех. поддержка</a><a class="footer__link" href="#">Правила сервиса</a>
+            </div>
+            <div class="footer__col">
+              <p class="footer__title">Служба поддержки</p>
+              <p class="footer__desc">+380 67 577 25 32<br><br>Будни: с 6 до 22<br>Выходные: с 8 до 22</p>
+            </div>
+          </div>
+          <div class="footer__bottom"><a class="footer__policy" href="#">Политика конфиденциальности</a>
+            <div class="footer__socials"><a class="footer__socials-item" href="https://facebook.com" target="_blank" rel="noopener noreferref" data-social="fb"></a><a class="footer__socials-item" href="https://instagram.com" target="_blank" rel="noopener noreferref" data-social="inst"></a><a class="footer__socials-item" href="https://vk.com" target="_blank" rel="noopener noreferref" data-social="vk"></a></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
