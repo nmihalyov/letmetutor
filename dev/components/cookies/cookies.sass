@@ -21,3 +21,18 @@
   &__btn
     width: 120px
     padding: 10px 20px 13px
+
+@media only screen and (max-width: $mobile)
+  .cookies
+    display: block
+    left: 50%
+    width: calc(100% - 30px)
+    padding: 10px
+    border-radius: 3px
+    transform: translateX(-50%)
+    &--shown
+      bottom: 10px
+    &__text
+      width: 100%
+      margin-bottom: 5px
+      font-size: 12px

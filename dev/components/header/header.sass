@@ -165,3 +165,132 @@
       font-size: 13px
       b
         font-weight: 700
+  &__burger
+    display: none
+  &-menu
+    display: none
+
+@media only screen and (max-width: $mobile)
+  .header
+    &__banner
+      height: 58px
+      padding-right: 30px
+      &-img
+        margin-top: 0
+        margin-right: 15px
+      &-title
+        font-size: 12px
+      &-close
+        width: 10px
+        height: 10px
+        right: 10px
+    &__wrapper
+      height: 58px
+    &__logo
+      width: 120px
+    &__nav
+      display: none
+      &-link
+        margin-right: 15px !important
+        font-size: 13px
+    &__signin
+      display: block
+      width: 14px
+      height: 14px
+      margin-right: 15px
+      padding: 0
+      font-size: 0
+      &:before
+        top: 0
+    &__profile
+      &-notifications,
+      &-messages,
+      &-wallet
+        display: none
+      &-pic
+        width: 24px
+        height: 24px
+        margin-right: 15px
+    &__burger
+      display: block
+      width: 20px
+      height: 20px
+      background:
+        image: url('../img/icons/burger.svg')
+        size: contain
+        position: center
+        repeat: no-repeat
+    &-menu
+      display: block
+      visibility: hidden
+      z-index: 999
+      position: fixed
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      &--shown
+        visibility: visible
+        .header-menu
+          &__backdrop
+            opacity: 1
+          &__container
+            transform: translateX(0)
+      &__backdrop
+        z-index: 1
+        position: absolute
+        top: 0
+        left: 0
+        opacity: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, .7)
+        transition: all .3s ease
+      &__container
+        z-index: 2
+        position: relative
+        margin-left: auto
+        max-width: 100%
+        width: calc(50vw + 215px)
+        height: 100%
+        background-color: #fff
+        transform: translateX(100%)
+        transition: transform .3s ease
+      &__content
+        max-height: calc(100% - 60px)
+        overflow: auto
+      &__head
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 20px 30px
+        border-bottom: 1px solid #ECECEC
+      &__close
+        width: 14px
+        height: 14px
+        background:
+          image: url('../img/icons/close.svg')
+          size: contain
+          position: center
+          repeat: no-repeat
+      &__nav
+        padding: 15px 30px
+        border-bottom: 1px solid #ECECEC
+        &-link
+          display: block
+          padding: 10px 0
+          font-weight: 500
+          &:not(:last-child)
+            border-bottom: 1px dashed #DFDFDF
+      &__footer
+        padding: 15px 30px
+      &__support
+        font-weight: 500
+      &__contacts
+        display: flex
+        flex-wrap: wrap
+        margin-top: 15px
+      &__phone
+        margin-right: 10px
+      &__workhours
+        color: $gray

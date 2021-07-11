@@ -44,3 +44,24 @@ mixin header(login)
             a.header__profile-pic(style="background-image: url('img/inhtml/profile.png')", href="#")
         else
           a.header__signin(href="javascript:void(0)") Войти / Регистрация
+        .header__burger
+  .header-menu
+    .header-menu__backdrop
+    .header-menu__container
+      .header-menu__head
+        img.header__logo(src="img/logo.svg", alt="LetMeTutor logo")
+        .header-menu__close
+      .header-menu__content
+        nav.header-menu__nav
+          a.header-menu__nav-link(href="#") Репетиторы
+          a.header-menu__nav-link(href="#") Как это работает
+          a.header-menu__nav-link(href="#") Стать репетитором
+          a.header-menu__nav-link(href="#") Вопрос - ответ
+          a.header-menu__nav-link(href="#") Помощь
+          a.header-menu__nav-link(href="#") Тех. поддержка
+          a.header-menu__nav-link(href="#") Правила сервиса
+        .header-menu__footer
+          a.header-menu__support(href="#") Служба поддержки
+          .header-menu__contacts
+            a.header-menu__phone(href="tel:+380675772532") +380 67 577 25 32
+            span.header-menu__workhours Будни: с 6 до 22, выходные: с 8 до 22

@@ -13,7 +13,7 @@
       background:
         image: url('../img/icons/dropdown-arrow.svg')
         size: contain
-        position: relative
+        position: center
         repeat: no-repeat
   &--active
     &:after
@@ -40,3 +40,9 @@
       &:hover
         background-color: #F8F8FB
         color: $dark-blue
+
+@media only screen and (max-width: $mobile)
+  .dropdown
+    &--arrow
+      &:after
+        top: 4px

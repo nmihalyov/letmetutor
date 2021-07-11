@@ -61,3 +61,47 @@
   &__btn
     display: flex
     justify-content: center
+
+@media only screen and (max-width: $mobile)
+  .popular
+    margin-bottom: 50px
+    &__grid
+      display: block
+      white-space: nowrap
+      overflow: auto
+      width: 100vw
+      margin: 0 calc(-50vw + 50%) 30px
+      padding: 0 calc(50vw - 50%)
+      -ms-overflow-style: none
+      scrollbar-width: none
+      &::-webkit-scrollbar
+        display: none
+    &__item
+      display: inline-block
+      width: 260px
+      height: 330px
+      white-space: normal
+      font-size: 13px
+      &:hover
+        .popular__item
+          &-overlay
+            transform: translateY(288px)
+          &-inner
+            top: 10px
+            transform: translateY(0)
+          &-desc,
+          &-btn
+            opacity: 0
+      &:not(:last-child)
+        margin-right: 10px
+      &-overlay
+        transform: translateY(288px)
+        transition: none
+      &-inner
+        top: 10px
+      &-title
+        font-size: 14px
+      &-desc
+        margin-bottom: 10px
+      &-btn
+        width: 150px
