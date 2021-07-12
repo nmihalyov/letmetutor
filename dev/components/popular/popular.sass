@@ -4,6 +4,8 @@
     display: flex
     justify-content: space-between
     margin-bottom: 50px
+    &--mobile
+      display: none
   &__item
     overflow: hidden
     position: relative
@@ -11,19 +13,22 @@
     height: 350px
     border-radius: 10px
     text-align: center
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1)
+    transform:  translateZ(0)
     background:
       size: cover
       position: center
       repeat: no-repeat
-    &:hover .popular__item
-      &-overlay
-        transform: translateY(0)
-      &-inner
-        top: 50%
-        transform: translateY(-50%)
-      &-desc,
-      &-btn
-        opacity: 1
+    &:hover
+      .popular__item
+        &-overlay
+          transform: translateY(0)
+        &-inner
+          top: 50%
+          transform: translateY(-50%)
+        &-desc,
+        &-btn
+          opacity: 1
     &-overlay
       position: absolute
       top: 0
@@ -66,21 +71,15 @@
   .popular
     margin-bottom: 50px
     &__grid
-      display: block
-      white-space: nowrap
-      overflow: auto
-      width: 100vw
-      margin: 0 calc(-50vw + 50%) 30px
-      padding: 0 calc(50vw - 50%)
-      -ms-overflow-style: none
-      scrollbar-width: none
-      &::-webkit-scrollbar
-        display: none
+      display: none
+      &--mobile
+        overflow: visible
+        display: block
+        margin-bottom: 50px
     &__item
-      display: inline-block
       width: 260px
       height: 330px
-      white-space: normal
+      margin: 0 10px
       font-size: 13px
       &:hover
         .popular__item

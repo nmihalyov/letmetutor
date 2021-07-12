@@ -1,16 +1,21 @@
-const swiper = new Swiper('.swiper-container', {
+const reviewsSlider = new Swiper('.reviews__slider', {
   loop: true,
   spaceBetween: 20,
-  slidesPerView: 1,
-  slidesPerGroup: 1,
+  slidesPerView: 3,
+  slidesPerGroup: 3,
   loopAdditionalSlides: 3,
   pagination: {
-    el: '.swiper-pagination'
-  },
-  breakpoints: {
-    1200: {
-      slidesPerView: 3,
-      slidesPerGroup: 3
-    }
+    el: '.swiper-pagination',
+    clickable: true
+  }
+});
+
+const reviewSliderMobile = new Swiper('.reviews__slider--mobile', {
+  loop: true,
+  spaceBetween: 20,
+  loopAdditionalSlides: 3,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
   }
 });

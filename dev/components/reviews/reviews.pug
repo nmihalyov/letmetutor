@@ -1,5 +1,6 @@
 include ../_ui/heading/heading
 
+-const mobileSlides = [{image: 'reviews-1.png',name: 'Татьяна Горяйнова',location: 'Россия, Санкт-Петербург',feedback: 'Вежливый, пунктуальный человек. Мастер своего дела. Все быстро и четко. Рекомендую!!!',stars: 5},{image: 'reviews-2.png',name: 'Владимир Тихонов',location: 'Украина, Киев',feedback: 'Перевозили мебель из Москвы в область. Все в итоге получилось, несмотря на непредвиденные трудности. Шкафы не влезли в лифт и по лестнице тоже не прошли. Пришлось разбирать.',stars: 5},{image: 'reviews-3.png',name: 'Алина Сергеевна Трошина',location: 'Россия, Москва',feedback: 'Спасибо большое за продуктивные занятия! Очень удобно все устроено, цена полностью оправдана. Не могу не посоветовать уроки с Алиной Сергеевной, потому что она профессионал своего дела)',stars: 5}]
 -const slides = [{image: 'reviews-1.png',name: 'Татьяна Горяйнова',location: 'Россия, Санкт-Петербург',feedback: 'Вежливый, пунктуальный человек. Мастер своего дела. Все быстро и четко. Рекомендую!!!',stars: 5},{image: 'reviews-2.png',name: 'Владимир Тихонов',location: 'Украина, Киев',feedback: 'Перевозили мебель из Москвы в область. Все в итоге получилось, несмотря на непредвиденные трудности. Шкафы не влезли в лифт и по лестнице тоже не прошли. Пришлось разбирать.',stars: 5},{image: 'reviews-3.png',name: 'Алина Сергеевна Трошина',location: 'Россия, Москва',feedback: 'Спасибо большое за продуктивные занятия! Очень удобно все устроено, цена полностью оправдана. Не могу не посоветовать уроки с Алиной Сергеевной, потому что она профессионал своего дела)',stars: 5},{image: 'reviews-1.png',name: 'Татьяна Горяйнова',location: 'Россия, Санкт-Петербург',feedback: 'Вежливый, пунктуальный человек. Мастер своего дела. Все быстро и четко. Рекомендую!!!',stars: 5},{image: 'reviews-4.png',name: 'Иван',location: 'Россия, Москва',feedback: 'Спасибо большое за продуктивные занятия! Очень удобно все устроено, цена полностью оправдана. Не могу не посоветовать уроки с Алиной Сергеевной, потому что она профессионал своего дела)',stars: 5},{image: 'reviews-2.png',name: 'Владимир Тихонов',location: 'Украина, Киев',feedback: 'Перевозили мебель из Москвы в область. Все в итоге получилось, несмотря на непредвиденные трудности. Шкафы не влезли в лифт и по лестнице тоже не прошли. Пришлось разбирать.',stars: 5},{image: 'reviews-2.png',name: 'Владимир Тихонов',location: 'Украина, Киев',feedback: 'Перевозили мебель из Москвы в область. Все в итоге получилось, несмотря на непредвиденные трудности. Шкафы не влезли в лифт и по лестнице тоже не прошли. Пришлось разбирать.',stars: 5},{image: 'reviews-1.png',name: 'Татьяна Горяйнова',location: 'Россия, Санкт-Петербург',feedback: 'Вежливый, пунктуальный человек. Мастер своего дела. Все быстро и четко. Рекомендую!!!',stars: 5},{image: 'reviews-3.png',name: 'Алина Сергеевна Трошина',location: 'Россия, Москва',feedback: 'Спасибо большое за продуктивные занятия! Очень удобно все устроено, цена полностью оправдана. Не могу не посоветовать уроки с Алиной Сергеевной, потому что она профессионал своего дела)',stars: 5}]
 
 mixin reviews
@@ -11,6 +12,20 @@ mixin reviews
       .reviews__slider.swiper-container
         .swiper-wrapper
           each slide in slides
+            .reviews__slide.swiper-slide
+              .reviews__slide-head
+                .reviews__slide-img(style=`background-image: url('img/inhtml/${slide.image}')`)
+                div
+                  p.reviews__slide-name= slide.name
+                  p.reviews__slide-location= slide.location
+              p.reviews__slide-feedback= slide.feedback
+              .reviews__slide-rating
+                -for (let i = 1; i <= slide.stars; i++)
+                  .reviews__slide-star
+        .swiper-pagination
+      .reviews__slider--mobile.swiper-container
+        .swiper-wrapper
+          each slide in mobileSlides
             .reviews__slide.swiper-slide
               .reviews__slide-head
                 .reviews__slide-img(style=`background-image: url('img/inhtml/${slide.image}')`)

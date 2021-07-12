@@ -80,12 +80,12 @@
           <h1 class="hero__heading">Мы поможем вам найти лучшего репетитора</h1>
           <form class="hero__form" action="">
             <label class="hero__input dropdown" data-input="subject">
-              <input class="hero__input-field" type="text" name="subject" placeholder="Выберите предмет" readonly="readonly"/>
-              <div class="hero__dropdown dropdown__menu"><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Английский язык</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Математика</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Украинский язык</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Программирование</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Физика</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Химия</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Биология</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Русский язык</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">История</a></div>
+              <input class="hero__input-field" type="text" name="subject" placeholder="Выберите предмет" autocomplete="off" data-options="[&quot;Английский язык&quot;, &quot;Математика&quot;, &quot;Украинский язык&quot;, &quot;Программирование&quot;, &quot;Физика&quot;, &quot;Химия&quot;, &quot;Биология&quot;, &quot;Русский язык&quot;, &quot;История&quot;]"/>
+              <div class="hero__dropdown dropdown__menu"></div>
             </label>
             <label class="hero__input dropdown" data-input="location">
-              <input class="hero__input-field" type="text" name="location" placeholder="Выберите вашу локацию" readonly="readonly"/>
-              <div class="hero__dropdown dropdown__menu"><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Россия</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Украина</a><a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">Онлайн</a></div>
+              <input class="hero__input-field" type="text" name="location" placeholder="Выберите вашу локацию" autocomplete="off" data-options="[&quot;Россия&quot;, &quot;Украина&quot;, &quot;Онлайн&quot;]"/>
+              <div class="hero__dropdown dropdown__menu"></div>
             </label>
             <button class="button button--primary hero__btn" type="submit">Найти</button>
           </form>
@@ -139,6 +139,37 @@
                   <button class="button button--tertiary popular__item-btn">Найти репетитора</button>
                 </div>
               </div></a></div>
+          <div class="popular__grid popular__grid--mobile swiper-container">
+            <div class="swiper-wrapper"><a class="popular__item swiper-slide" href="#" style="background-image: url('img/inhtml/popular-item-1.jpg');">
+                <div class="popular__item-overlay">
+                  <div class="popular__item-inner">
+                    <p class="popular__item-title">Английский язык</p>
+                    <p class="popular__item-desc">1200 репетиторов готовы Вам помочь!</p>
+                    <button class="button button--tertiary popular__item-btn">Найти репетитора</button>
+                  </div>
+                </div></a><a class="popular__item swiper-slide" href="#" style="background-image: url('img/inhtml/popular-item-2.jpg');">
+                <div class="popular__item-overlay">
+                  <div class="popular__item-inner">
+                    <p class="popular__item-title">Математика</p>
+                    <p class="popular__item-desc">1200 репетиторов готовы Вам помочь!</p>
+                    <button class="button button--tertiary popular__item-btn">Найти репетитора</button>
+                  </div>
+                </div></a><a class="popular__item swiper-slide" href="#" style="background-image: url('img/inhtml/popular-item-3.jpg');">
+                <div class="popular__item-overlay">
+                  <div class="popular__item-inner">
+                    <p class="popular__item-title">Программирование</p>
+                    <p class="popular__item-desc">1200 репетиторов готовы Вам помочь!</p>
+                    <button class="button button--tertiary popular__item-btn">Найти репетитора</button>
+                  </div>
+                </div></a><a class="popular__item swiper-slide" href="#" style="background-image: url('img/inhtml/popular-item-4.jpg');">
+                <div class="popular__item-overlay">
+                  <div class="popular__item-inner">
+                    <p class="popular__item-title">Химия</p>
+                    <p class="popular__item-desc">1200 репетиторов готовы Вам помочь!</p>
+                    <button class="button button--tertiary popular__item-btn">Найти репетитора</button>
+                  </div>
+                </div></a></div>
+          </div>
           <div class="popular__btn"><a class="button button--secondary " href="#">Посмотреть все</a>
           </div>
         </div>
@@ -408,6 +439,62 @@
                   </div>
                 </div>
                 <p class="reviews__slide-feedback">Вежливый, пунктуальный человек. Мастер своего дела. Все быстро и четко. Рекомендую!!!</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-3.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Алина Сергеевна Трошина</p>
+                    <p class="reviews__slide-location">Россия, Москва</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Спасибо большое за продуктивные занятия! Очень удобно все устроено, цена полностью оправдана. Не могу не посоветовать уроки с Алиной Сергеевной, потому что она профессионал своего дела)</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="reviews__slider--mobile swiper-container">
+            <div class="swiper-wrapper">
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-1.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Татьяна Горяйнова</p>
+                    <p class="reviews__slide-location">Россия, Санкт-Петербург</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Вежливый, пунктуальный человек. Мастер своего дела. Все быстро и четко. Рекомендую!!!</p>
+                <div class="reviews__slide-rating">
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                  <div class="reviews__slide-star"></div>
+                </div>
+              </div>
+              <div class="reviews__slide swiper-slide">
+                <div class="reviews__slide-head">
+                  <div class="reviews__slide-img" style="background-image: url('img/inhtml/reviews-2.png')"></div>
+                  <div>
+                    <p class="reviews__slide-name">Владимир Тихонов</p>
+                    <p class="reviews__slide-location">Украина, Киев</p>
+                  </div>
+                </div>
+                <p class="reviews__slide-feedback">Перевозили мебель из Москвы в область. Все в итоге получилось, несмотря на непредвиденные трудности. Шкафы не влезли в лифт и по лестнице тоже не прошли. Пришлось разбирать.</p>
                 <div class="reviews__slide-rating">
                   <div class="reviews__slide-star"></div>
                   <div class="reviews__slide-star"></div>

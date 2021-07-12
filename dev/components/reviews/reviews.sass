@@ -12,23 +12,36 @@
     color: $gray
     text-align: center
   &__slider
+    &--mobile
+      display: none
+  .swiper-container
     overflow: visible
     opacity: 0
     transition: opacity .3s ease
     &.swiper-container-initialized
       opacity: 1
-    .swiper-pagination
-      position: static
-      margin-top: 30px
-      &-bullet
-        opacity: 1
+  .swiper-pagination
+    position: static
+    margin-top: 20px
+    &-bullet
+      position: relative
+      opacity: 1
+      width: 60px
+      height: 23px
+      margin: 0 !important
+      background-color: transparent
+      &:before
+        content: ''
+        position: absolute
+        top: 10px
+        left: 5px
         width: 50px
         height: 3px
-        margin: 0 5px
         border-radius: 3px
         background-color: #ccc
-        &-active
-          background-color: $blue
+        transition: background-color .3s ease
+      &-active:before
+        background-color: $blue
   &__slide
     display: flex
     flex-direction: column
@@ -98,5 +111,9 @@
     &__subheading
       margin-bottom: 0
       font-size: 16px
+    &__slider
+      display: none
+      &--mobile
+        display: block
     &__slide
       padding: 20px
