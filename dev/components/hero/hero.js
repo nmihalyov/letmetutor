@@ -7,12 +7,13 @@ Array.from(document.querySelectorAll('.hero__dropdown-item')).map(el => el.addEv
 
 Array.from(document.querySelectorAll('.hero__input-field')).map(el => {
   const $this = el;
-  const $dropdown = $this.nextElementSibling;
   const handleInput = firstRender => {
+    const $dropdownElement = $this.nextElementSibling;
+    const $dropdown = $dropdownElement.querySelector('.fakeScroll__content') || $dropdownElement;
     const options = JSON.parse($this.dataset.options);
     const lowerCaseValue = $this.value.toLowerCase();
     let matchesFound = false;
-  
+
     $dropdown.innerHTML = '';
   
     options.map(el => {
@@ -23,18 +24,22 @@ Array.from(document.querySelectorAll('.hero__input-field')).map(el => {
     });
 
     if (matchesFound) {
-      $dropdown.classList.remove('hero__dropdown--hidden');
+      $dropdownElement.classList.remove('hero__dropdown--hidden');
     } else {
-      $dropdown.classList.add('hero__dropdown--hidden');
+      $dropdownElement.classList.add('hero__dropdown--hidden');
     }
 
     Array.from($dropdown.querySelectorAll('.hero__dropdown-item')).map(el => el.addEventListener('click', () => {
       $this.value = el.innerText;
       $this.setAttribute('data-value', el.innerText);
     }));
+
+    if (firstRender && !$dropdownElement.classList.contains('fakeScroll')) {
+      $dropdown.fakeScroll();
+    }
   };
 
-  $this.addEventListener('input', () => handleInput(false))
+  $this.addEventListener('input', () => handleInput(false));
   $this.addEventListener('focus', () => handleInput(true));
   $this.addEventListener('blur', () => {
     if ($this.value === '' || !$this.dataset.value) {

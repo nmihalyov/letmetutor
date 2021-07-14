@@ -40,11 +40,17 @@ mixin header(login)
                   p.header__notifications-date 03.07.2021
                   p.header__notifications-text <b>Осталось только установить пароль</b><br>Чтобы не потерять доступ к вашему аккаунту, рекомендуем вам установить пароль. Сделать это можно в профиле, раздел "Настройки".
             a.header__profile-messages(href="#")
-            a.header__profile-wallet(href="#") 1 000 р.
+            a.header__profile-wallet(href="#") 1 000 &#8381;
             a.header__profile-pic(style="background-image: url('img/inhtml/profile.png')", href="#")
         else
-          a.header__signin(href="javascript:void(0)") Войти / Регистрация
-        .header__burger
+          p.header__signin
+            a(href="#") Войти
+            |&nbsp;/&nbsp;
+            a(href="#") Регистрация
+        if login
+          .header__burger.header__burger--has-notifications
+        else
+          .header__burger
   .header-menu
     .header-menu__backdrop
     .header-menu__container
@@ -52,6 +58,28 @@ mixin header(login)
         img.header__logo(src="img/logo.svg", alt="LetMeTutor logo")
         .header-menu__close
       .header-menu__content
+        if login
+          a.header-menu__profile(href="#")
+            .header-menu__profile-pic(style="background-image: url('img/inhtml/profile.png')")
+            span.header-menu__profile-name Анастасия
+          .header-menu__actions
+            .header-menu__notifications.dropdown Уведомления
+              p.header-menu__notifications-counter 2
+              .header__notifications.dropdown__menu
+                p.header__notifications-title.dropdown__menu-item Уведомления
+                .header__notifications-item.dropdown__menu-item
+                  p.header__notifications-date 03.07.2021
+                  p.header__notifications-text Ваши данные подтверждены
+                .header__notifications-item.dropdown__menu-item
+                  p.header__notifications-date 03.07.2021
+                  p.header__notifications-text <b>Осталось только установить пароль</b><br>Чтобы не потерять доступ к вашему аккаунту, рекомендуем вам установить пароль. Сделать это можно в профиле, раздел "Настройки".
+            a.header-menu__messages(href="#") Сообщения
+            a.header-menu__wallet(href="#") Ваш баланс: <span>1 000 &#8381;</span>
+        else
+          p.header-menu__signin
+            a(href="#") Войти
+            |&nbsp;/&nbsp;
+            a(href="#") Регистрация
         nav.header-menu__nav
           a.header-menu__nav-link(href="#") Репетиторы
           a.header-menu__nav-link(href="#") Как это работает

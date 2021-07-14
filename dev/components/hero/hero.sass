@@ -29,6 +29,9 @@
     border-radius: 10px
   &__input
     position: relative
+    &:first-child
+      .hero__dropdown
+        left: -7px
     &:not(:first-child)
       padding-left: 17px
       border-left: 1px solid #DCDCDC
@@ -49,6 +52,8 @@
       background-image: url('../img/icons/list.svg')
     &[data-input="location"]:before
       background-image: url('../img/icons/pin.svg')
+    &.dropdown--active .hero__dropdown
+      bottom: -26px
     &-field
       width: 270px
       padding: 6px 6px 6px 38px
@@ -78,21 +83,27 @@
         opacity: 1
         color: $gray
   &__dropdown
-    overflow: auto
     left: 0
+    bottom: -16px
     max-height: 238px
     width: 280px
-    padding: 20px 10px 20px 0
     border-radius: 10px
-    &::-webkit-scrollbar
-      width: 4px
-    &::-webkit-scrollbar-track
-      background-color: transparent
-    &::-webkit-scrollbar-thumb
-      border-radius: 3px
-      background-color: transparentize(#000, .8)
+    .fakeScroll
+      &__wrap
+        max-height: 238px
+      &__content
+        max-height: 238px
+        padding: 20px 10px 20px 0
+      &__track
+        z-index: 2
+        right: 10px
+        width: 4px
+        padding: 20px 0
+      &__bar
+        background-color: transparentize(#000, .8)
     &--hidden
-      visibility: hidden
+      visibility: hidden !important
+      transition: none
     &-item
       padding: 6px 6px 6px 30px
       transition: opacity .3s ease
@@ -118,11 +129,16 @@
     &__input
       display: block
       margin-bottom: 10px
+      &:first-child
+        .hero__dropdown
+          left: 0
       &:not(:first-child)
         padding-left: 0
         border-left: none
         &:before
           left: 13px
+      &.dropdown--active .hero__dropdown
+        bottom: 5px
       &-field
         width: 100%
         padding: 11px 10px 11px 40px
@@ -130,7 +146,7 @@
         background-color: #fff
     &__dropdown
       width: 100%
-      bottom: 5px
+      bottom: 15px
       padding: 5px 0
       border-top-left-radius: 0
       border-top-right-radius: 0

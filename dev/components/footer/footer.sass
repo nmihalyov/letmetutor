@@ -24,6 +24,8 @@
   &__desc
     color: $gray
     font-size: 14px
+    a
+      color: $gray
   &__bottom
     display: flex
     justify-content: space-between
@@ -40,10 +42,13 @@
       width: 16px
       height: 16px
       margin-left: 30px
+      transition: opacity .3s ease
       background:
         size: contain
         position: center
         repeat: no-repeat
+      &:hover
+        opacity: 0.7
       &[data-social="fb"]
         background-image: url('../img/icons/fb.svg')
       &[data-social="inst"]

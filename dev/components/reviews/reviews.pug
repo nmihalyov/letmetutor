@@ -14,9 +14,9 @@ mixin reviews
           each slide in slides
             .reviews__slide.swiper-slide
               .reviews__slide-head
-                .reviews__slide-img(style=`background-image: url('img/inhtml/${slide.image}')`)
+                a.reviews__slide-img(style=`background-image: url('img/inhtml/${slide.image}')`, href="#")
                 div
-                  p.reviews__slide-name= slide.name
+                  a.reviews__slide-name(href="#")= slide.name
                   p.reviews__slide-location= slide.location
               p.reviews__slide-feedback= slide.feedback
               .reviews__slide-rating
@@ -28,9 +28,9 @@ mixin reviews
           each slide in mobileSlides
             .reviews__slide.swiper-slide
               .reviews__slide-head
-                .reviews__slide-img(style=`background-image: url('img/inhtml/${slide.image}')`)
+                a.reviews__slide-img(style=`background-image: url('img/inhtml/${slide.image}')`, href="#")
                 div
-                  p.reviews__slide-name= slide.name
+                  a.reviews__slide-name(href="#")= slide.name
                   p.reviews__slide-location= slide.location
               p.reviews__slide-feedback= slide.feedback
               .reviews__slide-rating

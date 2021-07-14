@@ -15,14 +15,18 @@
     display: flex
     justify-content: center
     align-items: center
-    &:nth-child(odd) .hiw__box:first-child
+    &:nth-child(odd) .hiw__box:first-child,
+    &:nth-child(even) .hiw__box:last-child
       display: flex
-      justify-content: flex-end
+      justify-content: center
     &:not(:last-child)
       margin-bottom: 50px
   &__box
     width: 575px
     margin: 0 10px
+  &__image
+    display: block
+    width: 450px
   &__heading
     margin-bottom: 20px
     line-height: 1.375

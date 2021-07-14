@@ -38,6 +38,7 @@
 		"imagemin-pngquant": "^9.0.0"
 	},
 	"dependencies": {
+		"@yaireo/fakescroll": "^2.5.1",
 		"sanitize.css": "^12.0.1",
 		"swiper": "^6.7.5"
 	}
