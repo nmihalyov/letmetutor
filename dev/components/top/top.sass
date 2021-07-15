@@ -88,15 +88,14 @@
     display: flex
     justify-content: center
 
-@media only screen and (max-width: $mobile)
+@media only screen and (max-width: $tablet)
   .top
     padding-bottom: 50px
     &__grid
-      margin-bottom: 10px
       &:after
         display: none
     &__item
-      width: 50%
+      width: 33.3333333%
       height: auto
       padding: 15px 10px
       border: none !important
@@ -112,3 +111,10 @@
         font-size: 14px
       &-subjects
         font-size: 13px
+
+@media only screen and (max-width: $mobile)
+  .top
+    &__grid
+      margin-bottom: 10px
+    &__item
+      width: 50%

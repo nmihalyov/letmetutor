@@ -1,7 +1,7 @@
 .advantages
   margin-top: -30px
   margin-bottom: 100px
-  &__wrapper
+  &__grid
     display: flex
     justify-content: space-between
   &__item
@@ -36,16 +36,33 @@
     color: $gray
     font-size: 16px
 
+@media only screen and (max-width: $tablet)
+  .advantages
+    margin-top: -20px
+    margin-bottom: 30px
+    &__grid
+      flex-wrap: wrap
+      justify-content: center
+      width: calc(100% + 20px)
+      margin-left: -10px
+    &__item
+      width: calc(50% - 20px)
+      height: 180px
+      margin: 0 10px 20px
+      padding: 30px 20px
+
 @media only screen and (max-width: $mobile)
   .advantages
     margin-top: 0
     margin-bottom: 50px
-    &__wrapper
+    &__grid
       display: block
+      width: 100%
+      margin-left: 0
     &__item
       width: 100%
       height: auto
-      margin-bottom: 20px
+      margin: 0 0 20px
       padding: 30px 15px 20px
     &__heading
       margin-bottom: 15px

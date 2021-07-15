@@ -171,7 +171,7 @@
   &-menu
     display: none
 
-@media only screen and (max-width: $mobile)
+@media only screen and (max-width: $tablet)
   .header
     &__banner
       height: 58px
@@ -186,22 +186,14 @@
         height: 10px
         right: 10px
     &__wrapper
-      height: 58px
-    &__logo
-      width: 120px
+      height: 64px
     &__nav
-      display: none
-      &-link
-        margin-right: 15px !important
-        font-size: 13px
-    &__signin
-      display: none
-    &__profile
       display: none
     &__burger
       display: block
       width: 20px
       height: 20px
+      margin-left: 20px
       background:
         image: url('../img/icons/burger.svg')
         size: contain
@@ -257,7 +249,7 @@
         position: relative
         margin-left: auto
         max-width: 100%
-        width: calc(50vw + 215px)
+        width: calc(50vw + 390px)
         height: 100%
         background-color: #fff
         transform: translateX(100%)
@@ -279,6 +271,54 @@
           size: contain
           position: center
           repeat: no-repeat
+      &__signin,
+      &__profile,
+      &__actions,
+      &__notifications,
+      &__messages,
+      &__wallet
+        display: none
+      &__nav
+        padding: 15px 30px
+        border-bottom: 1px solid #ECECEC
+        &-link
+          display: block
+          padding: 10px 0
+          font-weight: 500
+          &:not(:last-child)
+            border-bottom: 1px dashed #DFDFDF
+      &__footer
+        padding: 15px 30px
+      &__support
+        font-weight: 500
+      &__contacts
+        display: flex
+        flex-wrap: wrap
+        margin-top: 15px
+      &__phone
+        margin-right: 10px
+      &__workhours
+        color: $gray
+
+@media only screen and (max-width: $mobile)
+  .header
+    &__wrapper
+      height: 58px
+    &__logo
+      width: 135px
+    &__nav
+      &-link
+        margin-right: 15px !important
+        font-size: 13px
+    &__signin
+      display: none
+    &__profile
+      display: none
+    &__burger
+      margin-left: 0
+    &-menu
+      &__container
+        width: calc(50vw + 215px)
       &__signin
         display: flex
         position: relative
@@ -316,6 +356,7 @@
         &-name
           font-weight: 500
       &__actions
+        display: block
         padding: 10px 30px
         border-bottom: 1px solid #fcf0f0
       &__notifications
@@ -392,24 +433,3 @@
             repeat: no-repeat
         span
           color: $blue
-      &__nav
-        padding: 15px 30px
-        border-bottom: 1px solid #ECECEC
-        &-link
-          display: block
-          padding: 10px 0
-          font-weight: 500
-          &:not(:last-child)
-            border-bottom: 1px dashed #DFDFDF
-      &__footer
-        padding: 15px 30px
-      &__support
-        font-weight: 500
-      &__contacts
-        display: flex
-        flex-wrap: wrap
-        margin-top: 15px
-      &__phone
-        margin-right: 10px
-      &__workhours
-        color: $gray

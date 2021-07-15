@@ -13,13 +13,13 @@ const hideHeaderMenu = () => {
   document.querySelector('.header-menu').classList.remove('header-menu--shown');
 };
 
-if (!JSON.parse(localStorage.getItem('bannerIsHidden'))) {
+if (!JSON.parse(localStorage.getItem('letmetutor:bannerIsHidden'))) {
   $banner.style.display = 'flex';
   document.querySelector('.header__banner-close').addEventListener('click', () => {
     $banner.classList.add('header__banner--hide');
     setTimeout(() => {
       $banner.remove();
-      localStorage.setItem('bannerIsHidden', true);
+      localStorage.setItem('letmetutor:bannerIsHidden', true);
     }, 500)
   });
 } else {
