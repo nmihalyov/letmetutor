@@ -44,9 +44,9 @@ mixin header(login)
             a.header__profile-pic(style="background-image: url('img/inhtml/profile.png')", href="#")
         else
           p.header__signin
-            a(href="#") Войти
+            a(href="login.html") Войти
             |&nbsp;/&nbsp;
-            a(href="#") Регистрация
+            a(href="signup.html") Регистрация
         if login
           .header__burger.header__burger--has-notifications
         else
@@ -77,9 +77,9 @@ mixin header(login)
             a.header-menu__wallet(href="#") Ваш баланс: <span>1 000 &#8381;</span>
         else
           p.header-menu__signin
-            a(href="#") Войти
+            a(href="login.html") Войти
             |&nbsp;/&nbsp;
-            a(href="#") Регистрация
+            a(href="signup.html") Регистрация
         nav.header-menu__nav
           a.header-menu__nav-link(href="#") Репетиторы
           a.header-menu__nav-link(href="#") Как это работает

@@ -41,23 +41,67 @@
   &__window
     opacity: 0
     position: relative
-    max-width: 400px
+    max-width: 770px
     width: 100%
-    padding: 30px 20px
     background-color: #fff
-    border-radius: 8px
+    border-radius: 3px
     transform: translateY(-50px)
     transition: all .3s ease
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
     cursor: auto
+  &__head
+    padding: 30px 0
+    border-bottom: 1px solid #ECECEC
+  &__heading
+    margin-bottom: 0 !important
   &__close
-      position: absolute
-      top: 10px
-      right: 10px
-      width: 22px
-      height: 22px
-      cursor: pointer
-      background:
-        image: url('data:image/svg+xml,%3Csvg%20width%3D%2222%22%20height%3D%2223%22%20viewBox%3D%220%200%2022%2023%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%2216.9951%22%20y%3D%226.99854%22%20width%3D%2215%22%20height%3D%222%22%20transform%3D%22rotate%28135%2016.9951%206.99854%29%22%20fill%3D%22%23333333%22%2F%3E%0A%3Crect%20width%3D%2215%22%20height%3D%222%22%20transform%3D%22matrix%280.707107%200.707107%200.707107%20-0.707107%204.97461%206.99902%29%22%20fill%3D%22%23333333%22%2F%3E%0A%3C%2Fsvg%3E')
-        size: contain
-        position: center
-        repeat: no-repeat
+    position: absolute
+    top: 14px
+    right: 14px
+    width: 20px
+    height: 20px
+    cursor: pointer
+    background:
+      image: url('../img/icons/close.svg')
+      position: center
+      repeat: no-repeat
+  &__content
+    padding: 35px 60px 50px
+  &__subheading
+    margin-bottom: 18px
+    font-weight: 500
+  &__submit
+    width: 320px
+  &__restore
+    &-input
+      margin-bottom: 20px
+
+@media only screen and (max-width: $tablet)
+  .popup
+    &__window
+      max-width: 540px
+    &__head
+      padding: 25px 0
+    &__content
+      padding: 30px 45px 40px
+    &__subheading
+      margin-bottom: 15px
+    &__submit
+      width: 100%
+
+@media only screen and (max-width: $mobile)
+  .popup
+    &__window
+      max-width: 420px
+      width: calc(100% - 30px)
+    &__head
+      padding: 20px 0
+    &__close
+      top: 5px
+      right: 5px
+      transform: scale(0.8)
+    &__content
+      padding: 15px 20px 25px
+    &__subheading
+      margin-bottom: 10px
+      font-size: 13px

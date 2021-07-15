@@ -1,0 +1,24 @@
+include ../_ui/heading/heading
+include ../_ui/input/input
+include ../_ui/button/button
+
+mixin auth(type)
+  section.auth.container
+    .auth__wrapper.wrapper
+      .auth__block
+        .auth__head
+          if type === 'login'
+            +heading('Авторизация', 'auth__heading')
+          if type === 'signup'
+            +heading('Регистрация', 'auth__heading')
+        form.auth__content
+          p.auth__subheading Войти с помощью:
+          .auth__socials
+            a.auth__social(data-social="fb", href="#") С помощью Facebook
+            a.auth__social(data-social="google", href="#") С помощью Google
+          p.auth__subheading Авторизироваться с помощью сайта:
+          +input('email', '', 'email', 'Ваш email', 'auth__input', {required: true})
+          +input('password', '', 'password', 'Ваш пароль', 'auth__input', {required: true})
+          .auth__actions
+            +button('primary', 'submit', 'Войти', 'auth__actions-btn')
+            a.auth__actions-restore.js-open-popup(href="javascript:void(0)", data-popup="restore") Забыли пароль?

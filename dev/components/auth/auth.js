@@ -1,0 +1,1 @@
+$api.validate(document.querySelector('form.auth__content'));

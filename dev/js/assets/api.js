@@ -49,3 +49,34 @@ $api.popup = ($popup, { onHide, onShow } = {}) => {
     }
   };
 };
+
+// API для валидации форм
+$api.validate = form => {
+  const emailRegexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const setInvalidInput = input => {
+    input.closest('.input').classList.add('input--error');
+    input.focus();
+  };
+
+  form.querySelector('button[type="submit"]').addEventListener('click', e => {
+    e.preventDefault();
+
+    const $formInputs = Array.from(form.querySelectorAll('input[required]'));
+
+    $formInputs.reverse().map(el => {
+      switch(el.getAttribute('type')) {
+        case 'text':
+        case 'password':
+          el.value === '' && setInvalidInput(el);
+          break;
+        case 'email':
+          !emailRegexp.test(el.value) && setInvalidInput(el);
+          break;
+      }
+    });
+  });
+
+  Array.from(form.querySelectorAll('input')).map(el => el.addEventListener('input', () => {
+    el.closest('.input').classList.remove('input--error');
+  }));
+};

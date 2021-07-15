@@ -20,3 +20,5 @@ Array.from(document.querySelectorAll('.js-close-popup')).map(el =>
     }
   })
 );
+
+$api.validate(document.querySelector('form.popup__restore'));

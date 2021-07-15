@@ -11,5 +11,6 @@ window.onload = () => {
   @@include('../components/hero/hero.js')
   @@include('../components/popular/popular.js')
   @@include('../components/reviews/reviews.js')
+  @@include('../components/auth/auth.js')
 
 }

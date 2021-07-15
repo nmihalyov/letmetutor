@@ -1,3 +1,4 @@
+include ../../_ui/heading/heading
 include ../../_ui/input/input
 include ../../_ui/button/button
 
@@ -7,16 +8,13 @@ mixin popup(type, id = type)
     .popup__container
       .popup__wrapper
         .popup__window
-          .popup__close.js-close-popup
-          if type === 'form'
-            form.popup__form(action="")
-              p(style="margin-bottom: 20px; text-align: center") Форма входа
-              div(style="margin-bottom: 10px;")
-                +input('email', 'E-mail:', 'email', 'Введите ваш e-mail', '', '', {error: 'Неверные данные'})
-              div(style="margin-bottom: 20px;")
-                +input('password', 'Пароль:', 'password', 'Введите ваш пароль', '', '', {error: 'Неверные данные'})
-              div(style="display: flex; justify-content: center;")
-                div(style="margin: 0 5px;")
-                  +button('primary', 'submit', 'Войти')
-                div(style="margin: 0 5px;")
-                  +button('secondary', 'link', 'Закрыть', 'js-close-popup', {link: '#'})
+          .popup__head
+            if type === 'restore'
+              +heading('Восстановление пароля', 'popup__heading')
+            .popup__close.js-close-popup
+          .popup__content
+            if type === 'restore'
+              form.popup__restore
+                p.popup__subheading Укажите почту, привязанную к вашей учетной записи. Мы отправим письмо для восстановления пароля.
+                +input('email', '', 'email', 'Введите ваш email', 'popup__restore-input', {required: true})
+                +button('primary', 'submit', 'Продолжить', 'popup__submit')
