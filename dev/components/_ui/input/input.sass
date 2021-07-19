@@ -2,11 +2,10 @@
   position: relative
   display: block
   &:hover
-    // .input__field:not([readonly])
     .input__field
       border-color: $dark-blue
   &.dropdown
-    &:not([data-cities])
+    &:not([data-cities]) .input__wrapper
       &:after
         content: ''
         position: absolute
@@ -36,6 +35,8 @@
     font-size: 15px
     span
       color: $red
+  &__wrapper
+    position: relative
   &__code
     position: absolute !important
     bottom: 1px
@@ -119,11 +120,18 @@
       size: 14px
     &[type="tel"]
       padding-left: 97px
-    // &[readonly]
-    //   background-color: #efefef
-    // &:not([readonly]):focus
     &:focus
       border-color: $dark-blue
+      &::placeholder
+        opacity: 0
+      &::-webkit-input-placeholder
+        opacity: 0
+      &::-moz-placeholder
+        opacity: 0
+      &:-ms-input-placeholder
+        opacity: 0
+      &:-moz-placeholder
+        opacity: 0
     &::placeholder
       opacity: 1
       color: $gray
@@ -141,11 +149,9 @@
       color: $gray
   &__error
     display: none
-    margin: 5px 0
-    color: #FF564E
-    font:
-      size: 14px
-      weight: 500
+    margin: 3px 0
+    color: $red
+    font-size: 13px
 
 @media only screen and (max-width: $mobile)
   .input

@@ -1,5 +1,5 @@
 .checkboxselect
-  &:hover
+  &:hover:not(.checkboxselect--error)
     .checkboxselect__input
       border-color: $dark-blue
     .checkboxselect__list
@@ -7,6 +7,10 @@
   &--error
     .checkboxselect__input
       border-color: $red
+    .checkboxselect__list
+      border-color: $red
+    .checkboxselect__error
+      display: block
   &--checked
     .checkboxselect__input-check
       background-color: $blue
@@ -17,17 +21,21 @@
         width: 12px
         transition: all .15s ease-in .15s
   &.dropdown--active
-    &:hover .checkboxselect__input
-      border-color: $dark-blue !important
+    &:not(.checkboxselect--error)
+      &:hover .checkboxselect__input
+        border-color: $dark-blue !important
+      .checkboxselect__input
+        border-color: #F0F0F0 !important
     .checkboxselect__input
       background-color: #fff
-      border-color: #F0F0F0 !important
   &__label
     margin-bottom: 7px
     color: $dark-blue
     font-size: 15px
     span
       color: $red
+  &__wrapper
+    position: relative
   &__input
     display: flex
     align-items: center
@@ -37,6 +45,7 @@
     background-color: #FBFBFB
     transition: all .3s ease
     &-check
+      flex-shrink: 0
       display: block
       width: 20px
       height: 20px
@@ -70,9 +79,15 @@
     &-placeholder
       line-height: 1.33
       word-break: keep-all
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
       -webkit-appearance: none
       color: $gray
+      transition: color .3s ease
       font-size: 14px
+      &--active
+        color: $dark-blue
   &__list
     overflow: hidden !important
     left: 0
@@ -84,7 +99,7 @@
     border-bottom-right-radius: 5px
     border-bottom-left-radius: 5px
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.07)
-    transition: all .3s ease
+    transition: opacity .3s ease, visibility .3s ease, transform .3s ease, border-color .3s ease
     .fakeScroll
       &__wrap
         max-height: 199px
@@ -102,6 +117,11 @@
     transition: background-color .3s ease
     &:hover
       background-color: $gray-3
+  &__error
+    display: none
+    margin: 3px 0
+    color: $red
+    font-size: 13px
 
 @media only screen and (max-width: $mobile)
   .checkboxselect

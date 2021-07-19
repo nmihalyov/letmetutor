@@ -96,36 +96,57 @@
                 <form class="auth__tabs-content" data-content="1" data-active="data-active" data-signup-student-form="data-signup-student-form">
                   <label class="input auth__input ">
                     <p class="input__label">Ваше ФИО <span>*</span></p>
-                    <input class="input__field" type="text" name="fullname" required="required" placeholder="Введите ваше ФИО"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="text" name="fullname" required="required" placeholder="Введите ваше ФИО"/>
+                    </div>
+                    <p class="input__error">Введите корректные данные</p>
                   </label>
                   <label class="input auth__input ">
                     <p class="input__label">Ваш email <span>*</span></p>
-                    <input class="input__field" type="email" name="email" required="required" placeholder="Введите ваш email"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="email" name="email" required="required" placeholder="Введите ваш email"/>
+                    </div>
+                    <p class="input__error">Введите корректный email</p>
                   </label>
                   <label class="input auth__input ">
                     <p class="input__label">Номер телефона <span>*</span></p>
-                    <div class="input__code dropdown" data-code-loc="ru" data-mask="+7 (999) 999-99-99">
-                      <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item" href="javascript: void(0)" data-code-loc="ru" data-mask="+7 (999) 999-99-99">Россия +7</a><a class="input__dropdown-item" href="javascript: void(0)" data-code-loc="ua" data-mask="+380 (999) 999-99-99">Украина +380</a></div>
+                    <div class="input__wrapper">
+                      <div class="input__code dropdown" data-code-loc="ru" data-mask="+7 (999) 999-99-99">
+                        <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item" href="javascript: void(0)" data-code-loc="ru" data-mask="+7 (999) 999-99-99">Россия +7</a><a class="input__dropdown-item" href="javascript: void(0)" data-code-loc="ua" data-mask="+380 (99) 999-99-99">Украина +380</a></div>
+                      </div>
+                      <input class="input__field" type="tel" name="phone" required="required" placeholder="+7 (___) ___-__-__"/>
                     </div>
-                    <input class="input__field" type="tel" name="phone" required="required" placeholder="+7 (___) ___-__-__"/>
+                    <p class="input__error">Введите корректный номер телефона</p>
                   </label>
                   <label class="input auth__input js-auth-country  dropdown">
                     <p class="input__label">Ваша страна <span>*</span></p>
                     <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Россия</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Украина</a></div>
-                    <input class="input__field" type="text" name="country" required="required" placeholder="Выберите страну" readonly="readonly"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="text" name="country" required="required" placeholder="Выберите страну" readonly="readonly"/>
+                    </div>
+                    <p class="input__error">Выберите страну из списка</p>
                   </label>
-                  <label class="input auth__input js-auth-city  dropdown" data-cities="[{&quot;key&quot;:&quot;Россия&quot;,&quot;cities&quot;:[&quot;Москва&quot;,&quot;Санкт-Петербург&quot;,&quot;Казань&quot;,&quot;Нижний Новгород&quot;,&quot;Сочи&quot;,&quot;Екатеринбург&quot;,&quot;Ростов-на-Дону&quot;,&quot;Новосибирск&quot;,&quot;Тюмень&quot;,&quot;Калининград&quot;,&quot;Уфа&quot;,&quot;Красноярск&quot;,&quot;Краснодар&quot;,&quot;Челябинск&quot;,&quot;Воронеж&quot;]},{&quot;key&quot;:&quot;Украина&quot;,&quot;cities&quot;:[&quot;Киев&quot;,&quot;Днепр&quot;,&quot;Донецк&quot;,&quot;Запорожье&quot;,&quot;Львов&quot;,&quot;Кривой Рог&quot;,&quot;Севастополь&quot;,&quot;Николаев&quot;,&quot;Мариуполь&quot;]}]">
+                  <label class="input auth__input js-auth-city  dropdown" data-cities="data-cities">
                     <p class="input__label">Ваш город <span>*</span></p>
                     <div class="input__dropdown dropdown__menu"></div>
-                    <input class="input__field" type="text" name="city" required="required" placeholder="Введите ваш город"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="text" name="city" required="required" placeholder="Введите ваш город"/>
+                    </div>
+                    <p class="input__error">Выберите город</p>
                   </label>
                   <label class="input auth__input ">
                     <p class="input__label">Ваш пароль <span>*</span></p>
-                    <input class="input__field" type="password" name="password" required="required" placeholder="Введите пароль"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="password" name="password" required="required" placeholder="Введите пароль" data-pass="data-pass"/>
+                    </div>
+                    <p class="input__error">Введите пароль</p>
                   </label>
                   <label class="input auth__input ">
                     <p class="input__label">Повторите пароль <span>*</span></p>
-                    <input class="input__field" type="password" name="passwordRepeat" required="required" placeholder="Введите пароль"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="password" name="passwordRepeat" required="required" placeholder="Введите пароль" data-pass-repeat="data-pass-repeat"/>
+                    </div>
+                    <p class="input__error">Введите совпадающий пароль</p>
                   </label>
                   <label class="checkbox auth__checkbox">
                     <input class="checkbox__input" type="checkbox" name="rulesAgreement" required="required" checked="checked"/>
@@ -141,123 +162,147 @@
                 <form class="auth__tabs-content" data-content="2" data-signup-tutor-form="data-signup-tutor-form">
                   <label class="input auth__input ">
                     <p class="input__label">Ваше ФИО <span>*</span></p>
-                    <input class="input__field" type="text" name="fullname" required="required" placeholder="Введите ваше ФИО"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="text" name="fullname" required="required" placeholder="Введите ваше ФИО"/>
+                    </div>
+                    <p class="input__error">Введите корректные данные</p>
                   </label>
                   <label class="input auth__input ">
                     <p class="input__label">Ваш email <span>*</span></p>
-                    <input class="input__field" type="email" name="email" required="required" placeholder="Введите ваш email"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="email" name="email" required="required" placeholder="Введите ваш email"/>
+                    </div>
+                    <p class="input__error">Введите корректный email</p>
                   </label>
                   <div class="checkboxselect dropdown auth__input">
                     <p class="checkboxselect__label">Ваши специализации <span>*</span></p>
-                    <p class="checkboxselect__input"><span class="checkboxselect__input-check"><span class="checkboxselect__input-check-mark"></span></span><span class="checkboxselect__input-placeholder">Выберите специализации</span></p>
-                    <div class="checkboxselect__list dropdown__menu">
-                      <div class="checkboxselect__item">
-                        <label class="checkbox checkboxselect__checkbox">
-                          <input class="checkbox__input" type="checkbox" name="specializations"/>
-                          <div class="checkbox__box">
-                            <div class="checkbox__box-mark"></div>
-                          </div>
-                          <p class="checkbox__text">Английский язык</p>
-                        </label>
-                      </div>
-                      <div class="checkboxselect__item">
-                        <label class="checkbox checkboxselect__checkbox">
-                          <input class="checkbox__input" type="checkbox" name="specializations"/>
-                          <div class="checkbox__box">
-                            <div class="checkbox__box-mark"></div>
-                          </div>
-                          <p class="checkbox__text">Математика</p>
-                        </label>
-                      </div>
-                      <div class="checkboxselect__item">
-                        <label class="checkbox checkboxselect__checkbox">
-                          <input class="checkbox__input" type="checkbox" name="specializations"/>
-                          <div class="checkbox__box">
-                            <div class="checkbox__box-mark"></div>
-                          </div>
-                          <p class="checkbox__text">Украинский язык</p>
-                        </label>
-                      </div>
-                      <div class="checkboxselect__item">
-                        <label class="checkbox checkboxselect__checkbox">
-                          <input class="checkbox__input" type="checkbox" name="specializations"/>
-                          <div class="checkbox__box">
-                            <div class="checkbox__box-mark"></div>
-                          </div>
-                          <p class="checkbox__text">Программирование</p>
-                        </label>
-                      </div>
-                      <div class="checkboxselect__item">
-                        <label class="checkbox checkboxselect__checkbox">
-                          <input class="checkbox__input" type="checkbox" name="specializations"/>
-                          <div class="checkbox__box">
-                            <div class="checkbox__box-mark"></div>
-                          </div>
-                          <p class="checkbox__text">Физика</p>
-                        </label>
-                      </div>
-                      <div class="checkboxselect__item">
-                        <label class="checkbox checkboxselect__checkbox">
-                          <input class="checkbox__input" type="checkbox" name="specializations"/>
-                          <div class="checkbox__box">
-                            <div class="checkbox__box-mark"></div>
-                          </div>
-                          <p class="checkbox__text">Химия</p>
-                        </label>
-                      </div>
-                      <div class="checkboxselect__item">
-                        <label class="checkbox checkboxselect__checkbox">
-                          <input class="checkbox__input" type="checkbox" name="specializations"/>
-                          <div class="checkbox__box">
-                            <div class="checkbox__box-mark"></div>
-                          </div>
-                          <p class="checkbox__text">Биология</p>
-                        </label>
-                      </div>
-                      <div class="checkboxselect__item">
-                        <label class="checkbox checkboxselect__checkbox">
-                          <input class="checkbox__input" type="checkbox" name="specializations"/>
-                          <div class="checkbox__box">
-                            <div class="checkbox__box-mark"></div>
-                          </div>
-                          <p class="checkbox__text">Русский</p>
-                        </label>
-                      </div>
-                      <div class="checkboxselect__item">
-                        <label class="checkbox checkboxselect__checkbox">
-                          <input class="checkbox__input" type="checkbox" name="specializations"/>
-                          <div class="checkbox__box">
-                            <div class="checkbox__box-mark"></div>
-                          </div>
-                          <p class="checkbox__text">История</p>
-                        </label>
+                    <div class="checkboxselect__wrapper">
+                      <p class="checkboxselect__input"><span class="checkboxselect__input-check"><span class="checkboxselect__input-check-mark"></span></span><span class="checkboxselect__input-placeholder" data-placeholder="Выберите специализации">Выберите специализации</span></p>
+                      <div class="checkboxselect__list dropdown__menu">
+                        <div class="checkboxselect__item">
+                          <label class="checkbox checkboxselect__checkbox">
+                            <input class="checkbox__input" type="checkbox" name="specializations"/>
+                            <div class="checkbox__box">
+                              <div class="checkbox__box-mark"></div>
+                            </div>
+                            <p class="checkbox__text">Английский язык</p>
+                          </label>
+                        </div>
+                        <div class="checkboxselect__item">
+                          <label class="checkbox checkboxselect__checkbox">
+                            <input class="checkbox__input" type="checkbox" name="specializations"/>
+                            <div class="checkbox__box">
+                              <div class="checkbox__box-mark"></div>
+                            </div>
+                            <p class="checkbox__text">Математика</p>
+                          </label>
+                        </div>
+                        <div class="checkboxselect__item">
+                          <label class="checkbox checkboxselect__checkbox">
+                            <input class="checkbox__input" type="checkbox" name="specializations"/>
+                            <div class="checkbox__box">
+                              <div class="checkbox__box-mark"></div>
+                            </div>
+                            <p class="checkbox__text">Украинский язык</p>
+                          </label>
+                        </div>
+                        <div class="checkboxselect__item">
+                          <label class="checkbox checkboxselect__checkbox">
+                            <input class="checkbox__input" type="checkbox" name="specializations"/>
+                            <div class="checkbox__box">
+                              <div class="checkbox__box-mark"></div>
+                            </div>
+                            <p class="checkbox__text">Программирование</p>
+                          </label>
+                        </div>
+                        <div class="checkboxselect__item">
+                          <label class="checkbox checkboxselect__checkbox">
+                            <input class="checkbox__input" type="checkbox" name="specializations"/>
+                            <div class="checkbox__box">
+                              <div class="checkbox__box-mark"></div>
+                            </div>
+                            <p class="checkbox__text">Физика</p>
+                          </label>
+                        </div>
+                        <div class="checkboxselect__item">
+                          <label class="checkbox checkboxselect__checkbox">
+                            <input class="checkbox__input" type="checkbox" name="specializations"/>
+                            <div class="checkbox__box">
+                              <div class="checkbox__box-mark"></div>
+                            </div>
+                            <p class="checkbox__text">Химия</p>
+                          </label>
+                        </div>
+                        <div class="checkboxselect__item">
+                          <label class="checkbox checkboxselect__checkbox">
+                            <input class="checkbox__input" type="checkbox" name="specializations"/>
+                            <div class="checkbox__box">
+                              <div class="checkbox__box-mark"></div>
+                            </div>
+                            <p class="checkbox__text">Биология</p>
+                          </label>
+                        </div>
+                        <div class="checkboxselect__item">
+                          <label class="checkbox checkboxselect__checkbox">
+                            <input class="checkbox__input" type="checkbox" name="specializations"/>
+                            <div class="checkbox__box">
+                              <div class="checkbox__box-mark"></div>
+                            </div>
+                            <p class="checkbox__text">Русский</p>
+                          </label>
+                        </div>
+                        <div class="checkboxselect__item">
+                          <label class="checkbox checkboxselect__checkbox">
+                            <input class="checkbox__input" type="checkbox" name="specializations"/>
+                            <div class="checkbox__box">
+                              <div class="checkbox__box-mark"></div>
+                            </div>
+                            <p class="checkbox__text">История</p>
+                          </label>
+                        </div>
                       </div>
                     </div>
+                    <p class="checkboxselect__error">Выберите хотя бы одну специализацию из списка</p>
                   </div>
                   <label class="input auth__input ">
                     <p class="input__label">Номер телефона <span>*</span></p>
-                    <div class="input__code dropdown" data-code-loc="ru" data-mask="+7 (999) 999-99-99">
-                      <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item" href="javascript: void(0)" data-code-loc="ru" data-mask="+7 (999) 999-99-99">Россия +7</a><a class="input__dropdown-item" href="javascript: void(0)" data-code-loc="ua" data-mask="+380 (999) 999-99-99">Украина +380</a></div>
+                    <div class="input__wrapper">
+                      <div class="input__code dropdown" data-code-loc="ru" data-mask="+7 (999) 999-99-99">
+                        <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item" href="javascript: void(0)" data-code-loc="ru" data-mask="+7 (999) 999-99-99">Россия +7</a><a class="input__dropdown-item" href="javascript: void(0)" data-code-loc="ua" data-mask="+380 (99) 999-99-99">Украина +380</a></div>
+                      </div>
+                      <input class="input__field" type="tel" name="phone" required="required" placeholder="+7 (___) ___-__-__"/>
                     </div>
-                    <input class="input__field" type="tel" name="phone" required="required" placeholder="+7 (___) ___-__-__"/>
+                    <p class="input__error">Введите корректный номер телефона</p>
                   </label>
                   <label class="input auth__input js-auth-country  dropdown">
                     <p class="input__label">Ваша страна <span>*</span></p>
                     <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Россия</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Украина</a></div>
-                    <input class="input__field" type="text" name="country" required="required" placeholder="Выберите страну" readonly="readonly"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="text" name="country" required="required" placeholder="Выберите страну" readonly="readonly"/>
+                    </div>
+                    <p class="input__error">Выберите страну из списка</p>
                   </label>
-                  <label class="input auth__input js-auth-city  dropdown" data-cities="[{&quot;key&quot;:&quot;Россия&quot;,&quot;cities&quot;:[&quot;Москва&quot;,&quot;Санкт-Петербург&quot;,&quot;Казань&quot;,&quot;Нижний Новгород&quot;,&quot;Сочи&quot;,&quot;Екатеринбург&quot;,&quot;Ростов-на-Дону&quot;,&quot;Новосибирск&quot;,&quot;Тюмень&quot;,&quot;Калининград&quot;,&quot;Уфа&quot;,&quot;Красноярск&quot;,&quot;Краснодар&quot;,&quot;Челябинск&quot;,&quot;Воронеж&quot;]},{&quot;key&quot;:&quot;Украина&quot;,&quot;cities&quot;:[&quot;Киев&quot;,&quot;Днепр&quot;,&quot;Донецк&quot;,&quot;Запорожье&quot;,&quot;Львов&quot;,&quot;Кривой Рог&quot;,&quot;Севастополь&quot;,&quot;Николаев&quot;,&quot;Мариуполь&quot;]}]">
+                  <label class="input auth__input js-auth-city  dropdown" data-cities="data-cities">
                     <p class="input__label">Ваш город <span>*</span></p>
                     <div class="input__dropdown dropdown__menu"></div>
-                    <input class="input__field" type="text" name="city" required="required" placeholder="Введите ваш город"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="text" name="city" required="required" placeholder="Введите ваш город"/>
+                    </div>
+                    <p class="input__error">Выберите город</p>
                   </label>
                   <label class="input auth__input ">
                     <p class="input__label">Ваш пароль <span>*</span></p>
-                    <input class="input__field" type="password" name="password" required="required" placeholder="Введите пароль"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="password" name="password" required="required" placeholder="Введите пароль" data-pass="data-pass"/>
+                    </div>
+                    <p class="input__error">Введите пароль</p>
                   </label>
                   <label class="input auth__input ">
                     <p class="input__label">Повторите пароль <span>*</span></p>
-                    <input class="input__field" type="password" name="passwordRepeat" required="required" placeholder="Введите пароль"/>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="password" name="passwordRepeat" required="required" placeholder="Введите пароль" data-pass-repeat="data-pass-repeat"/>
+                    </div>
+                    <p class="input__error">Введите совпадающий пароль</p>
                   </label>
                   <label class="checkbox auth__checkbox">
                     <input class="checkbox__input" type="checkbox" name="rulesAgreement" required="required" checked="checked"/>

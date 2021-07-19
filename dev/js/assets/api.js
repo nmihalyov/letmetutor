@@ -68,6 +68,10 @@ $api.validate = form => {
     const $checkboxSelect = form.querySelectorAll('.checkboxselect');
 
     $formInputs.reverse().map(el => {
+      if (el.dataset.passRepeat && el.value !== el.closest('form').querySelector('input[data-pass]').value) {
+        setInvalidInput(el);
+      }
+
       switch(el.getAttribute('type')) {
         case 'text':
         case 'password':

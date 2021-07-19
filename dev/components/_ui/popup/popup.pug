@@ -16,5 +16,5 @@ mixin popup(type, id = type)
             if type === 'restore'
               form.popup__restore(data-restore-form)
                 p.popup__subheading Укажите почту, привязанную к вашей учетной записи. Мы отправим письмо для восстановления пароля.
-                +input('email', '', 'email', 'Введите ваш email', 'popup__restore-input', {required: true})
+                +input('email', '', 'email', 'Введите ваш email', 'popup__restore-input', {required: true, error: 'Введите корректный email'})
                 +button('primary', 'submit', 'Продолжить', 'popup__submit')

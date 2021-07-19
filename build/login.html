@@ -88,10 +88,16 @@
               <div class="auth__socials"><a class="auth__social" data-social="fb" href="#">С помощью Facebook</a><a class="auth__social" data-social="google" href="#">С помощью Google</a></div>
               <p class="auth__subheading">Авторизироваться с помощью сайта:</p>
               <label class="input auth__input ">
-                <input class="input__field" type="email" name="email" required="required" placeholder="Ваш email"/>
+                <div class="input__wrapper">
+                  <input class="input__field" type="email" name="email" required="required" placeholder="Ваш email"/>
+                </div>
+                <p class="input__error">Введите корректный email</p>
               </label>
               <label class="input auth__input ">
-                <input class="input__field" type="password" name="password" required="required" placeholder="Ваш пароль"/>
+                <div class="input__wrapper">
+                  <input class="input__field" type="password" name="password" required="required" placeholder="Ваш пароль"/>
+                </div>
+                <p class="input__error">Введите пароль</p>
               </label>
               <div class="auth__actions">
                 <button class="button button--primary auth__actions-btn" type="submit">Войти</button><a class="auth__actions-restore js-open-popup" href="javascript:void(0)" data-popup="restore">Забыли пароль?</a>
@@ -136,7 +142,10 @@
               <form class="popup__restore" data-restore-form="data-restore-form">
                 <p class="popup__subheading">Укажите почту, привязанную к вашей учетной записи. Мы отправим письмо для восстановления пароля.</p>
                 <label class="input popup__restore-input ">
-                  <input class="input__field" type="email" name="email" required="required" placeholder="Введите ваш email"/>
+                  <div class="input__wrapper">
+                    <input class="input__field" type="email" name="email" required="required" placeholder="Введите ваш email"/>
+                  </div>
+                  <p class="input__error">Введите корректный email</p>
                 </label>
                 <button class="button button--primary popup__submit" type="submit">Продолжить</button>
               </form>
