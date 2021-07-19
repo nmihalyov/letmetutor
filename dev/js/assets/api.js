@@ -57,11 +57,15 @@ $api.validate = form => {
     input.closest('.input').classList.add('input--error');
     input.focus();
   };
+  const setInvalidCheckbox = input => {
+    input.closest('.checkbox').classList.add('checkbox--error');
+  };
 
   form.querySelector('button[type="submit"]').addEventListener('click', e => {
     e.preventDefault();
 
     const $formInputs = Array.from(form.querySelectorAll('input[required]'));
+    const $checkboxSelect = form.querySelectorAll('.checkboxselect');
 
     $formInputs.reverse().map(el => {
       switch(el.getAttribute('type')) {
@@ -69,14 +73,40 @@ $api.validate = form => {
         case 'password':
           el.value === '' && setInvalidInput(el);
           break;
+        case 'tel':
+          (el.value === '' || el.value.includes('_')) && setInvalidInput(el);
+          break;
+        case 'checkbox':
+          !el.checked && setInvalidCheckbox(el);
+          break;
         case 'email':
           !emailRegexp.test(el.value) && setInvalidInput(el);
           break;
       }
     });
-  });
+  
+    if ($checkboxSelect.length) {
+      Array.from($checkboxSelect).map(el => {
+        let checked = false;
+  
+        Array.from(el.querySelectorAll('.checkbox__input')).map(checkbox => {
+          if (checkbox.checked) {
+            checked = true;
+          }
+        });
+  
+        if (!checked) {
+          el.classList.add('checkboxselect--error');
+        }
+      });
+    }
+});
 
   Array.from(form.querySelectorAll('input')).map(el => el.addEventListener('input', () => {
-    el.closest('.input').classList.remove('input--error');
+    if (el.closest('.input')) {
+      el.closest('.input').classList.remove('input--error');
+    } else if (el.closest('.checkbox')) {
+      el.closest('.checkbox').classList.remove('checkbox--error');
+    }
   }));
 };

@@ -9,6 +9,7 @@ document.addEventListener('click', e => {
 
 // open dropdown
 Array.from(document.querySelectorAll('.dropdown')).map(el => el.addEventListener('click', e => {
+  e.preventDefault();
   const $this = e.currentTarget;
   
   Array.from(document.querySelectorAll('.dropdown')).map(el => el !== $this && el.classList.remove('dropdown--active'));
@@ -18,7 +19,6 @@ Array.from(document.querySelectorAll('.dropdown')).map(el => el.addEventListener
 // change dropdown value
 document.addEventListener('click', e => {
   if (e.target.getAttribute('data-toggle')) {
-    console.log(true)
     const $this = e.target;
     const newValue = $this.innerText;
     const $cloneElement = $this.cloneNode();

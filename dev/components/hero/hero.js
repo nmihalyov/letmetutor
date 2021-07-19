@@ -17,7 +17,7 @@ Array.from(document.querySelectorAll('.hero__input-field')).map(el => {
     $dropdown.innerHTML = '';
   
     options.map(el => {
-      if (firstRender || el.toLowerCase().match(lowerCaseValue)) {
+      if (firstRender || el.toLowerCase().indexOf(lowerCaseValue) === 0) {
         matchesFound = true;
         $dropdown.insertAdjacentHTML('beforeend', `<a class="hero__dropdown-item dropdown__menu-item" href="javascript:void(0)">${el}</a>`)
       }

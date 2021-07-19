@@ -1,8 +1,4 @@
 .tabs
-  padding: 7px
-  border-radius: 10px
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
-  background-color: #fff
   &__inner
     display: flex
     border-radius: 5px
@@ -24,11 +20,13 @@
       pointer-events: none
       color: #fff
       background-color: $blue
+[data-content]
+  display: none
+  &[data-active]
+    display: block
 
 @media only screen and (max-width: $mobile)
   .tabs
-    width: 100%
-    padding: 6px
     &__item
       flex-grow: 1
       width: auto

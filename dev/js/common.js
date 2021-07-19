@@ -5,6 +5,8 @@ window.onload = () => {
   @@include('../components/_ui/popup/popup.js')
   @@include('../components/_ui/dropdown/dropdown.js')
   @@include('../components/_ui/tabs/tabs.js')
+  @@include('../components/_ui/input/input.js')
+  @@include('../components/_ui/checkboxselect/checkboxselect.js')
 
   @@include('../components/cookies/cookies.js')
   @@include('../components/header/header.js')

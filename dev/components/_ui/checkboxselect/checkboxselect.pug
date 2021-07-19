@@ -1,0 +1,13 @@
+include ../checkbox/checkbox
+
+mixin checkboxselect(label, placeholder, className, checkboxlist)
+  .checkboxselect.dropdown(class=`${className || ''}`)
+    p.checkboxselect__label!= label
+    p.checkboxselect__input
+      span.checkboxselect__input-check
+        span.checkboxselect__input-check-mark
+      span.checkboxselect__input-placeholder= placeholder
+    .checkboxselect__list.dropdown__menu
+      each el in checkboxlist.list
+        .checkboxselect__item
+          +checkbox(el.label, checkboxlist.name, 'checkboxselect__checkbox')

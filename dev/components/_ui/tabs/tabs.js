@@ -1,4 +1,6 @@
 Array.from(document.querySelectorAll('.tabs__item')).map(el => el.addEventListener('click', e => {
+  e.preventDefault();
+
   const $this = e.currentTarget;
   const target = $this.dataset.tab;
 

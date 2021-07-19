@@ -9,15 +9,22 @@
     background-color: #fff
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
   &__head
-    padding: 30px 0
+    padding: 30px 15px
     border-bottom: 1px solid #ECECEC
   &__heading
     margin-bottom: 0 !important
   &__content
     padding: 40px 60px 50px
+  &__tabs
+    &-grid
+      margin-bottom: 35px
+      .tabs__item
+        width: 50%
   &__subheading
     margin-bottom: 20px
     font-weight: 500
+  &__desc
+    font-size: 15px
   &__socials
     display: flex
     justify-content: space-between
@@ -67,15 +74,22 @@
     justify-content: space-between
     align-items: center
     margin-top: 20px
+    &--centered
+      justify-content: center
     &-btn
       width: 320px
-    &-restore
-      padding: 2px 0
+    &-restore,
+    &-link
+      padding: 1px 0
       border-bottom: 1px dashed $dark-blue
       transition: all .3s ease
       font-size: 15px
       &:hover
         border-bottom-color: transparentize($dark-blue, 0.2)
+    &-restore
+      border-bottom: 1px dashed $dark-blue
+    &-link
+      border-bottom: 1px solid $dark-blue
 
 @media only screen and (max-width: $tablet)
   .auth
@@ -84,7 +98,7 @@
     &__block
       max-width: 540px
     &__head
-      padding: 25px 0
+      padding: 25px 15px
     &__content
       padding: 30px 45px 40px
     &__subheading
@@ -98,17 +112,21 @@
     &__actions
       &-btn
         width: 215px
+      &-link
+        font-size: 14px
 
 @media only screen and (max-width: $mobile)
   .auth
     min-height: calc(100vh - 466px)
     padding: 50px 0 60px
     &__head
-      padding: 20px 0
+      padding: 20px 10px
     &__content
       padding: 15px 20px 25px
     &__subheading
       margin-bottom: 10px
+      font-size: 13px
+    &__desc
       font-size: 13px
     &__socials
       flex-direction: column

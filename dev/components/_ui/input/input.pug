@@ -1,14 +1,22 @@
 mixin input(type, label, name, placeholder, className, options)
-  label.input(class=`${className || ''}`)
+  label.input(class=`${className || ''} ${(options && (options.dropdown || options.citiesSearch)) ? ' dropdown' : ''}`, data-cities=options.citiesSearch ? '[{\"key\":\"Россия\",\"cities\":[\"Москва\",\"Санкт-Петербург\",\"Казань\",\"Нижний Новгород\",\"Сочи\",\"Екатеринбург\",\"Ростов-на-Дону\",\"Новосибирск\",\"Тюмень\",\"Калининград\",\"Уфа\",\"Красноярск\",\"Краснодар\",\"Челябинск\",\"Воронеж\"]},{\"key\":\"Украина\",\"cities\":[\"Киев\",\"Днепр\",\"Донецк\",\"Запорожье\",\"Львов\",\"Кривой Рог\",\"Севастополь\",\"Николаев\",\"Мариуполь\"]}]' : false)
     if label.length
-      p.input__label= label
+      p.input__label!= label
+    if type === 'tel'
+      .input__code.dropdown(data-code-loc="ru", data-mask="+7 (999) 999-99-99")
+        .input__dropdown.dropdown__menu
+          a.input__dropdown-item(href="javascript: void(0)", data-code-loc="ru", data-mask="+7 (999) 999-99-99") Россия +7
+          a.input__dropdown-item(href="javascript: void(0)", data-code-loc="ua", data-mask="+380 (999) 999-99-99") Украина +380
+    if options && options.dropdown
+      .input__dropdown.dropdown__menu!= options.dropdown
+    if options && options.citiesSearch
+      .input__dropdown.dropdown__menu
     input.input__field(
-      class=`${className ? className + '-field' : ''}`,
       type=type,
       name=name,
       required=options && options.required,
       placeholder=placeholder,
       value=options && options.value,
-      readonly=options && options.readonly)
+      readonly=(options && options.readonly) || (options && options.dropdown && !options.search))
     if options && options.error
       p.input__error= options.error
