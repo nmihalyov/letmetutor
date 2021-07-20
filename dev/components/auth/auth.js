@@ -10,6 +10,10 @@ if (document.querySelector('form[data-signup-tutor-form]')) {
   $api.validate(document.querySelector('form[data-signup-tutor-form]'));
 }
 
+if (document.querySelector('form[data-support-form]')) {
+  $api.validate(document.querySelector('form[data-support-form]'));
+}
+
 if (document.querySelectorAll('.js-auth-country').length) {
   Array.from(document.querySelectorAll('.js-auth-country')).map(el => el.addEventListener('changeCountry', e => {
     el.closest('form').querySelector('.js-auth-city').dataset.country = e.target.querySelector('input').value;
@@ -91,12 +95,14 @@ if (document.querySelectorAll('.js-auth-city input').length) {
 
 if (document.querySelectorAll('input[name="rulesAgreement"]').length) {
   Array.from(document.querySelectorAll('input[name="rulesAgreement"]')).map(el => el.addEventListener('change', () => {
+    const $submitButton = el.closest('form').querySelector('button[type="submit"]');
+
     if (el.checked) {
-      el.closest('form').querySelector('button[type="submit"]').classList.remove('button--disabled');
-      el.closest('form').querySelector('button[type="submit"]').removeAttribute('disabled');
+      $submitButton.classList.remove('button--disabled');
+      $submitButton.removeAttribute('disabled');
     } else {
-      el.closest('form').querySelector('button[type="submit"]').classList.add('button--disabled');
-      el.closest('form').querySelector('button[type="submit"]').setAttribute('disabled', 'disabled');
+      $submitButton.classList.add('button--disabled');
+      $submitButton.setAttribute('disabled', 'disabled');
     }
   }));
 }

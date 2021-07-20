@@ -155,14 +155,14 @@
 
 @media only screen and (max-width: $mobile)
   .input
-    &.dropdown:not([data-cities]):after
+    &.dropdown:not([data-cities]) .input__wrapper:after
       bottom: 17px
     &__field
       height: 40px
-      padding: 10px 20px 11px
+      padding: 10px 15px 11px
       font-size: 13px
       &[type=tel]
-        padding-left: 87px
+        padding-left: 82px
     &__code
       width: 67px
       height: 38px

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns#">
   <head>
-    <title>Авторизация | LetMeTutor</title>
+    <title>Тех. поддержка | LetMeTutor</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="Платформа для репетиторов и учеников">
@@ -81,26 +81,47 @@
         <div class="auth__wrapper wrapper">
           <div class="auth__block">
             <div class="auth__head">
-              <h3 class="heading auth__heading">Авторизация</h3>
+              <h3 class="heading auth__heading">Тех. поддержка</h3>
             </div>
-            <form class="auth__content" data-login-form="data-login-form">
-              <p class="auth__subheading">Войти с помощью:</p>
-              <div class="auth__socials"><a class="auth__social" data-social="fb" href="#">С помощью Facebook</a><a class="auth__social" data-social="google" href="#">С помощью Google</a></div>
-              <p class="auth__subheading">Авторизироваться с помощью сайта:</p>
+            <form class="auth__content" data-support-form="data-support-form">
               <label class="input auth__input ">
+                <p class="input__label">Ваше ФИО <span>*</span></p>
                 <div class="input__wrapper">
-                  <input class="input__field" type="email" name="email" required="required" placeholder="Ваш email"/>
+                  <input class="input__field" type="text" name="fullname" required="required" placeholder="Введите ваше ФИО"/>
+                </div>
+                <p class="input__error">Введите корректные данные</p>
+              </label>
+              <label class="input auth__input ">
+                <p class="input__label">Ваш email <span>*</span></p>
+                <div class="input__wrapper">
+                  <input class="input__field" type="email" name="email" required="required" placeholder="Введите ваш email"/>
                 </div>
                 <p class="input__error">Введите корректный email</p>
               </label>
-              <label class="input auth__input ">
+              <label class="input auth__input  dropdown">
+                <p class="input__label">Тема обращения <span>*</span></p>
+                <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Общие вопросы</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Коммуникация с репетитором</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Учетная запись ученика</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Учетная запись репетитора</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Работа сервиса</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Платные сервисы</a></div>
                 <div class="input__wrapper">
-                  <input class="input__field" type="password" name="password" required="required" placeholder="Ваш пароль"/>
+                  <input class="input__field" type="text" name="subject" required="required" placeholder="Выберите тему" readonly="readonly"/>
                 </div>
-                <p class="input__error">Введите пароль</p>
+                <p class="input__error">Выберите тему из списка</p>
+              </label>
+              <label class="textarea auth__input">
+                <p class="textarea__label">Ваше сообщение <span>*</span></p>
+                <div class="textarea__wrapper">
+                  <textarea class="textarea__field" name="comment" required="required" placeholder="Введите ваш вопрос"></textarea>
+                </div>
+                <p class="textarea__error">Ввведите сообщение</p>
+              </label>
+              <label class="checkbox auth__checkbox">
+                <input class="checkbox__input" type="checkbox" name="rulesAgreement" required="required" checked="checked"/>
+                <div class="checkbox__box">
+                  <div class="checkbox__box-mark"></div>
+                </div>
+                <p class="checkbox__text">Я согласен с <a href="#" target="_blank">правилами сервиса</a></p>
               </label>
               <div class="auth__actions">
-                <button class="button button--primary auth__actions-btn" type="submit">Войти</button><a class="auth__actions-restore js-open-popup" href="javascript:void(0)" data-popup="restore">Забыли пароль?</a>
+                <button class="button button--primary auth__actions-btn" type="submit">Отправить вопрос</button><a class="auth__actions-link" href="help.html">Помощь по сервису</a>
               </div>
             </form>
           </div>
@@ -128,31 +149,6 @@
           </div>
         </div>
       </footer>
-    </div>
-    <div class="popup js-popup js-close-popup" data-popup="restore">
-      <div class="popup__backdrop"></div>
-      <div class="popup__container">
-        <div class="popup__wrapper">
-          <div class="popup__window">
-            <div class="popup__head">
-              <h3 class="heading popup__heading">Восстановление пароля</h3>
-              <div class="popup__close js-close-popup"></div>
-            </div>
-            <div class="popup__content">
-              <form class="popup__restore" data-restore-form="data-restore-form">
-                <p class="popup__subheading">Укажите почту, привязанную к вашей учетной записи. Мы отправим письмо для восстановления пароля.</p>
-                <label class="input popup__restore-input ">
-                  <div class="input__wrapper">
-                    <input class="input__field" type="email" name="email" required="required" placeholder="Введите ваш email"/>
-                  </div>
-                  <p class="input__error">Введите корректный email</p>
-                </label>
-                <button class="button button--primary popup__submit" type="submit">Продолжить</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </body>
 </html>

@@ -54,7 +54,11 @@ $api.popup = ($popup, { onHide, onShow } = {}) => {
 $api.validate = form => {
   const emailRegexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const setInvalidInput = input => {
-    input.closest('.input').classList.add('input--error');
+    if (input.closest('.input')) {
+      input.closest('.input').classList.add('input--error');
+    } else if (input.closest('.textarea')) {
+      input.closest('.textarea').classList.add('textarea--error');
+    }
     input.focus();
   };
   const setInvalidCheckbox = input => {
@@ -64,7 +68,7 @@ $api.validate = form => {
   form.querySelector('button[type="submit"]').addEventListener('click', e => {
     e.preventDefault();
 
-    const $formInputs = Array.from(form.querySelectorAll('input[required]'));
+    const $formInputs = Array.from(form.querySelectorAll('input[required], textarea[required]'));
     const $checkboxSelect = form.querySelectorAll('.checkboxselect');
 
     $formInputs.reverse().map(el => {
@@ -86,6 +90,8 @@ $api.validate = form => {
         case 'email':
           !emailRegexp.test(el.value) && setInvalidInput(el);
           break;
+        default:
+          el.value === '' && setInvalidInput(el);
       }
     });
   
@@ -106,11 +112,13 @@ $api.validate = form => {
     }
 });
 
-  Array.from(form.querySelectorAll('input')).map(el => el.addEventListener('input', () => {
+  Array.from(form.querySelectorAll('input')).concat(Array.from(form.querySelectorAll('textarea'))).map(el => el.addEventListener('input', () => {
     if (el.closest('.input')) {
       el.closest('.input').classList.remove('input--error');
     } else if (el.closest('.checkbox')) {
       el.closest('.checkbox').classList.remove('checkbox--error');
+    } else if (el.closest('.textarea')) {
+      el.closest('.textarea').classList.remove('textarea--error');
     }
   }));
 };

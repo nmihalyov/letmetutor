@@ -4,6 +4,7 @@ include ../_ui/button/button
 include ../_ui/tabs/tabs
 include ../_ui/checkbox/checkbox
 include ../_ui/checkboxselect/checkboxselect
+include ../_ui/textarea/textarea
 
 mixin auth(type)
   section.auth.container
@@ -16,6 +17,8 @@ mixin auth(type)
             +heading('Регистрация', 'auth__heading')
           if type === 'signup-success'
             +heading('Вы успешно зарегистрировались!', 'auth__heading')
+          if type === 'support'
+            +heading('Тех. поддержка', 'auth__heading')
         if type === 'login'
           form.auth__content(data-login-form)
             p.auth__subheading Войти с помощью:
@@ -63,3 +66,13 @@ mixin auth(type)
             p.auth__desc Поздравляем, регистрация прошла успешно, на ваш <b>контактный email</b> отправлено письмо с инструкцией для активации вашей учетной записи, пока вы не подтвердите вашу почту, <b>учетная запись будет неактивной и вы не сможете пользоваться сервисом.</b>
             .auth__actions.auth__actions--centered
               +button('primary', 'link', 'Вернуться назад', 'auth__actions-btn', {link: 'main.html'})
+        if type === 'support'
+          form.auth__content(data-support-form)
+            +input('text', 'Ваше ФИО <span>*</span>', 'fullname', 'Введите ваше ФИО', 'auth__input', {required: true, error: 'Введите корректные данные'})
+            +input('email', 'Ваш email <span>*</span>', 'email', 'Введите ваш email', 'auth__input', {required: true, error: 'Введите корректный email'})
+            +input('text', 'Тема обращения <span>*</span>', 'subject', 'Выберите тему', 'auth__input', {required: true, error: 'Выберите тему из списка', dropdown: '<a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Общие вопросы</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Коммуникация с репетитором</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Учетная запись ученика</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Учетная запись репетитора</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Работа сервиса</a><a class="input__dropdown-item" href="javascript: void(0)" data-dropdown>Платные сервисы</a>'})
+            +textarea('Ваше сообщение <span>*</span>', 'comment', 'Введите ваш вопрос', 'auth__input', {required: true, error: 'Ввведите сообщение'})
+            +checkbox('Я согласен с <a href="#" target="_blank">правилами сервиса</a>', 'rulesAgreement', 'auth__checkbox', true, true)
+            .auth__actions
+              +button('primary', 'submit', 'Отправить вопрос', 'auth__actions-btn')
+              a.auth__actions-link(href="help.html") Помощь по сервису

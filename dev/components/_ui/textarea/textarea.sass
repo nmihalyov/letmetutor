@@ -1,0 +1,76 @@
+.textarea
+  display: block
+  &:hover
+    .textarea__field
+      border-color: $dark-blue
+  &--error
+    .textarea__field
+      border-color: $red !important
+    .textarea__error
+      display: block
+  &__label
+    margin-bottom: 7px
+    color: $dark-blue
+    font-size: 15px
+    span
+      color: $red
+  &__wrapper
+    position: relative
+  &__field
+    display: block
+    width: 100%
+    height: 150px
+    padding: 15px 20px 16px
+    border: 1px solid #F0F0F0
+    border-radius: 5px
+    background-color: #FBFBFB
+    outline: 0
+    line-height: 1.33
+    word-break: keep-all
+    -webkit-appearance: none
+    resize: none
+    transition: border-color .3s ease
+    font:
+      family: 'OpenSans', Helvetica, sans-serif
+      size: 14px
+    &[type="tel"]
+      padding-left: 97px
+    &:focus
+      border-color: $dark-blue
+      &::placeholder
+        opacity: 0
+      &::-webkit-input-placeholder
+        opacity: 0
+      &::-moz-placeholder
+        opacity: 0
+      &:-ms-input-placeholder
+        opacity: 0
+      &:-moz-placeholder
+        opacity: 0
+    &::placeholder
+      opacity: 1
+      color: $gray
+    &::-webkit-input-placeholder
+      opacity: 1
+      color: $gray
+    &::-moz-placeholder
+      opacity: 1
+      color: $gray
+    &:-ms-input-placeholder
+      opacity: 1
+      color: $gray
+    &:-moz-placeholder
+      opacity: 1
+      color: $gray
+  &__error
+    display: none
+    margin: 3px 0
+    color: $red
+    font-size: 13px
+
+@media only screen and (max-width: $mobile)
+  .textarea
+    &__field
+      height: 120px
+      padding: 10px 15px 11px
+      font-size: 13px

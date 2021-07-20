@@ -1,0 +1,13 @@
+mixin textarea(label, name, placeholder, className, options)
+  label.textarea(class=`${className || ''}`)
+    if label.length
+      p.textarea__label!= label
+    .textarea__wrapper
+      textarea.textarea__field(
+        name=name,
+        required=options && options.required,
+        placeholder=placeholder,
+        value=options && options.value,
+        readonly=options && options.readonly)
+    if options && options.error
+      p.textarea__error= options.error
