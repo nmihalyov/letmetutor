@@ -1,17 +1,17 @@
 if (document.querySelector('form[data-login-form]')) {
-  $api.validate(document.querySelector('form[data-login-form]'));
+  $api.validate(document.querySelector('form[data-login-form]'), () => {console.log(true)});
 }
 
 if (document.querySelector('form[data-signup-student-form]')) {
-  $api.validate(document.querySelector('form[data-signup-student-form]'));
+  $api.validate(document.querySelector('form[data-signup-student-form]'), () => {});
 }
 
 if (document.querySelector('form[data-signup-tutor-form]')) {
-  $api.validate(document.querySelector('form[data-signup-tutor-form]'));
+  $api.validate(document.querySelector('form[data-signup-tutor-form]'), () => {});
 }
 
 if (document.querySelector('form[data-support-form]')) {
-  $api.validate(document.querySelector('form[data-support-form]'));
+  $api.validate(document.querySelector('form[data-support-form]'), () => {});
 }
 
 if (document.querySelectorAll('.js-auth-country').length) {

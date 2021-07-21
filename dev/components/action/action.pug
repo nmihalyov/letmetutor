@@ -1,0 +1,7 @@
+include ../_ui/button/button
+
+mixin action(title, button)
+  section.action.container
+    .action__wrapper.wrapper
+      p.action__title= title
+      +button('primary', 'link', button.name, '', {link: button.href})

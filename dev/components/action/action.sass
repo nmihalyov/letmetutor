@@ -1,0 +1,20 @@
+.action
+  background-color: $gray-2
+  padding: 60px 0
+  &__wrapper
+    display: flex
+    flex-direction: column
+    align-items: center
+  &__title
+    margin-bottom: 25px
+    text-align: center
+    font:
+      size: 22px
+      weight: 700
+
+@media only screen and (max-width: $mobile)
+  .action
+    padding: 40px 0
+    &__title
+      margin-bottom: 15px
+      font-size: 18px

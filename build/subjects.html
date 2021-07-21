@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns#">
   <head>
-    <title>Авторизация | LetMeTutor</title>
+    <title>Все предметы | LetMeTutor</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="Платформа для репетиторов и учеников">
@@ -77,33 +77,53 @@
           </div>
         </div>
       </div>
-      <section class="auth container">
-        <div class="auth__wrapper wrapper">
-          <div class="auth__block">
-            <div class="auth__head">
-              <h3 class="heading auth__heading">Авторизация</h3>
-            </div>
-            <form class="auth__content" data-login-form="data-login-form">
-              <p class="auth__subheading">Войти с помощью:</p>
-              <div class="auth__socials"><a class="auth__social" data-social="fb" href="#">С помощью Facebook</a><a class="auth__social" data-social="google" href="#">С помощью Google</a></div>
-              <p class="auth__subheading">Авторизироваться с помощью сайта:</p>
-              <label class="input auth__input ">
-                <div class="input__wrapper">
-                  <input class="input__field" type="email" name="email" required="required" placeholder="Ваш email"/>
-                </div>
-                <p class="input__error">Введите корректный email</p>
-              </label>
-              <label class="input auth__input ">
-                <div class="input__wrapper">
-                  <input class="input__field" type="password" name="password" required="required" placeholder="Ваш пароль"/>
-                </div>
-                <p class="input__error">Введите пароль</p>
-              </label>
-              <div class="auth__actions">
-                <button class="button button--primary auth__actions-btn" type="submit">Войти</button><a class="auth__actions-restore js-open-popup" href="javascript:void(0)" data-popup="restore">Забыли пароль?</a>
-              </div>
-            </form>
+      <section class="subjects container">
+        <div class="subjects__wrapper wrapper">
+          <h2 class="title">Все предметы</h2>
+          <div class="breadcrumbs"><a class="breadcrumbs__link" href="main.html">Главная</a>
+            <p class="breadcrumbs__current">Все предметы</p>
           </div>
+          <div class="subjects__row">
+            <div class="subjects__unit">
+              <p class="subjects__heading">Иностранные языки</p>
+              <p class="subjects__item"><span class="subjects__item-top">Топ</span><a class="subjects__item-link" href="#">Английский язык</a><span class="subjects__item-count">(99 репетиторов)</span></p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">Французский язык</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+              <p class="subjects__item"><span class="subjects__item-top">Топ</span><a class="subjects__item-link" href="#">Немецкий язык</a><span class="subjects__item-count">(20 репетиторов)</span></p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">Итальянский язык</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">Испанский язык</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+            </div>
+            <div class="subjects__unit">
+              <p class="subjects__heading">Точные науки</p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">Физика</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+              <p class="subjects__item"><span class="subjects__item-top">Топ</span><a class="subjects__item-link" href="#">Математика</a><span class="subjects__item-count">(99 репетиторов)</span></p>
+              <p class="subjects__item"><span class="subjects__item-top">Топ</span><a class="subjects__item-link" href="#">Информатика</a><span class="subjects__item-count">(20 репетиторов)</span></p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">Химия</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">Биология</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+            </div>
+            <div class="subjects__unit">
+              <p class="subjects__heading">IT и программирование</p>
+              <p class="subjects__item"><span class="subjects__item-top">Топ</span><a class="subjects__item-link" href="#">Python</a><span class="subjects__item-count">(99 репетиторов)</span></p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">HTML/CSS</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+              <p class="subjects__item"><span class="subjects__item-top">Топ</span><a class="subjects__item-link" href="#">Java</a><span class="subjects__item-count">(20 репетиторов)</span></p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">PHP</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">JavaScript</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+            </div>
+          </div>
+          <div class="subjects__row">
+            <div class="subjects__unit">
+              <p class="subjects__heading">Дизайн</p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">Дизайн одежды</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+              <p class="subjects__item"><span class="subjects__item-top">Топ</span><a class="subjects__item-link" href="#">Web-дизайн</a><span class="subjects__item-count">(99 репетиторов)</span></p>
+              <p class="subjects__item"><span class="subjects__item-top">Топ</span><a class="subjects__item-link" href="#">UI/UX дизайн</a><span class="subjects__item-count">(20 репетиторов)</span></p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">Дизайн интерьеров</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+              <p class="subjects__item"><a class="subjects__item-link" href="#">Полиграфия</a><span class="subjects__item-count">(10 репетиторов)</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="action container">
+        <div class="action__wrapper wrapper">
+          <p class="action__title">Хотите начать зарабатывать?</p><a class="button button--primary " href="#">Стать репетитором</a>
         </div>
       </section>
       <footer class="footer container">
@@ -128,31 +148,6 @@
           </div>
         </div>
       </footer>
-    </div>
-    <div class="popup js-popup js-close-popup" data-popup="restore">
-      <div class="popup__backdrop"></div>
-      <div class="popup__container">
-        <div class="popup__wrapper">
-          <div class="popup__window">
-            <div class="popup__head">
-              <h3 class="heading popup__heading">Восстановление пароля</h3>
-              <div class="popup__close js-close-popup"></div>
-            </div>
-            <div class="popup__content">
-              <form class="popup__restore" data-restore-form="data-restore-form">
-                <p class="popup__subheading">Укажите почту, привязанную к вашей учетной записи. Мы отправим письмо для восстановления пароля.</p>
-                <label class="input popup__restore-input ">
-                  <div class="input__wrapper">
-                    <input class="input__field" type="email" name="email" required="required" placeholder="Введите ваш email"/>
-                  </div>
-                  <p class="input__error">Введите корректный email</p>
-                </label>
-                <button class="button button--primary popup__submit" type="submit">Продолжить</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </body>
 </html>

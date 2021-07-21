@@ -51,7 +51,7 @@ $api.popup = ($popup, { onHide, onShow } = {}) => {
 };
 
 // API для валидации форм
-$api.validate = form => {
+$api.validate = (form, request) => {
   const emailRegexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const setInvalidInput = input => {
     if (input.closest('.input')) {
@@ -68,6 +68,7 @@ $api.validate = form => {
   form.querySelector('button[type="submit"]').addEventListener('click', e => {
     e.preventDefault();
 
+    let formIsValid = true;
     const $formInputs = Array.from(form.querySelectorAll('input[required], textarea[required]'));
     const $checkboxSelect = form.querySelectorAll('.checkboxselect');
 
@@ -79,19 +80,34 @@ $api.validate = form => {
       switch(el.getAttribute('type')) {
         case 'text':
         case 'password':
-          el.value === '' && setInvalidInput(el);
+          if (el.value === '') {
+            setInvalidInput(el);
+            formIsValid = false;
+          }
           break;
         case 'tel':
-          (el.value === '' || el.value.includes('_')) && setInvalidInput(el);
+          if (el.value === '' || el.value.includes('_')) {
+            setInvalidInput(el);
+            formIsValid = false;
+          }
           break;
         case 'checkbox':
-          !el.checked && setInvalidCheckbox(el);
+          if (!el.checked) {
+            setInvalidCheckbox(el);
+            formIsValid = false;
+          }
           break;
         case 'email':
-          !emailRegexp.test(el.value) && setInvalidInput(el);
+          if (!emailRegexp.test(el.value)) {
+            setInvalidInput(el);
+            formIsValid = false;
+          }
           break;
         default:
-          el.value === '' && setInvalidInput(el);
+          if (el.value === '') {
+            setInvalidInput(el);
+            formIsValid = false;
+          }
       }
     });
   
@@ -107,10 +123,15 @@ $api.validate = form => {
   
         if (!checked) {
           el.classList.add('checkboxselect--error');
+          formIsValid = false;
         }
       });
     }
-});
+
+    if (formIsValid) {
+      request();
+    }
+  });
 
   Array.from(form.querySelectorAll('input')).concat(Array.from(form.querySelectorAll('textarea'))).map(el => el.addEventListener('input', () => {
     if (el.closest('.input')) {

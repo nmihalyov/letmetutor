@@ -22,5 +22,5 @@ Array.from(document.querySelectorAll('.js-close-popup')).map(el =>
 );
 
 if (document.querySelector('form[data-restore-form]')) {
-  $api.validate(document.querySelector('form[data-restore-form]'));
+  $api.validate(document.querySelector('form[data-restore-form]'), () => {});
 }

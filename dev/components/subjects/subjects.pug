@@ -1,0 +1,86 @@
+include ../_ui/title/title
+include ../_ui/breadcrumbs/breadcrumbs
+
+mixin subjects
+  section.subjects.container
+    .subjects__wrapper.wrapper
+      +title('Все предметы')
+      +breadcrumbs([{title: 'Главная', link: 'main.html'}, {title: 'Все предметы'}])
+      .subjects__row
+        .subjects__unit
+          p.subjects__heading Иностранные языки
+          p.subjects__item
+            span.subjects__item-top Топ
+            a.subjects__item-link(href="#") Английский язык
+            span.subjects__item-count (99 репетиторов)
+          p.subjects__item
+            a.subjects__item-link(href="#") Французский язык
+            span.subjects__item-count (10 репетиторов)
+          p.subjects__item
+            span.subjects__item-top Топ
+            a.subjects__item-link(href="#") Немецкий язык
+            span.subjects__item-count (20 репетиторов)
+          p.subjects__item
+            a.subjects__item-link(href="#") Итальянский язык
+            span.subjects__item-count (10 репетиторов)
+          p.subjects__item
+            a.subjects__item-link(href="#") Испанский язык
+            span.subjects__item-count (10 репетиторов)
+        .subjects__unit
+          p.subjects__heading Точные науки
+          p.subjects__item
+            a.subjects__item-link(href="#") Физика
+            span.subjects__item-count (10 репетиторов)
+          p.subjects__item
+            span.subjects__item-top Топ
+            a.subjects__item-link(href="#") Математика
+            span.subjects__item-count (99 репетиторов)
+          p.subjects__item
+            span.subjects__item-top Топ
+            a.subjects__item-link(href="#") Информатика
+            span.subjects__item-count (20 репетиторов)
+          p.subjects__item
+            a.subjects__item-link(href="#") Химия
+            span.subjects__item-count (10 репетиторов)
+          p.subjects__item
+            a.subjects__item-link(href="#") Биология
+            span.subjects__item-count (10 репетиторов)
+        .subjects__unit
+          p.subjects__heading IT и программирование
+          p.subjects__item
+            span.subjects__item-top Топ
+            a.subjects__item-link(href="#") Python
+            span.subjects__item-count (99 репетиторов)
+          p.subjects__item
+            a.subjects__item-link(href="#") HTML/CSS
+            span.subjects__item-count (10 репетиторов)
+          p.subjects__item
+            span.subjects__item-top Топ
+            a.subjects__item-link(href="#") Java
+            span.subjects__item-count (20 репетиторов)
+          p.subjects__item
+            a.subjects__item-link(href="#") PHP
+            span.subjects__item-count (10 репетиторов)
+          p.subjects__item
+            a.subjects__item-link(href="#") JavaScript
+            span.subjects__item-count (10 репетиторов)
+      .subjects__row
+        .subjects__unit
+          p.subjects__heading Дизайн
+          p.subjects__item
+            a.subjects__item-link(href="#") Дизайн одежды
+            span.subjects__item-count (10 репетиторов)
+          p.subjects__item
+            span.subjects__item-top Топ
+            a.subjects__item-link(href="#") Web-дизайн
+            span.subjects__item-count (99 репетиторов)
+          p.subjects__item
+            span.subjects__item-top Топ
+            a.subjects__item-link(href="#") UI/UX дизайн
+            span.subjects__item-count (20 репетиторов)
+          p.subjects__item
+            a.subjects__item-link(href="#") Дизайн интерьеров
+            span.subjects__item-count (10 репетиторов)
+          p.subjects__item
+            a.subjects__item-link(href="#") Полиграфия
+            span.subjects__item-count (10 репетиторов)

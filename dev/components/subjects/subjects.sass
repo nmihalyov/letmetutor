@@ -1,0 +1,76 @@
+.subjects
+  padding: 50px 0 70px
+  &__row
+    display: flex
+    padding: 30px 0 25px
+    &:not(:last-child)
+      border-bottom: 1px solid #ECECEC
+  &__unit
+    width: 33.3333%
+  &__heading
+    margin-bottom: 15px
+    line-height: 1
+    font:
+      size: 18px
+      weight: 700
+  &__item
+    display: flex
+    align-items: center
+    &-top
+      margin-right: 10px
+      padding: 1px 5px
+      border-radius: 3px
+      background-color: $blue
+      color: #fff
+      text-transform: uppercase
+      font:
+        size: 10px
+        weight: 500
+    &-link
+      line-height: 2
+    &-count
+      margin-left: 5px
+      color: $gray
+      font-size: 13px
+
+@media only screen and (max-width: $tablet)
+  .subjects
+    padding: 40px 0 50px
+    &__row
+      flex-wrap: wrap
+      padding: 25px 0 20px
+    &__item
+      flex-wrap: wrap
+      &:not(:last-child)
+        margin-bottom: 10px
+      &-top
+        margin-right: 8px
+      &-link
+        line-height: 1.36
+      &-count
+        width: 100%
+        margin-left: 0
+
+@media only screen and (max-width: $mobile)
+  .subjects
+    padding: 30px 0
+    &__row
+      flex-direction: column
+      padding: 0
+      border-bottom: 0 !important
+    &__unit
+      width: 100%
+      margin: 10px 0 !important
+    &__heading
+      margin-bottom: 10px
+    &__item
+      flex-wrap: nowrap
+      &:not(:last-child)
+        margin-bottom: 0
+      &-top
+        margin-right: 8px
+      &-link
+        line-height: 2
+      &-count
+        width: auto
+        margin-left: 5px

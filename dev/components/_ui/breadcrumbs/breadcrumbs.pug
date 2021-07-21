@@ -1,0 +1,7 @@
+mixin breadcrumbs(items)
+  .breadcrumbs
+    each item, i in items
+      if i !== items.length - 1
+        a.breadcrumbs__link(href=item.link)= item.title
+      else
+        p.breadcrumbs__current= item.title
