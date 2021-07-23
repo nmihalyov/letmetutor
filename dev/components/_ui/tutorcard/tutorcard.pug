@@ -1,0 +1,27 @@
+include ../button/button
+
+mixin tutorcard(image, top, verified, login)
+  .tutorcard(class=top ? 'tutorcard--top' : '')
+    .tutorcard__image(style=`background-image: url('img/inhtml/${image}')`)
+    .tutorcard__info
+      div
+        p.tutorcard__name(class=verified ? 'tutorcard__name--verified' : '') Анна Иванова
+        p.tutorcard__location(data-loc="ru") Москва, Россия
+        .tutorcard__subjects
+          a.tutorcard__subjects-item.tutorcard__subjects-item--search(href="#") Английский язык <span>(опыт <b>5 лет</b>)</span>
+          a.tutorcard__subjects-item(href="#") Немецкий язык <span>(опыт <b>2 года</b>)</span>
+          a.tutorcard__subjects-item.tutorcard__subjects-item--hidden(href="#") Французский язык <span>(опыт <b>2 года</b>)</span>
+          a.tutorcard__subjects-item.tutorcard__subjects-item--hidden(href="#") Русский язык <span>(опыт <b>10 лет</b>)</span>
+          a.tutorcard__subjects-item.tutorcard__subjects-item--hidden(href="#") Украинский язык <span>(опыт <b>8 лет</b>)</span>
+          a.tutorcard__subjects-more.js-tutorcard-more(href="javascript:void(0)") +2 предмета
+        p.tutorcard__desc Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...
+      a.tutorcard__more(href="#") Подробнее
+    .tutorcard__actions
+      .tutorcard__actions-info
+        .tutorcard__rating
+          p.tutorcard__rating-rate 4.9
+          p.tutorcard__rating-reviews (50 отзывов)
+        .tutorcard__cost
+          p.tutorcard__cost-value 1000 &#8381;
+          p.tutorcard__cost-desc в час
+      +button(top ? 'primary' : 'secondary', 'popup', 'Оставить заявку', 'tutorcard__btn', {popup: login ? 'request' : 'request-auth'})

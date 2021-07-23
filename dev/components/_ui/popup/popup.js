@@ -24,3 +24,21 @@ Array.from(document.querySelectorAll('.js-close-popup')).map(el =>
 if (document.querySelector('form[data-restore-form]')) {
   $api.validate(document.querySelector('form[data-restore-form]'), () => {});
 }
+
+if (document.querySelector('form[data-request-auth-form]')) {
+  $api.validate(document.querySelector('form[data-request-auth-form]'), () => {});
+}
+
+if (document.querySelector('form[data-request-form]')) {
+  $api.validate(document.querySelector('form[data-request-form]'), () => {
+    const $popup = document.querySelector('.js-popup[data-popup="request"]');
+    const $successPopup = document.querySelector('.js-popup[data-popup="request-success"]');
+
+    $api.popup($popup, {
+      onHide() {
+        Array.from($popup.querySelectorAll('input')).map(el => el.value = '');
+        $api.popup($successPopup).show();
+      }
+    }).hide();
+  });
+}

@@ -1,0 +1,42 @@
+include ../_ui/title/title
+include ../_ui/filters/filters
+include ../_ui/tutorcard/tutorcard
+include ../_ui/pagination/pagination
+include ../_ui/button/button
+
+mixin catalog(notfound, login)
+  section.catalog
+    .catalog__head.container
+      .wrapper
+        +title('Поиск репетитора')
+        +filters('catalog__filters', ['subject', 'location', 'cost', 'term'])
+        .catalog__sort
+          .catalog__sort-item.dropdown.dropdown--caret Сортировать по:
+            p.dropdown__value Актуальности
+            .catalog__sort-dropdown.dropdown__menu
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Популярности
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Цене: от высокой к низкой
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Цене: от низкой к высокой
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Количеству отзывов
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Высокому рейтингу
+          .catalog__sort-item.dropdown.dropdown--caret Показывать на странице:
+            p.dropdown__value 10
+            .dropdown__menu.dropdown__menu--small
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
+    .catalog__main.container
+      .wrapper
+        if notfound
+          .catalog__notfound
+            p.catalog__notfound-text По вашему запросу <a href="#">Французский язык</a> в <a href="#">России</a> <b>ничего не найдено.</b><br>Попробуйте поиск с другими параметрами.
+        else
+          .catalog__found
+            p.catalog__found-desc Найдено <b>213</b> репетиторов по предмету <a href="#">Английский язык</a> в <a href="#">России</a>
+            +tutorcard('tutor-1.jpg', true, true, login)
+            +tutorcard('tutor-2.jpg', false, true, login)
+            +tutorcard('tutor-3.jpg', false, false, login)
+            +tutorcard('tutor-4.jpg', false, true, login)
+            +tutorcard('tutor-5.jpg', false, true, login)
+            .catalog__bottom
+              +pagination
+              +button('primary', 'button', 'Показать еще', 'catalog__bottom-btn')

@@ -2,11 +2,11 @@ mixin input(type, label, name, placeholder, className, options)
   label.input(class=`${className || ''} ${(options && (options.dropdown || options.citiesSearch)) ? ' dropdown' : ''}`, data-cities=options.citiesSearch)
     if label.length
       p.input__label!= label
-    if options && options.dropdown
-      .input__dropdown.dropdown__menu!= options.dropdown
-    if options && options.citiesSearch
-      .input__dropdown.dropdown__menu
     .input__wrapper
+      if options && options.dropdown
+        .input__dropdown.dropdown__menu!= options.dropdown
+      if options && options.citiesSearch
+        .input__dropdown.dropdown__menu
       if type === 'tel'
         .input__code.dropdown(data-code-loc="ru", data-mask="+7 (999) 999-99-99")
           .input__dropdown.dropdown__menu

@@ -7,7 +7,7 @@ mixin header(login)
     .header__wrapper.wrapper
       img.header__logo(src="img/logo.svg", alt="LetMeTutor logo")
       nav.header__nav
-        a.header__nav-link(href="#") Репетиторы
+        a.header__nav-link(href="catalog.html") Репетиторы
         a.header__nav-link(href="#") Как это работает
         a.header__nav-link(href="#") Стать репетитором
         .header__nav-link.dropdown.dropdown--arrow Больше
@@ -30,15 +30,19 @@ mixin header(login)
         if login
           .header__profile
             .header__profile-notifications.dropdown
-              p.header__profile-counter 2
+              p.header__profile-counter 3
               .header__notifications.dropdown__menu
                 p.header__notifications-title.dropdown__menu-item Уведомления
-                .header__notifications-item.dropdown__menu-item
-                  p.header__notifications-date 03.07.2021
-                  p.header__notifications-text Ваши данные подтверждены
-                .header__notifications-item.dropdown__menu-item
-                  p.header__notifications-date 03.07.2021
-                  p.header__notifications-text <b>Осталось только установить пароль</b><br>Чтобы не потерять доступ к вашему аккаунту, рекомендуем вам установить пароль. Сделать это можно в профиле, раздел "Настройки".
+                .header__notifications-wrapper
+                  .header__notifications-item
+                    p.header__notifications-date 03.07.2021
+                    p.header__notifications-text Ваши данные подтверждены
+                  .header__notifications-item
+                    p.header__notifications-date 03.07.2021
+                    p.header__notifications-text <b>Осталось только установить пароль</b><br>Чтобы не потерять доступ к вашему аккаунту, рекомендуем вам установить пароль. Сделать это можно в профиле, раздел "Настройки".
+                  .header__notifications-item
+                    p.header__notifications-date 03.07.2021
+                    p.header__notifications-text Вы успешно зарегистрировались в сервисе!
             a.header__profile-messages(href="#")
             a.header__profile-wallet(href="#") 1 000 &#8381;
             a.header__profile-pic(style="background-image: url('img/inhtml/profile.png')", href="#")
@@ -64,15 +68,19 @@ mixin header(login)
             span.header-menu__profile-name Анастасия
           .header-menu__actions
             .header-menu__notifications.dropdown Уведомления
-              p.header-menu__notifications-counter 2
+              p.header-menu__notifications-counter 3
               .header__notifications.dropdown__menu
-                p.header__notifications-title.dropdown__menu-item Уведомления
-                .header__notifications-item.dropdown__menu-item
-                  p.header__notifications-date 03.07.2021
-                  p.header__notifications-text Ваши данные подтверждены
-                .header__notifications-item.dropdown__menu-item
-                  p.header__notifications-date 03.07.2021
-                  p.header__notifications-text <b>Осталось только установить пароль</b><br>Чтобы не потерять доступ к вашему аккаунту, рекомендуем вам установить пароль. Сделать это можно в профиле, раздел "Настройки".
+                p.header__notifications-title Уведомления
+                .header__notifications-wrapper
+                  .header__notifications-item
+                    p.header__notifications-date 03.07.2021
+                    p.header__notifications-text Ваши данные подтверждены
+                  .header__notifications-item
+                    p.header__notifications-date 03.07.2021
+                    p.header__notifications-text <b>Осталось только установить пароль</b><br>Чтобы не потерять доступ к вашему аккаунту, рекомендуем вам установить пароль. Сделать это можно в профиле, раздел "Настройки".
+                  .header__notifications-item
+                    p.header__notifications-date 03.07.2021
+                    p.header__notifications-text Вы успешно зарегистрировались в сервисе!                    
             a.header-menu__messages(href="#") Сообщения
             a.header-menu__wallet(href="#") Ваш баланс: <span>1 000 &#8381;</span>
         else
@@ -81,7 +89,7 @@ mixin header(login)
             |&nbsp;/&nbsp;
             a(href="signup.html") Регистрация
         nav.header-menu__nav
-          a.header-menu__nav-link(href="#") Репетиторы
+          a.header-menu__nav-link(href="catalog.html") Репетиторы
           a.header-menu__nav-link(href="#") Как это работает
           a.header-menu__nav-link(href="#") Стать репетитором
           a.header-menu__nav-link(href="#") Вопрос - ответ

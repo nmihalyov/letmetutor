@@ -33,3 +33,9 @@ document.querySelector('.header__burger').addEventListener('click', () => {
 
 document.querySelector('.header-menu__backdrop').addEventListener('click', hideHeaderMenu);
 document.querySelector('.header-menu__close').addEventListener('click', hideHeaderMenu);
+
+Array.from(document.querySelectorAll('.header__notifications-wrapper')).map(el => {
+  if (!el.classList.contains('fakeScroll')) {
+    el.fakeScroll();
+  }
+});

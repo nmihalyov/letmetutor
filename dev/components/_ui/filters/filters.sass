@@ -1,0 +1,188 @@
+.filters
+  &__form
+    display: inline-flex
+    align-items: center
+    padding: 7px
+    background-color: #fff
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05)
+    border-radius: 10px
+  &__input
+    position: relative
+    padding-left: 10px
+    &:first-child
+      padding-left: 17px
+      .filters__dropdown
+        left: -7px
+    &:not(:first-child)
+      border-left: 1px solid #DCDCDC
+      &:before
+        left: 10px
+    &:before
+      content: ''
+      position: absolute
+      top: calc(50% - 8px)
+      left: 13px
+      width: 16px
+      height: 16px
+      background:
+        size: contain
+        position: center
+        repeat: no-repeat
+    &.dropdown--active .filters__dropdown
+      bottom: -25px
+    &[data-input="subject"]:before
+      background-image: url('../img/icons/list.svg')
+    &[data-input="location"]:before
+      background-image: url('../img/icons/pin.svg')
+    &[data-input="cost"]:before
+      background-image: url('../img/icons/wallet-gray.svg')
+    &[data-input="term"]:before
+      background-image: url('../img/icons/medal.svg')
+    &-field
+      width: 226px
+      padding: 6px 6px 6px 24px
+      outline: 0
+      border: none
+      line-height: 1.33
+      word-break: keep-all
+      -webkit-appearance: none
+      transition: border-color .3s ease
+      font:
+        family: 'OpenSans', Helvetica, sans-serif
+        size: 15px
+        weight: 300
+      &::placeholder
+        opacity: 1
+        color: $gray
+      &::-webkit-input-placeholder
+        opacity: 1
+        color: $gray
+      &::-moz-placeholder
+        opacity: 1
+        color: $gray
+      &:-ms-input-placeholder
+        opacity: 1
+        color: $gray
+      &:-moz-placeholder
+        opacity: 1
+        color: $gray
+  &__dropdown
+    left: 0
+    bottom: -15px
+    max-height: 238px
+    width: 100%
+    border-radius: 10px
+    .fakeScroll
+      &__wrap
+        max-height: 238px
+      &__content
+        max-height: 238px
+        padding: 20px 10px 20px 0
+      &__track
+        z-index: 2
+        right: 10px
+        width: 4px
+        padding: 20px 0
+      &__bar
+        background-color: transparentize(#000, .8)
+    &--hidden
+      visibility: hidden !important
+      transition: none
+    &-item
+      padding: 6px 6px 6px 30px
+      transition: opacity .3s ease
+      &:hover
+        opacity: 0.8
+        background-color: transparent
+  &__cost
+    padding: 25px 25px 33px
+    &-head
+      margin-bottom: 18px
+    &-value
+      margin-right: 8px
+      font-weight: 500
+    &-desc
+      color: $gray
+      font-size: 13px
+    &-range
+      height: 4px
+      border: 0
+      border-radius: 4px
+      background-color: #E0E0E0
+      .noUi-connect
+        border-radius: 4px
+        background-color: $blue
+      .noUi-handle
+        top: -8px
+        right: -10px
+        width: 20px
+        height: 20px
+        box-shadow: none
+        border: 2px solid #3964F9
+        border-radius: 50%
+        background: #fff
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15)
+        cursor: pointer
+        &:before,
+        &:after
+          display: none
+  &__btn
+    width: 200px
+
+@media only screen and (max-width: $tablet)
+  .filters
+    &__form
+      flex-wrap: wrap
+      width: calc(100% + 20px)
+      margin-left: -10px
+      padding: 0
+      background-color: transparent
+      box-shadow: none
+      padding: 0
+    &__input
+      width: calc(50% - 20px)
+      margin: 0 10px 10px
+      &:first-child
+        padding-left: 0
+        .filters__dropdown
+          left: 0
+      &:not(:first-child)
+        padding-left: 0
+        border-left: none
+        &:before
+          left: 13px
+      &.dropdown--active .filters__dropdown
+        bottom: 10px
+      &-field
+        width: 100%
+        padding: 15px 10px 15px 40px
+        border-radius: 10px
+        background-color: #fff
+    &__dropdown
+      width: 100%
+      bottom: 20px
+      border-top-left-radius: 0
+      border-top-right-radius: 0
+      box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.07)
+      &-item
+        padding: 5px 5px 5px 40px
+    &__btn
+      width: 100%
+      margin: 0 10px
+
+@media only screen and (max-width: $mobile)
+  .filters
+    &__form
+      width: 100%
+      margin: 0
+    &__input
+      width: 100%
+      margin: 0 0 10px
+      &-field
+        padding: 11px 10px 11px 40px
+        border-radius: 5px
+    &__dropdown
+      border-bottom-left-radius: 5px
+      border-bottom-right-radius: 5px
+    &__btn
+      margin: 0

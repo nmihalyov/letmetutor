@@ -1,0 +1,36 @@
+.pagination
+  display: flex
+  justify-content: center
+  align-items: center
+  &__arrow
+    position: relative
+    width: 32px
+    height: 20px
+    transition: transform .3s ease
+    background:
+      image: url('../img/icons/arrow.svg')
+      position: center
+      repeat: no-repeat
+    &--disabled
+      pointer-events: none
+      background-image: url('../img/icons/arrow-gray.svg')
+    &--prev
+      transform: rotate(180deg)
+      &:hover
+        transform: rotate(180deg) translateX(2px)
+    &--next
+      &:hover
+        transform: translateX(2px)
+  &__pages
+    font-weight: 500
+  &__page
+    padding: 0 8px
+    color: $blue
+    &:hover
+      color: transparentize($blue, 0.2)
+    &--current
+      pointer-events: none
+      color: $dark-blue
+  &__separator
+    margin: 0 8px
+    color: $gray

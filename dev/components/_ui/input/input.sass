@@ -93,16 +93,29 @@
           background-image: url('../img/icons/ua.svg')
   &__dropdown
     overflow: hidden
+    max-height: 280px
     left: 0 !important
     width: 100%
     border-radius: 5px
     &-item
       position: relative
       display: block
-      padding: 15px 20px
+      padding: 15px 20px !important
       transition: all .3s ease
       &:hover
         background-color: $gray-3
+    .fakeScroll
+      &__wrap
+        max-height: 280px
+      &__content
+        max-height: 280px
+      &__track
+        z-index: 2
+        right: 10px
+        width: 4px
+        padding: 20px 0
+      &__bar
+        background-color: transparentize(#000, .8)
   &__field
     display: block
     width: 100%

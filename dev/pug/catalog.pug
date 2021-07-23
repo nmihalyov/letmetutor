@@ -1,0 +1,20 @@
+include ../components/cookies/cookies
+include ../components/header/header
+include ../components/catalog/catalog
+include ../components/footer/footer
+include ../components/_ui/popup/popup
+
+doctype
+html(lang="ru", prefix="og: http://ogp.me/ns#")
+  head
+    title Каталог репетиторов | LetMeTutor
+    include assets/_metas
+    include assets/_links
+    include assets/_scripts
+  body
+    .page-wrapper
+      +cookies
+      +header
+      +catalog
+      +footer
+    +popup('request-auth')

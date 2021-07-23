@@ -20,98 +20,20 @@
     font:
       size: 36px
       weight: 700
-  &__form
-    display: flex
-    align-items: center
-    padding: 7px
-    background-color: #fff
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05)
-    border-radius: 10px
-  &__input
-    position: relative
-    &:first-child
-      .hero__dropdown
-        left: -7px
-    &:not(:first-child)
-      padding-left: 17px
-      border-left: 1px solid #DCDCDC
-      &:before
-        left: 30px
-    &:before
-      content: ''
-      position: absolute
-      top: calc(50% - 8px)
-      left: 13px
-      width: 16px
-      height: 16px
-      background:
-        size: contain
-        position: center
-        repeat: no-repeat
-    &[data-input="subject"]:before
-      background-image: url('../img/icons/list.svg')
-    &[data-input="location"]:before
-      background-image: url('../img/icons/pin.svg')
-    &.dropdown--active .hero__dropdown
-      bottom: -26px
-    &-field
-      width: 270px
-      padding: 6px 6px 6px 38px
-      outline: 0
-      border: none
-      line-height: 1.33
-      word-break: keep-all
-      -webkit-appearance: none
-      transition: border-color .3s ease
-      font:
-        family: 'OpenSans', Helvetica, sans-serif
-        size: 15px
-        weight: 300
-      &::placeholder
-        opacity: 1
-        color: $gray
-      &::-webkit-input-placeholder
-        opacity: 1
-        color: $gray
-      &::-moz-placeholder
-        opacity: 1
-        color: $gray
-      &:-ms-input-placeholder
-        opacity: 1
-        color: $gray
-      &:-moz-placeholder
-        opacity: 1
-        color: $gray
-  &__dropdown
-    left: 0
-    bottom: -16px
-    max-height: 238px
-    width: 280px
-    border-radius: 10px
-    .fakeScroll
-      &__wrap
-        max-height: 238px
-      &__content
-        max-height: 238px
-        padding: 20px 10px 20px 0
-      &__track
-        z-index: 2
-        right: 10px
-        width: 4px
-        padding: 20px 0
-      &__bar
-        background-color: transparentize(#000, .8)
-    &--hidden
-      visibility: hidden !important
-      transition: none
-    &-item
-      padding: 6px 6px 6px 30px
-      transition: opacity .3s ease
-      &:hover
-        opacity: 0.8
-        background-color: transparent
-  &__btn
-    width: 200px
+  &__filters .filters
+    &__input
+      padding-left: 0
+      &:first-child
+        padding-left: 0
+        .filters__dropdown
+          width: calc(100% + 7px)
+      &:not(:first-child)
+        padding-left: 10px
+        &:before
+          left: 23px
+      &-field
+        width: 270px
+        padding: 6px 6px 6px 38px
 
 @media only screen and (max-width: $tablet)
   .hero
@@ -120,11 +42,37 @@
       width: 420px
       margin-bottom: 25px
       font-size: 30px
-    &__form
-      width: 100%
-    &__input
-      &-field
-        width: 248px
+    &__filters .filters
+      &__form
+        width: 100%
+        flex-wrap: nowrap
+        margin-left: 0
+        padding: 7px
+        background-color: #fff
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05)
+      &__input
+        width: auto
+        margin: 0
+        &:first-child .filters__dropdown
+          left: -7px
+          width: calc(100% + 7px)
+        &:not(:first-child)
+          border-left: 1px solid #DCDCDC
+        &.dropdown--active .filters__dropdown
+          bottom: -25px
+        &-field
+          width: 248px
+          padding: 6px 6px 6px 38px
+      &__dropdown
+        bottom: -15px
+        width: 100%
+        border-radius: 10px !important
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07)
+        &-item
+          padding: 6px 6px 6px 30px
+      &__btn
+        width: 200px
+        margin: 0
 
 @media only screen and (max-width: $mobile)
   .hero
@@ -134,35 +82,38 @@
       max-width: 100%
       margin-bottom: 25px
       font-size: 24px
-    &__form
-      display: block
-      width: 100%
-      background-color: transparent
-      box-shadow: none
-    &__input
-      display: block
-      margin-bottom: 10px
-      &:first-child
-        .hero__dropdown
-          left: 0
-      &:not(:first-child)
-        padding-left: 0
-        border-left: none
-        &:before
-          left: 13px
-      &.dropdown--active .hero__dropdown
-        bottom: 5px
-      &-field
-        width: 100%
-        padding: 11px 10px 11px 40px
-        border-radius: 5px
-        background-color: #fff
-    &__dropdown
-      width: 100%
-      bottom: 15px
-      padding: 5px 0
-      border-top-left-radius: 0
-      border-top-right-radius: 0
-      box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.07)
-      &-item
-        padding: 5px 5px 5px 40px
+    &__filters 
+      align-self: stretch
+      .filters
+        &__form
+          display: block
+          width: 100%
+          background-color: transparent
+          box-shadow: none
+          padding: 0
+        &__input
+          display: block
+          width: 100%
+          margin-bottom: 10px
+          &:first-child
+            .filters__dropdown
+              left: 0
+              width: 100%
+          &:not(:first-child)
+            padding-left: 0
+            border-left: none
+            &:before
+              left: 13px
+          &.dropdown--active .filters__dropdown
+            bottom: 5px
+          &-field
+            width: 100%
+            padding: 11px 10px 11px 40px
+            border-radius: 5px
+            background-color: #fff
+        &__dropdown
+          bottom: 15px
+          border-radius: 0 0 5px 5px !important
+          box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.07)
+        &__btn
+          width: 100%

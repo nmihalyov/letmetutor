@@ -11,6 +11,12 @@ mixin popup(type, id = type)
           .popup__head
             if type === 'restore'
               +heading('Восстановление пароля', 'popup__heading')
+            if type === 'request-auth'
+              +heading('Зарегистрируйтесь, чтобы отправить заявку', 'popup__heading')
+            if type === 'request'
+              +heading('Оставить заявку на занятия', 'popup__heading')
+            if type === 'request-success'
+              +heading('Заявка успешно отправлена!', 'popup__heading')
             .popup__close.js-close-popup
           .popup__content
             if type === 'restore'
@@ -18,3 +24,30 @@ mixin popup(type, id = type)
                 p.popup__subheading Укажите почту, привязанную к вашей учетной записи. Мы отправим письмо для восстановления пароля.
                 +input('email', '', 'email', 'Введите ваш email', 'popup__restore-input', {required: true, error: 'Введите корректный email'})
                 +button('primary', 'submit', 'Продолжить', 'popup__submit')
+            if type === 'request-auth'
+              form(data-request-auth-form)
+                p.popup__desc Чтобы отправить заявку репетитору <b>Анна Иванова</b>, осталось совершить всего одно действие!
+                p.auth__subheading Войти с помощью:
+                .auth__socials
+                  a.auth__social(data-social="fb", href="#") С помощью Facebook
+                  a.auth__social(data-social="google", href="#") С помощью Google
+                p.auth__subheading Авторизироваться с помощью сайта:
+                +input('email', '', 'email', 'Ваш email', 'auth__input', {required: true, error: 'Введите корректный email'})
+                +input('password', '', 'password', 'Ваш пароль', 'auth__input', {required: true, error: 'Введите пароль'})
+                .auth__actions
+                  +button('primary', 'submit', 'Войти', 'auth__actions-btn')
+                  a.auth__actions-restore(href="signup.html") Регистрация
+            if type === 'request'
+              form.popup__request(data-request-form)
+                p.popup__warn <b>Обращаем ваше внимание</b>, что первое занятие с репетитором оплачивается онлайн через наш сервис.
+                .popup__request-row
+                  +input('text', 'Цель занятий <span>*</span>', 'purpose', 'Выберите цель занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите цель занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Подтянуть уровень языка</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Выучить язык с нуля</a>'})
+                  +input('text', 'Количество раз в неделю <span>*</span>', 'lessons', 'Выберите количество занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите количество занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>1 раз</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>2 раза</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>3 раза</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>4 раз</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>5 раз</a>'})
+                .popup__request-row
+                  +input('text', 'Желаемое время <span>*</span>', 'time', 'Выберите желаемое время', 'popup__request-input auth__input', {required: true, error: 'Выберите желаемое время', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>9:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>10:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>11:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>12:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>13:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>14:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>15:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>16:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>17:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>18:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>19:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>20:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>21:00</a>'})
+                  +input('text', 'Тип занятий <span>*</span>', 'type', 'Выберите тип занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите тип занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Онлайн</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Офлайн</a>'})
+                .auth__actions
+                  +button('primary', 'submit', 'Отправить заявку', 'auth__actions-btn')
+                  a.auth__actions-link(href="#") Помощь по сервису
+            if type === 'request-success'
+              p.popup__desc.popup__desc--centered Вы получите уведомление в случае, если <b>Анна Иванова</b> ее подтвердит или отклонит <b>в течение 12 часов.</b>

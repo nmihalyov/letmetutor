@@ -1,19 +1,23 @@
+const $dropdowns = Array.from(document.querySelectorAll('.dropdown'));
+
 // close dropdown on outer click
 document.addEventListener('click', e => {
   const $this = e.target;
 
   if(!$this.closest('.dropdown')) {
-    Array.from(document.querySelectorAll('.dropdown')).map(el => el.classList.remove('dropdown--active'));
+    $dropdowns.map(el => el.classList.remove('dropdown--active'));
   }
 });
 
 // open dropdown
-Array.from(document.querySelectorAll('.dropdown')).map(el => el.addEventListener('click', e => {
+$dropdowns.map(el => el.addEventListener('click', e => {
   e.preventDefault();
   const $this = e.currentTarget;
-  
-  Array.from(document.querySelectorAll('.dropdown')).map(el => el !== $this && el.classList.remove('dropdown--active'));
-  $this.classList.toggle('dropdown--active');
+
+  if (!$this.classList.contains('dropdown--active')) {
+    $dropdowns.map(el => el !== $this && el.classList.remove('dropdown--active'));
+    $this.classList.toggle('dropdown--active');
+  }
 }));
 
 // change dropdown value
@@ -29,5 +33,9 @@ document.addEventListener('click', e => {
     
     $this.parentNode.prepend($cloneElement);
     $this.parentNode.removeChild($this);
+  }
+
+  if (e.target.closest('.dropdown__menu-item')) {
+    document.querySelector('.dropdown--active').classList.remove('dropdown--active');
   }
 });

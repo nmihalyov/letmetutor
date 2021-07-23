@@ -5,7 +5,7 @@
   left: 0
   right: 0
   background-color: #fff
-  border-bottom: 1px solid #ECECEC
+  border-bottom: 1px solid $gray-4
   &__banner
     position: relative
     display: none
@@ -44,8 +44,6 @@
     display: flex
     &-link
       font-size: 15px
-      &.dropdown
-        padding-right: 15px
       &:not(:last-child)
         margin-right: 20px
     &-dropdown
@@ -143,19 +141,34 @@
     cursor: default
     &-title
       padding: 10px 20px
+      border-bottom: 1px dashed #DCDCDC
       font:
         size: 14px
         weight: 500
       &:hover
         background-color: transparent
+    .fakeScroll
+      position: relative
+      &__wrap
+        max-height: 200px
+      &__content
+        max-height: 200px
+      &__track
+        z-index: 2
+        right: 5px
+        width: 4px
+        padding: 10px 0
+      &__bar
+        background-color: transparentize(#000, .8)
     &-item
       position: relative
       padding: 20px 20px
-      border-top: 1px dashed #DCDCDC
       color: $gray
       &:hover
         background-color: transparent
         color: $gray
+      &:not(:first-child)
+        border-top: 1px dashed #DCDCDC
     &-date
       position: absolute
       top: 2px
@@ -263,7 +276,7 @@
         justify-content: space-between
         align-items: center
         padding: 20px 30px
-        border-bottom: 1px solid #ECECEC
+        border-bottom: 1px solid $gray-4
       &__close
         width: 14px
         height: 14px
@@ -281,7 +294,7 @@
         display: none
       &__nav
         padding: 15px 30px
-        border-bottom: 1px solid #ECECEC
+        border-bottom: 1px solid $gray-4
         &-link
           display: block
           padding: 10px 0
@@ -324,7 +337,7 @@
         display: flex
         position: relative
         padding: 20px 20px 20px 50px
-        border-bottom: 1px solid #ECECEC
+        border-bottom: 1px solid $gray-4
         font:
           size: 15px
           weight: 500
@@ -344,7 +357,7 @@
         display: flex
         align-items: center
         padding: 20px 20px 20px 30px
-        border-bottom: 1px solid #ECECEC
+        border-bottom: 1px solid $gray-4
         &-pic
           width: 32px
           height: 32px

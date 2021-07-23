@@ -1,14 +1,8 @@
 include ../_ui/button/button
+include ../_ui/filters/filters
 
 mixin hero
   section.hero.container(style="background-image: url('img/inhtml/hero-bg.png')")
     .hero__wrapper.wrapper
       h1.hero__heading Мы поможем вам найти лучшего репетитора
-      form.hero__form(action="")
-        label.hero__input.dropdown(data-input="subject")
-          input.hero__input-field(type="text", name="subject", placeholder="Выберите предмет", autocomplete="off", data-options='["Английский язык", "Математика", "Украинский язык", "Программирование", "Физика", "Химия", "Биология", "Русский язык", "История"]')
-          .hero__dropdown.dropdown__menu
-        label.hero__input.dropdown(data-input="location")
-          input.hero__input-field(type="text", name="location", placeholder="Выберите вашу локацию", autocomplete="off", data-options='["Россия", "Украина", "Онлайн"]')
-          .hero__dropdown.dropdown__menu
-        +button('primary', 'submit', 'Найти', 'hero__btn')
+      +filters('hero__filters', ['subject', 'location'])

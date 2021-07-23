@@ -1,0 +1,85 @@
+.catalog
+  min-height: calc(100vh - 410px)
+  &__head
+    padding: 50px 0
+    background-color: $gray-2
+  &__filters
+    margin: 30px 0 25px
+  &__sort
+    display: flex
+    justify-content: space-between
+    &-item
+      display: flex
+      .dropdown__value
+        margin-left: 5px
+      .dropdown__menu
+        left: auto
+        right: 0
+    &-dropdown
+      .dropdown__menu-item
+        padding: 10px 5px 10px 20px
+  &__notfound
+    display: flex
+    justify-content: center
+    padding: 155px 0 180px
+    &-text
+      text-align: center
+      line-height: 2
+      font-size: 18px
+      a
+        color: $blue
+      b
+        font-weight: 500
+  &__found
+    padding: 45px 0 105px
+    &-desc
+      margin-bottom: 25px
+      font-size: 18px
+      a
+        color: $blue
+      b
+        font-weight: 500
+  &__bottom
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding-top: 25px
+    &-btn
+      margin-top: 25px
+
+@media only screen and (max-width: $tablet)
+  .catalog
+    min-height: 0
+    &__notfound
+      padding: 130px 0 150px
+      &-text
+        font-size: 16px
+    &__found
+      padding: 45px 0 50px
+      &-desc
+        font-size: 16px
+
+@media only screen and (max-width: $mobile)
+  .catalog
+    &__head
+      padding: 30px 0
+    &__filters
+      margin: 15px 0 20px
+    &__sort
+      flex-direction: column
+      align-items: flex-start
+      &-item
+        &:not(:last-child)
+          margin-bottom: 10px
+    &__notfound
+      padding: 100px 0 120px
+      &-text
+        line-height: 1.36
+        font-size: 15px
+    &__found
+      padding: 25px 0 50px
+      &-desc
+        margin-bottom: 20px
+        font-size: 15px
+    &__bottom
+      padding-top: 5px

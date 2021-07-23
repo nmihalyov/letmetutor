@@ -8,7 +8,12 @@ const updateMask = (input, mask) => {
 Array.from(document.querySelectorAll('.input.dropdown'))
 .concat(Array.from(document.querySelectorAll('.input .dropdown')))
 .map(el => el.addEventListener('click', () => {
+  const $dropdown = el.querySelector('.dropdown__menu');
   el.closest('.input').querySelector('.input__dropdown').style.width = el.closest('.input').getBoundingClientRect().width + 'px';
+
+  if (!$dropdown.classList.contains('fakeScroll')) {
+    $dropdown.fakeScroll();
+  }
 }));
 
 // Change phone code on input dropdown
