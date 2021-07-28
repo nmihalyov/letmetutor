@@ -1,3 +1,4 @@
+// handle checkboxselect logic
 Array.from(document.querySelectorAll('.checkboxselect__list')).map(list => {
   list.addEventListener('click', e => {
     e.stopPropagation();

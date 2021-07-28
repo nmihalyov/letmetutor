@@ -1,0 +1,36 @@
+[data-tooltip]
+  position: relative
+  &:hover .tooltip
+    opacity: 1
+    visibility: visible
+    top: calc(-100% - 13px)
+
+.tooltip
+  position: absolute
+  opacity: 0
+  visibility: hidden
+  display: block
+  top: calc(-100% - 8px)
+  left: 0
+  padding: 5px 7px
+  border-radius: 3px
+  background-color: lighten(#000, 40)
+  color: #fff !important
+  white-space: nowrap
+  transition: opacity .3s ease, visibility .3s ease, top .3s ease
+  font:
+    size: 15px !important
+    weight: 300 !important
+  &:before
+    content: ''
+    position: absolute
+    bottom: 0
+    left: calc(50% - 9px)
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 5px 8.5px 0 8.5px
+    border-color: lighten(#000, 40) transparent transparent transparent
+    transform: translateY(100%)
+  b
+    font-weight: 500

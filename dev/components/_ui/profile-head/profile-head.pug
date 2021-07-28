@@ -1,0 +1,34 @@
+include ../tooltip/tooltip
+
+mixin profile-head(type)
+  if type === 'tutor'
+    .profile-head
+      .profile-head__image(style="background-image: url('../img/inhtml/tutor-1.jpg')")
+      .profile-head__info
+        .profile-head__top
+          div
+            p.profile-head__name.profile-head__name--verified Анна Иванова
+            p.profile-head__location(data-loc="ru") Москва, Россия
+          p.profile-head__online Был(а) в сети 1 час назад
+        .profile-head__bottom
+          p.profile-head__heading Предметы:
+          .profile-head__subjects
+            a.profile-head__subjects-item.profile-head__subjects-item--highlight(href="#", data-tooltip)
+              |Английский язык <span>(опыт 5 лет)</span>
+              +tooltip('<b>1000</b> &#8381; в час')
+            a.profile-head__subjects-item(href="#", data-tooltip)
+              |Немецкий язык <span>(опыт 5 лет)</span>
+              +tooltip('<b>1000</b> &#8381; в час')
+            a.profile-head__subjects-item(href="#", data-tooltip)
+              |Итальянский язык <span>(опыт 5 лет)</span>
+              +tooltip('<b>1000</b> &#8381; в час')
+            a.profile-head__subjects-item(href="#", data-tooltip)
+              |Французский язык <span>(опыт 5 лет)</span>
+              +tooltip('<b>1000</b> &#8381; в час')
+      .profile-head__bottom.profile-head__bottom--mobile
+        p.profile-head__heading Предметы:
+        .profile-head__subjects
+          a.profile-head__subjects-item.profile-head__subjects-item--highlight(href="#") Английский язык
+          a.profile-head__subjects-item(href="#") Немецкий язык
+          a.profile-head__subjects-item(href="#") Итальянский язык
+          a.profile-head__subjects-item(href="#") Французский язык

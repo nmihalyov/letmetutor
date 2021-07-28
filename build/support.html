@@ -33,15 +33,11 @@
   </head>
   <body>
     <div class="page-wrapper">
-      <div class="cookies">
-        <p class="cookies__text">Мы используем cookies, для вашего удобства на сайте. Просматривая наш веб-сайт, вы соглашаетесь на использование нами файлов cookies.</p>
-        <button class="button button--primary cookies__btn">Хорошо!</button>
+      <div class="banner" style="background-image: url('img/inhtml/header-banner-bg.png'), linear-gradient(180deg, #FECD08 0%, #F2C94C 100%)"><img class="banner__img" src="img/inhtml/banner-img.svg" alt="" style="width: 94px; margin-top: 7px"/>
+        <p class="banner__title">Мы запустили YouDo Бизнес — сервис для работы компаний с самозанятыми.</p>
+        <div class="banner__close"></div>
       </div>
       <header class="header container">
-        <div class="header__banner" style="background-image: url('img/inhtml/header-banner-bg.png'), linear-gradient(180deg, #FECD08 0%, #F2C94C 100%)"><img class="header__banner-img" src="img/inhtml/banner-img.svg" alt="" style="width: 94px; margin-top: 7px"/>
-          <p class="header__banner-title">Мы запустили YouDo Бизнес — сервис для работы компаний с самозанятыми.</p>
-          <div class="header__banner-close"></div>
-        </div>
         <div class="header__wrapper wrapper"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/>
           <nav class="header__nav"><a class="header__nav-link" href="catalog.html">Репетиторы</a><a class="header__nav-link" href="#">Как это работает</a><a class="header__nav-link" href="#">Стать репетитором</a>
             <div class="header__nav-link dropdown dropdown--arrow">Больше
@@ -51,11 +47,11 @@
           <div class="header__actions">
             <div class="header__nav-link dropdown dropdown--arrow"> 
               <p class="dropdown__value">RU</p>
-              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UA</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">EN</a></div>
+              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">RU</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UA</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">EN</a></div>
             </div>
             <div class="header__nav-link dropdown dropdown--arrow"> 
               <p class="dropdown__value">RUB</p>
-              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">USD</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UAH</a></div>
+              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">RUB</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">USD</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UAH</a></div>
             </div>
             <p class="header__signin"><a href="login.html">Войти</a>&nbsp;/&nbsp;<a href="signup.html">Регистрация</a></p>
             <div class="header__burger"></div>
@@ -84,21 +80,21 @@
               <h3 class="heading auth__heading">Тех. поддержка</h3>
             </div>
             <form class="auth__content" data-support-form="data-support-form">
-              <label class="input auth__input ">
+              <label class="input auth__input">
                 <p class="input__label">Ваше ФИО <span>*</span></p>
                 <div class="input__wrapper">
                   <input class="input__field" type="text" name="fullname" required="required" placeholder="Введите ваше ФИО"/>
                 </div>
                 <p class="input__error">Введите корректные данные</p>
               </label>
-              <label class="input auth__input ">
+              <label class="input auth__input">
                 <p class="input__label">Ваш email <span>*</span></p>
                 <div class="input__wrapper">
                   <input class="input__field" type="email" name="email" required="required" placeholder="Введите ваш email"/>
                 </div>
                 <p class="input__error">Введите корректный email</p>
               </label>
-              <label class="input auth__input  dropdown">
+              <label class="input auth__input dropdown">
                 <p class="input__label">Тема обращения <span>*</span></p>
                 <div class="input__wrapper">
                   <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Общие вопросы</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Коммуникация с репетитором</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Учетная запись ученика</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Учетная запись репетитора</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Работа сервиса</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Платные сервисы</a></div>
@@ -149,6 +145,10 @@
           </div>
         </div>
       </footer>
+      <div class="cookies">
+        <p class="cookies__text">Мы используем cookies, для вашего удобства на сайте. Просматривая наш веб-сайт, вы соглашаетесь на использование нами файлов cookies.</p>
+        <button class="button button--primary cookies__btn">Хорошо!</button>
+      </div>
     </div>
   </body>
 </html>

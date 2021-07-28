@@ -1,5 +1,5 @@
-mixin tabs(arr)
-  .tabs
+mixin tabs(items, className)
+  .tabs(class=className)
     .tabs__inner
-      each val, i in arr
-        button.tabs__item(data-tab=i + 1, class=`${i === 0 ? 'tabs__item--active' : ''}`)= val
+      each item, i in items
+        button.tabs__item(data-tab=i + 1, class=`${i === 0 ? 'tabs__item--active' : ''}`)= item

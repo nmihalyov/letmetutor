@@ -1,3 +1,4 @@
+// show hiddne subject in tutorcard
 Array.from(document.querySelectorAll('.js-tutorcard-more')).map(el => el.addEventListener('click', () => {
   el.style.display = 'none';
 

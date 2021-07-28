@@ -33,15 +33,11 @@
   </head>
   <body>
     <div class="page-wrapper">
-      <div class="cookies">
-        <p class="cookies__text">Мы используем cookies, для вашего удобства на сайте. Просматривая наш веб-сайт, вы соглашаетесь на использование нами файлов cookies.</p>
-        <button class="button button--primary cookies__btn">Хорошо!</button>
+      <div class="banner" style="background-image: url('img/inhtml/header-banner-bg.png'), linear-gradient(180deg, #FECD08 0%, #F2C94C 100%)"><img class="banner__img" src="img/inhtml/banner-img.svg" alt="" style="width: 94px; margin-top: 7px"/>
+        <p class="banner__title">Мы запустили YouDo Бизнес — сервис для работы компаний с самозанятыми.</p>
+        <div class="banner__close"></div>
       </div>
       <header class="header container">
-        <div class="header__banner" style="background-image: url('img/inhtml/header-banner-bg.png'), linear-gradient(180deg, #FECD08 0%, #F2C94C 100%)"><img class="header__banner-img" src="img/inhtml/banner-img.svg" alt="" style="width: 94px; margin-top: 7px"/>
-          <p class="header__banner-title">Мы запустили YouDo Бизнес — сервис для работы компаний с самозанятыми.</p>
-          <div class="header__banner-close"></div>
-        </div>
         <div class="header__wrapper wrapper"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/>
           <nav class="header__nav"><a class="header__nav-link" href="catalog.html">Репетиторы</a><a class="header__nav-link" href="#">Как это работает</a><a class="header__nav-link" href="#">Стать репетитором</a>
             <div class="header__nav-link dropdown dropdown--arrow">Больше
@@ -51,11 +47,11 @@
           <div class="header__actions">
             <div class="header__nav-link dropdown dropdown--arrow"> 
               <p class="dropdown__value">RU</p>
-              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UA</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">EN</a></div>
+              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">RU</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UA</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">EN</a></div>
             </div>
             <div class="header__nav-link dropdown dropdown--arrow"> 
               <p class="dropdown__value">RUB</p>
-              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">USD</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UAH</a></div>
+              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">RUB</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">USD</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UAH</a></div>
             </div>
             <p class="header__signin"><a href="login.html">Войти</a>&nbsp;/&nbsp;<a href="signup.html">Регистрация</a></p>
             <div class="header__burger"></div>
@@ -85,15 +81,29 @@
               <form class="filters__form" action="">
                 <label class="filters__input dropdown" data-input="subject">
                   <input class="filters__input-field" type="text" name="subject" placeholder="Предмет" autocomplete="off" data-options="[&quot;Английский язык&quot;, &quot;Математика&quot;, &quot;Украинский язык&quot;, &quot;Программирование&quot;, &quot;Физика&quot;, &quot;Химия&quot;, &quot;Биология&quot;, &quot;Русский язык&quot;, &quot;История&quot;]"/>
-                  <div class="filters__dropdown dropdown__menu"></div>
+                  <div class="filters__dropdown dropdown__menu">
+                    <div class="filters__dropdown-inner"></div>
+                  </div>
                 </label>
                 <label class="filters__input dropdown" data-input="location">
-                  <input class="filters__input-field" type="text" name="location" placeholder="Локация" autocomplete="off" data-options="[&quot;Россия&quot;, &quot;Украина&quot;, &quot;Онлайн&quot;]"/>
-                  <div class="filters__dropdown dropdown__menu"></div>
+                  <input class="filters__input-field" type="text" name="location" placeholder="Локация" autocomplete="off"/>
+                  <div class="filters__dropdown dropdown__menu">
+                    <div class="filters__dropdown-head">
+                      <label class="checkbox filters__dropdown-checkbox">
+                        <input class="checkbox__input" type="checkbox" name="locationOnline"/>
+                        <div class="checkbox__box">
+                          <div class="checkbox__box-mark"></div>
+                        </div>
+                        <p class="checkbox__text">Онлайн</p>
+                      </label>
+                    </div>
+                    <div class="filters__dropdown-inner"></div>
+                  </div>
                 </label>
                 <label class="filters__input dropdown" data-input="cost">
                   <input class="filters__input-field" type="text" name="cost" placeholder="Стоимость" autocomplete="off" readonly="readonly"/>
                   <div class="filters__dropdown dropdown__menu">
+                    <div class="filters__dropdown-inner"></div>
                     <div class="filters__cost">
                       <p class="filters__cost-head"><span class="filters__cost-value"><span data-cost="from">1000</span> &#8381; – <span data-cost="to">6000</span> &#8381;</span><span class="filters__cost-desc">в час</span></p>
                       <div class="filters__cost-range" data-min="1000" data-max="6000"></div>
@@ -102,7 +112,9 @@
                 </label>
                 <label class="filters__input dropdown" data-input="term">
                   <input class="filters__input-field" type="text" name="term" placeholder="Опыт репетитора" autocomplete="off" data-options="[&quot;До 1 года&quot;, &quot;От 1 года&quot;, &quot;От 2 лет&quot;, &quot;От 3 лет&quot;, &quot;От 5 лет&quot;, &quot;От 10 лет&quot;]"/>
-                  <div class="filters__dropdown dropdown__menu"></div>
+                  <div class="filters__dropdown dropdown__menu">
+                    <div class="filters__dropdown-inner"></div>
+                  </div>
                 </label>
                 <button class="button button--primary filters__btn" type="submit">Найти</button>
               </form>
@@ -110,11 +122,11 @@
             <div class="catalog__sort">
               <div class="catalog__sort-item dropdown dropdown--caret">Сортировать по:
                 <p class="dropdown__value">Актуальности</p>
-                <div class="catalog__sort-dropdown dropdown__menu"><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Популярности</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Цене: от высокой к низкой</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Цене: от низкой к высокой</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Количеству отзывов</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Высокому рейтингу</a></div>
+                <div class="catalog__sort-dropdown dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">Актуальности</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Популярности</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Цене: от высокой к низкой</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Цене: от низкой к высокой</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Количеству отзывов</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Высокому рейтингу</a></div>
               </div>
               <div class="catalog__sort-item dropdown dropdown--caret">Показывать на странице:
                 <p class="dropdown__value">10</p>
-                <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">20</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">30</a></div>
+                <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">10</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">20</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">30</a></div>
               </div>
             </div>
           </div>
@@ -129,7 +141,7 @@
                   <div>
                     <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
                     <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
-                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Русский язык <span>(опыт <b>10 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Украинский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
+                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
                     <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
                   </div><a class="tutorcard__more" href="#">Подробнее</a>
                 </div>
@@ -153,7 +165,7 @@
                   <div>
                     <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
                     <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
-                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Русский язык <span>(опыт <b>10 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Украинский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
+                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
                     <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
                   </div><a class="tutorcard__more" href="#">Подробнее</a>
                 </div>
@@ -177,7 +189,7 @@
                   <div>
                     <p class="tutorcard__name">Анна Иванова</p>
                     <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
-                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Русский язык <span>(опыт <b>10 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Украинский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
+                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
                     <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
                   </div><a class="tutorcard__more" href="#">Подробнее</a>
                 </div>
@@ -201,7 +213,7 @@
                   <div>
                     <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
                     <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
-                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Русский язык <span>(опыт <b>10 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Украинский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
+                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
                     <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
                   </div><a class="tutorcard__more" href="#">Подробнее</a>
                 </div>
@@ -225,7 +237,7 @@
                   <div>
                     <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
                     <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
-                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Русский язык <span>(опыт <b>10 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Украинский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
+                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
                     <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
                   </div><a class="tutorcard__more" href="#">Подробнее</a>
                 </div>
@@ -275,6 +287,10 @@
           </div>
         </div>
       </footer>
+      <div class="cookies">
+        <p class="cookies__text">Мы используем cookies, для вашего удобства на сайте. Просматривая наш веб-сайт, вы соглашаетесь на использование нами файлов cookies.</p>
+        <button class="button button--primary cookies__btn">Хорошо!</button>
+      </div>
     </div>
     <div class="popup js-popup js-close-popup" data-popup="request-auth">
       <div class="popup__backdrop"></div>
@@ -291,13 +307,13 @@
                 <p class="auth__subheading">Войти с помощью:</p>
                 <div class="auth__socials"><a class="auth__social" data-social="fb" href="#">С помощью Facebook</a><a class="auth__social" data-social="google" href="#">С помощью Google</a></div>
                 <p class="auth__subheading">Авторизироваться с помощью сайта:</p>
-                <label class="input auth__input ">
+                <label class="input auth__input">
                   <div class="input__wrapper">
                     <input class="input__field" type="email" name="email" required="required" placeholder="Ваш email"/>
                   </div>
                   <p class="input__error">Введите корректный email</p>
                 </label>
-                <label class="input auth__input ">
+                <label class="input auth__input">
                   <div class="input__wrapper">
                     <input class="input__field" type="password" name="password" required="required" placeholder="Ваш пароль"/>
                   </div>

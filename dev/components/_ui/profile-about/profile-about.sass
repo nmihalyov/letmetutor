@@ -1,0 +1,71 @@
+.profile-about
+  display: flex
+  padding: 30px
+  background-color: #fff
+  border-radius: 5px
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
+  &__heading
+    margin-bottom: 20px
+    font:
+      size: 18px
+      weight: 500
+  &__desc
+    color: $gray-5
+    font-size: 15px
+  &__video
+    position: relative
+    overflow: hidden
+    flex-shrink: 0
+    height: 240px
+    margin-left: 20px
+    &-cover
+      z-index: 2
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      cursor: pointer
+      background:
+        color: $dark-blue
+        size: cover
+        position: center
+        repeat: no-repeat
+      &:before
+        content: ''
+        position: absolute
+        top: calc(50% - 25px)
+        left: calc(50% - 25px)
+        width: 50px
+        height: 50px
+        background:
+          image: url('../img/icons/play.svg')
+          size: cover
+          position: center
+          repeat: no-repeat
+      &--hidden
+        display: none
+    video
+      z-index: 1
+      position: relative
+      width: auto
+      height: 100%
+
+@media only screen and (max-width: $tablet)
+  .profile-about
+    flex-direction: column-reverse
+    &__video
+      width: 100%
+      height: auto
+      margin: 0 0 20px
+      video
+        width: 100%
+        height: auto
+
+@media only screen and (max-width: $mobile)
+  .profile-about
+    padding: 30px 20px
+    &__heading
+      margin-bottom: 15px
+    &__desc
+      font-size: 14px

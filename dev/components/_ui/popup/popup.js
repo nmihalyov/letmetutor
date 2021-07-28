@@ -1,3 +1,4 @@
+// handle open popup
 Array.from(document.querySelectorAll('.js-open-popup')).map(el =>
   el.addEventListener('click', e => {
     e.preventDefault();
@@ -8,11 +9,10 @@ Array.from(document.querySelectorAll('.js-open-popup')).map(el =>
     $api.popup($popup).show();
   })
 );
-  
+
+// handle close popup
 Array.from(document.querySelectorAll('.js-close-popup')).map(el =>
   el.addEventListener('click', e => {
-    e.preventDefault();
-
     if(!e.target.closest('.popup__window') || !e.currentTarget.classList.contains('js-popup')) {
       const $popup = e.currentTarget.closest('.popup');
 
@@ -32,6 +32,20 @@ if (document.querySelector('form[data-request-auth-form]')) {
 if (document.querySelector('form[data-request-form]')) {
   $api.validate(document.querySelector('form[data-request-form]'), () => {
     const $popup = document.querySelector('.js-popup[data-popup="request"]');
+    const $successPopup = document.querySelector('.js-popup[data-popup="request-success"]');
+
+    $api.popup($popup, {
+      onHide() {
+        Array.from($popup.querySelectorAll('input')).map(el => el.value = '');
+        $api.popup($successPopup).show();
+      }
+    }).hide();
+  });
+}
+
+if (document.querySelector('form[data-request-specific-form]')) {
+  $api.validate(document.querySelector('form[data-request-specific-form]'), () => {
+    const $popup = document.querySelector('.js-popup[data-popup="request-specific"]');
     const $successPopup = document.querySelector('.js-popup[data-popup="request-success"]');
 
     $api.popup($popup, {

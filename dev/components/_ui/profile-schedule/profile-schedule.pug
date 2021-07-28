@@ -1,0 +1,231 @@
+include ../button/button
+
+mixin profile-schedule(login)
+  .profile-schedule
+    p.profile-schedule__heading Расписание репетитора
+    .profile-schedule__head
+      .profile-schedule__controls
+        .profile-schedule__controls-buttons
+          button.profile-schedule__controls-button.profile-schedule__controls-button--prev.profile-schedule__controls-button--disabled
+          button.profile-schedule__controls-button.profile-schedule__controls-button--next
+        p.profile-schedule__controls-dates июль 16–22, 2021
+      .profile-schedule__timezone
+        p.profile-schedule__timezone-label Ваш часовой пояс:
+        .profile-schedule__timezone-dropdown.dropdown.dropdown--caret
+          p.profile-schedule__timezone-value.dropdown__value UTC + 00:00
+          .profile-schedule__timezone-menu.dropdown__menu
+            a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) UTC + 00:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 01:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 02:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 03:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 04:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 05:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 06:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 07:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 08:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 09:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 10:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 11:00
+            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 12:00
+    .profile-schedule__slider
+      .profile-schedule__slide.profile-schedule__slide--active(data-dates="июль 16–22, 2021", data-slide="1", data-first)
+        .profile-schedule__unit(data-date="16.07.2021")
+          p.profile-schedule__weekday Пт
+          p.profile-schedule__num 16
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="17.07.2021")
+          p.profile-schedule__weekday Сб
+          p.profile-schedule__num 17
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="18.07.2021")
+          p.profile-schedule__weekday Вс
+          p.profile-schedule__num 18
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="19.07.2021")
+          p.profile-schedule__weekday Пн
+          p.profile-schedule__num 19
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="20.07.2021")
+          p.profile-schedule__weekday Вт
+          p.profile-schedule__num 20
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="21.07.2021")
+          p.profile-schedule__weekday Ср
+          p.profile-schedule__num 21
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit.profile-schedule__unit--unavailable(data-date="22.07.2021")
+          p.profile-schedule__weekday Чт
+          p.profile-schedule__num 22
+          .profile-schedule__time
+            p.profile-schedule__time-value Недоступно
+      .profile-schedule__slide(data-dates="июль 23–29, 2021", data-slide="2")
+        .profile-schedule__unit(data-date="23.07.2021")
+          p.profile-schedule__weekday Пт
+          p.profile-schedule__num 23
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="24.07.2021")
+          p.profile-schedule__weekday Сб
+          p.profile-schedule__num 24
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="25.07.2021")
+          p.profile-schedule__weekday Вс
+          p.profile-schedule__num 25
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="26.07.2021")
+          p.profile-schedule__weekday Пн
+          p.profile-schedule__num 26
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="27.07.2021")
+          p.profile-schedule__weekday Вт
+          p.profile-schedule__num 27
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="28.07.2021")
+          p.profile-schedule__weekday Ср
+          p.profile-schedule__num 28
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit.profile-schedule__unit--unavailable(data-date="29.07.2021")
+          p.profile-schedule__weekday Чт
+          p.profile-schedule__num 29
+          .profile-schedule__time
+            p.profile-schedule__time-value Недоступно
+      .profile-schedule__slide(data-dates="июль 30–август 5, 2021", data-slide="3", data-last)
+        .profile-schedule__unit(data-date="30.07.2021")
+          p.profile-schedule__weekday Пт
+          p.profile-schedule__num 30
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="31.07.2021")
+          p.profile-schedule__weekday Сб
+          p.profile-schedule__num 31
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="01.08.2021")
+          p.profile-schedule__weekday Вс
+          p.profile-schedule__num 1
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="02.08.2021")
+          p.profile-schedule__weekday Пн
+          p.profile-schedule__num 2
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="03.08.2021")
+          p.profile-schedule__weekday Вт
+          p.profile-schedule__num 3
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit(data-date="04.08.2021")
+          p.profile-schedule__weekday Ср
+          p.profile-schedule__num 4
+          .profile-schedule__time.dropdown.dropdown--caret
+            p.profile-schedule__time-value.dropdown__value 08:00
+            .profile-schedule__time-menu.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12:00
+              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14:00
+        .profile-schedule__unit.profile-schedule__unit--unavailable(data-date="05.08.2021")
+          p.profile-schedule__weekday Чт
+          p.profile-schedule__num 5
+          .profile-schedule__time
+            p.profile-schedule__time-value Недоступно
+    .profile-schedule__pick
+      p.profile-schedule__pick-desc Вы выбрали день <span class="profile-schedule__pick-date">16.07.2021</span> в <span class="profile-schedule__pick-time">08:00</span>
+      +button('primary', 'popup', 'Забронировать занятие', '', {popup: login ? 'request-specific' : 'request-auth'})

@@ -33,15 +33,11 @@
   </head>
   <body>
     <div class="page-wrapper">
-      <div class="cookies">
-        <p class="cookies__text">Мы используем cookies, для вашего удобства на сайте. Просматривая наш веб-сайт, вы соглашаетесь на использование нами файлов cookies.</p>
-        <button class="button button--primary cookies__btn">Хорошо!</button>
+      <div class="banner" style="background-image: url('img/inhtml/header-banner-bg.png'), linear-gradient(180deg, #FECD08 0%, #F2C94C 100%)"><img class="banner__img" src="img/inhtml/banner-img.svg" alt="" style="width: 94px; margin-top: 7px"/>
+        <p class="banner__title">Мы запустили YouDo Бизнес — сервис для работы компаний с самозанятыми.</p>
+        <div class="banner__close"></div>
       </div>
       <header class="header container">
-        <div class="header__banner" style="background-image: url('img/inhtml/header-banner-bg.png'), linear-gradient(180deg, #FECD08 0%, #F2C94C 100%)"><img class="header__banner-img" src="img/inhtml/banner-img.svg" alt="" style="width: 94px; margin-top: 7px"/>
-          <p class="header__banner-title">Мы запустили YouDo Бизнес — сервис для работы компаний с самозанятыми.</p>
-          <div class="header__banner-close"></div>
-        </div>
         <div class="header__wrapper wrapper"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/>
           <nav class="header__nav"><a class="header__nav-link" href="catalog.html">Репетиторы</a><a class="header__nav-link" href="#">Как это работает</a><a class="header__nav-link" href="#">Стать репетитором</a>
             <div class="header__nav-link dropdown dropdown--arrow">Больше
@@ -51,11 +47,11 @@
           <div class="header__actions">
             <div class="header__nav-link dropdown dropdown--arrow"> 
               <p class="dropdown__value">RU</p>
-              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UA</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">EN</a></div>
+              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">RU</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UA</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">EN</a></div>
             </div>
             <div class="header__nav-link dropdown dropdown--arrow"> 
               <p class="dropdown__value">RUB</p>
-              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">USD</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UAH</a></div>
+              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">RUB</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">USD</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UAH</a></div>
             </div>
             <div class="header__profile">
               <div class="header__profile-notifications dropdown">
@@ -127,11 +123,24 @@
             <form class="filters__form" action="">
               <label class="filters__input dropdown" data-input="subject">
                 <input class="filters__input-field" type="text" name="subject" placeholder="Выберите предмет" autocomplete="off" data-options="[&quot;Английский язык&quot;, &quot;Математика&quot;, &quot;Украинский язык&quot;, &quot;Программирование&quot;, &quot;Физика&quot;, &quot;Химия&quot;, &quot;Биология&quot;, &quot;Русский язык&quot;, &quot;История&quot;]"/>
-                <div class="filters__dropdown dropdown__menu"></div>
+                <div class="filters__dropdown dropdown__menu">
+                  <div class="filters__dropdown-inner"></div>
+                </div>
               </label>
               <label class="filters__input dropdown" data-input="location">
-                <input class="filters__input-field" type="text" name="location" placeholder="Выберите вашу локацию" autocomplete="off" data-options="[&quot;Россия&quot;, &quot;Украина&quot;, &quot;Онлайн&quot;]"/>
-                <div class="filters__dropdown dropdown__menu"></div>
+                <input class="filters__input-field" type="text" name="location" placeholder="Выберите вашу локацию" autocomplete="off"/>
+                <div class="filters__dropdown dropdown__menu">
+                  <div class="filters__dropdown-head">
+                    <label class="checkbox filters__dropdown-checkbox">
+                      <input class="checkbox__input" type="checkbox" name="locationOnline"/>
+                      <div class="checkbox__box">
+                        <div class="checkbox__box-mark"></div>
+                      </div>
+                      <p class="checkbox__text">Онлайн</p>
+                    </label>
+                  </div>
+                  <div class="filters__dropdown-inner"></div>
+                </div>
               </label>
               <button class="button button--primary filters__btn" type="submit">Найти</button>
             </form>
@@ -572,6 +581,10 @@
           </div>
         </div>
       </footer>
+      <div class="cookies">
+        <p class="cookies__text">Мы используем cookies, для вашего удобства на сайте. Просматривая наш веб-сайт, вы соглашаетесь на использование нами файлов cookies.</p>
+        <button class="button button--primary cookies__btn">Хорошо!</button>
+      </div>
     </div>
   </body>
 </html>

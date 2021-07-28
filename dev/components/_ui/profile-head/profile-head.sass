@@ -1,0 +1,120 @@
+.profile-head
+  display: flex
+  &__image
+    flex-shrink: 0
+    width: 200px
+    height: 200px
+    margin-right: 20px
+    border-radius: 5px
+    background:
+      size: cover
+      position: center
+      repeat: no-repeat
+  &__top
+    display: flex
+    justify-content: space-between
+    padding-top: 5px
+    border-bottom: 1px solid $gray-4
+  &__name
+    margin-bottom: 5px
+    font-weight: 500
+    &--verified
+      position: relative
+      display: inline-block
+      &:before
+        content: ''
+        position: absolute
+        top: 2px
+        right: -24px
+        display: flex
+        justify-content: center
+        align-items: flex-end
+        width: 16px
+        height: 16px
+        background:
+          image: url('../img/icons/verified.svg')
+          size: contain
+          position: center
+  &__location
+    position: relative
+    margin-bottom: 15px
+    padding-left: 25px
+    color: $gray
+    font-size: 14px
+    &:before
+      content: ''
+      position: absolute
+      top: 2px
+      left: 0
+      width: 16px
+      height: 16px
+      background:
+        size: contain
+        position: center
+        repeat: no-repeat
+    &[data-loc="ru"]:before
+      background-image: url('../img/icons/ru-gray.svg')
+    &[data-loc="ua"]:before
+      background-image: url('../img/icons/ua.svg')
+  &__online
+    padding-top: 4px
+    color: $gray
+    font-size: 13px
+  &__bottom
+    padding-top: 15px
+    &--mobile
+      display: none
+  &__heading
+    margin-bottom: 10px
+    font:
+      size: 15px
+      weight: 500
+  &__subjects
+    display: flex
+    flex-wrap: wrap
+    align-items: baseline
+    &-item
+      margin-right: 8px
+      margin-bottom: 8px
+      font-size: 15px
+      &--highlight
+        color: $blue
+        &:hover
+          color: transparentize($blue, 0.2)
+      span
+        color: $gray
+        font:
+          size: 13px
+          weight: 500
+
+@media only screen and (max-width: $tablet)
+  .profile-head
+    &__image
+      width: 150px
+      height: 150px
+    &__top
+      padding-top: 0
+
+@media only screen and (max-width: $mobile)
+  .profile-head
+    flex-wrap: wrap
+    &__image
+      width: 100px
+      height: 100px
+    &__bottom
+      display: none
+      width: 100%
+      margin-top: 20px
+      padding-top: 15px
+      border-top: 1px solid $gray-4
+      &--mobile
+        display: block
+    &__info
+      width: calc(100% - 120px)
+    &__top
+      display: block
+      border-bottom: none
+    &__location
+      margin-bottom: 0
+    &__online
+      padding-top: 5px

@@ -1,0 +1,43 @@
+.profile-experience
+  padding: 30px
+  background-color: #fff
+  border-radius: 5px
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
+  &__heading
+    font:
+      size: 18px
+      weight: 500
+  &__item
+    display: flex
+    padding: 20px 0
+    &:not(:last-child)
+      border-bottom: 1px solid $gray-4
+    &:last-child
+      padding-bottom: 0
+  &__subject
+    width: 200px
+    padding-right: 10px
+    &-name
+      font:
+        size: 15px
+        weight: 500
+    &-years
+      color: $gray
+      font-size: 15px
+  &__company
+    &-name
+      font-size: 15px
+    &-position
+      color: $gray
+      font-size: 15px
+
+@media only screen and (max-width: $mobile)
+  .profile-experience
+    padding: 30px 20px
+    &__item
+      display: block
+      padding: 15px 0
+    &__subject
+      width: 100%
+      margin-bottom: 10px
+      padding-right: 0

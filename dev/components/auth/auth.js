@@ -1,3 +1,4 @@
+// auth form validation
 if (document.querySelector('form[data-login-form]')) {
   $api.validate(document.querySelector('form[data-login-form]'), () => {console.log(true)});
 }
@@ -14,12 +15,12 @@ if (document.querySelector('form[data-support-form]')) {
   $api.validate(document.querySelector('form[data-support-form]'), () => {});
 }
 
-if (document.querySelectorAll('.js-auth-country').length) {
-  Array.from(document.querySelectorAll('.js-auth-country')).map(el => el.addEventListener('changeCountry', e => {
-    el.closest('form').querySelector('.js-auth-city').dataset.country = e.target.querySelector('input').value;
-  }));
-}
+// set country value to cities input
+Array.from(document.querySelectorAll('.js-auth-country')).map(el => el.addEventListener('changeCountry', e => {
+  el.closest('form').querySelector('.js-auth-city').dataset.country = e.target.querySelector('input').value;
+}));
 
+// handling cities input
 if (document.querySelectorAll('.js-auth-city input').length) {
   const citiesData = [{
     "key": "Россия",
@@ -55,54 +56,58 @@ if (document.querySelectorAll('.js-auth-city input').length) {
     ]
   }];
 
-  Array.from(document.querySelectorAll('.js-auth-city input')).map(el => el.addEventListener('input', el => {
-    const $this = el.currentTarget;
-    const $labelElement = $this.closest('.input');
-    const country = $labelElement.dataset.country;
-    
-    if (country) {
-      const cities = citiesData.filter(el => el.key === country)[0].cities;
-      const lowerCaseValue = $this.value.toLowerCase();
-      const $dropdownElement = $this.closest('.input').querySelector('.dropdown__menu');
-      let matchesFound = false;
+  Array.from(document.querySelectorAll('.js-auth-city input')).map(el => {
+    el.addEventListener('input', el => {
+      const $this = el.currentTarget;
+      const $labelElement = $this.closest('.input');
+      const country = $labelElement.dataset.country;
+      
+      if (country) {
+        const cities = citiesData.filter(el => el.key === country)[0].cities;
+        const lowerCaseValue = $this.value.toLowerCase();
+        const $dropdownElement = $this.closest('.input').querySelector('.dropdown__menu');
+        let matchesFound = false;
 
-      $dropdownElement.innerHTML = '';
+        $dropdownElement.innerHTML = '';
 
-      if (el.currentTarget.value !== '') {
-        cities.map(el => {
-          if (el.toLowerCase().indexOf(lowerCaseValue) === 0) {
-            matchesFound = true;
-            $dropdownElement.insertAdjacentHTML('beforeend', `<a class="input__dropdown-item" href="javascript:void(0)">${el}</a>`)
+        if (el.currentTarget.value !== '') {
+          cities.map(el => {
+            if (el.toLowerCase().indexOf(lowerCaseValue) === 0) {
+              matchesFound = true;
+              $dropdownElement.insertAdjacentHTML('beforeend', `<a class="input__dropdown-item dropdown__menu-item${lowerCaseValue ? ' input__dropdown-item--smart' : ''}" href="javascript:void(0)"><span>${el.substr(0, lowerCaseValue.length)}</span>${el.substr(lowerCaseValue.length)}</a>`)
+            }
+          });
+
+          if (matchesFound) {
+            Array.from($labelElement.querySelectorAll('.input__dropdown-item')).map(el => el.addEventListener('click', () => {
+              $this.value = el.innerText;
+            }));
           }
-        });
-
-        if (matchesFound) {
-          Array.from($labelElement.querySelectorAll('.input__dropdown-item')).map(el => el.addEventListener('click', () => {
-            $this.value = el.innerText;
-          }));
         }
       }
-    }
-  }));
+    });
 
-  document.querySelector('.js-auth-city input').addEventListener('focus', el => {
-    const $this = el.currentTarget;
-    const $dropdownElement = $this.closest('.input').querySelector('.dropdown__menu');
-
-    $dropdownElement.innerHTML = '';
+    el.addEventListener('focus', () => {
+      const $dropdownElement = el.closest('.input').querySelector('.dropdown__menu');
+  
+      $dropdownElement.innerHTML = '';
+    });
   });
 }
 
-if (document.querySelectorAll('input[name="rulesAgreement"]').length) {
-  Array.from(document.querySelectorAll('input[name="rulesAgreement"]')).map(el => el.addEventListener('change', () => {
-    const $submitButton = el.closest('form').querySelector('button[type="submit"]');
+// handling required agreement checkbox
+Array.from(document.querySelectorAll('input[name="rulesAgreement"]')).map(el => el.addEventListener('change', () => {
+  const $submitButton = el.closest('form').querySelector('button[type="submit"]');
 
-    if (el.checked) {
-      $submitButton.classList.remove('button--disabled');
-      $submitButton.removeAttribute('disabled');
-    } else {
-      $submitButton.classList.add('button--disabled');
-      $submitButton.setAttribute('disabled', 'disabled');
-    }
-  }));
-}
+  if (el.checked) {
+    $submitButton.classList.remove('button--disabled');
+    $submitButton.removeAttribute('disabled');
+  } else {
+    $submitButton.classList.add('button--disabled');
+    $submitButton.setAttribute('disabled', 'disabled');
+  }
+}));
+
+Array.from(document.querySelectorAll('.auth__toggle .tabs__item')).map(el => el.addEventListener('click', () => {
+  document.querySelector('.auth__type').value = el.dataset.tab - 1;
+}));

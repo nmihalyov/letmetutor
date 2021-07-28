@@ -1,5 +1,5 @@
 mixin input(type, label, name, placeholder, className, options)
-  label.input(class=`${className || ''} ${(options && (options.dropdown || options.citiesSearch)) ? ' dropdown' : ''}`, data-cities=options.citiesSearch)
+  label.input(class=`${className || ''}${(options && (options.dropdown || options.citiesSearch)) ? ' dropdown' : ''}`, data-cities=options.citiesSearch)
     if label.length
       p.input__label!= label
     .input__wrapper
@@ -10,8 +10,8 @@ mixin input(type, label, name, placeholder, className, options)
       if type === 'tel'
         .input__code.dropdown(data-code-loc="ru", data-mask="+7 (999) 999-99-99")
           .input__dropdown.dropdown__menu
-            a.input__dropdown-item(href="javascript: void(0)", data-code-loc="ru", data-mask="+7 (999) 999-99-99") Россия +7
-            a.input__dropdown-item(href="javascript: void(0)", data-code-loc="ua", data-mask="+380 (99) 999-99-99") Украина +380
+            a.input__dropdown-item.dropdown__menu-item(href="javascript: void(0)", data-code-loc="ru", data-mask="+7 (999) 999-99-99") Россия +7
+            a.input__dropdown-item.dropdown__menu-item(href="javascript: void(0)", data-code-loc="ua", data-mask="+380 (99) 999-99-99") Украина +380
       input.input__field(
         type=type,
         name=name,

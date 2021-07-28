@@ -1,5 +1,4 @@
 let offset = 0;
-const $banner = document.querySelector('.header__banner');
 const hideOverflow = () => {
   offset = -parseInt(document.body.style.marginTop);
   document.body.style.cssText = `position: fixed; margin-top: ${-window.scrollY}px`;
@@ -12,19 +11,6 @@ const hideHeaderMenu = () => {
   showOverflow();
   document.querySelector('.header-menu').classList.remove('header-menu--shown');
 };
-
-if (!JSON.parse(localStorage.getItem('letmetutor:bannerIsHidden'))) {
-  $banner.style.display = 'flex';
-  document.querySelector('.header__banner-close').addEventListener('click', () => {
-    $banner.classList.add('header__banner--hide');
-    setTimeout(() => {
-      $banner.remove();
-      localStorage.setItem('letmetutor:bannerIsHidden', true);
-    }, 500)
-  });
-} else {
-  $banner.remove();
-}
 
 document.querySelector('.header__burger').addEventListener('click', () => {
   hideOverflow();

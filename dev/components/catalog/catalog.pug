@@ -14,6 +14,7 @@ mixin catalog(notfound, login)
           .catalog__sort-item.dropdown.dropdown--caret Сортировать по:
             p.dropdown__value Актуальности
             .catalog__sort-dropdown.dropdown__menu
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) Актуальности
               a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Популярности
               a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Цене: от высокой к низкой
               a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Цене: от низкой к высокой
@@ -22,6 +23,7 @@ mixin catalog(notfound, login)
           .catalog__sort-item.dropdown.dropdown--caret Показывать на странице:
             p.dropdown__value 10
             .dropdown__menu.dropdown__menu--small
+              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 10
               a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20
               a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
     .catalog__main.container

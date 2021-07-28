@@ -1,9 +1,8 @@
+include ../banner/banner
+
 mixin header(login)
+  +banner
   header.header.container
-    .header__banner(style="background-image: url('img/inhtml/header-banner-bg.png'), linear-gradient(180deg, #FECD08 0%, #F2C94C 100%)")
-      img.header__banner-img(src="img/inhtml/banner-img.svg", alt="", style="width: 94px; margin-top: 7px")
-      p.header__banner-title Мы запустили YouDo Бизнес — сервис для работы компаний с самозанятыми.
-      .header__banner-close
     .header__wrapper.wrapper
       img.header__logo(src="img/logo.svg", alt="LetMeTutor logo")
       nav.header__nav
@@ -20,11 +19,13 @@ mixin header(login)
         .header__nav-link.dropdown.dropdown--arrow 
           p.dropdown__value RU
           .dropdown__menu.dropdown__menu--small
+            a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) RU
             a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UA
             a.dropdown__menu-item(href="javascript:void(0)", data-toggle) EN
         .header__nav-link.dropdown.dropdown--arrow 
           p.dropdown__value RUB
           .dropdown__menu.dropdown__menu--small
+            a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) RUB
             a.dropdown__menu-item(href="javascript:void(0)", data-toggle) USD
             a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UAH
         if login

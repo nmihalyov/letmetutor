@@ -4,6 +4,18 @@
   &:hover
     .input__field
       border-color: $dark-blue
+  &:not(.dropdown)
+    .input__field:focus
+      &::placeholder
+        opacity: 0
+      &::-webkit-input-placeholder
+        opacity: 0
+      &::-moz-placeholder
+        opacity: 0
+      &:-ms-input-placeholder
+        opacity: 0
+      &:-moz-placeholder
+        opacity: 0
   &.dropdown
     &:not([data-cities]) .input__wrapper
       &:after
@@ -74,8 +86,9 @@
     &[data-code-loc="ua"]:before
       background-image: url('../img/icons/ua.svg')
     .input__dropdown
+      left: -1px !important
       &-item
-        padding: 15px 20px 15px 49px
+        padding: 15px 20px 15px 49px !important
         &:before
           content: ''
           position: absolute
@@ -104,6 +117,11 @@
       transition: all .3s ease
       &:hover
         background-color: $gray-3
+      &--smart
+        color: $blue
+        span
+          color: $dark-blue
+          transition: opacity .3s ease
     .fakeScroll
       &__wrap
         max-height: 280px
@@ -135,16 +153,6 @@
       padding-left: 97px
     &:focus
       border-color: $dark-blue
-      &::placeholder
-        opacity: 0
-      &::-webkit-input-placeholder
-        opacity: 0
-      &::-moz-placeholder
-        opacity: 0
-      &:-ms-input-placeholder
-        opacity: 0
-      &:-moz-placeholder
-        opacity: 0
     &::placeholder
       opacity: 1
       color: $gray
@@ -185,6 +193,6 @@
         top: calc(50% - 1px)
         right: 13px
       .input__dropdown-item
-        padding: 11px 10px 11px 49px
+        padding: 11px 10px 11px 49px !important
     &__dropdown-item
       padding: 11px 20px

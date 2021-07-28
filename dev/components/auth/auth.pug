@@ -35,8 +35,10 @@ mixin auth(type)
           .auth__content(data-tabs)
             .auth__tabs
               .auth__tabs-grid
-                +tabs(['Ученик', 'Репетитор'])
-              form.auth__tabs-content(data-content="1", data-active, data-signup-student-form)
+                +tabs(['Ученик', 'Репетитор'], 'auth__toggle')
+              //- form.auth__tabs-content(data-content="1", data-active, data-signup-student-form)
+              form(data-signup-student-form)
+                input.auth__type(type="hidden", name="type", value="0")
                 +input('text', 'Ваше ФИО <span>*</span>', 'fullname', 'Введите ваше ФИО', 'auth__input', {required: true, error: 'Введите корректные данные'})
                 +input('email', 'Ваш email <span>*</span>', 'email', 'Введите ваш email', 'auth__input', {required: true, error: 'Введите корректный email'})
                 +input('tel', 'Номер телефона <span>*</span>', 'phone', '+7 (___) ___-__-__', 'auth__input', {required: true, error: 'Введите корректный номер телефона'})
@@ -48,19 +50,19 @@ mixin auth(type)
                 .auth__actions
                   +button('primary', 'submit', 'Зарегистрироваться', 'auth__actions-btn')
                   a.auth__actions-link(href="login.html") Авторизация
-              form.auth__tabs-content(data-content="2", data-signup-tutor-form)
-                +input('text', 'Ваше ФИО <span>*</span>', 'fullname', 'Введите ваше ФИО', 'auth__input', {required: true, error: 'Введите корректные данные'})
-                +input('email', 'Ваш email <span>*</span>', 'email', 'Введите ваш email', 'auth__input', {required: true, error: 'Введите корректный email'})
-                +checkboxselect('Ваши специализации <span>*</span>', 'Выберите специализации', 'auth__input', {name: 'specializations', error: 'Выберите хотя бы одну специализацию из списка', list: [{label: 'Английский язык', value: 'english'}, {label: 'Математика', value: 'math'}, {label: 'Украинский язык', value: 'ukrainian'}, {label: 'Программирование', value: 'programming'}, {label: 'Физика', value: 'physics'}, {label: 'Химия', value: 'chemistry'}, {label: 'Биология', value: 'biology'}, {label: 'Русский', value: 'russian'}, {label: 'История', value: 'history'}]})
-                +input('tel', 'Номер телефона <span>*</span>', 'phone', '+7 (___) ___-__-__', 'auth__input', {required: true, error: 'Введите корректный номер телефона'})
-                +input('text', 'Ваша страна <span>*</span>', 'country', 'Выберите страну', 'auth__input js-auth-country', {required: true, error: 'Выберите страну из списка', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Россия</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Украина</a>'})
-                +input('text', 'Ваш город <span>*</span>', 'city', 'Введите ваш город', 'auth__input js-auth-city', {required: true, error: 'Выберите город', citiesSearch: true})
-                +input('password', 'Ваш пароль <span>*</span>', 'password', 'Введите пароль', 'auth__input', {required: true, pass: true, error: 'Введите пароль'})
-                +input('password', 'Повторите пароль <span>*</span>', 'passwordRepeat', 'Введите пароль', 'auth__input', {required: true, repeatPass: true, error: 'Введите совпадающий пароль'})
-                +checkbox('Я согласен с <a href="#" target="_blank">правилами сервиса</a>', 'rulesAgreement', 'auth__checkbox', true, true)
-                .auth__actions
-                  +button('primary', 'submit', 'Зарегистрироваться', 'auth__actions-btn')
-                  a.auth__actions-link(href="login.html") Уже зарегистрированы? Войти
+              //- form.auth__tabs-content(data-content="2", data-signup-tutor-form)
+              //-   +input('text', 'Ваше ФИО <span>*</span>', 'fullname', 'Введите ваше ФИО', 'auth__input', {required: true, error: 'Введите корректные данные'})
+              //-   +input('email', 'Ваш email <span>*</span>', 'email', 'Введите ваш email', 'auth__input', {required: true, error: 'Введите корректный email'})
+              //-   +checkboxselect('Ваши специализации <span>*</span>', 'Выберите специализации', 'auth__input', {name: 'specializations', error: 'Выберите хотя бы одну специализацию из списка', list: [{label: 'Английский язык', value: 'english'}, {label: 'Математика', value: 'math'}, {label: 'Украинский язык', value: 'ukrainian'}, {label: 'Программирование', value: 'programming'}, {label: 'Физика', value: 'physics'}, {label: 'Химия', value: 'chemistry'}, {label: 'Биология', value: 'biology'}, {label: 'Русский', value: 'russian'}, {label: 'История', value: 'history'}]})
+              //-   +input('tel', 'Номер телефона <span>*</span>', 'phone', '+7 (___) ___-__-__', 'auth__input', {required: true, error: 'Введите корректный номер телефона'})
+              //-   +input('text', 'Ваша страна <span>*</span>', 'country', 'Выберите страну', 'auth__input js-auth-country', {required: true, error: 'Выберите страну из списка', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Россия</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Украина</a>'})
+              //-   +input('text', 'Ваш город <span>*</span>', 'city', 'Введите ваш город', 'auth__input js-auth-city', {required: true, error: 'Выберите город', citiesSearch: true})
+              //-   +input('password', 'Ваш пароль <span>*</span>', 'password', 'Введите пароль', 'auth__input', {required: true, pass: true, error: 'Введите пароль'})
+              //-   +input('password', 'Повторите пароль <span>*</span>', 'passwordRepeat', 'Введите пароль', 'auth__input', {required: true, repeatPass: true, error: 'Введите совпадающий пароль'})
+              //-   +checkbox('Я согласен с <a href="#" target="_blank">правилами сервиса</a>', 'rulesAgreement', 'auth__checkbox', true, true)
+              //-   .auth__actions
+              //-     +button('primary', 'submit', 'Зарегистрироваться', 'auth__actions-btn')
+              //-     a.auth__actions-link(href="login.html") Уже зарегистрированы? Войти
         if type === 'signup-success'
           .auth__content
             p.auth__desc Поздравляем, регистрация прошла успешно, на ваш <b>контактный email</b> отправлено письмо с инструкцией для активации вашей учетной записи, пока вы не подтвердите вашу почту, <b>учетная запись будет неактивной и вы не сможете пользоваться сервисом.</b>

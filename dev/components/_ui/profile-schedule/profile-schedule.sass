@@ -1,0 +1,199 @@
+.profile-schedule
+  padding: 30px
+  background-color: #fff
+  border-radius: 5px
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
+  &__heading
+    margin-bottom: 20px
+    font:
+      size: 18px
+      weight: 500
+  &__head
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 30px
+  &__controls
+    display: flex
+    align-items: center
+    &-buttons
+      display: flex
+      margin-right: 10px
+    &-button
+      position: relative
+      width: 32px
+      height: 32px
+      margin-right: 5px
+      border-radius: 3px
+      border: 1px solid $gray
+      cursor: pointer
+      -webkit-appearance: none
+      box-shadow: none
+      transition: opacity .3s ease
+      &:hover
+        opacity: 0.8
+      &:before
+        content: ''
+        position: absolute
+        left: calc(50% - 7px)
+        top: calc(50% - 4px)
+        width: 14px
+        height: 8px
+        background:
+          image: url('../img/icons/chevron.svg')
+          size: contain
+          position: center
+          repeat: no-repeat
+      &--next:before
+        transform: rotate(-90deg)
+      &--prev:before
+        transform: rotate(90deg)
+      &--disabled
+        pointer-events: none
+        border-color: #E0E0E0
+        background-color: #FBFBFB
+    &-dates
+      font-size: 15px
+  &__timezone
+    display: flex
+    align-items: center
+    &-label
+      margin-right: 15px
+      font-size: 15px
+    &-value
+      color: $gray-5
+      font-size: 14px
+    &-dropdown
+      width: 200px
+      padding: 6px 10px 7px
+      border: 1px solid #F0F0F0
+      border-radius: 3px
+      background-color: #FBFBFB
+      &:after
+        top: 14px
+        right: 14px
+      .fakeScroll
+        &__wrap
+          max-height: 200px
+        &__content
+          max-height: 200px
+        &__track
+          z-index: 2
+          right: 10px
+          width: 4px
+          padding: 10px 0
+        &__bar
+          background-color: transparentize(#000, .8)
+    &-menu
+      left: 0
+      width: 100%
+  &__slide
+    display: none
+    &--active
+      display: flex
+  &__unit
+    width: 107px
+    padding-top: 5px
+    border-top: 2px solid #E0E0E0
+    cursor: pointer
+    transition: border-top-color .3s ease
+    &:not(:last-child)
+      margin-right: 10px
+    &:hover
+      .profile-schedule__num
+        background-color: $gray-2
+    &--unavailable
+      pointer-events: none
+      opacity: 0.6
+      .profile-schedule__weekday
+        color: $gray
+    &--current
+      border-top-color: $blue
+      .profile-schedule__num
+        background-color: $blue !important
+        color: #fff
+  &__weekday
+    margin-bottom: 5px
+    text-align: center
+    font-size: 15px
+  &__num
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 40px
+    height: 40px
+    margin: 0 auto 10px
+    border-radius: 50%
+    text-align: center
+    color: $gray
+    transition: all .3s ease
+    font-size: 14px
+  &__time
+    padding: 10px 10px 11px
+    border: 1px solid #F0F0F0
+    border-radius: 3px
+    background-color: #FBFBFB
+    &:after
+      top: 17px
+      right: 10px
+    &-value
+      color: $gray-5
+      font-size: 14px
+    &-menu
+      left: 0
+      width: 100%
+  &__pick
+    display: none
+    margin-top: 30px
+    padding-top: 25px
+    border-top: 1px solid $gray-4
+    &--active
+      display: block
+    &-desc
+      margin-bottom: 20px
+      font-size: 15px
+      span
+        color: $blue
+        font-weight: 500
+
+@media only screen and (max-width: $tablet)
+  .profile-schedule
+    &__unit
+      width: 87px
+      &--unavailable
+        .profile-schedule__time
+          padding: 10px 4px 11px
+    &__time
+      &-value
+        font-size: 13px
+
+@media only screen and (max-width: $mobile)
+  .profile-schedule
+    padding: 30px 20px
+    &__head
+      display: block
+      margin-bottom: 20px
+    &__controls
+      margin-bottom: 10px
+      &-dates
+        font-size: 14px
+    &__timezone
+      flex-wrap: wrap
+      &-label
+        flex-grow: 1
+        flex-shrink: 0
+        font-size: 14px
+      &-dropdown
+        flex-grow: 1
+        min-width: 170px
+        width: auto
+        margin: 5px 0
+    &__slide
+      overflow: auto
+      margin-bottom: -10000px
+      padding-bottom: 10000px
+    &__unit
+      min-width: 87px
+    &__pick
+      z-index: 2
+      position: relative

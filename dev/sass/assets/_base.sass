@@ -9,7 +9,6 @@
 body
   width: 100%
   min-height: 100vh
-  padding-top: 84px
   line-height: 1.36
   background-color: #fff
   @include font-fix
@@ -32,9 +31,6 @@ a
   &:hover
     color: transparentize($dark-blue, 0.2)
 
-.page-wrapper
-  overflow: hidden
-
 .container
   width: 100%
   .wrapper
@@ -44,16 +40,12 @@ a
     padding: 0 16px
 
 @media only screen and (max-width: $tablet)
-  body
-    padding-top: 64px
-
   .container
     .wrapper
       max-width: 760px
 
 @media only screen and (max-width: $mobile)
   body
-    padding-top: 58px
     font-size: 14px
 
   .container

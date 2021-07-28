@@ -1,5 +1,6 @@
 const $cookies = document.querySelector('.cookies');
 
+// cookies handling
 if (!JSON.parse(localStorage.getItem('letmetutor:cookiesIsHidden'))) {
   $cookies.classList.add('cookies--shown');
 

@@ -1,0 +1,55 @@
+include ../_ui/profile-head/profile-head
+include ../_ui/profile-about/profile-about
+include ../_ui/profile-experience/profile-experience
+include ../_ui/profile-reviews/profile-reviews
+include ../_ui/profile-schedule/profile-schedule
+include ../_ui/button/button
+
+mixin tutor(login)
+  section.tutor.container
+    .tutor__wrapper.wrapper
+      main.tutor__main
+        .tutor__head
+          +profile-head('tutor')
+          .tutor__head-actions
+            .tutor__actions
+              .tutor__actions-info
+                .tutor__rating
+                  if login
+                    p.tutor__rating-rate 0.0
+                    p.tutor__rating-reviews (0 отзывов)
+                  else
+                    p.tutor__rating-rate 4.9
+                    p.tutor__rating-reviews (50 отзывов)
+                .tutor__cost
+                  p.tutor__cost-value 1000 &#8381;
+                  p.tutor__cost-desc в час
+              +button('primary', 'popup', 'Оставить заявку', 'tutor__btn', {popup: login ? 'request' : 'request-auth'})
+        nav.tutor__nav
+          a.tutor__nav-link(href="javascript:void(0)", data-target="about") О репетиторе
+          a.tutor__nav-link(href="javascript:void(0)", data-target="experience") Опыт работы
+          a.tutor__nav-link(href="javascript:void(0)", data-target="reviews") Отзывы
+          a.tutor__nav-link(href="javascript:void(0)", data-target="schedule") Расписание
+        .tutor__content
+          .tutor__block(data-block="about")
+            +profile-about('tutor')
+          .tutor__block(data-block="experience")
+            +profile-experience
+          .tutor__block(data-block="reviews")
+            +profile-reviews(login)
+          .tutor__block(data-block="schedule")
+            +profile-schedule(login)
+      aside.tutor__aside
+        .tutor__actions
+          .tutor__actions-info
+            .tutor__rating
+              if login
+                p.tutor__rating-rate 0.0
+                p.tutor__rating-reviews (0 отзывов)
+              else
+                p.tutor__rating-rate 4.9
+                p.tutor__rating-reviews (50 отзывов)
+            .tutor__cost
+              p.tutor__cost-value 1000 &#8381;
+              p.tutor__cost-desc в час
+          +button('primary', 'popup', 'Оставить заявку', 'tutor__btn', {popup: login ? 'request' : 'request-auth'})

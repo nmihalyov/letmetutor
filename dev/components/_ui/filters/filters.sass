@@ -69,31 +69,53 @@
   &__dropdown
     left: 0
     bottom: -15px
-    max-height: 238px
     width: 100%
     border-radius: 10px
-    .fakeScroll
-      &__wrap
-        max-height: 238px
-      &__content
-        max-height: 238px
-        padding: 20px 10px 20px 0
-      &__track
-        z-index: 2
-        right: 10px
-        width: 4px
-        padding: 20px 0
-      &__bar
-        background-color: transparentize(#000, .8)
+    &-head
+      padding: 15px 20px
+      & + .fakeScroll
+        border-top: 1px solid $gray-4
+        .fakeScroll__track
+          padding-top: 70px
+        .fakeScroll__content
+          padding-top: 10px
+          padding-bottom: 10px
+        .filters__dropdown-item
+          padding-left: 20px
+    &-inner
+      max-height: 238px
+      .fakeScroll
+        &__wrap
+          max-height: 238px
+        &__content
+          max-height: 238px
+          padding: 20px 10px 20px 0
+        &__track
+          z-index: 2
+          right: 10px
+          width: 4px
+          padding: 20px 0
+        &__bar
+          background-color: transparentize(#000, .8)
     &--hidden
       visibility: hidden !important
       transition: none
+    &--empty
+      .fakeScroll
+        border-top: none
+        &__content
+          padding: 0 !important
     &-item
       padding: 6px 6px 6px 30px
       transition: opacity .3s ease
       &:hover
         opacity: 0.8
         background-color: transparent
+      &--smart
+        color: $blue
+        span
+          color: $dark-blue
+          transition: opacity .3s ease
   &__cost
     padding: 25px 25px 33px
     &-head
