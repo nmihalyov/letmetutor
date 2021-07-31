@@ -7,28 +7,31 @@ mixin profile-head(type)
       .profile-head__info
         .profile-head__top
           div
-            p.profile-head__name.profile-head__name--verified Анна Иванова
+            p.profile-head__name
+              |Анна Иванова
+              span.profile-head__verified(data-tooltip)
+                +tooltip('Личность подтверждена', {centered: true})
             p.profile-head__location(data-loc="ru") Москва, Россия
           p.profile-head__online Был(а) в сети 1 час назад
         .profile-head__bottom
           p.profile-head__heading Предметы:
           .profile-head__subjects
-            a.profile-head__subjects-item.profile-head__subjects-item--highlight(href="#", data-tooltip)
+            a.profile-head__subjects-item.profile-head__subjects-item--highlight(href="javascript:void(0)", data-tooltip, data-pay="1000")
               |Английский язык <span>(опыт 5 лет)</span>
               +tooltip('<b>1000</b> &#8381; в час')
-            a.profile-head__subjects-item(href="#", data-tooltip)
+            a.profile-head__subjects-item(href="javascript:void(0)", data-tooltip, data-pay="700")
               |Немецкий язык <span>(опыт 5 лет)</span>
-              +tooltip('<b>1000</b> &#8381; в час')
-            a.profile-head__subjects-item(href="#", data-tooltip)
+              +tooltip('<b>700</b> &#8381; в час')
+            a.profile-head__subjects-item(href="javascript:void(0)", data-tooltip, data-pay="600")
               |Итальянский язык <span>(опыт 5 лет)</span>
-              +tooltip('<b>1000</b> &#8381; в час')
-            a.profile-head__subjects-item(href="#", data-tooltip)
+              +tooltip('<b>600</b> &#8381; в час')
+            a.profile-head__subjects-item(href="javascript:void(0)", data-tooltip, data-pay="650")
               |Французский язык <span>(опыт 5 лет)</span>
-              +tooltip('<b>1000</b> &#8381; в час')
+              +tooltip('<b>650</b> &#8381; в час')
       .profile-head__bottom.profile-head__bottom--mobile
         p.profile-head__heading Предметы:
         .profile-head__subjects
-          a.profile-head__subjects-item.profile-head__subjects-item--highlight(href="#") Английский язык
-          a.profile-head__subjects-item(href="#") Немецкий язык
-          a.profile-head__subjects-item(href="#") Итальянский язык
-          a.profile-head__subjects-item(href="#") Французский язык
+          a.profile-head__subjects-item.profile-head__subjects-item--highlight(href="javascript:void(0)", data-pay="1000") Английский язык
+          a.profile-head__subjects-item(href="javascript:void(0)", data-pay="700") Немецкий язык
+          a.profile-head__subjects-item(href="javascript:void(0)", data-pay="600") Итальянский язык
+          a.profile-head__subjects-item(href="javascript:void(0)", data-pay="650") Французский язык

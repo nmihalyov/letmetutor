@@ -1,30 +1,3 @@
-const citiesArray = [
-  "Москва",
-  "Санкт-Петербург",
-  "Казань",
-  "Нижний Новгород",
-  "Сочи",
-  "Екатеринбург",
-  "Ростов-на-Дону",
-  "Новосибирск",
-  "Тюмень",
-  "Калининград",
-  "Уфа",
-  "Красноярск",
-  "Краснодар",
-  "Челябинск",
-  "Воронеж",
-  "Киев",
-  "Днепр",
-  "Донецк",
-  "Запорожье",
-  "Львов",
-  "Кривой Рог",
-  "Севастополь",
-  "Николаев",
-  "Мариуполь"
-];
-
 // set filter input value
 Array.from(document.querySelectorAll('.filters__dropdown-item')).map(el => el.addEventListener('click', e => {
   const $this = e.currentTarget;
@@ -34,71 +7,75 @@ Array.from(document.querySelectorAll('.filters__dropdown-item')).map(el => el.ad
 }));
 
 // filter main logic
-Array.from(document.querySelectorAll('.filters__input-field')).map(el => {
-  const $this = el;
-  // handle filter input
-  const handleInput = firstRender => {
-    const $dropdownElement = $this.nextElementSibling.querySelector('.filters__dropdown-inner');
-    const $dropdown = $dropdownElement.querySelector('.fakeScroll__content') || $dropdownElement;
-    const inputSmartSearch = $this.getAttribute('name') === 'location';
-    const options = inputSmartSearch ? citiesArray : JSON.parse($this.dataset.options);
-    const lowerCaseValue = $this.value.toLowerCase();
-    const $checkbox = $dropdown.closest('.filters__dropdown').querySelector('input[type="checkbox"]');
-    let matchesFound = false;
+if (document.querySelectorAll('.filters__input-field').length) {
+  Array.from(document.querySelectorAll('.filters__input-field')).map(el => {
+    fetch('data/location.json').then(res => res.json()).then(data => {
+      const $this = el;
+      // handle filter input
+      const handleInput = firstRender => {
+        const $dropdownElement = $this.nextElementSibling.querySelector('.filters__dropdown-inner');
+        const $dropdown = $dropdownElement.querySelector('.fakeScroll__content') || $dropdownElement;
+        const inputSmartSearch = $this.getAttribute('name') === 'location';
+        const options = inputSmartSearch ? data.map(el => el.key).concat(data.flatMap(item => item.cities)) : JSON.parse($this.dataset.options);
+        const lowerCaseValue = $this.value.toLowerCase();
+        const $checkbox = $dropdown.closest('.filters__dropdown').querySelector('input[type="checkbox"]');
+        let matchesFound = false;
 
-    $dropdown.innerHTML = '';
-  
-    // render filter dropdown items
-    options.map(el => {
-      if (firstRender || el.toLowerCase().indexOf(lowerCaseValue) === 0) {
-        const $element = inputSmartSearch ?
-          `<a class="filters__dropdown-item dropdown__menu-item${(lowerCaseValue && !firstRender) ? ' filters__dropdown-item--smart' : ''}" href="javascript:void(0)"><span>${el.substr(0, lowerCaseValue.length)}</span>${el.substr(lowerCaseValue.length)}</a>` :
-          `<a class="filters__dropdown-item dropdown__menu-item" href="javascript:void(0)">${el}</a>`;
-        matchesFound = true;
-        $dropdown.insertAdjacentHTML('beforeend', $element)
+        $dropdown.innerHTML = '';
+      
+        // render filter dropdown items
+        options.map(el => {
+          if (firstRender || el.toLowerCase().indexOf(lowerCaseValue) === 0) {
+            const $element = inputSmartSearch ?
+              `<a class="filters__dropdown-item dropdown__menu-item${(lowerCaseValue && !firstRender) ? ' filters__dropdown-item--smart' : ''}" href="javascript:void(0)"><span>${el.substr(0, lowerCaseValue.length)}</span>${el.substr(lowerCaseValue.length)}</a>` :
+              `<a class="filters__dropdown-item dropdown__menu-item" href="javascript:void(0)">${el}</a>`;
+            matchesFound = true;
+            $dropdown.insertAdjacentHTML('beforeend', $element)
+          }
+        });
+
+        // toggle filter dropdown visibility
+        if (matchesFound) {
+          $dropdownElement.parentNode.classList.remove('filters__dropdown--hidden');
+          $dropdownElement.parentNode.classList.remove('filters__dropdown--empty');
+        } else if (!$checkbox) {
+          $dropdownElement.parentNode.classList.add('filters__dropdown--hidden');
+        } else {
+          $dropdownElement.parentNode.classList.add('filters__dropdown--empty');
+        }
+
+        // handle input value
+        Array.from($dropdown.querySelectorAll('.filters__dropdown-item')).map(el => el.addEventListener('click', () => {
+          $this.value = el.innerText;
+          $this.setAttribute('data-value', el.innerText);
+
+          if ($checkbox) {
+            $checkbox.checked = false;
+            $this.removeAttribute('readonly');
+          }
+        }));
+
+        // fakeScroll init
+        if (firstRender && !$dropdownElement.classList.contains('fakeScroll')) {
+          $dropdown.fakeScroll();
+        }
+      };
+      // add listeners on filter input
+      if ($this.name !== 'cost') {
+        $this.addEventListener('input', () => handleInput(false));
+        $this.addEventListener('focus', () => handleInput(true));
+        $this.addEventListener('blur', () => {
+          if ($this.value === '' || !$this.dataset.value) {
+            $this.value = '';
+          } else {
+            $this.value = $this.dataset.value;
+          }
+        });
       }
     });
+  });
+}
 
-    // toggle filter dropdown visibility
-    if (matchesFound) {
-      $dropdownElement.parentNode.classList.remove('filters__dropdown--hidden');
-      $dropdownElement.parentNode.classList.remove('filters__dropdown--empty');
-    } else if (!$checkbox) {
-      $dropdownElement.parentNode.classList.add('filters__dropdown--hidden');
-    } else {
-      $dropdownElement.parentNode.classList.add('filters__dropdown--empty');
-    }
-
-    // handle input value
-    Array.from($dropdown.querySelectorAll('.filters__dropdown-item')).map(el => el.addEventListener('click', () => {
-      $this.value = el.innerText;
-      $this.setAttribute('data-value', el.innerText);
-
-      if ($checkbox) {
-        $checkbox.checked = false;
-        $this.removeAttribute('readonly');
-      }
-    }));
-
-    // fakeScroll init
-    if (firstRender && !$dropdownElement.classList.contains('fakeScroll')) {
-      $dropdown.fakeScroll();
-    }
-  };
-
-  // add listeners on filter input
-  if ($this.name !== 'cost') {
-    $this.addEventListener('input', () => handleInput(false));
-    $this.addEventListener('focus', () => handleInput(true));
-    $this.addEventListener('blur', () => {
-      if ($this.value === '' || !$this.dataset.value) {
-        $this.value = '';
-      } else {
-        $this.value = $this.dataset.value;
-      }
-    });
-  }
-});
 
 // handle filter range slider
 Array.from(document.querySelectorAll('.filters__cost-range')).map($range => {

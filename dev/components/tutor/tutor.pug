@@ -22,7 +22,7 @@ mixin tutor(login)
                     p.tutor__rating-rate 4.9
                     p.tutor__rating-reviews (50 отзывов)
                 .tutor__cost
-                  p.tutor__cost-value 1000 &#8381;
+                  p.tutor__cost-value <span>1000</span> &#8381;
                   p.tutor__cost-desc в час
               +button('primary', 'popup', 'Оставить заявку', 'tutor__btn', {popup: login ? 'request' : 'request-auth'})
         nav.tutor__nav
@@ -50,6 +50,6 @@ mixin tutor(login)
                 p.tutor__rating-rate 4.9
                 p.tutor__rating-reviews (50 отзывов)
             .tutor__cost
-              p.tutor__cost-value 1000 &#8381;
+              p.tutor__cost-value <span>1000</span> &#8381;
               p.tutor__cost-desc в час
           +button('primary', 'popup', 'Оставить заявку', 'tutor__btn', {popup: login ? 'request' : 'request-auth'})

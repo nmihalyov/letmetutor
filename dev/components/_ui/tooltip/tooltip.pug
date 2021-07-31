@@ -1,2 +1,4 @@
-mixin tooltip(text)
-  span.tooltip!= text
+mixin tooltip(text, options)
+  - className = options && options.centered ? 'tooltip--centered' : ''
+
+  span.tooltip(class=className)!= text

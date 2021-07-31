@@ -1,0 +1,149 @@
+.notfound
+  display: flex
+  align-items: stretch
+  min-height: calc(100vh - 421px)
+  &__wrapper
+    display: flex
+    justify-content: center
+    align-items: center
+    padding-top: 100px !important
+    padding-bottom: 100px !important
+  &__image
+    position: relative
+    width: 450px
+    margin-right: 50px
+  &__main
+    z-index: 2
+    position: relative
+    width: 100%
+    padding-top: 69.5555555%
+    background:
+      image: url('../img/inhtml/notfound-bg.svg')
+      position: center
+      size: contain
+      repeat: no-repeat
+  &__gear
+    position: absolute
+    background:
+      image: url('../img/inhtml/gear.svg')
+      position: center
+      size: contain
+      repeat: no-repeat
+    &[data-gear="1"]
+      z-index: 1
+      top: -5%
+      left: -1%
+      width: 47%
+      padding-top: 47%
+      animation: gear-1 10s linear infinite
+    &[data-gear="2"]
+      z-index: 3
+      top: 61%
+      left: 85%
+      width: 13%
+      padding-top: 13%
+      animation: gear-2 10s linear infinite
+  &__num
+    z-index: 3
+    position: absolute
+    top: 26.5%
+    left: 60%
+    width: 12%
+    height: 24%
+    animation: number 3s linear infinite
+    background:
+      image: url('../img/inhtml/number.svg')
+      position: center
+      size: contain
+      repeat: no-repeat
+  &__hands
+    z-index: 4
+    position: absolute
+    top: 36%
+    left: 23.5%
+    width: 38%
+    padding-top: 17%
+    animation: hands 3s linear infinite
+    background:
+      image: url('../img/inhtml/hands.svg')
+      position: center
+      size: contain
+      repeat: no-repeat
+  &__info
+    width: 330px
+    &-num
+      margin-bottom: 15px
+      line-height: 1
+      font:
+        size: 144px
+        weight: 700
+    &-heading
+      margin-bottom: 20px
+      font:
+        size: 24px
+        weight: 500
+    &-link
+      color: $blue
+      &:hover
+        color: transparentize($blue, 0.2)
+
+@keyframes gear-1
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+@keyframes gear-2
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(-360deg)
+
+@keyframes number
+  0%, 80%, 100%
+    transform: rotate(0deg)
+  20%
+    transform: rotate(4deg)
+  40%
+    transform: rotate(-7deg)
+  60%
+    transform: rotate(0deg)
+
+@keyframes hands
+  0%, 100%
+    transform: translateX(0) rotate(0deg)
+  20%
+    transform: translateX(-2%) rotate(0deg)
+  40%
+    transform: translateX(-2%) rotate(-3deg)
+  60%
+    transform: translateX(1.5%) rotate(0deg)
+  80%
+    transform: translateX(1.5%) rotate(-3deg)
+
+@media only screen and (max-width: $tablet)
+  .notfound
+    min-height: calc(100vh - 468px)
+    &__image
+      margin-right: 30px
+    &__info
+      flex-shrink: 0
+      width: 295px
+      &-num
+        font-size: 104px
+      &-heading
+        font-size: 18px
+      &-link
+        font-size: 15px
+
+@media only screen and (max-width: $mobile)
+  .notfound
+    &__wrapper
+      flex-direction: column-reverse
+      padding-top: 50px !important
+      padding-bottom: 50px !important
+    &__info
+      margin-bottom: 30px
+    &__image
+      width: 100%
+      margin-right: 0

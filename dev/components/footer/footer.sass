@@ -1,6 +1,7 @@
 .footer
   background-color: #fff
-  border-top: 1px solid $gray-4
+  &:not(.footer--borderless)
+    border-top: 1px solid $gray-4
   &__top
     display: flex
     justify-content: space-between
@@ -87,11 +88,15 @@
     &__copyright
       margin-bottom: 25px
     &__col
+      z-index: 9
+      position: relative
       &:not(:first-child)
         width: 100%
       &:not(:first-child):not(:last-child)
         display: none
     &__bottom
+      z-index: 9
+      position: relative
       flex-direction: column
       padding: 30px 0
     &__policy

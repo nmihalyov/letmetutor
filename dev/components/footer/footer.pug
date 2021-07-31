@@ -1,5 +1,5 @@
-mixin footer
-  footer.footer.container
+mixin footer(borderless)
+  footer.footer.container(class=borderless ? 'footer--borderless' : '')
     .footer__wrapper.wrapper
       .footer__top
         .footer__col

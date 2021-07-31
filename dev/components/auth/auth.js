@@ -1,18 +1,26 @@
 // auth form validation
 if (document.querySelector('form[data-login-form]')) {
-  $api.validate(document.querySelector('form[data-login-form]'), () => {console.log(true)});
+  $api.validate(document.querySelector('form[data-login-form]'), () => {
+    document.querySelector('form[data-login-form]').submit();
+  });
 }
 
 if (document.querySelector('form[data-signup-student-form]')) {
-  $api.validate(document.querySelector('form[data-signup-student-form]'), () => {});
+  $api.validate(document.querySelector('form[data-signup-student-form]'), () => {
+    document.querySelector('form[data-signup-student-form]').submit();
+  });
 }
 
 if (document.querySelector('form[data-signup-tutor-form]')) {
-  $api.validate(document.querySelector('form[data-signup-tutor-form]'), () => {});
+  $api.validate(document.querySelector('form[data-signup-tutor-form]'), () => {
+    document.querySelector('form[data-signup-tutor-form]').submit();
+  });
 }
 
 if (document.querySelector('form[data-support-form]')) {
-  $api.validate(document.querySelector('form[data-support-form]'), () => {});
+  $api.validate(document.querySelector('form[data-support-form]'), () => {
+    document.querySelector('form[data-support-form]').submit();
+  });
 }
 
 // set country value to cities input
@@ -22,75 +30,52 @@ Array.from(document.querySelectorAll('.js-auth-country')).map(el => el.addEventL
 
 // handling cities input
 if (document.querySelectorAll('.js-auth-city input').length) {
-  const citiesData = [{
-    "key": "Россия",
-    "cities": [
-      "Москва",
-      "Санкт-Петербург",
-      "Казань",
-      "Нижний Новгород",
-      "Сочи",
-      "Екатеринбург",
-      "Ростов-на-Дону",
-      "Новосибирск",
-      "Тюмень",
-      "Калининград",
-      "Уфа",
-      "Красноярск",
-      "Краснодар",
-      "Челябинск",
-      "Воронеж"
-    ]
-  },
-  {"key": "Украина",
-    "cities": [
-      "Киев",
-      "Днепр",
-      "Донецк",
-      "Запорожье",
-      "Львов",
-      "Кривой Рог",
-      "Севастополь",
-      "Николаев",
-      "Мариуполь"
-    ]
-  }];
+  fetch('data/location.json').then(res => res.json()).then(data => {
+    Array.from(document.querySelectorAll('.js-auth-city input')).map(el => {
+      el.addEventListener('input', e => {
+        const $this = e.currentTarget;
+        const $labelElement = $this.closest('.input');
+        const country = $labelElement.dataset.country;
 
-  Array.from(document.querySelectorAll('.js-auth-city input')).map(el => {
-    el.addEventListener('input', el => {
-      const $this = el.currentTarget;
-      const $labelElement = $this.closest('.input');
-      const country = $labelElement.dataset.country;
-      
-      if (country) {
-        const cities = citiesData.filter(el => el.key === country)[0].cities;
-        const lowerCaseValue = $this.value.toLowerCase();
-        const $dropdownElement = $this.closest('.input').querySelector('.dropdown__menu');
-        let matchesFound = false;
+        if (country) {
+          const cities = data.filter(el => el.key === country)[0].cities;
+          const lowerCaseValue = $this.value.toLowerCase();
+          const $dropdownElement = $this.closest('.input').querySelector('.dropdown__menu');
+          const $dropdownContent = $dropdownElement.querySelector('.fakeScroll__content');
+          let matchesFound = false;
 
-        $dropdownElement.innerHTML = '';
+          if ($dropdownContent) {
+            $dropdownContent.innerHTML = '';
+          }
 
-        if (el.currentTarget.value !== '') {
-          cities.map(el => {
-            if (el.toLowerCase().indexOf(lowerCaseValue) === 0) {
-              matchesFound = true;
-              $dropdownElement.insertAdjacentHTML('beforeend', `<a class="input__dropdown-item dropdown__menu-item${lowerCaseValue ? ' input__dropdown-item--smart' : ''}" href="javascript:void(0)"><span>${el.substr(0, lowerCaseValue.length)}</span>${el.substr(lowerCaseValue.length)}</a>`)
+          if ($this.value !== '') {
+            cities.map(el => {
+              if (el.toLowerCase().indexOf(lowerCaseValue) === 0) {
+                matchesFound = true;
+                $dropdownContent.insertAdjacentHTML('beforeend', `<a class="input__dropdown-item dropdown__menu-item${lowerCaseValue ? ' input__dropdown-item--smart' : ''}" href="javascript:void(0)"><span>${el.substr(0, lowerCaseValue.length)}</span>${el.substr(lowerCaseValue.length)}</a>`)
+              }
+            });
+
+            if (matchesFound) {
+              Array.from($labelElement.querySelectorAll('.input__dropdown-item')).map(el => el.addEventListener('click', () => {
+                $this.value = el.innerText;
+              }));
             }
-          });
+          }
 
-          if (matchesFound) {
-            Array.from($labelElement.querySelectorAll('.input__dropdown-item')).map(el => el.addEventListener('click', () => {
-              $this.value = el.innerText;
-            }));
+          if (!$dropdownElement.classList.contains('fakeScroll')) {
+            $dropdownElement.fakeScroll();
           }
         }
-      }
-    });
+      });
 
-    el.addEventListener('focus', () => {
-      const $dropdownElement = el.closest('.input').querySelector('.dropdown__menu');
-  
-      $dropdownElement.innerHTML = '';
+      el.addEventListener('focus', () => {
+        const $dropdownElement = el.closest('.input').querySelector('.fakeScroll__content');
+
+        if ($dropdownElement) {
+          $dropdownElement.innerHTML = '';
+        }
+      });
     });
   });
 }

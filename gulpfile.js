@@ -253,4 +253,8 @@ gulp.task('prod', gulp.series('clean', 'img', '_sass', '_pug', 'jsLibs', '_scrip
 	// Собираем manifest.json
 	gulp.src(`${dev}/manifest.json`)
 	.pipe(gulp.dest(`${prod}/`));
+
+	// Переносим данные
+	gulp.src(`${build}/data/**/*`)
+	.pipe(gulp.dest(`${prod}/data`));
 }));

@@ -38,7 +38,7 @@
         <div class="banner__close"></div>
       </div>
       <header class="header container">
-        <div class="header__wrapper wrapper"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/>
+        <div class="header__wrapper wrapper"><a href="main.html"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/></a>
           <nav class="header__nav"><a class="header__nav-link" href="catalog.html">Репетиторы</a><a class="header__nav-link" href="#">Как это работает</a><a class="header__nav-link" href="#">Стать репетитором</a>
             <div class="header__nav-link dropdown dropdown--arrow">Больше
               <div class="header__nav-dropdown dropdown__menu"><a class="dropdown__menu-item" href="#">Вопрос - ответ</a><a class="dropdown__menu-item" href="#">Помощь</a><a class="dropdown__menu-item" href="support.html">Тех. поддержка</a><a class="dropdown__menu-item" href="#">Правила сервиса</a></div>
@@ -61,7 +61,7 @@
       <div class="header-menu">
         <div class="header-menu__backdrop"></div>
         <div class="header-menu__container">
-          <div class="header-menu__head"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/>
+          <div class="header-menu__head"><a href="main.html"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/></a>
             <div class="header-menu__close"></div>
           </div>
           <div class="header-menu__content">
@@ -82,19 +82,19 @@
                 <div class="profile-head__info">
                   <div class="profile-head__top">
                     <div>
-                      <p class="profile-head__name profile-head__name--verified">Анна Иванова</p>
+                      <p class="profile-head__name">Анна Иванова<span class="profile-head__verified" data-tooltip="data-tooltip"><span class="tooltip tooltip--centered">Личность подтверждена</span></span></p>
                       <p class="profile-head__location" data-loc="ru">Москва, Россия</p>
                     </div>
                     <p class="profile-head__online">Был(а) в сети 1 час назад</p>
                   </div>
                   <div class="profile-head__bottom">
                     <p class="profile-head__heading">Предметы:</p>
-                    <div class="profile-head__subjects"><a class="profile-head__subjects-item profile-head__subjects-item--highlight" href="#" data-tooltip="data-tooltip">Английский язык <span>(опыт 5 лет)</span><span class="tooltip"><b>1000</b> &#8381; в час</span></a><a class="profile-head__subjects-item" href="#" data-tooltip="data-tooltip">Немецкий язык <span>(опыт 5 лет)</span><span class="tooltip"><b>1000</b> &#8381; в час</span></a><a class="profile-head__subjects-item" href="#" data-tooltip="data-tooltip">Итальянский язык <span>(опыт 5 лет)</span><span class="tooltip"><b>1000</b> &#8381; в час</span></a><a class="profile-head__subjects-item" href="#" data-tooltip="data-tooltip">Французский язык <span>(опыт 5 лет)</span><span class="tooltip"><b>1000</b> &#8381; в час</span></a></div>
+                    <div class="profile-head__subjects"><a class="profile-head__subjects-item profile-head__subjects-item--highlight" href="javascript:void(0)" data-tooltip="data-tooltip" data-pay="1000">Английский язык <span>(опыт 5 лет)</span><span class="tooltip"><b>1000</b> &#8381; в час</span></a><a class="profile-head__subjects-item" href="javascript:void(0)" data-tooltip="data-tooltip" data-pay="700">Немецкий язык <span>(опыт 5 лет)</span><span class="tooltip"><b>700</b> &#8381; в час</span></a><a class="profile-head__subjects-item" href="javascript:void(0)" data-tooltip="data-tooltip" data-pay="600">Итальянский язык <span>(опыт 5 лет)</span><span class="tooltip"><b>600</b> &#8381; в час</span></a><a class="profile-head__subjects-item" href="javascript:void(0)" data-tooltip="data-tooltip" data-pay="650">Французский язык <span>(опыт 5 лет)</span><span class="tooltip"><b>650</b> &#8381; в час</span></a></div>
                   </div>
                 </div>
                 <div class="profile-head__bottom profile-head__bottom--mobile">
                   <p class="profile-head__heading">Предметы:</p>
-                  <div class="profile-head__subjects"><a class="profile-head__subjects-item profile-head__subjects-item--highlight" href="#">Английский язык</a><a class="profile-head__subjects-item" href="#">Немецкий язык</a><a class="profile-head__subjects-item" href="#">Итальянский язык</a><a class="profile-head__subjects-item" href="#">Французский язык</a></div>
+                  <div class="profile-head__subjects"><a class="profile-head__subjects-item profile-head__subjects-item--highlight" href="javascript:void(0)" data-pay="1000">Английский язык</a><a class="profile-head__subjects-item" href="javascript:void(0)" data-pay="700">Немецкий язык</a><a class="profile-head__subjects-item" href="javascript:void(0)" data-pay="600">Итальянский язык</a><a class="profile-head__subjects-item" href="javascript:void(0)" data-pay="650">Французский язык</a></div>
                 </div>
               </div>
               <div class="tutor__head-actions">
@@ -105,7 +105,7 @@
                       <p class="tutor__rating-reviews">(50 отзывов)</p>
                     </div>
                     <div class="tutor__cost">
-                      <p class="tutor__cost-value">1000 &#8381;</p>
+                      <p class="tutor__cost-value"><span>1000</span> &#8381;</p>
                       <p class="tutor__cost-desc">в час</p>
                     </div>
                   </div>
@@ -123,10 +123,7 @@
                   </div>
                   <div class="profile-about__video">
                     <div class="profile-about__video-cover" style="background-image: url('img/inhtml/profile-video-cover.png')"></div>
-                    <video controls="controls">
-                      <source src="media/video.webm" type="video/webm"/>
-                      <source src="media/video.mp4" type="video/mp4"/>
-                    </video>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
                   </div>
                 </div>
               </div>
@@ -482,7 +479,7 @@
                   <p class="tutor__rating-reviews">(50 отзывов)</p>
                 </div>
                 <div class="tutor__cost">
-                  <p class="tutor__cost-value">1000 &#8381;</p>
+                  <p class="tutor__cost-value"><span>1000</span> &#8381;</p>
                   <p class="tutor__cost-desc">в час</p>
                 </div>
               </div>
@@ -491,7 +488,7 @@
           </aside>
         </div>
       </section>
-      <footer class="footer container">
+      <footer class="footer container footer--borderless">
         <div class="footer__wrapper wrapper">
           <div class="footer__top">
             <div class="footer__col"><img class="footer__logo" src="img/logo-gray.svg" alt="LetMeTutor logo gray"/>
