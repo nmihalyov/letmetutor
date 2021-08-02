@@ -1,8 +1,12 @@
 // show hiddne subject in tutorcard
-Array.from(document.querySelectorAll('.js-tutorcard-more')).map(el => el.addEventListener('click', () => {
-  el.style.display = 'none';
+document.addEventListener('click', e => {
+  const $target = e.target;
 
-  Array.from(el.closest('.tutorcard__subjects').querySelectorAll('.tutorcard__subjects-item--hidden')).map(el => {
-    el.classList.remove('tutorcard__subjects-item--hidden');
-  });
-}));
+  if ($target.classList.contains('js-tutorcard-more')) {
+    $target.style.display = 'none';
+    
+    Array.from($target.closest('.tutorcard__subjects').querySelectorAll('.tutorcard__subjects-item--hidden')).map(el => {
+      el.classList.remove('tutorcard__subjects-item--hidden');
+    });
+  }
+});

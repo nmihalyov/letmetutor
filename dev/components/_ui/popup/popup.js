@@ -1,14 +1,16 @@
 // handle open popup
-Array.from(document.querySelectorAll('.js-open-popup')).map(el =>
-  el.addEventListener('click', e => {
+document.addEventListener('click', e => {
+  const $this = e.target;
+
+  if ($this.classList.contains('js-open-popup')) {
     e.preventDefault();
 
-    const target = e.currentTarget.dataset.popup;
+    const target = $this.dataset.popup;
     const $popup = document.querySelector(`.js-popup[data-popup="${target}"]`);
     
     $api.popup($popup).show();
-  })
-);
+  }
+});
 
 // handle close popup
 Array.from(document.querySelectorAll('.js-close-popup')).map(el =>

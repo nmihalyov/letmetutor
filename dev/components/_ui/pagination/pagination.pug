@@ -1,12 +1,12 @@
 mixin pagination
   .pagination
-    a.pagination__arrow.pagination__arrow--prev.pagination__arrow--disabled(href="#")
+    a.pagination__arrow.pagination__arrow--prev.pagination__arrow--disabled(href="javascript:void(0)")
     .pagination__pages
-      a.pagination__page.pagination__page--current(href="#") 1
-      a.pagination__page(href="#") 2
-      a.pagination__page(href="#") 3
-      a.pagination__page(href="#") 4
-      a.pagination__page(href="#") 5
+      a.pagination__page.pagination__page--current(href="javascript:void(0)", data-page="1") 1
+      a.pagination__page(href="javascript:void(0)", data-page="2") 2
+      a.pagination__page(href="javascript:void(0)", data-page="3") 3
+      a.pagination__page(href="javascript:void(0)", data-page="4") 4
+      a.pagination__page(href="javascript:void(0)", data-page="5") 5
       span.pagination__separator ...
-      a.pagination__page(href="#") 19
-    a.pagination__arrow.pagination__arrow--next(href="#")
+      a.pagination__page(href="javascript:void(0)", data-page="10") 10
+    a.pagination__arrow.pagination__arrow--next(href="javascript:void(0)")

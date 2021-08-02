@@ -20,7 +20,7 @@ mixin catalog(notfound, login)
               a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Цене: от низкой к высокой
               a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Количеству отзывов
               a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Высокому рейтингу
-          .catalog__sort-item.dropdown.dropdown--caret Показывать на странице:
+          .catalog__sort-item.dropdown.dropdown--caret.js-catalog-limit Показывать на странице:
             p.dropdown__value 10
             .dropdown__menu.dropdown__menu--small
               a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 10
@@ -34,11 +34,12 @@ mixin catalog(notfound, login)
         else
           .catalog__found
             p.catalog__found-desc Найдено <b>213</b> репетиторов по предмету <a href="#">Английский язык</a> в <a href="#">России</a>
-            +tutorcard('tutor-1.jpg', true, true, login)
-            +tutorcard('tutor-2.jpg', false, true, login)
-            +tutorcard('tutor-3.jpg', false, false, login)
-            +tutorcard('tutor-4.jpg', false, true, login)
-            +tutorcard('tutor-5.jpg', false, true, login)
+            .catalog__items
+              +tutorcard('tutor-1.jpg', true, true, login)
+              +tutorcard('tutor-2.jpg', false, true, login)
+              +tutorcard('tutor-3.jpg', false, false, login)
+              +tutorcard('tutor-4.jpg', false, true, login)
+              +tutorcard('tutor-5.jpg', false, true, login)
             .catalog__bottom
               +pagination
-              +button('primary', 'button', 'Показать еще', 'catalog__bottom-btn')
+              +button('primary', 'button', 'Показать еще', 'catalog__bottom-btn js-catalog-more')

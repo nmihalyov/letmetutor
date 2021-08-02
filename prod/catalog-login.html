@@ -168,7 +168,7 @@
                 <p class="dropdown__value">Актуальности</p>
                 <div class="catalog__sort-dropdown dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">Актуальности</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Популярности</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Цене: от высокой к низкой</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Цене: от низкой к высокой</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Количеству отзывов</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Высокому рейтингу</a></div>
               </div>
-              <div class="catalog__sort-item dropdown dropdown--caret">Показывать на странице:
+              <div class="catalog__sort-item dropdown dropdown--caret js-catalog-limit">Показывать на странице:
                 <p class="dropdown__value">10</p>
                 <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">10</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">20</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">30</a></div>
               </div>
@@ -179,131 +179,133 @@
           <div class="wrapper">
             <div class="catalog__found">
               <p class="catalog__found-desc">Найдено <b>213</b> репетиторов по предмету <a href="#">Английский язык</a> в <a href="#">России</a></p>
-              <div class="tutorcard tutorcard--top">
-                <div class="tutorcard__image" style="background-image: url('img/inhtml/tutor-1.jpg')"></div>
-                <div class="tutorcard__info">
-                  <div>
-                    <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
-                    <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
-                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
-                    <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
-                  </div><a class="tutorcard__more" href="#">Подробнее</a>
-                </div>
-                <div class="tutorcard__actions">
-                  <div class="tutorcard__actions-info">
-                    <div class="tutorcard__rating">
-                      <p class="tutorcard__rating-rate">4.9</p>
-                      <p class="tutorcard__rating-reviews">(50 отзывов)</p>
-                    </div>
-                    <div class="tutorcard__cost">
-                      <p class="tutorcard__cost-value">1000 &#8381;</p>
-                      <p class="tutorcard__cost-desc">в час</p>
-                    </div>
+              <div class="catalog__items">
+                <div class="tutorcard tutorcard--top">
+                  <div class="tutorcard__image" style="background-image: url('img/inhtml/tutor-1.jpg')"></div>
+                  <div class="tutorcard__info">
+                    <div>
+                      <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
+                      <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
+                      <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="javascript:void(0)">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="javascript:void(0)">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="javascript:void(0)">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="javascript:void(0)">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
+                      <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
+                    </div><a class="tutorcard__more" href="tutor.html">Подробнее</a>
                   </div>
-                  <button class="button js-open-popup button--primary tutorcard__btn" data-popup="request">Оставить заявку</button>
-                </div>
-              </div>
-              <div class="tutorcard">
-                <div class="tutorcard__image" style="background-image: url('img/inhtml/tutor-2.jpg')"></div>
-                <div class="tutorcard__info">
-                  <div>
-                    <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
-                    <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
-                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
-                    <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
-                  </div><a class="tutorcard__more" href="#">Подробнее</a>
-                </div>
-                <div class="tutorcard__actions">
-                  <div class="tutorcard__actions-info">
-                    <div class="tutorcard__rating">
-                      <p class="tutorcard__rating-rate">4.9</p>
-                      <p class="tutorcard__rating-reviews">(50 отзывов)</p>
+                  <div class="tutorcard__actions">
+                    <div class="tutorcard__actions-info">
+                      <div class="tutorcard__rating">
+                        <p class="tutorcard__rating-rate">4.9</p>
+                        <p class="tutorcard__rating-reviews">(50 отзывов)</p>
+                      </div>
+                      <div class="tutorcard__cost">
+                        <p class="tutorcard__cost-value">1000 &#8381;</p>
+                        <p class="tutorcard__cost-desc">в час</p>
+                      </div>
                     </div>
-                    <div class="tutorcard__cost">
-                      <p class="tutorcard__cost-value">1000 &#8381;</p>
-                      <p class="tutorcard__cost-desc">в час</p>
-                    </div>
+                    <button class="button js-open-popup button--primary tutorcard__btn" data-popup="request">Оставить заявку</button>
                   </div>
-                  <button class="button js-open-popup button--secondary tutorcard__btn" data-popup="request">Оставить заявку</button>
                 </div>
-              </div>
-              <div class="tutorcard">
-                <div class="tutorcard__image" style="background-image: url('img/inhtml/tutor-3.jpg')"></div>
-                <div class="tutorcard__info">
-                  <div>
-                    <p class="tutorcard__name">Анна Иванова</p>
-                    <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
-                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
-                    <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
-                  </div><a class="tutorcard__more" href="#">Подробнее</a>
-                </div>
-                <div class="tutorcard__actions">
-                  <div class="tutorcard__actions-info">
-                    <div class="tutorcard__rating">
-                      <p class="tutorcard__rating-rate">4.9</p>
-                      <p class="tutorcard__rating-reviews">(50 отзывов)</p>
-                    </div>
-                    <div class="tutorcard__cost">
-                      <p class="tutorcard__cost-value">1000 &#8381;</p>
-                      <p class="tutorcard__cost-desc">в час</p>
-                    </div>
+                <div class="tutorcard">
+                  <div class="tutorcard__image" style="background-image: url('img/inhtml/tutor-2.jpg')"></div>
+                  <div class="tutorcard__info">
+                    <div>
+                      <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
+                      <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
+                      <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="javascript:void(0)">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="javascript:void(0)">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="javascript:void(0)">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="javascript:void(0)">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
+                      <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
+                    </div><a class="tutorcard__more" href="tutor.html">Подробнее</a>
                   </div>
-                  <button class="button js-open-popup button--secondary tutorcard__btn" data-popup="request">Оставить заявку</button>
-                </div>
-              </div>
-              <div class="tutorcard">
-                <div class="tutorcard__image" style="background-image: url('img/inhtml/tutor-4.jpg')"></div>
-                <div class="tutorcard__info">
-                  <div>
-                    <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
-                    <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
-                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
-                    <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
-                  </div><a class="tutorcard__more" href="#">Подробнее</a>
-                </div>
-                <div class="tutorcard__actions">
-                  <div class="tutorcard__actions-info">
-                    <div class="tutorcard__rating">
-                      <p class="tutorcard__rating-rate">4.9</p>
-                      <p class="tutorcard__rating-reviews">(50 отзывов)</p>
+                  <div class="tutorcard__actions">
+                    <div class="tutorcard__actions-info">
+                      <div class="tutorcard__rating">
+                        <p class="tutorcard__rating-rate">4.9</p>
+                        <p class="tutorcard__rating-reviews">(50 отзывов)</p>
+                      </div>
+                      <div class="tutorcard__cost">
+                        <p class="tutorcard__cost-value">1000 &#8381;</p>
+                        <p class="tutorcard__cost-desc">в час</p>
+                      </div>
                     </div>
-                    <div class="tutorcard__cost">
-                      <p class="tutorcard__cost-value">1000 &#8381;</p>
-                      <p class="tutorcard__cost-desc">в час</p>
-                    </div>
+                    <button class="button js-open-popup button--secondary tutorcard__btn" data-popup="request">Оставить заявку</button>
                   </div>
-                  <button class="button js-open-popup button--secondary tutorcard__btn" data-popup="request">Оставить заявку</button>
                 </div>
-              </div>
-              <div class="tutorcard">
-                <div class="tutorcard__image" style="background-image: url('img/inhtml/tutor-5.jpg')"></div>
-                <div class="tutorcard__info">
-                  <div>
-                    <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
-                    <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
-                    <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="#">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="#">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="#">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
-                    <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
-                  </div><a class="tutorcard__more" href="#">Подробнее</a>
-                </div>
-                <div class="tutorcard__actions">
-                  <div class="tutorcard__actions-info">
-                    <div class="tutorcard__rating">
-                      <p class="tutorcard__rating-rate">4.9</p>
-                      <p class="tutorcard__rating-reviews">(50 отзывов)</p>
-                    </div>
-                    <div class="tutorcard__cost">
-                      <p class="tutorcard__cost-value">1000 &#8381;</p>
-                      <p class="tutorcard__cost-desc">в час</p>
-                    </div>
+                <div class="tutorcard">
+                  <div class="tutorcard__image" style="background-image: url('img/inhtml/tutor-3.jpg')"></div>
+                  <div class="tutorcard__info">
+                    <div>
+                      <p class="tutorcard__name">Анна Иванова</p>
+                      <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
+                      <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="javascript:void(0)">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="javascript:void(0)">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="javascript:void(0)">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="javascript:void(0)">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
+                      <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
+                    </div><a class="tutorcard__more" href="tutor.html">Подробнее</a>
                   </div>
-                  <button class="button js-open-popup button--secondary tutorcard__btn" data-popup="request">Оставить заявку</button>
+                  <div class="tutorcard__actions">
+                    <div class="tutorcard__actions-info">
+                      <div class="tutorcard__rating">
+                        <p class="tutorcard__rating-rate">4.9</p>
+                        <p class="tutorcard__rating-reviews">(50 отзывов)</p>
+                      </div>
+                      <div class="tutorcard__cost">
+                        <p class="tutorcard__cost-value">1000 &#8381;</p>
+                        <p class="tutorcard__cost-desc">в час</p>
+                      </div>
+                    </div>
+                    <button class="button js-open-popup button--secondary tutorcard__btn" data-popup="request">Оставить заявку</button>
+                  </div>
+                </div>
+                <div class="tutorcard">
+                  <div class="tutorcard__image" style="background-image: url('img/inhtml/tutor-4.jpg')"></div>
+                  <div class="tutorcard__info">
+                    <div>
+                      <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
+                      <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
+                      <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="javascript:void(0)">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="javascript:void(0)">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="javascript:void(0)">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="javascript:void(0)">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
+                      <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
+                    </div><a class="tutorcard__more" href="tutor.html">Подробнее</a>
+                  </div>
+                  <div class="tutorcard__actions">
+                    <div class="tutorcard__actions-info">
+                      <div class="tutorcard__rating">
+                        <p class="tutorcard__rating-rate">4.9</p>
+                        <p class="tutorcard__rating-reviews">(50 отзывов)</p>
+                      </div>
+                      <div class="tutorcard__cost">
+                        <p class="tutorcard__cost-value">1000 &#8381;</p>
+                        <p class="tutorcard__cost-desc">в час</p>
+                      </div>
+                    </div>
+                    <button class="button js-open-popup button--secondary tutorcard__btn" data-popup="request">Оставить заявку</button>
+                  </div>
+                </div>
+                <div class="tutorcard">
+                  <div class="tutorcard__image" style="background-image: url('img/inhtml/tutor-5.jpg')"></div>
+                  <div class="tutorcard__info">
+                    <div>
+                      <p class="tutorcard__name tutorcard__name--verified">Анна Иванова</p>
+                      <p class="tutorcard__location" data-loc="ru">Москва, Россия</p>
+                      <div class="tutorcard__subjects"><a class="tutorcard__subjects-item tutorcard__subjects-item--search" href="javascript:void(0)">Английский язык <span>(опыт <b>5 лет</b>)</span></a><a class="tutorcard__subjects-item" href="javascript:void(0)">Немецкий язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="javascript:void(0)">Итальянский язык <span>(опыт <b>8 лет</b>)</span></a><a class="tutorcard__subjects-item tutorcard__subjects-item--hidden" href="javascript:void(0)">Французский язык <span>(опыт <b>2 года</b>)</span></a><a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a></div>
+                      <p class="tutorcard__desc">Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...</p>
+                    </div><a class="tutorcard__more" href="tutor.html">Подробнее</a>
+                  </div>
+                  <div class="tutorcard__actions">
+                    <div class="tutorcard__actions-info">
+                      <div class="tutorcard__rating">
+                        <p class="tutorcard__rating-rate">4.9</p>
+                        <p class="tutorcard__rating-reviews">(50 отзывов)</p>
+                      </div>
+                      <div class="tutorcard__cost">
+                        <p class="tutorcard__cost-value">1000 &#8381;</p>
+                        <p class="tutorcard__cost-desc">в час</p>
+                      </div>
+                    </div>
+                    <button class="button js-open-popup button--secondary tutorcard__btn" data-popup="request">Оставить заявку</button>
+                  </div>
                 </div>
               </div>
               <div class="catalog__bottom">
-                <div class="pagination"><a class="pagination__arrow pagination__arrow--prev pagination__arrow--disabled" href="#"></a>
-                  <div class="pagination__pages"><a class="pagination__page pagination__page--current" href="#">1</a><a class="pagination__page" href="#">2</a><a class="pagination__page" href="#">3</a><a class="pagination__page" href="#">4</a><a class="pagination__page" href="#">5</a><span class="pagination__separator">...</span><a class="pagination__page" href="#">19</a></div><a class="pagination__arrow pagination__arrow--next" href="#"></a>
+                <div class="pagination"><a class="pagination__arrow pagination__arrow--prev pagination__arrow--disabled" href="javascript:void(0)"></a>
+                  <div class="pagination__pages"><a class="pagination__page pagination__page--current" href="javascript:void(0)" data-page="1">1</a><a class="pagination__page" href="javascript:void(0)" data-page="2">2</a><a class="pagination__page" href="javascript:void(0)" data-page="3">3</a><a class="pagination__page" href="javascript:void(0)" data-page="4">4</a><a class="pagination__page" href="javascript:void(0)" data-page="5">5</a><span class="pagination__separator">...</span><a class="pagination__page" href="javascript:void(0)" data-page="10">10</a></div><a class="pagination__arrow pagination__arrow--next" href="javascript:void(0)"></a>
                 </div>
-                <button class="button button--primary catalog__bottom-btn">Показать еще</button>
+                <button class="button button--primary catalog__bottom-btn js-catalog-more">Показать еще</button>
               </div>
             </div>
           </div>
