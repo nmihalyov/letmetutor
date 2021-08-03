@@ -1,6 +1,6 @@
 include ../button/button
 
-mixin tutorcard(image, top, verified, login)
+mixin tutorcard(image, top, verified, login, noReviews)
   .tutorcard(class=top ? 'tutorcard--top' : '')
     .tutorcard__image(style=`background-image: url('img/inhtml/${image}')`)
     .tutorcard__info
@@ -17,9 +17,9 @@ mixin tutorcard(image, top, verified, login)
       a.tutorcard__more(href="tutor.html") Подробнее
     .tutorcard__actions
       .tutorcard__actions-info
-        .tutorcard__rating
-          p.tutorcard__rating-rate 4.9
-          p.tutorcard__rating-reviews (50 отзывов)
+        .tutorcard__rating(class=noReviews ? 'tutorcard__rating--empty' : '')
+          p.tutorcard__rating-rate= noReviews ? '0.0' : '4.9'
+          p.tutorcard__rating-reviews= noReviews ? '(0 отзывов)' : '(50 отзывов)'
         .tutorcard__cost
           p.tutorcard__cost-value 1000 &#8381;
           p.tutorcard__cost-desc в час

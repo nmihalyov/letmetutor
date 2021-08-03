@@ -75,7 +75,7 @@ if ($catalogMoreBtn) {
       </div>
       <div class="tutorcard__actions">
         <div class="tutorcard__actions-info">
-          <div class="tutorcard__rating">
+          <div class="tutorcard__rating${parseInt(reviews) === 0 ? ' tutorcard__rating--empty' : ''}">
             <p class="tutorcard__rating-rate">${rating}</p>
             <p class="tutorcard__rating-reviews">(${reviews})</p>
           </div>
