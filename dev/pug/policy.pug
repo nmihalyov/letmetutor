@@ -1,20 +1,18 @@
 include ../components/cookies/cookies
 include ../components/header/header
-include ../components/subjects/subjects
-include ../components/action/action
+include ../components/static/static
 include ../components/footer/footer
 
 doctype
 html(lang="ru", prefix="og: http://ogp.me/ns#")
   head
-    title Все предметы | LetMeTutor
+    title Политика конфиденциальности | LetMeTutor
     include assets/_metas
     include assets/_links
     include assets/_scripts
   body
     .page-wrapper
       +header
-      +subjects
-      +action('Хотите начать зарабатывать?', {name: 'Стать репетитором', href: 'signup.html'})
-      +footer(true)
+      +static('policy')
+      +footer
       +cookies

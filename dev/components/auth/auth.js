@@ -1,27 +1,49 @@
-// auth form validation
-if (document.querySelector('form[data-login-form]')) {
-  $api.validate(document.querySelector('form[data-login-form]'), () => {
-    document.querySelector('form[data-login-form]').submit();
-  });
-}
+// all auth forms
+const $authForms = [{
+  $element: document.querySelector('form[data-login-form]'),
+  callback: $element => {
+    setTimeout(() => {
+      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+      $element.submit();
+    }, 1000);
+  }
+},
+{
+  $element: document.querySelector('form[data-signup-student-form]'),
+  callback: $element => {
+    setTimeout(() => {
+      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+      $element.submit();
+    }, 1000);
+  }
+},
+{
+  $element: document.querySelector('form[data-signup-tutor-form]'),
+  callback: $element => {
+    setTimeout(() => {
+      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+      $element.submit();
+    }, 1000);
+  }
+},
+{
+  $element: document.querySelector('form[data-support-form]'),
+  callback: $element => {
+    setTimeout(() => {
+      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+      $element.submit();
+    }, 1000);
+  }
+}];
 
-if (document.querySelector('form[data-signup-student-form]')) {
-  $api.validate(document.querySelector('form[data-signup-student-form]'), () => {
-    document.querySelector('form[data-signup-student-form]').submit();
-  });
-}
+// apply validation on auth forms
+$authForms.map(form => {
+  const { $element, callback } = form;
 
-if (document.querySelector('form[data-signup-tutor-form]')) {
-  $api.validate(document.querySelector('form[data-signup-tutor-form]'), () => {
-    document.querySelector('form[data-signup-tutor-form]').submit();
-  });
-}
-
-if (document.querySelector('form[data-support-form]')) {
-  $api.validate(document.querySelector('form[data-support-form]'), () => {
-    document.querySelector('form[data-support-form]').submit();
-  });
-}
+  if ($element) {
+    $api.validate($element, () => callback($element));
+  }
+});
 
 // set country value to cities input
 Array.from(document.querySelectorAll('.js-auth-country')).map(el => el.addEventListener('changeCountry', e => {

@@ -92,6 +92,9 @@ if ($catalogMoreBtn) {
   // load more catalog items
   $catalogMoreBtn.addEventListener('click', e => {
     e.preventDefault();
+
+    $catalogMoreBtn.classList.add('button--loading');
+
     const latestPage = catalogPages.current[catalogPages.current.length - 1] + 1;
     const queryUrl = formatURL(`data/catalog.json?page=${latestPage}`);
 
@@ -114,6 +117,8 @@ if ($catalogMoreBtn) {
         $catalogMoreBtn.classList.add('catalog__bottom-btn--hidden');
         $nextArrow.classList.add('pagination__arrow--disabled');
       }
+
+      $catalogMoreBtn.classList.remove('button--loading');
     });
   });
 

@@ -129,6 +129,7 @@ $api.validate = (form, request) => {
     }
 
     if (formIsValid) {
+      e.currentTarget.classList.add('button--loading');
       request();
     }
   });

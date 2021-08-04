@@ -23,55 +23,74 @@ Array.from(document.querySelectorAll('.js-close-popup')).map(el =>
   })
 );
 
-// all popup forms and theirs validation callbacks
+// all popup forms
 const $popupForms = [{
   $element: document.querySelector('form[data-restore-form]'),
-  callback: () => {}
+  callback: $element => {
+    setTimeout(() => {
+      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+      $element.submit();
+    }, 1000);
+  }
 },
 {
   $element: document.querySelector('form[data-request-auth-form]'),
-  callback: () => {}
+  callback: $element => {
+    setTimeout(() => {
+      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+      $element.submit();
+    }, 1000);
+  }
 },
 {
   $element: document.querySelector('form[data-offer-form]'),
-  callback: () => {
+  callback: $element => {
     const $popup = document.querySelector('.js-popup[data-popup="offer"]');
     const $successPopup = document.querySelector('.js-popup[data-popup="offer-success"]');
 
-    $api.popup($popup, {
-      onHide() {
-        Array.from($popup.querySelectorAll('input')).map(el => el.value = '');
-        $api.popup($successPopup).show();
-      }
-    }).hide();
+    setTimeout(() => {
+      $api.popup($popup, {
+        onHide() {
+          Array.from($popup.querySelectorAll('input')).map(el => el.value = '');
+          $api.popup($successPopup).show();
+          $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+        }
+      }).hide();
+    }, 1000);
   }
 },
 {
   $element: document.querySelector('form[data-request-form]'),
-  callback: () => {
+  callback: $element => {
     const $popup = document.querySelector('.js-popup[data-popup="request"]');
     const $successPopup = document.querySelector('.js-popup[data-popup="request-success"]');
 
-    $api.popup($popup, {
-      onHide() {
-        Array.from($popup.querySelectorAll('input')).map(el => el.value = '');
-        $api.popup($successPopup).show();
-      }
-    }).hide();
+    setTimeout(() => {
+      $api.popup($popup, {
+        onHide() {
+          Array.from($popup.querySelectorAll('input')).map(el => el.value = '');
+          $api.popup($successPopup).show();
+          $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+        }
+      }).hide();
+    }, 1000);
   }
 },
 {
   $element: document.querySelector('form[data-request-specific-form]'),
-  callback: () => {
+  callback: $element => {
     const $popup = document.querySelector('.js-popup[data-popup="request-specific"]');
     const $successPopup = document.querySelector('.js-popup[data-popup="request-success"]');
 
-    $api.popup($popup, {
-      onHide() {
-        Array.from($popup.querySelectorAll('input')).map(el => el.value = '');
-        $api.popup($successPopup).show();
-      }
-    }).hide();
+    setTimeout(() => {
+      $api.popup($popup, {
+        onHide() {
+          Array.from($popup.querySelectorAll('input')).map(el => el.value = '');
+          $api.popup($successPopup).show();
+          $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+        }
+      }).hide();
+    }, 1000);
   }
 }];
 
@@ -80,6 +99,6 @@ $popupForms.map(form => {
   const { $element, callback } = form;
 
   if ($element) {
-    $api.validate($element, callback);
+    $api.validate($element, () => callback($element));
   }
 });

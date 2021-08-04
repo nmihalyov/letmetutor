@@ -18,6 +18,21 @@
     family: 'OpenSans', Helvetica, sans-serif
     size: 14px
     weight: 500
+  &--loading
+    position: relative
+    pointer-events: none
+    color: transparent
+    transition: none
+    &:before
+      content: ''
+      position: absolute
+      width: 32px
+      height: 32px
+      background:
+        image: url('../img/icons/spinner.svg')
+        position: center
+        size: contain
+        repeat: no-repeat
   &--disabled
     pointer-events: none
     filter: grayscale(1)
