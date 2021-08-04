@@ -1,0 +1,21 @@
+include ../components/cookies/cookies
+include ../components/header/header
+include ../components/student/student
+include ../components/footer/footer
+include ../components/_ui/popup/popup
+
+doctype
+html(lang="ru", prefix="og: http://ogp.me/ns#")
+  head
+    title Профиль ученика | LetMeTutor
+    include assets/_metas
+    include assets/_links
+    include assets/_scripts
+  body
+    .page-wrapper
+      +header(true)
+      +student(true)
+      +footer(true)
+      +cookies
+    +popup('offer')
+    +popup('offer-success')

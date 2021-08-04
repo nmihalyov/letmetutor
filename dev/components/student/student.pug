@@ -1,0 +1,47 @@
+include ../profile-head/profile-head
+include ../profile-about/profile-about
+include ../profile-reviews/profile-reviews
+
+mixin student(login)
+  section.student.container
+    .student__wrapper.wrapper
+      main.student__main
+        .student__head
+          +profile-head('student')
+          .student__head-actions
+            .student__actions
+              .student__actions-info
+                if login
+                  .student__rating.student__rating--empty
+                    p.student__rating-rate 0.0
+                    p.student__rating-reviews (0 отзывов)
+                else
+                  .student__rating
+                    p.student__rating-rate 4.9
+                    p.student__rating-reviews (50 отзывов)
+              if login
+                +button('primary', 'popup', 'Отправить сообщение', 'student__btn', {popup: 'offer'})
+              else
+                p.student__actions-text Желаемая цена занятия
+                p.student__actions-price 1000 &#8381; <span>в час</span>
+        .student__content
+          .student__block(data-block="about")
+            +profile-about('student')
+          .student__block(data-block="experience")
+            +profile-reviews(login, 'student')
+      aside.student__aside
+        .student__actions
+          .student__actions-info
+            if login
+              .student__rating.student__rating--empty
+                p.student__rating-rate 0.0
+                p.student__rating-reviews (0 отзывов)
+            else
+              .student__rating
+                p.student__rating-rate 4.9
+                p.student__rating-reviews (50 отзывов)
+          if login
+            +button('primary', 'popup', 'Отправить сообщение', 'student__btn', {popup: 'offer'})
+          else
+            p.student__actions-text Желаемая цена занятия
+            p.student__actions-price 1000 &#8381; <span>в час</span>

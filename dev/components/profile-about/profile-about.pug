@@ -7,3 +7,8 @@ mixin profile-about(type)
       .profile-about__video
         .profile-about__video-cover(style="background-image: url('img/inhtml/profile-video-cover.png')")
         iframe(src="https://www.youtube.com/embed/dQw4w9WgXcQ", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
+  else if type === 'student'
+    .profile-about
+      .profile-about__info
+        p.profile-about__heading Об ученике
+        p.profile-about__desc Привет!<br><br>Меня зовут Оджасви. Моя цель как репетитора английского - помочь вам достичь своей!<br><br>Почему я? Мои сильные стороны как наставника - терпение, страсть к обучению, получать удовольствие от занятий и сохранять интерактивность или коммуникативность!

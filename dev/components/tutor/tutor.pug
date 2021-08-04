@@ -14,11 +14,12 @@ mixin tutor(login)
           .tutor__head-actions
             .tutor__actions
               .tutor__actions-info
-                .tutor__rating
-                  if login
+                if login
+                  .tutor__rating.tutor__rating--empty
                     p.tutor__rating-rate 0.0
                     p.tutor__rating-reviews (0 отзывов)
-                  else
+                else
+                  .tutor__rating
                     p.tutor__rating-rate 4.9
                     p.tutor__rating-reviews (50 отзывов)
                 .tutor__cost
@@ -34,19 +35,20 @@ mixin tutor(login)
           .tutor__block(data-block="about")
             +profile-about('tutor')
           .tutor__block(data-block="experience")
-            +profile-experience
+            +profile-experience('tutor')
           .tutor__block(data-block="reviews")
-            +profile-reviews(login)
+            +profile-reviews(login, 'tutor')
           .tutor__block(data-block="schedule")
             +profile-schedule(login)
       aside.tutor__aside
         .tutor__actions
           .tutor__actions-info
-            .tutor__rating
-              if login
+            if login
+              .tutor__rating.tutor__rating--empty
                 p.tutor__rating-rate 0.0
                 p.tutor__rating-reviews (0 отзывов)
-              else
+            else
+              .tutor__rating
                 p.tutor__rating-rate 4.9
                 p.tutor__rating-reviews (50 отзывов)
             .tutor__cost

@@ -17,8 +17,12 @@ mixin popup(type, id = type)
               +heading('Оставить заявку на занятия', 'popup__heading')
             if type === 'request-specific'
               +heading('Заявка на занятие <span class="popup__heading-date">16.07.2021</span> в <span class="popup__heading-time">08:00</span>', 'popup__heading')
+            if type === 'offer'
+              +heading('Предложить услуги на обучение', 'popup__heading')
             if type === 'request-success'
               +heading('Заявка успешно отправлена!', 'popup__heading')
+            if type === 'offer-success'
+              +heading('Предложение успешно отправлено!', 'popup__heading')
             .popup__close.js-close-popup
           .popup__content
             if type === 'restore'
@@ -63,5 +67,16 @@ mixin popup(type, id = type)
                 .auth__actions
                   +button('primary', 'submit', 'Отправить заявку', 'auth__actions-btn')
                   a.auth__actions-link(href="#") Помощь по сервису
+            if type === 'offer'
+              form.popup__request(data-offer-form)
+                p.popup__warn <b>Обращаем ваше внимание</b>, что первое занятие с репетитором оплачивается онлайн через наш сервис.
+                .popup__request-row
+                  +input('text', 'Предмет <span>*</span>', 'lessons', 'Выберите желаемый предмет', 'popup__request-input auth__input', {required: true, error: 'Выберите желаемый предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                  +input('text', 'Тип занятий <span>*</span>', 'type', 'Выберите тип занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите тип занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Онлайн</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Офлайн</a>'})
+                .auth__actions
+                  +button('primary', 'submit', 'Отправить предложение', 'auth__actions-btn')
+                  a.auth__actions-link(href="#") Помощь по сервису
             if type === 'request-success'
               p.popup__desc.popup__desc--centered Вы получите уведомление в случае, если <b>Анна Иванова</b> ее подтвердит или отклонит <b>в течение 12 часов.</b>
+            if type === 'offer-success'
+              p.popup__desc.popup__desc--centered Вы получите уведомление в случае, если <b>Анна Иванова</b> его подтвердит или отклонит <b>в течение 12 часов.</b>

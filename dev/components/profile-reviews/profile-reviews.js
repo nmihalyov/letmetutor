@@ -7,7 +7,7 @@ if ($reviewsMoreBtn) {
     total: 3
   };
   // generate review element
-  const reviewElement = ({ image, name, date, rating, feedback }) => `
+  const reviewElement = ({ image, name, date, rating, feedback, tag }) => `
     <div class="profile-reviews__feedback">
       ${image ?
         `<div class="profile-reviews__feedback-image" style="background-image: url('img/inhtml/${image}')"></div>` :
@@ -15,8 +15,11 @@ if ($reviewsMoreBtn) {
       }
       <div class="profile-reviews__feedback-info">
         <div class="profile-reviews__feedback-head">
-          <p class="profile-reviews__feedback-name">${name}</p>
-          <p class="profile-reviews__feedback-date">${date}</p>
+          <div>
+            <p class="profile-reviews__feedback-name">${name}</p>
+            <p class="profile-reviews__feedback-date">${date}</p>
+          </div>
+          ${tag ? '<p class="profile-reviews__feedback-tag">' + tag + '</p>' : ''}
         </div>
         <div class="profile-reviews__rating-stars">
           ${[1, 2, 3, 4, 5].map(e => e <= rating ?
@@ -32,12 +35,13 @@ if ($reviewsMoreBtn) {
   // load more review on button click
   $reviewsMoreBtn.addEventListener('click', e => {
     e.preventDefault();
+    const url = $reviewsMoreBtn.dataset.url;
 
     // increment current loaded reviews page
     ++reviewsPages.current;
     
-    // load review or remove
-    fetch(`data/tutorReviews.json?page=${reviewsPages.current}`).then(res => res.json()).then(data => {
+    // load reviews
+    fetch(`${url}?page=${reviewsPages.current}`).then(res => res.json()).then(data => {
       data.map(review => {
         document.querySelector('.profile-reviews__feedbacks').insertAdjacentHTML('beforeend', reviewElement(review));
 

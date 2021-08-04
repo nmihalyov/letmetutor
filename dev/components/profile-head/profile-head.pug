@@ -35,3 +35,29 @@ mixin profile-head(type)
           a.profile-head__subjects-item(href="javascript:void(0)", data-pay="700") Немецкий язык
           a.profile-head__subjects-item(href="javascript:void(0)", data-pay="600") Итальянский язык
           a.profile-head__subjects-item(href="javascript:void(0)", data-pay="650") Французский язык
+  else if type === 'student'
+    .profile-head
+      .profile-head__image(style="background-image: url('../img/inhtml/student-1.jpg')")
+      .profile-head__info
+        .profile-head__top
+          div
+            p.profile-head__name
+              |Анна Иванова
+              span.profile-head__verified(data-tooltip)
+                +tooltip('Личность подтверждена', {centered: true})
+            p.profile-head__location(data-loc="ru") Москва, Россия
+          p.profile-head__online Был(а) в сети 1 час назад
+        .profile-head__bottom
+          p.profile-head__heading Интересующие предметы:
+          .profile-head__subjects
+            p.profile-head__subjects-item Английский язык
+            p.profile-head__subjects-item Немецкий язык
+            p.profile-head__subjects-item Итальянский язык
+            p.profile-head__subjects-item Французский язык
+      .profile-head__bottom.profile-head__bottom--mobile
+        p.profile-head__heading Интересующие предметы:
+        .profile-head__subjects
+          p.profile-head__subjects-item Английский язык
+          p.profile-head__subjects-item Немецкий язык
+          p.profile-head__subjects-item Итальянский язык
+          p.profile-head__subjects-item Французский язык

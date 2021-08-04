@@ -1,18 +1,29 @@
-mixin profile-reviews(empty)
+mixin profile-reviews(empty, type)
   .profile-reviews
-    p.profile-reviews__heading Отзывы о репетиторе
-    .profile-reviews__rating
+    if type === 'tutor'
+      p.profile-reviews__heading Отзывы о репетиторе
+    else if type === 'student'
+      p.profile-reviews__heading Отзывы об ученике
+    .profile-reviews__rating(class=empty ? 'profile-reviews__rating--empty' : '')
       .profile-reviews__rating-about
         if empty
           p.profile-reviews__rating-value 0.0
         else
           p.profile-reviews__rating-value 4.9
-        .profile-reviews__rating-stars
-          .profile-reviews__rating-star.profile-reviews__rating-star--full
-          .profile-reviews__rating-star.profile-reviews__rating-star--full
-          .profile-reviews__rating-star.profile-reviews__rating-star--full
-          .profile-reviews__rating-star.profile-reviews__rating-star--full
-          .profile-reviews__rating-star.profile-reviews__rating-star--full
+        if empty
+          .profile-reviews__rating-stars
+            .profile-reviews__rating-star
+            .profile-reviews__rating-star
+            .profile-reviews__rating-star
+            .profile-reviews__rating-star
+            .profile-reviews__rating-star
+        else
+          .profile-reviews__rating-stars
+            .profile-reviews__rating-star.profile-reviews__rating-star--full
+            .profile-reviews__rating-star.profile-reviews__rating-star--full
+            .profile-reviews__rating-star.profile-reviews__rating-star--full
+            .profile-reviews__rating-star.profile-reviews__rating-star--full
+            .profile-reviews__rating-star.profile-reviews__rating-star--full
         if empty
           p.profile-reviews__rating-count 0 отзывов
         else
@@ -65,8 +76,11 @@ mixin profile-reviews(empty)
           .profile-reviews__feedback-image
           .profile-reviews__feedback-info
             .profile-reviews__feedback-head
-              p.profile-reviews__feedback-name Victoria
-              p.profile-reviews__feedback-date 15.07.2021
+              div
+                p.profile-reviews__feedback-name Victoria
+                p.profile-reviews__feedback-date 15.07.2021
+              if type === 'student'
+                p.profile-reviews__feedback-tag Английский язык
             .profile-reviews__rating-stars
               .profile-reviews__rating-star.profile-reviews__rating-star--full
               .profile-reviews__rating-star.profile-reviews__rating-star--full
@@ -78,8 +92,11 @@ mixin profile-reviews(empty)
           .profile-reviews__feedback-image(style="background-image: url('img/inhtml/tutor-2.jpg')")
           .profile-reviews__feedback-info
             .profile-reviews__feedback-head
-              p.profile-reviews__feedback-name Анна
-              p.profile-reviews__feedback-date 15.07.2021
+              div
+                p.profile-reviews__feedback-name Анна
+                p.profile-reviews__feedback-date 15.07.2021
+              if type === 'student'
+                p.profile-reviews__feedback-tag Немецкий язык
             .profile-reviews__rating-stars
               .profile-reviews__rating-star.profile-reviews__rating-star--full
               .profile-reviews__rating-star
@@ -91,8 +108,11 @@ mixin profile-reviews(empty)
           .profile-reviews__feedback-image(style="background-image: url('img/inhtml/tutor-3.jpg')")
           .profile-reviews__feedback-info
             .profile-reviews__feedback-head
-              p.profile-reviews__feedback-name Виктория
-              p.profile-reviews__feedback-date 15.07.2021
+              div
+                p.profile-reviews__feedback-name Виктория
+                p.profile-reviews__feedback-date 15.07.2021
+              if type === 'student'
+                p.profile-reviews__feedback-tag Итальянский язык
             .profile-reviews__rating-stars
               .profile-reviews__rating-star.profile-reviews__rating-star--full
               .profile-reviews__rating-star.profile-reviews__rating-star--full
@@ -104,8 +124,11 @@ mixin profile-reviews(empty)
           .profile-reviews__feedback-image(style="background-image: url('img/inhtml/tutor-4.jpg')")
           .profile-reviews__feedback-info
             .profile-reviews__feedback-head
-              p.profile-reviews__feedback-name Екатерина
-              p.profile-reviews__feedback-date 15.07.2021
+              div
+                p.profile-reviews__feedback-name Екатерина
+                p.profile-reviews__feedback-date 15.07.2021
+              if type === 'student'
+                p.profile-reviews__feedback-tag Французский язык
             .profile-reviews__rating-stars
               .profile-reviews__rating-star.profile-reviews__rating-star--full
               .profile-reviews__rating-star.profile-reviews__rating-star--full
@@ -117,8 +140,11 @@ mixin profile-reviews(empty)
           .profile-reviews__feedback-image(style="background-image: url('img/inhtml/tutor-5.jpg')")
           .profile-reviews__feedback-info
             .profile-reviews__feedback-head
-              p.profile-reviews__feedback-name Анастасия
-              p.profile-reviews__feedback-date 15.07.2021
+              div
+                p.profile-reviews__feedback-name Анастасия
+                p.profile-reviews__feedback-date 15.07.2021
+              if type === 'student'
+                p.profile-reviews__feedback-tag Немецкий язык
             .profile-reviews__rating-stars
               .profile-reviews__rating-star.profile-reviews__rating-star--full
               .profile-reviews__rating-star.profile-reviews__rating-star--full
@@ -126,4 +152,4 @@ mixin profile-reviews(empty)
               .profile-reviews__rating-star.profile-reviews__rating-star--full
               .profile-reviews__rating-star.profile-reviews__rating-star--full
             p.profile-reviews__feedback-text Марина - очень хороший репетитор! Мы занимаемся примерно пол года, и за это время она зарекомендовала себя как настоящий профессионал. Одним из отличительных моментов, на мой взгляд, это то, что Марина переодически спрашивает пройденный материал, таким образом стимулируя повторять и не забывать изученное, что сказывается положительно на практике. Спасибо!
-      +button('secondary', 'button', 'Больше отзывов', 'profile-reviews__btn js-reviews-more')
+      +button('secondary', 'button', 'Больше отзывов', 'profile-reviews__btn js-reviews-more', {url: type === 'tutor' ? 'data/tutorReviews.json' : 'data/studentReviews.json'})

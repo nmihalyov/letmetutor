@@ -7,7 +7,7 @@ mixin button(style, type, text, className, options)
   if type === 'link'
     a.button(class=className, href=options.link)= text
   else if type === 'button'
-    button.button(class=className)= text
+    button.button(class=className, data-url=options && options.url)= text
   else if type === 'popup'
     button.button.js-open-popup(class=className, data-popup=options.popup)= text
   else if type === 'submit'

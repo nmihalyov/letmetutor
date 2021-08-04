@@ -23,16 +23,32 @@ Array.from(document.querySelectorAll('.js-close-popup')).map(el =>
   })
 );
 
-if (document.querySelector('form[data-restore-form]')) {
-  $api.validate(document.querySelector('form[data-restore-form]'), () => {});
-}
+// all popup forms and theirs validation callbacks
+const $popupForms = [{
+  $element: document.querySelector('form[data-restore-form]'),
+  callback: () => {}
+},
+{
+  $element: document.querySelector('form[data-request-auth-form]'),
+  callback: () => {}
+},
+{
+  $element: document.querySelector('form[data-offer-form]'),
+  callback: () => {
+    const $popup = document.querySelector('.js-popup[data-popup="offer"]');
+    const $successPopup = document.querySelector('.js-popup[data-popup="offer-success"]');
 
-if (document.querySelector('form[data-request-auth-form]')) {
-  $api.validate(document.querySelector('form[data-request-auth-form]'), () => {});
-}
-
-if (document.querySelector('form[data-request-form]')) {
-  $api.validate(document.querySelector('form[data-request-form]'), () => {
+    $api.popup($popup, {
+      onHide() {
+        Array.from($popup.querySelectorAll('input')).map(el => el.value = '');
+        $api.popup($successPopup).show();
+      }
+    }).hide();
+  }
+},
+{
+  $element: document.querySelector('form[data-request-form]'),
+  callback: () => {
     const $popup = document.querySelector('.js-popup[data-popup="request"]');
     const $successPopup = document.querySelector('.js-popup[data-popup="request-success"]');
 
@@ -42,11 +58,11 @@ if (document.querySelector('form[data-request-form]')) {
         $api.popup($successPopup).show();
       }
     }).hide();
-  });
-}
-
-if (document.querySelector('form[data-request-specific-form]')) {
-  $api.validate(document.querySelector('form[data-request-specific-form]'), () => {
+  }
+},
+{
+  $element: document.querySelector('form[data-request-specific-form]'),
+  callback: () => {
     const $popup = document.querySelector('.js-popup[data-popup="request-specific"]');
     const $successPopup = document.querySelector('.js-popup[data-popup="request-success"]');
 
@@ -56,5 +72,14 @@ if (document.querySelector('form[data-request-specific-form]')) {
         $api.popup($successPopup).show();
       }
     }).hide();
-  });
-}
+  }
+}];
+
+// apply validation on popups forms
+$popupForms.map(form => {
+  const { $element, callback } = form;
+
+  if ($element) {
+    $api.validate($element, callback);
+  }
+});

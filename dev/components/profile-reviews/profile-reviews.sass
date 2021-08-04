@@ -13,6 +13,9 @@
     margin-bottom: 10px
     padding-bottom: 30px
     border-bottom: 1px solid $gray-4
+    &--empty
+      .profile-reviews__rating-value
+        color: #D7D7D7
     &-about
       width: 270px
       padding-right: 20px
@@ -75,9 +78,19 @@
         repeat: no-repeat
     &-head
       display: flex
+      justify-content: space-between
       align-items: baseline
       margin-bottom: 5px
-      padding-top: 13px
+      padding-top: 10px
+    &-tag
+      padding: 7px 20px
+      border-radius: 3px
+      background-color: $blue
+      color: #fff
+      text-align: center
+      font:
+        size: 13px
+        weight: 500
     &-name
       margin-right: 7px
       font-weight: 500
@@ -127,7 +140,10 @@
     &__feedback
       padding: 30px 0 25px
       &-head
+        display: block
         padding-top: 10px
+      &-tag
+        margin: 10px 0
       &-image
         width: 50px
         height: 50px
