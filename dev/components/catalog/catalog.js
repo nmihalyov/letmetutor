@@ -3,11 +3,12 @@ const $catalogMoreBtn = document.querySelector('.js-catalog-more');
 if ($catalogMoreBtn) {
   const $prevArrow = document.querySelector('.pagination__arrow--prev');
   const $nextArrow = document.querySelector('.pagination__arrow--next');
+  const $separator = document.querySelector('.pagination__separator');
 
   // catalog pages state
   const catalogPages = {
     current: [1],
-    total: 10
+    total: parseInt(document.querySelector('.catalog__items').dataset.total)
   };
 
   // set pagination current page
@@ -18,7 +19,6 @@ if ($catalogMoreBtn) {
 
   // set pagination break
   const setBreak = latestPage => {
-    const $separator = document.querySelector('.pagination__separator');
     const $beforeSeparatorItem = $separator.previousSibling;
     const $firstItem = document.querySelector('.pagination__page');
 
@@ -36,6 +36,14 @@ if ($catalogMoreBtn) {
       $beforeSeparatorItem.remove();
       document.querySelector('.pagination__pages').insertAdjacentHTML('afterbegin', `<a class="pagination__page" href="javascript:void(0)" data-page="${latestPage - 1}">${latestPage - 1}</a>`);
       $separator.classList.remove('pagination__separator--hidden');
+    } else if (latestPage === catalogPages.total && !$separator.classList.contains('pagination__separator--')) {
+      const $paginationPages = document.querySelectorAll('.pagination__page');
+
+      $separator.classList.add('pagination__separator--hidden');
+      Array.from($paginationPages).reverse().map((el, i) => {
+        el.innerText = latestPage - i;
+        el.dataset.page = latestPage - i;
+      });
     }
   };
 
@@ -149,7 +157,9 @@ if ($catalogMoreBtn) {
       document.querySelector('.catalog__items').innerHTML = $elements;
     });
 
-    setBreak(currentPage);
+    if ($separator) {
+      setBreak(currentPage);
+    }
   });
 
   // go to next page
@@ -178,14 +188,16 @@ if ($catalogMoreBtn) {
 
       document.querySelector('.catalog__items').innerHTML = $elements;
   
-      setBreak(currentPage);
+      if ($separator) {
+        setBreak(currentPage);
+      }
     });
   });
 
   // go to specific page
   document.addEventListener('click', e => {
     const $this = e.target;
-  
+
     if ($this.classList.contains('pagination__page')) {
       const currentPage = parseInt($this.dataset.page);
       const queryUrl = formatURL(`data/catalog.json?page=${currentPage}`);
@@ -202,18 +214,23 @@ if ($catalogMoreBtn) {
         setCurrentPage(currentPage);
   
         if (currentPage === catalogPages.total) {
-          $catalogMoreBtn.classList.add('catalog__bottom-btn--hidden');
+          $prevArrow.classList.remove('pagination__arrow--disabled');
           $nextArrow.classList.add('pagination__arrow--disabled');
+          $catalogMoreBtn.classList.add('catalog__bottom-btn--hidden');
         } else if (currentPage === 1) {
           $prevArrow.classList.add('pagination__arrow--disabled');
+          $nextArrow.classList.remove('pagination__arrow--disabled');
           $catalogMoreBtn.classList.remove('catalog__bottom-btn--hidden');
         } else {
-          $nextArrow.classList.remove('pagination__arrow--disabled');
           $prevArrow.classList.remove('pagination__arrow--disabled');
+          $nextArrow.classList.remove('pagination__arrow--disabled');
           $catalogMoreBtn.classList.remove('catalog__bottom-btn--hidden');
         }
 
-        setBreak(currentPage);
+        if ($separator) {
+          setBreak(currentPage);
+        }
+
         document.querySelector('.catalog__items').innerHTML = $elements;
       });
     }

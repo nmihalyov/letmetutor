@@ -34,7 +34,7 @@ mixin catalog(notfound, login)
         else
           .catalog__found
             p.catalog__found-desc Найдено <b>213</b> репетиторов по предмету <a href="#">Английский язык</a> в <a href="#">России</a>
-            .catalog__items
+            .catalog__items(data-total="10")
               +tutorcard('tutor-1.jpg', true, true, login)
               +tutorcard('tutor-2.jpg', false, true, login)
               +tutorcard('tutor-3.jpg', false, false, login, true)
