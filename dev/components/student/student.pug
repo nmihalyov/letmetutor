@@ -19,11 +19,10 @@ mixin student(login)
                   .student__rating
                     p.student__rating-rate 4.9
                     p.student__rating-reviews (50 отзывов)
+              p.student__actions-text Желаемая цена занятия
+              p.student__actions-price <span class="js-profile-cost">1000</span> &#8381; <span>в час</span>
               if login
                 +button('primary', 'popup', 'Отправить сообщение', 'student__btn', {popup: 'offer'})
-              else
-                p.student__actions-text Желаемая цена занятия
-                p.student__actions-price 1000 &#8381; <span>в час</span>
         .student__content
           .student__block(data-block="about")
             +profile-about('student')
@@ -40,8 +39,7 @@ mixin student(login)
               .student__rating
                 p.student__rating-rate 4.9
                 p.student__rating-reviews (50 отзывов)
+          p.student__actions-text Желаемая цена занятия
+          p.student__actions-price <span class="js-profile-cost">1000</span> &#8381; <span>в час</span>
           if login
             +button('primary', 'popup', 'Отправить сообщение', 'student__btn', {popup: 'offer'})
-          else
-            p.student__actions-text Желаемая цена занятия
-            p.student__actions-price 1000 &#8381; <span>в час</span>

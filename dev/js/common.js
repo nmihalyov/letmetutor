@@ -19,6 +19,7 @@ window.onload = () => {
   @@include('../components/auth/auth.js')
   @@include('../components/catalog/catalog.js')
   @@include('../components/tutor/tutor.js')
+  @@include('../components/profile-head/profile-head.js')
   @@include('../components/profile-about/profile-about.js')
   @@include('../components/profile-reviews/profile-reviews.js')
   @@include('../components/profile-schedule/profile-schedule.js')

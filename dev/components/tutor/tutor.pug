@@ -5,7 +5,7 @@ include ../profile-reviews/profile-reviews
 include ../profile-schedule/profile-schedule
 include ../_ui/button/button
 
-mixin tutor(login)
+mixin tutor(login, payed)
   section.tutor.container
     .tutor__wrapper.wrapper
       main.tutor__main
@@ -23,8 +23,15 @@ mixin tutor(login)
                     p.tutor__rating-rate 4.9
                     p.tutor__rating-reviews (50 отзывов)
                 .tutor__cost
-                  p.tutor__cost-value <span>1000</span> &#8381;
+                  p.tutor__cost-value <span class="js-profile-cost">1000</span> &#8381;
                   p.tutor__cost-desc в час
+              if payed
+                .tutor__contacts
+                  p.tutor__contacts-heading Свяжитесь с репетитором
+                  a.tutor__contacts-item(href="t.me/repetitor", target="_blank", rel="noopener noreferref", data-icon="tg") @repetitor
+                  a.tutor__contacts-item(href="viber://contact?number=%2B74950000000", target="_blank", rel="noopener noreferref", data-icon="viber") +7 495 000-00-00
+                  a.tutor__contacts-item(href="api.whatsapp.com/send?phone=74950000000", target="_blank", rel="noopener noreferref", data-icon="whatsapp") +7 495 000-00-00
+                  a.tutor__contacts-item(href="skype:repetitor?chat", target="_blank", rel="noopener noreferref", data-icon="skype") repetitor
               +button('primary', 'popup', 'Оставить заявку', 'tutor__btn', {popup: login ? 'request' : 'request-auth'})
         nav.tutor__nav
           a.tutor__nav-link(href="javascript:void(0)", data-target="about") О репетиторе
@@ -52,6 +59,13 @@ mixin tutor(login)
                 p.tutor__rating-rate 4.9
                 p.tutor__rating-reviews (50 отзывов)
             .tutor__cost
-              p.tutor__cost-value <span>1000</span> &#8381;
+              p.tutor__cost-value <span class="js-profile-cost">1000</span> &#8381;
               p.tutor__cost-desc в час
+          if payed
+            .tutor__contacts
+              p.tutor__contacts-heading Свяжитесь с репетитором
+              a.tutor__contacts-item(href="t.me/repetitor", target="_blank", rel="noopener noreferref", data-icon="tg") @repetitor
+              a.tutor__contacts-item(href="viber://contact?number=%2B74950000000", target="_blank", rel="noopener noreferref", data-icon="viber") +7 495 000-00-00
+              a.tutor__contacts-item(href="api.whatsapp.com/send?phone=74950000000", target="_blank", rel="noopener noreferref", data-icon="whatsapp") +7 495 000-00-00
+              a.tutor__contacts-item(href="skype:repetitor?chat", target="_blank", rel="noopener noreferref", data-icon="skype") repetitor
           +button('primary', 'popup', 'Оставить заявку', 'tutor__btn', {popup: login ? 'request' : 'request-auth'})

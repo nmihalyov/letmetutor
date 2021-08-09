@@ -1,0 +1,40 @@
+include ../_ui/title/title
+include ../_ui/breadcrumbs/breadcrumbs
+
+mixin help
+  section.help.container
+    .help__wrapper.wrapper
+      +title('Помощь')
+      +breadcrumbs([{title: 'Главная', link: 'main.html'}, {title: 'Помощь'}])
+      .help__row
+        .help__unit
+          p.help__heading Общая информация
+          p.help__item
+            a.help__item-link(href="#") Правила сервиса
+          p.help__item
+            a.help__item-link(href="policy.html") Политика конфиденциальности
+          p.help__item
+            a.help__item-link(href="faq.html") Вопрос - ответ
+            span.help__item-count (6 вопросов)
+        .help__unit
+          p.help__heading Оплата услуг
+          p.help__item
+            a.help__item-link(href="#") Платные сервисы
+            span.help__item-count (5 вопросов)
+          p.help__item
+            a.help__item-link(href="#") Коммуникация с репетитором
+            span.help__item-count (10 вопросов)
+      .help__row
+        .help__unit
+          p.help__heading Учетная запись
+          p.help__item
+            a.help__item-link(href="#") Учетная запись ученика
+            span.help__item-count (20 вопросов)
+          p.help__item
+            a.help__item-link(href="#") Учетная запись репетитора
+            span.help__item-count (10 вопросов)
+        .help__unit
+          p.help__heading Технические вопросы
+          p.help__item
+            a.help__item-link(href="#") Работа сервиса
+            span.help__item-count (25 вопросов)

@@ -41,7 +41,7 @@
         <div class="header__wrapper wrapper"><a href="main.html"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/></a>
           <nav class="header__nav"><a class="header__nav-link" href="catalog.html">Репетиторы</a><a class="header__nav-link" href="main.html">Как это работает</a><a class="header__nav-link" href="signup.html">Стать репетитором</a>
             <div class="header__nav-link dropdown dropdown--arrow">Больше
-              <div class="header__nav-dropdown dropdown__menu"><a class="dropdown__menu-item" href="#">Вопрос - ответ</a><a class="dropdown__menu-item" href="#">Помощь</a><a class="dropdown__menu-item" href="support.html">Тех. поддержка</a><a class="dropdown__menu-item" href="#">Правила сервиса</a></div>
+              <div class="header__nav-dropdown dropdown__menu"><a class="dropdown__menu-item" href="faq.html">Вопрос - ответ</a><a class="dropdown__menu-item" href="help.html">Помощь</a><a class="dropdown__menu-item" href="support.html">Тех. поддержка</a><a class="dropdown__menu-item" href="#">Правила сервиса</a></div>
             </div>
           </nav>
           <div class="header__actions">
@@ -66,7 +66,7 @@
           </div>
           <div class="header-menu__content">
             <p class="header-menu__signin"><a href="login.html">Войти</a>&nbsp;/&nbsp;<a href="signup.html">Регистрация</a></p>
-            <nav class="header-menu__nav"><a class="header-menu__nav-link" href="catalog.html">Репетиторы</a><a class="header-menu__nav-link" href="main.html">Как это работает</a><a class="header-menu__nav-link" href="#">Стать репетитором</a><a class="header-menu__nav-link" href="#">Вопрос - ответ</a><a class="header-menu__nav-link" href="#">Помощь</a><a class="header-menu__nav-link" href="support.html">Тех. поддержка</a><a class="header-menu__nav-link" href="#">Правила сервиса</a></nav>
+            <nav class="header-menu__nav"><a class="header-menu__nav-link" href="catalog.html">Репетиторы</a><a class="header-menu__nav-link" href="main.html">Как это работает</a><a class="header-menu__nav-link" href="#">Стать репетитором</a><a class="header-menu__nav-link" href="faq.html">Вопрос - ответ</a><a class="header-menu__nav-link" href="help.html">Помощь</a><a class="header-menu__nav-link" href="support.html">Тех. поддержка</a><a class="header-menu__nav-link" href="#">Правила сервиса</a></nav>
             <div class="header-menu__footer">
               <p class="header-menu__support">Служба поддержки</p>
               <div class="header-menu__contacts"><a class="header-menu__phone" href="tel:+380675772532">+380 67 577 25 32</a><span class="header-menu__workhours">Будни: с 6 до 22, выходные: с 8 до 22</span></div>
@@ -90,22 +90,12 @@
                   </div>
                   <div class="profile-head__bottom">
                     <p class="profile-head__heading">Интересующие предметы:</p>
-                    <div class="profile-head__subjects">
-                      <p class="profile-head__subjects-item">Английский язык</p>
-                      <p class="profile-head__subjects-item">Немецкий язык</p>
-                      <p class="profile-head__subjects-item">Итальянский язык</p>
-                      <p class="profile-head__subjects-item">Французский язык</p>
-                    </div>
+                    <div class="profile-head__subjects"><a class="profile-head__subjects-item profile-head__subjects-item--highlight" href="javascript:void(0)" data-tooltip="data-tooltip" data-pay="1000">Английский язык<span class="tooltip"><b>1000</b> &#8381; в час</span></a><a class="profile-head__subjects-item" href="javascript:void(0)" data-tooltip="data-tooltip" data-pay="700">Немецкий язык<span class="tooltip"><b>700</b> &#8381; в час</span></a><a class="profile-head__subjects-item" href="javascript:void(0)" data-tooltip="data-tooltip" data-pay="600">Итальянский язык<span class="tooltip"><b>600</b> &#8381; в час</span></a><a class="profile-head__subjects-item" href="javascript:void(0)" data-tooltip="data-tooltip" data-pay="650">Французский язык<span class="tooltip"><b>650</b> &#8381; в час</span></a></div>
                   </div>
                 </div>
                 <div class="profile-head__bottom profile-head__bottom--mobile">
                   <p class="profile-head__heading">Интересующие предметы:</p>
-                  <div class="profile-head__subjects">
-                    <p class="profile-head__subjects-item">Английский язык</p>
-                    <p class="profile-head__subjects-item">Немецкий язык</p>
-                    <p class="profile-head__subjects-item">Итальянский язык</p>
-                    <p class="profile-head__subjects-item">Французский язык</p>
-                  </div>
+                  <div class="profile-head__subjects"><a class="profile-head__subjects-item profile-head__subjects-item--highlight" href="javascript:void(0)" data-pay="1000">Английский язык</a><a class="profile-head__subjects-item" href="javascript:void(0)" data-pay="700">Немецкий язык</a><a class="profile-head__subjects-item" href="javascript:void(0)" data-pay="600">Итальянский язык</a><a class="profile-head__subjects-item" href="javascript:void(0)" data-pay="650">Французский язык</a></div>
                 </div>
               </div>
               <div class="student__head-actions">
@@ -117,7 +107,7 @@
                     </div>
                   </div>
                   <p class="student__actions-text">Желаемая цена занятия</p>
-                  <p class="student__actions-price">1000 &#8381; <span>в час</span></p>
+                  <p class="student__actions-price"><span class="js-profile-cost">1000</span> &#8381; <span>в час</span></p>
                 </div>
               </div>
             </div>
@@ -299,7 +289,7 @@
                 </div>
               </div>
               <p class="student__actions-text">Желаемая цена занятия</p>
-              <p class="student__actions-price">1000 &#8381; <span>в час</span></p>
+              <p class="student__actions-price"><span class="js-profile-cost">1000</span> &#8381; <span>в час</span></p>
             </div>
           </aside>
         </div>
@@ -311,10 +301,10 @@
               <p class="footer__copyright">&copy; 2021 letmetutor.com <br>Все права защищены</p>
             </div>
             <div class="footer__col">
-              <p class="footer__title">Главная</p><a class="footer__link" href="catalog.html">Репетиторы</a><a class="footer__link" href="main.html">Как это работает</a><a class="footer__link" href="signup.html">Стать репетитором</a>
+              <p class="footer__title">Главное</p><a class="footer__link" href="catalog.html">Репетиторы</a><a class="footer__link" href="main.html">Как это работает</a><a class="footer__link" href="signup.html">Стать репетитором</a>
             </div>
             <div class="footer__col">
-              <p class="footer__title">Полезная информация</p><a class="footer__link" href="#">Вопрос - ответ</a><a class="footer__link" href="#">Помощь</a><a class="footer__link" href="support.html">Тех. поддержка</a><a class="footer__link" href="#">Правила сервиса</a>
+              <p class="footer__title">Полезная информация</p><a class="footer__link" href="faq.html">Вопрос - ответ</a><a class="footer__link" href="help.html">Помощь</a><a class="footer__link" href="support.html">Тех. поддержка</a><a class="footer__link" href="#">Правила сервиса</a>
             </div>
             <div class="footer__col">
               <p class="footer__title">Служба поддержки</p>

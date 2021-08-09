@@ -50,14 +50,18 @@ mixin profile-head(type)
         .profile-head__bottom
           p.profile-head__heading Интересующие предметы:
           .profile-head__subjects
-            p.profile-head__subjects-item Английский язык
-            p.profile-head__subjects-item Немецкий язык
-            p.profile-head__subjects-item Итальянский язык
-            p.profile-head__subjects-item Французский язык
+            a.profile-head__subjects-item.profile-head__subjects-item--highlight(href="javascript:void(0)", data-tooltip, data-pay="1000") Английский язык
+              +tooltip('<b>1000</b> &#8381; в час')
+            a.profile-head__subjects-item(href="javascript:void(0)", data-tooltip, data-pay="700") Немецкий язык
+              +tooltip('<b>700</b> &#8381; в час')
+            a.profile-head__subjects-item(href="javascript:void(0)", data-tooltip, data-pay="600") Итальянский язык
+              +tooltip('<b>600</b> &#8381; в час')
+            a.profile-head__subjects-item(href="javascript:void(0)", data-tooltip, data-pay="650") Французский язык
+              +tooltip('<b>650</b> &#8381; в час')
       .profile-head__bottom.profile-head__bottom--mobile
         p.profile-head__heading Интересующие предметы:
         .profile-head__subjects
-          p.profile-head__subjects-item Английский язык
-          p.profile-head__subjects-item Немецкий язык
-          p.profile-head__subjects-item Итальянский язык
-          p.profile-head__subjects-item Французский язык
+          a.profile-head__subjects-item.profile-head__subjects-item--highlight(href="javascript:void(0)", data-pay="1000") Английский язык
+          a.profile-head__subjects-item(href="javascript:void(0)", data-pay="700") Немецкий язык
+          a.profile-head__subjects-item(href="javascript:void(0)", data-pay="600") Итальянский язык
+          a.profile-head__subjects-item(href="javascript:void(0)", data-pay="650") Французский язык
