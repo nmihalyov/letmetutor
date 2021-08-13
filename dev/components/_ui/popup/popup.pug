@@ -1,13 +1,14 @@
-include ../../_ui/heading/heading
-include ../../_ui/input/input
-include ../../_ui/button/button
+include ../heading/heading
+include ../input/input
+include ../button/button
+include ../checkbox/checkbox
 
 mixin popup(type, id = type)
   .popup.js-popup.js-close-popup(data-popup=id)
     .popup__backdrop
     .popup__container
       .popup__wrapper
-        .popup__window
+        .popup__window(class=`${type === 'dialog-clear' || type === 'dialog-delete' ? 'popup__window--sm' : ''}`)
           .popup__head
             if type === 'restore'
               +heading('Восстановление пароля', 'popup__heading')
@@ -23,6 +24,10 @@ mixin popup(type, id = type)
               +heading('Заявка успешно отправлена!', 'popup__heading')
             if type === 'offer-success'
               +heading('Предложение успешно отправлено!', 'popup__heading')
+            if type === 'dialog-clear'
+              +heading('Удалить переписку', 'popup__heading')
+            if type === 'dialog-delete'
+              +heading('Удалить cообщение', 'popup__heading')
             .popup__close.js-close-popup
           .popup__content
             if type === 'restore'
@@ -80,3 +85,13 @@ mixin popup(type, id = type)
               p.popup__desc.popup__desc--centered Вы получите уведомление в случае, если <b>Анна Иванова</b> ее подтвердит или отклонит <b>в течение 12 часов.</b>
             if type === 'offer-success'
               p.popup__desc.popup__desc--centered Вы получите уведомление в случае, если <b>Анна Иванова</b> его подтвердит или отклонит <b>в течение 12 часов.</b>
+            if type === 'dialog-clear'
+              p.popup__desc Вы уверены, что хотите удалить всю переписку? Данное действие нельзя будет отменить
+              +checkbox('Удалить у Анны Ивановой', 'deleteFromCompanion', 'popup__checkbox', false, true)
+            if type === 'dialog-delete'
+              p.popup__desc Вы уверены, что хотите удалить сообщение? Данное действие нельзя будет отменить
+              +checkbox('Удалить у Анны Ивановой', 'deleteFromCompanion', 'popup__checkbox', false, true)
+          if type === 'dialog-clear' || type === 'dialog-delete'
+            .popup__footer
+              a.popup__footer-btn.popup__footer-btn--danger.js-close-popup(href="javascript:void(0)", data-delete) Да, удалить
+              a.popup__footer-btn.popup__footer-btn--light.js-close-popup(href="javascript:void(0)") Отменить

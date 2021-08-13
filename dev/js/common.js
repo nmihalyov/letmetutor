@@ -23,5 +23,6 @@ window.onload = () => {
   @@include('../components/profile-about/profile-about.js')
   @@include('../components/profile-reviews/profile-reviews.js')
   @@include('../components/profile-schedule/profile-schedule.js')
+  @@include('../components/chat/chat.js')
 
 }

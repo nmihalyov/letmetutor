@@ -255,6 +255,6 @@ gulp.task('prod', gulp.series('clean', 'img', '_sass', '_pug', 'jsLibs', '_scrip
 	.pipe(gulp.dest(`${prod}/`));
 
 	// Переносим данные
-	gulp.src(`${build}/data/**/*`)
-	.pipe(gulp.dest(`${prod}/data`));
+	gulp.src(`${build}/json/**/*`)
+	.pipe(gulp.dest(`${prod}/json`));
 }));

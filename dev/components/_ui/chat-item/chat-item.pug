@@ -1,0 +1,15 @@
+mixin chat-item(image, name, time, message, counter, active)
+  .chat-item(class=active ? 'chat-item--active' : '')
+    .chat-item__container
+      .chat-item__image(style=`background-image: url('img/inhtml/${image}');`)
+      .chat-item__content
+        .chat-item__head
+          p.chat-item__name= name
+          p.chat-item__time= time
+        .chat-item__body
+          p.chat-item__message= message
+          if counter
+            p.chat-item__counter= counter
+    a.chat-item__delete.js-open-popup(href="javascript:void(0)", data-popup="dialog-clear")
+      p.chat-item__delete-text Удалить
+      .chat-item__delete-icon

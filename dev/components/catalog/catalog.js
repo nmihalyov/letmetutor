@@ -19,7 +19,7 @@ if ($catalogMoreBtn) {
 
   // set pagination break
   const setBreak = latestPage => {
-    const $beforeSeparatorItem = $separator.previousSibling;
+    const $beforeSeparatorItem = $separator.previousElementSibling;
     const $firstItem = document.querySelector('.pagination__page');
 
     if (+$beforeSeparatorItem.dataset.page === latestPage) {
@@ -135,7 +135,7 @@ if ($catalogMoreBtn) {
     e.preventDefault();
 
     const currentPage = catalogPages.current[0] - 1;
-    const queryUrl = formatURL(`data/catalog.json?page=${currentPage}`);
+    const queryUrl = formatURL(`json/catalog.json?page=${currentPage}`);
 
     catalogPages.current = [currentPage];
 

@@ -8,48 +8,80 @@ html(lang="ru", prefix="og: http://ogp.me/ns#")
     include assets/_metas
     include assets/_links
     include assets/_scripts
+    style(type="text/css").
+      h1 {
+        margin: 20px 0;
+      }
+      h4 {
+        margin-bottom: 5px;
+      }
+      ol {
+        margin: 0 0 20px 20px;
+        line-height: 1.5;
+      }
   body
     .page-wrapper
       section.container
         .wrapper
-          h1(style="margin-bottom: 20px;") LetMeTutor
-          ol(style="margin-left: 20px; line-height: 1.5;")
+          h1 LetMeTutor
+          h4 Регистрация и авторизация
+          ol
             li
               a(href="login.html") Авторизация
             li
               a(href="signup.html") Регистрация
             li
               a(href="signup-success.html") Завершение регистрации
+          h4 Главная
+          ol
             li
               a(href="main.html") Главная
             li
               a(href="main-login.html") Главная (пользователь авторизован)
-            li
-              a(href="support.html") Тех. поддержка
-            li
-              a(href="subjects.html") Все предметы
+          h4 Каталог репетиторов
+          ol
             li
               a(href="catalog.html") Каталог репетиторов
             li
               a(href="catalog-login.html") Каталог репетиторов (пользователь авторизован)
             li
               a(href="catalog-not-found.html") Каталог репетиторов (ничего не найдено)
+          h4 Профиль репетитора
+          ol
             li
               a(href="tutor.html") Профиль репетитора
             li
               a(href="tutor-login.html") Профиль репетитора (пользователь авторизован, репетитор без рейтинга)
             li
               a(href="tutor-payed.html") Профиль репетитора (после оплаты занятия)
+          h4 Профиль ученика
+          ol
             li
               a(href="student.html") Профиль ученика (вид от ученика или гостя)
             li
               a(href="student-login.html") Профиль ученика (вид от репетитора, ученик без рейтинга)
+          h4 Диалоги
+          ol
+            li
+              a(href="chat-empty.html") Диалоги (пустые)
+            li
+              a(href="chat-student.html") Диалоги (вид от ученика)
+            li
+              a(href="chat-tutor.html") Диалоги (вид от репетитора)
+          h4 Прочие страницы
+          ol
+            li
+              a(href="support.html") Тех. поддержка
+            li
+              a(href="subjects.html") Все предметы
             li
               a(href="help.html") Помощь
             li
               a(href="faq.html") Вопрос - ответ
             li
               a(href="policy.html") Политика конфиденциальности
+          h4 Технические страницы
+          ol
             li
               a(href="service.html") Техническое обслуживание
             li

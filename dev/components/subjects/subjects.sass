@@ -15,6 +15,7 @@
       weight: 700
   &__item
     display: flex
+    flex-wrap: wrap
     align-items: center
     &-top
       margin-right: 10px
@@ -27,9 +28,9 @@
         size: 10px
         weight: 500
     &-link
+      margin-right: 5px
       line-height: 2
     &-count
-      margin-left: 5px
       color: $gray
       font-size: 13px
 
@@ -40,7 +41,6 @@
       flex-wrap: wrap
       padding: 25px 0 20px
     &__item
-      flex-wrap: wrap
       &:not(:last-child)
         margin-bottom: 10px
       &-top
@@ -49,7 +49,6 @@
         line-height: 1.36
       &-count
         width: 100%
-        margin-left: 0
 
 @media only screen and (max-width: $mobile)
   .subjects
@@ -64,7 +63,6 @@
     &__heading
       margin-bottom: 10px
     &__item
-      flex-wrap: nowrap
       &:not(:last-child)
         margin-bottom: 0
       &-top
@@ -73,4 +71,3 @@
         line-height: 2
       &-count
         width: auto
-        margin-left: 5px

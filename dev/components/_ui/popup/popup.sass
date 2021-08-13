@@ -49,6 +49,17 @@
     transition: all .3s ease
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
     cursor: auto
+    &--sm
+      max-width: 400px
+      .popup
+        &__head
+          padding: 20px 10px
+        &__heading
+          font-size: 18px
+        &__content
+          padding: 15px 20px 20px
+        &__desc
+          font-size: 15px
   &__head
     padding: 30px 10px
     border-bottom: 1px solid $gray-4
@@ -97,6 +108,23 @@
       align-items: flex-start
     &-input
       width: calc(50% - 10px)
+  &__footer
+    display: flex
+    padding: 15px 20px 20px
+    border-top: 1px solid $gray-4
+    &-btn
+      font-size: 15px
+      &:not(:last-child)
+        margin-right: 35px
+      &--danger
+        color: $red
+        &:hover
+          color: transparentize($red, .2)
+      &--light
+        color: $gray
+        &:hover
+          color: transparentize($gray, .2)
+
 
 @media only screen and (max-width: $tablet)
   .popup

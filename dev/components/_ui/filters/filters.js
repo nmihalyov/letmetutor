@@ -9,7 +9,7 @@ Array.from(document.querySelectorAll('.filters__dropdown-item')).map(el => el.ad
 // filter main logic
 if (document.querySelectorAll('.filters__input-field').length) {
   Array.from(document.querySelectorAll('.filters__input-field')).map(el => {
-    fetch('data/location.json').then(res => res.json()).then(data => {
+    fetch('json/location.json').then(res => res.json()).then(data => {
       const $this = el;
       // handle filter input
       const handleInput = firstRender => {

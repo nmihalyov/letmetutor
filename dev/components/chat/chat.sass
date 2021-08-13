@@ -1,0 +1,430 @@
+.chat
+  display: flex
+  flex-direction: column
+  justify-content: stretch
+  height: calc(100vh - 421px)
+  padding: 50px 0
+  background-color: $gray-2
+  &__context
+    z-index: 9
+    position: absolute
+    display: none
+    &-container
+      width: 260px
+      padding: 10px 0
+      border-radius: 5px
+      background-color: #fff
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1)
+    &-item
+      position: relative
+      display: block
+      padding: 5px 0 5px 40px
+      font-size: 15px
+      &:before
+        content: ''
+        position: absolute
+        left: 20px
+        top: 9px
+        width: 12px
+        height: 12px
+        background:
+          position: center
+          size: contain
+          repeat: no-repeat
+      &[data-action="edit"]
+        &:before
+          background-image: url('../img/icons/edit.svg')
+      &[data-action="delete"]
+        color: $red
+        &:hover
+          color: transparentize($red, .2)
+        &:before
+          background-image: url('../img/icons/close-red.svg')
+    &--shown
+      display: block
+  &__wrapper
+    display: flex
+    flex-direction: column
+    justify-content: stretch
+    flex-grow: 1
+    min-height: 480px
+  &__empty
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    &-desc
+      margin-bottom: 20px
+      text-align: center
+      font:
+        size: 18px
+        weight: 700
+  &__grid
+    flex-grow: 1
+    height: 100%
+    display: flex
+    justify-content: space-between
+    align-items: stretch
+  &__aside
+    position: relative
+    overflow: hidden
+    width: 330px
+    padding: 0 10px
+    .fakeScroll
+      &__track
+        z-index: 2
+        right: 3px
+        width: 4px
+        padding: 10px 0
+      &__bar
+        background-color: transparentize(#000, .8)
+  &__main
+    display: flex
+    flex-direction: column
+    align-items: sretch
+    width: 820px
+  &__card
+    border-radius: 5px
+    background-color: #fff
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
+  &__head
+    &-main
+      display: flex
+      justify-content: space-between
+      align-items: center
+      padding: 15px 20px
+      border-bottom: 1px solid $gray-4
+    &-info
+      display: flex
+      align-items: center
+    &-back
+      display: none
+    &-image
+      width: 50px
+      height: 50px
+      margin-right: 10px
+      border-radius: 50%
+      background:
+        size: cover
+        position: center
+        repeat: no-repeat
+    &-name
+      font:
+        size: 15px
+        weight: 500
+    &-online
+      color: $gray
+      font-size: 13px
+    &-delete
+      padding-bottom: 2px
+      border-bottom: 1px dashed $red
+      color: $red
+      font-size: 15px
+      transition: all .3s ease
+      &:hover
+        color: transparentize($red, .2)
+        border-color: transparentize($red, .2)
+    &-warning
+      position: relative
+      display: none
+      padding: 10px 20px
+      border-bottom: 1px solid $gray-4
+      background-color: $gray-4
+      &--shown
+        display: block
+      &-close
+        position: absolute
+        top: 5px
+        right: 5px
+        width: 15px
+        height: 15px
+        cursor: pointer
+        background:
+          image: url('../img/icons/close.svg')
+          size: 10px
+          position: center
+          repeat: no-repeat
+      &-text
+        color: $gray-5
+        font-size: 13px
+        b
+          font-weight: 500
+      &-btn
+        width: 145px
+        margin-top: 10px
+        padding: 7px 5px
+        border-radius: 3px
+        font-size: 13px
+  &__dialog
+    overflow: hidden
+    position: relative
+    flex-grow: 1
+    height: 0
+    padding: 0 20px
+    &-container
+      display: flex
+      flex-direction: column
+      justify-content: flex-end
+      min-height: 100%
+      padding-top: 20px
+    .fakeScroll
+      &__track
+        z-index: 2
+        right: 10px
+        width: 4px
+        padding: 10px 0 0 0
+      &__bar
+        background-color: transparentize(#000, .8)
+  &__message
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    &:not(:last-child)
+      margin-bottom: 10px
+    &--left
+      .chat__message-text
+        background-color: #F5F5F5
+      .chat__message-time
+        margin-left: 9px
+    &--right
+      flex-direction: row-reverse
+      .chat__message-text
+        background-color: #F0F3FE
+        cursor: pointer
+      .chat__message-time
+        margin-right: 9px
+    &-text
+      max-width: 650px
+      padding: 10px
+      border-radius: 10px
+      color: $gray-5
+      font-size: 15px
+    &-time
+      color: $gray
+      font-size: 12px
+  &__footer
+    position: relative
+    padding: 20px 20px 30px
+    &-container--edit
+      .chat__footer
+        &-input
+          padding-top: 54px
+        &-btn
+          top: 71px
+      .chat__edit
+        display: flex
+    &-input
+      width: 100%
+      max-height: 131px
+      height: 51px
+      padding: 13px 60px 15px 20px
+      border-radius: 5px
+      border: 1px solid #F0F0F0
+      color: $gray-5
+      outline: 0
+      resize: none
+      background-color: $gray-2
+      line-height: 1.37
+      -webkit-appearance: none
+      scrollbar-width: none
+      font:
+        family: 'OpenSans', Helvetica, sans-serif
+        size: 15px
+        weight: 300
+      &::-webkit-scrollbar
+        display: none
+      &::placeholder
+        color: $gray
+      &::-webkit-input-placeholder
+        color: $gray
+      &::-moz-placeholder
+        color: $gray
+      &:-ms-input-placeholder
+        color: $gray
+      &:-moz-placeholder
+        color: $gray
+      &:focus
+        &::placeholder
+          opacity: 0
+        &::-webkit-input-placeholder
+          opacity: 0
+        &::-moz-placeholder
+          opacity: 0
+        &:-ms-input-placeholder
+          opacity: 0
+        &:-moz-placeholder
+          opacity: 0
+    &-btn
+      position: absolute
+      top: 30px
+      right: 30px
+      width: 30px
+      height: 30px
+      padding: 0
+      border: none
+      box-shadow: none
+      outline: 0
+      cursor: pointer
+      -webkit-appearance: none
+      background:
+        image: url('../img/icons/send.svg')
+        position: center
+        repeat: no-repeat
+  &__edit
+    position: absolute
+    top: 21px
+    left: 21px
+    display: none
+    align-items: center
+    width: 720px
+    padding: 12px 0 10px 20px
+    border-top-left-radius: 5px
+    background-color: $gray-2
+    &-cancel
+      display: block
+      width: 12px
+      height: 12px
+      background:
+        image: url('../img/icons/close.svg')
+        size: contain
+        position: center
+        repeat: no-repeat
+    &-block
+      width: calc(100% - 22px)
+      margin-left: 10px
+      padding-left: 10px
+      border-left: 2px solid $blue
+    &-heading
+      color: $blue
+      font-size: 14px
+    &-text
+      color: $gray
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+      font-size: 12px
+
+
+@media only screen and (max-width: $tablet)
+  .chat
+    height: calc(100vh - 468px)
+    &__wrapper
+      min-height: 444px
+    &__aside
+      width: 290px
+    &__main
+      width: 420px
+    &__head
+      &-delete
+        font-size: 13px
+    &__message
+      &-text
+        max-width: 320px
+        font-size: 14px
+    &__footer
+      padding: 17px 10px
+      &-input
+        max-height: 120px
+        height: 44px
+        padding: 10px 45px 12px 10px
+        font-size: 14px
+      &-btn
+        top: 27px
+        right: 20px
+        width: 24px
+        height: 24px
+    &__edit
+      top: 18px
+      left: 11px
+      width: 350px
+      padding: 10px 0 10px 12px
+      &-heading
+        font-size: 13px
+      &-text
+        font-size: 11px
+
+@media only screen and (max-width: $mobile)
+  .chat
+    height: auto
+    padding: 30px 0 50px
+    &__context
+      visibility: hidden
+      opacity: 0
+      z-index: 0
+      position: fixed
+      display: block
+      top: 0 !important
+      left: 0 !important
+      height: 100%
+      width: 100%
+      background-color: rgba(0, 0, 0, 0.7)
+      &--shown
+        visibility: visible
+        z-index: 99
+        opacity: 1
+        transition: opacity .3s ease
+        .chat__context-container
+          transform: translateY(0)
+      &-container
+        position: absolute
+        bottom: 10px
+        left: 10px
+        width: calc(100% - 20px)
+        transform: translateY(20px)
+        transition: transform .3s ease
+    &__wrapper
+      max-height: 700px
+    &__empty
+      padding: 0 20px
+      &-desc
+        margin-bottom: 15px
+        font-size: 15px
+    &__grid
+      overflow: hidden
+      display: flex
+      align-items: stretch
+      height: auto
+      border-radius: 5px
+      background-color: #fff
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
+      &--inner
+        .chat__aside,
+        .chat__main
+          transform: translateX(-100%)
+    &__aside
+      padding: 0
+    &__aside,
+    &__main
+      min-width: 100%
+      width: 100%
+      box-shadow: none
+      transition: transform .3s ease-out
+    &__head
+      &-back
+        display: block
+        width: 20px
+        height: 20px
+        margin-right: 20px
+        transform: rotate(180deg)
+        background:
+          image: url('../img/icons/arrow-gray.svg')
+          size: contain
+          position: center
+          repeat: no-repeat
+      &-delete
+        display: none
+      &-warning
+        padding: 10px 15px
+        &-text
+          font-size: 11px
+        &-btn
+          padding: 7px 5px
+      &-main
+        padding: 20px
+    &__message
+      &-text
+        max-width: calc(100% - 40px)
+    &__edit
+      width: calc(100% - 55px)
+      padding: 7px 0 7px 12px

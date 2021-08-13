@@ -52,7 +52,7 @@ Array.from(document.querySelectorAll('.js-auth-country')).map(el => el.addEventL
 
 // handling cities input
 if (document.querySelectorAll('.js-auth-city input').length) {
-  fetch('data/location.json').then(res => res.json()).then(data => {
+  fetch('json/location.json').then(res => res.json()).then(data => {
     Array.from(document.querySelectorAll('.js-auth-city input')).map(el => {
       el.addEventListener('input', e => {
         const $this = e.currentTarget;

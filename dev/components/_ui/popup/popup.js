@@ -2,10 +2,10 @@
 document.addEventListener('click', e => {
   const $this = e.target;
 
-  if ($this.classList.contains('js-open-popup')) {
+  if ($this.closest('.js-open-popup')) {
     e.preventDefault();
-
-    const target = $this.dataset.popup;
+    
+    const target = $this.closest('.js-open-popup').dataset.popup;
     const $popup = document.querySelector(`.js-popup[data-popup="${target}"]`);
     
     $api.popup($popup).show();

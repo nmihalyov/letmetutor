@@ -1,0 +1,109 @@
+.chat-item
+  border-radius: 5px
+  cursor: pointer
+  &:first-child
+    margin-top: 10px
+  &:last-child
+    margin-bottom: 10px
+  &--active
+    pointer-events: none
+    background-color: $blue
+    .chat-item
+      &__name,
+      &__time,
+      &__message
+        color: #fff
+  &__container
+    display: flex
+    align-items: center
+    padding: 10px
+  &__delete
+    display: none
+  &__image
+    flex-shrink: 0
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    margin-right: 10px
+    background:
+      size: cover
+      position: center
+      repeat: no-repeat
+  &__head
+    display: flex
+    justify-content: space-between
+    align-items: baseline
+  &__name
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    font:
+      size: 15px
+      weight: 500
+  &__time
+    flex-shrink: 0
+    margin-left: 5px
+    color: $gray
+    font:
+      size: 12px
+      weight: 500
+  &__content
+    max-width: calc(100% - 60px)
+  &__body
+    display: flex
+    align-items: baseline
+  &__message
+    flex-grow: 1
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    color: $gray
+    font-size: 14px
+  &__counter
+    flex-shrink: 0
+    margin-left: 5px
+    padding: 1px 5px
+    border-radius: 3px
+    background-color: $blue
+    color: #fff
+    font-size: 11px
+
+@media only screen and (max-width: $mobile)
+  .chat-item
+    overflow: hidden
+    display: flex
+    align-items: stretch
+    border-radius: 0
+    touch-action: none
+    &--active
+      pointer-events: auto
+      background-color: transparent
+      .chat-item
+        &__name
+          color: $dark-blue
+        &__time,
+        &__message
+          color: $gray
+    &__container
+      width: 100%
+      padding: 10px 20px
+    &__delete
+      display: flex
+      justify-content: center
+      align-items: center
+      min-width: 120px
+      width: 120px
+      margin: 10px 0
+      background-color: $red
+      &-text
+        color: #fff
+      &-icon
+        width: 12px
+        height: 12px
+        margin-top: 2px
+        margin-left: 10px
+        background:
+          image: url('../img/icons/close-white.svg')
+          size: contain
+          position: center
+          repeat: no-repeat
