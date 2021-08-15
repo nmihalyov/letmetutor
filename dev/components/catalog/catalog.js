@@ -15,6 +15,7 @@ if ($catalogMoreBtn) {
   const setCurrentPage = currentPage => {
     Array.from(document.querySelectorAll('.pagination__page--current')).map(el => el.classList.remove('pagination__page--current'));
     document.querySelector(`.pagination__page[data-page="${currentPage}"]`).classList.add('pagination__page--current');
+    window.scrollTo(0, 0);
   };
 
   // set pagination break
@@ -76,7 +77,7 @@ if ($catalogMoreBtn) {
             ${subjects.map(el => `
               <a class="tutorcard__subjects-item${el.search ? ' tutorcard__subjects-item--search' : ''}${el.hidden ? ' tutorcard__subjects-item--hidden' : ''}" href="javascript:void(0)">${el.name} <span>(опыт <b>${el.experience}</b>)</span></a>
             `).join('')}
-            <a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+2 предмета</a>
+            <a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+${['предмет', 'предмета', 'предметов'].decline(subjects.length - 2, true)}</a>
           </div>
           <p class="tutorcard__desc">${description}</p>
         </div><a class="tutorcard__more" href=${link}>Подробнее</a>
@@ -104,7 +105,7 @@ if ($catalogMoreBtn) {
     $catalogMoreBtn.classList.add('button--loading');
 
     const latestPage = catalogPages.current[catalogPages.current.length - 1] + 1;
-    const queryUrl = formatURL(`data/catalog.json?page=${latestPage}`);
+    const queryUrl = formatURL(`json/catalog.json?page=${latestPage}`);
 
     // set current pages
     catalogPages.current.push(latestPage);
@@ -167,7 +168,7 @@ if ($catalogMoreBtn) {
     e.preventDefault();
 
     const currentPage = catalogPages.current[catalogPages.current.length - 1] + 1;
-    const queryUrl = formatURL(`data/catalog.json?page=${currentPage}`);
+    const queryUrl = formatURL(`json/catalog.json?page=${currentPage}`);
 
     catalogPages.current = [currentPage];
 
@@ -200,7 +201,7 @@ if ($catalogMoreBtn) {
 
     if ($this.classList.contains('pagination__page')) {
       const currentPage = parseInt($this.dataset.page);
-      const queryUrl = formatURL(`data/catalog.json?page=${currentPage}`);
+      const queryUrl = formatURL(`json/catalog.json?page=${currentPage}`);
 
       catalogPages.current = [currentPage];
 

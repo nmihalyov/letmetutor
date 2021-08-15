@@ -12,72 +12,73 @@ mixin chat(type)
         .chat__empty.chat__card
           .chat__empty-desc У вас пока нет активных переписок
           +button('primary', 'link', 'Найти репетитора', 'chat__empty-btn', {link: 'catalog.html'})
-      .chat__grid
-        .chat__card.chat__aside
-          +chat-item('tutor-1.jpg', 'Анна Иванова', '12:33', 'Здравствуйте, предлагаю вам индивидуальное занятие', null, true)
-          +chat-item('tutor-2.jpg', 'Анастасия Петрова', '10:24', 'Здравствуйте, предлагаю вам индивидуальное занятие', 10)
-          +chat-item('tutor-3.jpg', 'Ольга Сидорова', '10:24', 'Здравствуйте, предлагаю вам индивидуальное занятие')
-        .chat__card.chat__main
-          .chat__head
-            .chat__head-main
-              .chat__head-info
-                .chat__head-back
-                .chat__head-image(style="background-image: url('img/inhtml/tutor-1.jpg');")
-                .chat__head-about
-                  p.chat__head-name Анна Иванова
-                  p.chat__head-online Был(а) в сети 1 час назад
-              a.chat__head-delete.js-open-popup(href="javascript:void(0)", data-popup="dialog-clear") Удалить переписку
-            .chat__head-warning
-              .chat__head-warning-close
-              if type === 'student'
-                p.chat__head-warning-text <b>Обращаем ваше внимание</b>, что вам <b>запрещено</b> обмениваться любыми контактами до оплаты вами первого занятия через наш сервис! В случае нарушения данного условия, ваша учетная запись будет <b>заблокирована</b>.
-                +button('primary', 'link', 'Оплатить занятие', 'chat__head-warning-btn', {link: '#'})
-              if type === 'tutor'
-                p.chat__head-warning-text <b>Обращаем ваше внимание</b>, что вам <b>запрещено</b> обмениваться любыми контактами до оплаты учеником первого занятия через наш сервис! В случае нарушения данного условия, ваша учетная запись будет <b>заблокирована</b>.
-          .chat__dialog
-            .chat__dialog-container
-              .chat__message.chat__message--left(data-id="1")
-                p.chat__message-text Здравствуйте, как у вас дела?
-                p.chat__message-time 12:33
-              .chat__message.chat__message--left(data-id="2")
-                p.chat__message-text Нужно обсудить некоторые моменты
-                p.chat__message-time 12:33
-              .chat__message.chat__message--left(data-id="3")
-                p.chat__message-text Какое-то сообщение в 2 строчки для <br>демонстрации
-                p.chat__message-time 12:33
-              .chat__message.chat__message--right(data-id="4")
-                p.chat__message-text Здравствуйте, как у вас ваши дела?
-                p.chat__message-time 12:33
-              .chat__message.chat__message--right(data-id="5")
-                p.chat__message-text Максимальная длина сообщения в одну строку, длинный текст lorem ipsum dolllars
-                p.chat__message-time 12:33
-              .chat__message.chat__message--left(data-id="6")
-                p.chat__message-text Здравствуйте, как у вас дела?
-                p.chat__message-time 12:33
-              .chat__message.chat__message--left(data-id="7")
-                p.chat__message-text Нужно обсудить некоторые моменты
-                p.chat__message-time 12:33
-              .chat__message.chat__message--left(data-id="8")
-                p.chat__message-text Какое-то сообщение в 2 строчки для <br>демонстрации
-                p.chat__message-time 12:33
-              .chat__message.chat__message--right(data-id="9")
-                p.chat__message-text Здравствуйте, как у вас ваши дела?
-                p.chat__message-time 12:33
-              .chat__message.chat__message--right(data-id="10")
-                p.chat__message-text Максимальная длина сообщения в одну строку, длинный текст lorem ipsum dolllars
-                p.chat__message-time 12:33
-              .chat__message.chat__message--left(data-id="11")
-                p.chat__message-text Здравствуйте, как у вас дела?
-                p.chat__message-time 12:33
-              .chat__message.chat__message--left(data-id="12")
-                p.chat__message-text Нужно обсудить некоторые моменты
-                p.chat__message-time 12:33
-          .chat__footer
-            form.chat__footer-container(action="", data-action="send")
-              .chat__edit
-                a.chat__edit-cancel(href="javascript:void(0)")
-                .chat__edit-block
-                  p.chat__edit-heading Редактирование
-                  p.chat__edit-text
-              textarea.chat__footer-input(name="dialogMessage", placeholder="Введите ваше сообщение")
-              button.chat__footer-btn
+      else
+        .chat__grid
+          .chat__card.chat__aside
+            +chat-item('tutor-1.jpg', 'Анна Иванова', '12:33', 'Здравствуйте, предлагаю вам индивидуальное занятие', null, true)
+            +chat-item('tutor-2.jpg', 'Анастасия Петрова', '10:24', 'Здравствуйте, предлагаю вам индивидуальное занятие', 10)
+            +chat-item('tutor-3.jpg', 'Ольга Сидорова', '10:24', 'Здравствуйте, предлагаю вам индивидуальное занятие')
+          .chat__card.chat__main
+            .chat__head
+              .chat__head-main
+                .chat__head-info
+                  .chat__head-back
+                  .chat__head-image(style="background-image: url('img/inhtml/tutor-1.jpg');")
+                  .chat__head-about
+                    p.chat__head-name Анна Иванова
+                    p.chat__head-online Был(а) в сети 1 час назад
+                a.chat__head-delete.js-open-popup(href="javascript:void(0)", data-popup="dialog-clear") Удалить переписку
+              .chat__head-warning
+                .chat__head-warning-close
+                if type === 'student'
+                  p.chat__head-warning-text <b>Обращаем ваше внимание</b>, что вам <b>запрещено</b> обмениваться любыми контактами до оплаты вами первого занятия через наш сервис! В случае нарушения данного условия, ваша учетная запись будет <b>заблокирована</b>.
+                  +button('primary', 'link', 'Оплатить занятие', 'chat__head-warning-btn', {link: '#'})
+                if type === 'tutor'
+                  p.chat__head-warning-text <b>Обращаем ваше внимание</b>, что вам <b>запрещено</b> обмениваться любыми контактами до оплаты учеником первого занятия через наш сервис! В случае нарушения данного условия, ваша учетная запись будет <b>заблокирована</b>.
+            .chat__dialog
+              .chat__dialog-container
+                .chat__message.chat__message--left(data-id="1")
+                  p.chat__message-text Здравствуйте, как у вас дела?
+                  p.chat__message-time 12:33
+                .chat__message.chat__message--left(data-id="2")
+                  p.chat__message-text Нужно обсудить некоторые моменты
+                  p.chat__message-time 12:33
+                .chat__message.chat__message--left(data-id="3")
+                  p.chat__message-text Какое-то сообщение в 2 строчки для <br>демонстрации
+                  p.chat__message-time 12:33
+                .chat__message.chat__message--right(data-id="4")
+                  p.chat__message-text Здравствуйте, как у вас ваши дела?
+                  p.chat__message-time 12:33
+                .chat__message.chat__message--right(data-id="5")
+                  p.chat__message-text Максимальная длина сообщения в одну строку, длинный текст lorem ipsum dolllars
+                  p.chat__message-time 12:33
+                .chat__message.chat__message--left(data-id="6")
+                  p.chat__message-text Здравствуйте, как у вас дела?
+                  p.chat__message-time 12:33
+                .chat__message.chat__message--left(data-id="7")
+                  p.chat__message-text Нужно обсудить некоторые моменты
+                  p.chat__message-time 12:33
+                .chat__message.chat__message--left(data-id="8")
+                  p.chat__message-text Какое-то сообщение в 2 строчки для <br>демонстрации
+                  p.chat__message-time 12:33
+                .chat__message.chat__message--right(data-id="9")
+                  p.chat__message-text Здравствуйте, как у вас ваши дела?
+                  p.chat__message-time 12:33
+                .chat__message.chat__message--right(data-id="10")
+                  p.chat__message-text Максимальная длина сообщения в одну строку, длинный текст lorem ipsum dolllars
+                  p.chat__message-time 12:33
+                .chat__message.chat__message--left(data-id="11")
+                  p.chat__message-text Здравствуйте, как у вас дела?
+                  p.chat__message-time 12:33
+                .chat__message.chat__message--left(data-id="12")
+                  p.chat__message-text Нужно обсудить некоторые моменты
+                  p.chat__message-time 12:33
+            .chat__footer
+              form.chat__footer-container(action="", data-action="send")
+                .chat__edit
+                  a.chat__edit-cancel(href="javascript:void(0)")
+                  .chat__edit-block
+                    p.chat__edit-heading Редактирование
+                    p.chat__edit-text
+                textarea.chat__footer-input(name="dialogMessage", placeholder="Введите ваше сообщение")
+                button.chat__footer-btn

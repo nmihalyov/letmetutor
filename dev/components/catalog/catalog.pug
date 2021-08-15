@@ -35,11 +35,11 @@ mixin catalog(notfound, login)
           .catalog__found
             p.catalog__found-desc Найдено <b>213</b> репетиторов по предмету <a href="#">Английский язык</a> в <a href="#">России</a>
             .catalog__items(data-total="10")
-              +tutorcard('tutor-1.jpg', true, true, login)
-              +tutorcard('tutor-2.jpg', false, true, login)
-              +tutorcard('tutor-3.jpg', false, false, login, true)
-              +tutorcard('tutor-4.jpg', false, true, login)
-              +tutorcard('tutor-5.jpg', false, true, login)
+              +tutorcard('Анна Иванова', 'tutor-1.jpg', true, true, login)
+              +tutorcard('Светлана Авдеева', 'tutor-2.jpg', false, true, login)
+              +tutorcard('Вероника Казакова', 'tutor-3.jpg', false, false, login, true)
+              +tutorcard('Лилия Савченко', 'tutor-4.jpg', false, true, login)
+              +tutorcard('Катерина Смит', 'tutor-5.jpg', false, true, login)
             .catalog__bottom
               +pagination
               +button('primary', 'button', 'Показать еще', 'catalog__bottom-btn js-catalog-more')

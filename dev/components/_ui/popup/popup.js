@@ -7,7 +7,15 @@ document.addEventListener('click', e => {
     
     const target = $this.closest('.js-open-popup').dataset.popup;
     const $popup = document.querySelector(`.js-popup[data-popup="${target}"]`);
-    
+
+    if (target === 'request-auth') {
+      if (document.querySelector('.profile-head__name')) {
+        $popup.querySelector('.popup__desc b').innerText = document.querySelector('.profile-head__name').innerText;
+      } else {
+        $popup.querySelector('.popup__desc b').innerText = $this.closest('.tutorcard').querySelector('.tutorcard__name').innerText;
+      }
+    }
+
     $api.popup($popup).show();
   }
 });

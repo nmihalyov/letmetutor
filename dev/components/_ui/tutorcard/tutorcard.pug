@@ -1,11 +1,12 @@
 include ../button/button
 
-mixin tutorcard(image, top, verified, login, noReviews)
+mixin tutorcard(name, image, top, verified, login, noReviews)
   .tutorcard(class=top ? 'tutorcard--top' : '')
     .tutorcard__image(style=`background-image: url('img/inhtml/${image}')`)
     .tutorcard__info
       div
-        p.tutorcard__name(class=verified ? 'tutorcard__name--verified' : '') Анна Иванова
+        p.tutorcard__name(class=verified ? 'tutorcard__name--verified' : '')
+          a(href="tutor.html")= name
         p.tutorcard__location(data-loc="ru") Москва, Россия
         .tutorcard__subjects
           a.tutorcard__subjects-item.tutorcard__subjects-item--search(href="javascript:void(0)") Английский язык <span>(опыт <b>5 лет</b>)</span>
