@@ -1,4 +1,6 @@
 // handle open popup
+const popupShow = new Event('popupShow');
+
 document.addEventListener('click', e => {
   const $this = e.target;
 
@@ -16,7 +18,13 @@ document.addEventListener('click', e => {
       }
     }
 
-    $api.popup($popup).show();
+    $api.popup($popup, {
+      onShow() {
+        if (target === 'edit-photo') {
+          $popup.dispatchEvent(popupShow);
+        }
+      }
+    }).show();
   }
 });
 

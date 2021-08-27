@@ -6,6 +6,7 @@ window.onload = () => {
   @@include('../components/_ui/dropdown/dropdown.js')
   @@include('../components/_ui/tabs/tabs.js')
   @@include('../components/_ui/input/input.js')
+  @@include('../components/_ui/checkbox/checkbox.js')
   @@include('../components/_ui/checkboxselect/checkboxselect.js')
   @@include('../components/_ui/filters/filters.js')
   @@include('../components/_ui/tutorcard/tutorcard.js')
@@ -24,5 +25,6 @@ window.onload = () => {
   @@include('../components/profile-reviews/profile-reviews.js')
   @@include('../components/profile-schedule/profile-schedule.js')
   @@include('../components/chat/chat.js')
+  @@include('../components/personal/personal.js')
 
 }

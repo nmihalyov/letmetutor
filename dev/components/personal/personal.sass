@@ -1,0 +1,551 @@
+.personal
+  padding: 40px 0 100px
+  background-color: $gray-2
+  &__wrapper
+    display: flex
+    justify-content: space-between
+    align-items: stretch
+  &__aside
+    width: 375px
+  &__nav
+    position: sticky
+    top: 100px
+    padding: 10px 20px 15px
+    border-radius: 5px
+    background-color: #fff
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
+    &-heading
+      padding: 20px 0
+      border-bottom: 1px solid $gray-4
+      font:
+        size: 18px
+        weight: 700
+    &-item
+      display: flex
+      align-items: center
+      padding: 15px 0
+      &:not(:last-child)
+        border-bottom: 1px dashed $gray-4
+      &--current
+        pointer-events: none
+        color: $blue
+      &--green
+        color: $green
+        &:hover
+          color: transparentize($green, 0.2)
+      &--bold
+        font-weight: 500
+    &-counter
+      margin-left: 5px
+      padding: 0 5px
+      border-radius: 3px
+      background-color: $blue
+      color: #fff
+      font-size: 11px
+    &-unverified,
+    &-verified
+      margin-left: 5px
+      padding: 0 5px 1px
+      border-radius: 3px
+      color: #fff
+      font-size: 11px
+      font-weight: 100
+    &-unverified
+      background-color: $red
+    &-verified
+      background-color: $green
+  &__main
+    width: 770px
+  &__card
+    padding: 10px 20px 30px
+    border-radius: 5px
+    background-color: #fff
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.04)
+    &:not([data-schedule-detail]):not(:last-child)
+      margin-bottom: 30px
+    &[data-schedule-detail]
+      display: none
+    &-heading
+      display: flex
+      align-items: center
+      margin-bottom: 30px
+      padding: 20px 0
+      border-bottom: 1px solid $gray-4
+      font:
+        size: 18px
+        weight: 700
+    &-content
+      .input[data-social]
+        position: relative
+        &:before
+          content: ''
+          z-index: 2
+          position: absolute
+          top: 15px
+          left: 20px
+          width: 20px
+          height: 20px
+          filter: brightness(0) saturate(100%) invert(70%) sepia(9%) saturate(505%) hue-rotate(193deg) brightness(94%) contrast(88%)
+          background:
+            position: center
+            size: contain
+            repeat: no-repeat
+        input
+          padding-left: 50px
+      [data-social="telegram"]:before
+        background-image: url('../img/icons/tg.svg')
+      [data-social="viber"]:before
+        background-image: url('../img/icons/viber.svg')
+      [data-social="whatsapp"]:before
+        background-image: url('../img/icons/whatsapp.svg')
+      [data-social="skype"]:before
+        background-image: url('../img/icons/skype.svg')
+    &-desc
+      margin-bottom: 30px
+      font:
+        size: 15px
+        weight: 500
+    &-checkbox
+      margin-bottom: 15px
+    &-submit
+      display: block
+      margin-left: auto
+  &__data
+    display: flex
+    justify-content: space-between
+    &-aside
+      width: 200px
+    &-image
+      display: flex
+      flex-direction: column
+      align-items: center
+      margin-bottom: 25px
+      &-pic
+        width: 200px
+        height: 200px
+        margin-bottom: 5px
+        border-radius: 5px
+        background:
+          image: url('../img/inhtml/no-avatar-big.png')
+          size: cover
+          position: center
+          repeat: no-repeat
+      &-change
+        position: relative
+        margin-left: 23px
+        border-bottom: 1px dashed $blue
+        color: $blue
+        transition: opacity .3s ease
+        font-size: 15px
+        &:hover
+          opacity: .8
+          color: $blue
+        &:before
+          content: ''
+          position: absolute
+          top: 3px
+          left: -23px
+          width: 15px
+          height: 15px
+          background:
+            image: url('../img/icons/camera.svg')
+            size: contain
+            position: center
+            repeat: no-repeat
+    &-socials
+      &-heading
+        margin-bottom: 10px
+        text-align: center
+        font-weight: 500
+      &-item
+        margin-bottom: 10px
+      &-acc
+        display: flex
+        justify-content: space-between
+        align-items: baseline
+        padding-top: 5px
+      &-name
+        font:
+          size: 13px
+          weight: 500
+      &-unlink
+        color: $blue
+        border-bottom: 1px dashed $blue
+        transition: all .3s ease
+        font-size: 13px
+        &:hover
+          border-color: transparentize($blue, 0.2)
+          color: transparentize($blue, 0.2)
+    &-social
+      position: relative
+      display: flex
+      align-items: center
+      width: 100%
+      height: 32px
+      padding-left: 40px
+      border: 1px solid $blue
+      border-radius: 5px
+      color: $blue
+      transition: all .3s ease
+      font:
+        size: 14px
+        weight: 500
+      &:hover
+        background-color: $blue
+        color: #fff
+      &:before
+        content: ''
+        position: absolute
+        top: calc(50% - 10px)
+        left: 10px
+        width: 20px
+        height: 20px
+        transition: background-image .3s ease
+        background:
+          size: contain
+          position: center
+          repeat: no-repeat
+      &--disabled
+        pointer-events: none
+        filter: invert(84%) sepia(8%) saturate(1%) hue-rotate(314deg) brightness(102%) contrast(93%)
+      &[data-social="fb"]
+        &:hover:before
+          background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M2.5%2020H10V13.125H7.5V10H10V7.5C10%205.42833%2011.6783%203.75%2013.75%203.75H16.25V6.875H15C14.31%206.875%2013.75%206.81%2013.75%207.5V10H16.875L15.625%2013.125H13.75V20H17.5C18.8783%2020%2020%2018.8783%2020%2017.5V2.5C20%201.12083%2018.8783%200%2017.5%200H2.5C1.12083%200%200%201.12083%200%202.5V17.5C0%2018.8783%201.12083%2020%202.5%2020Z%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%3C%2Fsvg%3E%0A')
+        &:before
+          background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M2.5%2020H10V13.125H7.5V10H10V7.5C10%205.42833%2011.6783%203.75%2013.75%203.75H16.25V6.875H15C14.31%206.875%2013.75%206.81%2013.75%207.5V10H16.875L15.625%2013.125H13.75V20H17.5C18.8783%2020%2020%2018.8783%2020%2017.5V2.5C20%201.12083%2018.8783%200%2017.5%200H2.5C1.12083%200%200%201.12083%200%202.5V17.5C0%2018.8783%201.12083%2020%202.5%2020Z%22%20fill%3D%22%233964F9%22%2F%3E%0A%3C%2Fsvg%3E%0A')
+      &[data-social="google"]
+        &:hover:before
+          background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cg%20clip-path%3D%22url%28%23clip0%29%22%3E%0A%3Cpath%20d%3D%22M4.43242%2012.0862L3.73625%2014.6851L1.19176%2014.739C0.431328%2013.3285%200%2011.7148%200%209.99997C0%208.34173%200.403281%206.77798%201.11812%205.40106H1.11867L3.38398%205.81637L4.37633%208.06809C4.16863%208.6736%204.05543%209.3236%204.05543%209.99997C4.05551%2010.734%204.18848%2011.4373%204.43242%2012.0862Z%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%3Cpath%20d%3D%22M19.8253%208.13184C19.9401%208.73676%2020%209.36148%2020%209.99996C20%2010.7159%2019.9247%2011.4143%2019.7813%2012.0879C19.2945%2014.3802%2018.0225%2016.3818%2016.2605%2017.7983L16.2599%2017.7978L13.4066%2017.6522L13.0028%2015.1313C14.172%2014.4456%2015.0858%2013.3725%2015.5671%2012.0879H10.2198V8.13184H15.6451H19.8253Z%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%3Cpath%20d%3D%22M16.2599%2017.7978L16.2604%2017.7984C14.5467%2019.1758%2012.3698%2020%2010%2020C6.19177%2020%202.8808%2017.8715%201.19177%2014.739L4.43244%2012.0863C5.27693%2014.3401%207.45111%2015.9445%2010%2015.9445C11.0956%2015.9445%2012.122%2015.6484%2013.0027%2015.1313L16.2599%2017.7978Z%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%3Cpath%20d%3D%22M16.383%202.30219L13.1434%204.95437C12.2319%204.38461%2011.1544%204.05547%2010%204.05547C7.39344%204.05547%205.17859%205.73348%204.37641%208.06812L1.11871%205.40109H1.11816C2.78246%202.1923%206.1352%200%2010%200C12.4264%200%2014.6511%200.864297%2016.383%202.30219Z%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%3C%2Fg%3E%0A%3Cdefs%3E%0A%3CclipPath%20id%3D%22clip0%22%3E%0A%3Crect%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22white%22%2F%3E%0A%3C%2FclipPath%3E%0A%3C%2Fdefs%3E%0A%3C%2Fsvg%3E%0A')
+        &:before
+          background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cg%20clip-path%3D%22url%28%23clip0%29%22%3E%0A%3Cpath%20d%3D%22M4.43242%2012.0862L3.73625%2014.6851L1.19176%2014.739C0.431328%2013.3285%200%2011.7148%200%209.99997C0%208.34173%200.403281%206.77798%201.11812%205.40106H1.11867L3.38398%205.81637L4.37633%208.06809C4.16863%208.6736%204.05543%209.3236%204.05543%209.99997C4.05551%2010.734%204.18848%2011.4373%204.43242%2012.0862Z%22%20fill%3D%22%233964F9%22%2F%3E%0A%3Cpath%20d%3D%22M19.8253%208.13184C19.9401%208.73676%2020%209.36148%2020%209.99996C20%2010.7159%2019.9247%2011.4143%2019.7813%2012.0879C19.2945%2014.3802%2018.0225%2016.3818%2016.2605%2017.7983L16.2599%2017.7978L13.4066%2017.6522L13.0028%2015.1313C14.172%2014.4456%2015.0858%2013.3725%2015.5671%2012.0879H10.2198V8.13184H15.6451H19.8253Z%22%20fill%3D%22%233964F9%22%2F%3E%0A%3Cpath%20d%3D%22M16.2599%2017.7978L16.2604%2017.7984C14.5467%2019.1758%2012.3698%2020%2010%2020C6.19177%2020%202.8808%2017.8715%201.19177%2014.739L4.43244%2012.0863C5.27693%2014.3401%207.45111%2015.9445%2010%2015.9445C11.0956%2015.9445%2012.122%2015.6484%2013.0027%2015.1313L16.2599%2017.7978Z%22%20fill%3D%22%233964F9%22%2F%3E%0A%3Cpath%20d%3D%22M16.383%202.30219L13.1434%204.95437C12.2319%204.38461%2011.1544%204.05547%2010%204.05547C7.39344%204.05547%205.17859%205.73348%204.37641%208.06812L1.11871%205.40109H1.11816C2.78246%202.1923%206.1352%200%2010%200C12.4264%200%2014.6511%200.864297%2016.383%202.30219Z%22%20fill%3D%22%233964F9%22%2F%3E%0A%3C%2Fg%3E%0A%3Cdefs%3E%0A%3CclipPath%20id%3D%22clip0%22%3E%0A%3Crect%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22white%22%2F%3E%0A%3C%2FclipPath%3E%0A%3C%2Fdefs%3E%0A%3C%2Fsvg%3E')
+    &-main
+      width: 510px
+  &__specialization
+    &-grid
+      margin-bottom: 20px
+      border-bottom: 1px solid $gray-4
+    &-item
+      margin-bottom: 20px
+    &-row
+      display: flex
+      justify-content: space-between
+      .input
+        width: 280px
+    &-exp
+      width: 140px
+      &-label
+        margin-bottom: 7px
+        color: $dark-blue
+        font-size: 15px
+        span
+          color: $red
+      .dropdown
+        height: 51px
+        padding-top: 14px
+        &:after
+          top: 22px
+    &-type
+      padding: 15px 0 5px
+      border-top: 1px solid $gray-4
+    &-label
+      margin-bottom: 15px
+      font-weight: 500
+      span
+        color: $red
+    &-checkbox
+      margin-bottom: 15px
+      span
+        color: $gray-5
+        font-size: 13px
+      a
+        color: $blue
+        border-bottom: 0
+  &__experience
+    &-item
+      margin-bottom: 20px
+      padding-bottom: 20px
+      border-bottom: 1px solid $gray-4
+    &-row
+      display: flex
+      justify-content: space-between
+      .input
+        width: 355px
+    &-years
+      display: flex
+      align-items: center
+      .dropdown
+        width: 100px
+        margin: 0 10px
+        .fakeScroll
+          &__wrap
+            max-height: 200px
+          &__content
+            max-height: 200px
+          &__track
+            z-index: 2
+            right: 10px
+            width: 4px
+            padding: 10px 0
+          &__bar
+            background-color: transparentize(#000, .8)
+  &__add
+    position: relative
+    display: inline-block
+    margin-bottom: 20px
+    margin-left: 23px
+    border-bottom: 1px dashed $blue
+    color: $blue
+    transition: opacity .3s ease
+    &:hover
+      opacity: .8
+      color: $blue
+    &:before
+      content: ''
+      position: absolute
+      top: 4px
+      left: -23px
+      width: 15px
+      height: 15px
+      background:
+        image: url('../img/icons/add.svg')
+        size: contain
+        position: center
+        repeat: no-repeat
+  &__timezone
+    margin-bottom: 25px
+    padding-bottom: 30px
+    border-bottom: 1px solid $gray-4
+  &__schedule
+    &-item
+      margin-bottom: 20px
+    &-time
+      display: flex
+      align-items: center
+      padding-top: 15px
+      > span
+        margin-right: 10px
+        font-size: 15px
+        &:not(:first-child)
+          margin-left: 10px
+      .dropdown
+        width: 100px
+        height: 51px
+        padding-top: 14px
+        &:after
+          top: 22px
+      &-link
+        margin-left: 15px
+        color: $blue
+        text-decoration: underline
+        font-size: 15px
+        &:hover
+          color: transparentize($blue, 0.2)
+    &-desc
+      padding: 25px 0
+      border-top: 1px solid $gray-4
+      .personal__card-desc
+        margin-bottom: 0
+    &-times
+      &-row
+        position: relative
+        display: flex
+        flex-wrap: wrap
+        border-top: 1px solid $gray-4
+        &:after
+          content: ''
+          position: absolute
+          left: 0
+          bottom: 0
+          width: 100%
+          height: 1px
+          background-color: #fff
+      &-item
+        width: 107px
+        padding: 20px 20px 20px 0
+        border-bottom: 1px solid $gray-4
+        &:nth-child(7n)
+          padding-right: 0px
+          width: 87px
+      &-label
+        display: block
+        &:not(:last-child)
+          margin-bottom: 10px
+        input
+          position: absolute
+          opacity: 0
+          visibility: hidden
+          &:checked ~ .personal__schedule-times-btn
+            &[data-value="available"]
+              border: 1px solid $green
+              color: $green
+            &[data-value="unavailable"]
+              border: 1px solid $red
+              color: $red
+      &-btn
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 100%
+        height: 22px
+        border-radius: 3px
+        cursor: pointer
+        font-size: 12px
+      &-value
+        margin-bottom: 5px
+        color: $gray-5
+        text-align: center
+        font-size: 14px
+  &__back
+    position: relative
+    display: block
+    margin-right: 20px
+    padding: 7px 12px 7px 34px
+    border-radius: 3px
+    border: 1px solid #D7D7D7
+    color: $gray
+    font:
+      size: 13px
+      weight: 500
+    &:before
+      content: ''
+      position: absolute
+      top: 7px
+      left: 8px
+      width: 18px
+      height: 18px
+      transform: rotate(180deg)
+      background:
+        image: url('../img/icons/arrow-gray.svg')
+        position: center
+        size: contain
+        repeat: no-repeat
+
+@media only screen and (max-width: $tablet)
+  .personal
+    &__wrapper
+      flex-direction: column
+    &__aside
+      width: 100%
+      margin-bottom: 30px
+    &__main
+      width: 100%
+    &__data
+      &-main
+        width: 470px
+    &__specialization-row .input
+      width: 260px
+    &__experience-row .input
+      width: 335px
+    &__schedule-times-item
+      width: 101px
+      &:nth-child(7n)
+        width: 81px
+
+@media only screen and (max-width: $mobile)
+  .personal
+    padding: 20px 0 50px
+    &__aside
+      margin-bottom: 20px
+    &__nav
+      padding: 10px 15px
+      &-heading
+        padding: 15px 0
+        font-size: 16px
+      &-item
+        padding: 10px 0
+    &__card
+      padding: 10px 15px 20px
+      &:not(:last-child)
+        margin-bottom: 20px
+      &-heading
+        flex-direction: column
+        align-items: flex-start
+        margin-bottom: 20px
+        padding: 15px 0
+        font-size: 16px
+      &-desc
+        margin-bottom: 20px
+        font-size: 14px
+      &-content
+        .input[data-social]
+          &:before
+            top: 12px
+            width: 16px
+            height: 16px
+          input
+            padding-left: 45px
+    &__data
+      flex-direction: column
+      align-items: center
+      &-aside
+        margin-bottom: 20px
+      &-main
+        width: 100%
+    &__specialization
+      &-row
+        flex-direction: column
+      &-item
+        &:not(:last-child)
+          padding-bottom: 20px
+          border-bottom: 1px solid $gray-4
+      &-exp
+        width: 100%
+        margin-bottom: 15px
+        .dropdown
+          height: 40px
+          padding-top: 10px
+          &:after
+            top: 17px
+    &__experience
+      &-row
+        flex-direction: column
+        .input
+          width: 100%
+      &-years
+        .dropdown
+          width: 90px
+    &__timezone
+      margin-bottom: 20px
+      padding-bottom: 20px
+    &__schedule
+      &-desc
+        padding: 20px 0
+      &-item
+        margin-bottom: 25px
+      &-time
+        flex-wrap: wrap
+        padding-top: 12px
+        .dropdown
+          height: 40px
+          padding-top: 10px
+          &:after
+            top: 17px
+        &-link
+          margin: 7px 0 0
+      &-times
+        padding: 20px 0
+        border-top: 1px solid $gray-4
+        &-row
+          width: calc(100% + 20px)
+          margin-left: -10px
+          padding: 0
+          border-top: 0
+          &:after
+            display: none
+        &-item
+          width: calc(33.33333333% - 20px) !important
+          margin: 0 10px 20px
+          padding: 0 !important
+          border-bottom: 0
+        &-btn
+          font-size: 11px
+    &__back
+      margin: 0 0 10px
+      padding: 5px 8px 5px 25px
+      white-space: nowrap
+      font-size: 11px
+      &:before
+        top: 5px
+        left: 7px
+        width: 14px
+        height: 14px

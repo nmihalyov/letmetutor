@@ -1,0 +1,16 @@
+.message
+  display: flex
+  justify-content: center
+  padding: 6px 10px 7px
+  background-color: transparentize($red, .2)
+  &__text
+    color: #fff
+    text-align: center
+    font:
+      size: 14px
+      weight: 500
+
+@media only screen and (max-width: $mobile)
+  .message
+    &__text
+      font-size: 12px

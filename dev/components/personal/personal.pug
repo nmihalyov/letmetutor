@@ -1,0 +1,526 @@
+include ../_ui/input/input
+include ../_ui/textarea/textarea
+include ../_ui/checkbox/checkbox
+include ../_ui/radio/radio
+include ../_ui/button/button
+
+-const times = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+
+mixin personal(type, page)
+  section.personal.container
+    .personal__wrapper.wrapper
+      aside.personal__aside
+        nav.personal__nav
+          p.personal__nav-heading Личный кабинет
+          if type === 'tutor'
+            a.personal__nav-item(class=`${page === 'profile' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-edit.html") Мой профиль
+            a.personal__nav-item(href="#") Мой баланс
+            a.personal__nav-item(href="#") Мои заявки
+            a.personal__nav-item(class=`${page === 'schedule' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-schedule.html") Мое расписание
+            a.personal__nav-item(href="chat-tutor.html") Мои диалоги
+              span.personal__nav-counter 10
+            a.personal__nav-item.personal__nav-item--green(href="#") Платные услуги
+            a.personal__nav-item.personal__nav-item--bold(href="#") Верификация аккаунта
+              if page === 'profile-empty'
+                span.personal__nav-unverified не подтвержден
+              else
+                span.personal__nav-verified подтвержден
+      main.personal__main
+        if type === 'tutor' && (page === 'profile' || page === 'profile-empty')
+          .personal__card
+            p.personal__card-heading Личные данные
+            .personal__card-content
+              form.personal__data(action="", data-personal-data) 
+                .personal__data-aside
+                  .personal__data-image
+                    if page === 'profile'
+                      .personal__data-image-pic(style="background-image: url('img/inhtml/student-1.jpg')")
+                      a.personal__data-image-change.js-open-popup(href="javascript:void(0)", data-popup="edit-photo") Изменить фото
+                    if page === 'profile-empty'
+                      .personal__data-image-pic
+                      a.personal__data-image-change.js-open-popup(href="javascript:void(0)", data-popup="edit-photo") Загрузить фото
+                  .personal__data-socials
+                    p.personal__data-socials-heading Привязать соц. сети
+                    if page === 'profile'
+                      .personal__data-socials-item
+                        a.personal__data-social.personal__data-social--disabled(data-social="fb", href="#") Facebook
+                        .personal__data-socials-acc
+                          p.personal__data-socials-name Konstantin R.
+                          a.personal__data-socials-unlink.js-open-popup(href="javascript:void(0)", data-popup="unlink-fb") Отвязать
+                      .personal__data-socials-item
+                        a.personal__data-social.personal__data-social--disabled(data-social="google", href="#") Gmail
+                        .personal__data-socials-acc
+                          p.personal__data-socials-name Konstantin R.
+                          a.personal__data-socials-unlink.js-open-popup(href="javascript:void(0)", data-popup="unlink-google") Отвязать
+                    if page === 'profile-empty'
+                      .personal__data-socials-item
+                        a.personal__data-social(data-social="fb", href="#") Facebook
+                      .personal__data-socials-item
+                        a.personal__data-social(data-social="google", href="#") Gmail
+                .personal__data-main
+                  +input('text', 'Ваше имя <span>*</span>', 'name', 'Введите ваше имя', 'auth__input', {required: true, error: 'Введите корректные данные', value: 'Анна'})
+                  +input('text', 'Ваша фамилия <span>*</span>', 'surname', 'Введите вашу фамилию', 'auth__input', {required: true, error: 'Введите корректные данные', value: 'Иванова'})
+                  +input('email', 'Ваш email <span>*</span>', 'email', 'Введите ваш email', 'auth__input', {required: true, error: 'Введите корректный email', value: 'mail@demolink.org'})
+                  +input('tel', 'Номер телефона <span>*</span>', 'phone', '+7 (___) ___-__-__', 'auth__input', {required: true, error: 'Введите корректный номер телефона', value: '+7 495 000-00-00'})
+                  +input('text', 'Ваша страна <span>*</span>', 'country', 'Выберите страну', 'auth__input js-auth-country', {required: true, error: 'Выберите страну из списка', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Россия</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Украина</a>', value: 'Россия'})
+                  +input('text', 'Ваш город <span>*</span>', 'city', 'Введите ваш город', 'auth__input js-auth-city', {required: true, error: 'Выберите город', citiesSearch: true, value: 'Москва'})
+                  +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
+          .personal__card
+            p.personal__card-heading Информация для учеников
+            .personal__card-content
+              form(action="", data-personal-info)
+                +textarea('О себе <span>*</span>', 'about', 'Введите краткую информацию о себе', 'auth__input', {required: true, error: 'Ввведите информацию о себе', value: 'Привет!\n\nМеня зовут Оджасви. Моя цель как репетитора английского - помочь вам достичь своей!\nПочему я? Мои сильные стороны как наставника - терпение, страсть к обучению, получать удовольствие от занятий и сохранять интерактивность или коммуникативность!'})
+                +input('text', 'Видео-приветствие', 'video', 'Вставьте ссылку с youtube', 'auth__input')
+                +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
+          .personal__card
+            p.personal__card-heading Специализация
+            .personal__card-content
+              form.personal__specialization(action="", data-personal-experience)
+                .personal__specialization-grid
+                  .personal__specialization-item
+                    .personal__specialization-row
+                      +input('text', 'Специализация <span>*</span>', 'specialization', 'Выберите предмет', 'auth__input', {required: true, error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                      +input('text', 'Цена за час <span>*</span>', 'price', 'Введите цену', 'auth__input', {required: true, error: 'Введите цену'})
+                      .personal__specialization-exp
+                        p.personal__specialization-exp-label Опыт работы <span>*</span>
+                        .profile-schedule__time.dropdown.dropdown--caret
+                          p.profile-schedule__time-value.dropdown__value 1 год
+                          .profile-schedule__time-menu.dropdown__menu
+                            a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 1 год
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 2 года
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 3 года
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 4 года
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 5 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 6 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 7 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 8 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 9 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 11 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 13 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 15 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 16 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 17 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 18 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 19 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Больше 20 лет
+                    +radio('Основная специализация', 'mainSpecialization', '', 'personal__specialization-radio', true, true)
+                  .personal__specialization-item.js-copy-item
+                    .personal__specialization-row
+                      +input('text', 'Специализация', 'specialization', 'Выберите предмет', 'auth__input', {dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                      +input('text', 'Цена за час', 'price', 'Введите цену', 'auth__input')
+                      .personal__specialization-exp
+                        p.personal__specialization-exp-label Опыт работы
+                        .profile-schedule__time.dropdown.dropdown--caret
+                          p.profile-schedule__time-value.dropdown__value 1 год
+                          .profile-schedule__time-menu.dropdown__menu
+                            a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 1 год
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 2 года
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 3 года
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 4 года
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 5 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 6 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 7 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 8 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 9 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 11 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 13 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 15 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 16 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 17 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 18 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 19 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Больше 20 лет
+                    +radio('Основная специализация', 'mainSpecialization', '', 'personal__specialization-radio', true, false)
+                a.personal__add.js-personal-add(href="javascript:void(0)") Добавить еще специализацию
+                .personal__specialization-type
+                  p.personal__specialization-label Тип проводимых занятий <span>*</span>
+                  +checkbox('Онлайн <span>(вам желательно заполнить <a href="lk-tutor-schedule.html">свое расписание</a>)</span>', 'online', 'personal__specialization-checkbox', false, true)
+                  +checkbox('Оффлайн <span>(вам желательно заполнить <a href="lk-tutor-schedule.html">свое расписание</a>)</span>', 'offline', 'personal__specialization-checkbox')
+                +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
+          .personal__card
+            p.personal__card-heading Опыт работы
+            .personal__card-content
+              p.personal__card-desc Вы можете указать ваше место работы, должность и период (необязательно для заполнения).
+              form.personal__experience(action="", data-personal-experience)
+                .personal__experience-grid
+                  .personal__experience-item.js-copy-item
+                    .personal__experience-row
+                      +input('text', 'Место работы', 'workplace', 'Название компании', 'auth__input')
+                      +input('text', 'Кем вы работали', 'position', 'Ваша должность', 'auth__input')
+                    .personal__experience-years
+                      span С
+                      .profile-schedule__time.dropdown.dropdown--caret
+                        p.profile-schedule__time-value.dropdown__value 2000
+                        .profile-schedule__time-menu.dropdown__menu
+                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 2000
+                          -for (let i = 2001; i <= 2021; i++)
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= i
+                      span по
+                      .profile-schedule__time.dropdown.dropdown--caret
+                        p.profile-schedule__time-value.dropdown__value 2000
+                        .profile-schedule__time-menu.dropdown__menu
+                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 2000
+                          -for (let i = 2001; i <= 2021; i++)
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= i
+                a.personal__add.js-personal-add(href="javascript:void(0)") Добавить еще место работы
+                +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
+          .personal__card
+            p.personal__card-heading Дополнительные контакты
+            .personal__card-content
+              p.personal__card-desc Данная информация будет видна у вас в профиле после оплаты учеником 1 занятия.
+              form(action="", data-personal-contacts)
+                +input('text', '', 'telegram', 'Telegram', 'auth__input', {social: 'telegram'})
+                +input('text', '', 'viber', 'Viber', 'auth__input', {social: 'viber'})
+                +input('text', '', 'whatsapp', 'WhatsApp', 'auth__input', {social: 'whatsapp'})
+                +input('text', '', 'skype', 'Skype', 'auth__input', {social: 'skype'})
+                +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
+          .personal__card
+            p.personal__card-heading Смена пароля
+            .personal__card-content
+              form(action="", data-personal-pass)
+                +input('password', 'Старый пароль <span>*</span>', 'oldPassword', 'Введите старый пароль', 'auth__input', {required: true, error: 'Введите пароль'})
+                +input('password', 'Новый пароль <span>*</span>', 'password', 'Введите новый пароль', 'auth__input', {required: true, pass: true, error: 'Введите новый пароль'})
+                +input('password', 'Новый пароль еще раз <span>*</span>', 'passwordRepeat', 'Введите новый пароль', 'auth__input', {required: true, repeatPass: true, error: 'Введите совпадающий новый пароль'})
+                +button('primary', 'submit', 'Изменить пароль', 'personal__card-submit')
+          .personal__card
+            p.personal__card-heading Получать уведомления по почте
+            .personal__card-content
+              form(action="", data-personal-notification)
+                +checkbox('Системные уведомления', 'systemNotifications', 'personal__card-checkbox', false, true)
+                +checkbox('Я хочу получать новости сайта', 'news', 'personal__card-checkbox')
+                +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
+        if type === 'tutor' && page === 'schedule'
+          .personal__card(data-schedule-main)
+            p.personal__card-heading Мое расписание
+            .personal__timezone
+              .profile-schedule__timezone
+                p.profile-schedule__timezone-label Ваш часовой пояс:
+                .profile-schedule__timezone-dropdown.dropdown.dropdown--caret
+                  p.profile-schedule__timezone-value.dropdown__value UTC + 00:00
+                  .profile-schedule__timezone-menu.dropdown__menu
+                    a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) UTC + 00:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 01:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 02:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 03:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 04:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 05:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 06:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 07:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 08:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 09:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 10:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 11:00
+                    a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 12:00
+            p.personal__card-desc Ваше время работы по дням недели
+            form.personal__schedule(action="")
+              .personal__schedule-item
+                +checkbox('Понедельник', 'monday', 'personal__schedule-checkbox', false, true)
+                .personal__schedule-time
+                  span С
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 08:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+                      -for (let i = 1; i < times.length; i++)
+                        a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  span до
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 17:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      -for (let i = 0; i < times.length; i++)
+                        if i === 9
+                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle)= times[i]
+                        else
+                          a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  a.personal__schedule-time-link(href="javascript:void(0)", data-schedule="1") Детальное расписание
+              .personal__schedule-item
+                +checkbox('Вторник', 'tuesday', 'personal__schedule-checkbox', false, true)
+                .personal__schedule-time
+                  span С
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 08:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+                      -for (let i = 1; i < times.length; i++)
+                        a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  span до
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 17:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      -for (let i = 0; i < times.length; i++)
+                        if i === 9
+                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle)= times[i]
+                        else
+                          a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  a.personal__schedule-time-link(href="javascript:void(0)", data-schedule="1") Детальное расписание
+              .personal__schedule-item
+                +checkbox('Среда', 'wednesday', 'personal__schedule-checkbox', false, true)
+                .personal__schedule-time
+                  span С
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 08:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+                      -for (let i = 1; i < times.length; i++)
+                        a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  span до
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 17:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      -for (let i = 0; i < times.length; i++)
+                        if i === 9
+                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle)= times[i]
+                        else
+                          a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  a.personal__schedule-time-link(href="javascript:void(0)", data-schedule="1") Детальное расписание
+              .personal__schedule-item
+                +checkbox('Четверг', 'thursday', 'personal__schedule-checkbox', false, true)
+                .personal__schedule-time
+                  span С
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 08:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+                      -for (let i = 1; i < times.length; i++)
+                        a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  span до
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 17:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      -for (let i = 0; i < times.length; i++)
+                        if i === 9
+                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle)= times[i]
+                        else
+                          a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  a.personal__schedule-time-link(href="javascript:void(0)", data-schedule="1") Детальное расписание
+              .personal__schedule-item
+                +checkbox('Пятница', 'friday', 'personal__schedule-checkbox', false, true)
+                .personal__schedule-time
+                  span С
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 09:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      -for (let i = 0; i < times.length; i++)
+                        if i === 1
+                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle)= times[i]
+                        else
+                          a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  span до
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 17:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      -for (let i = 0; i < times.length; i++)
+                        if i === 9
+                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle)= times[i]
+                        else
+                          a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  a.personal__schedule-time-link(href="javascript:void(0)", data-schedule="1") Детальное расписание
+              .personal__schedule-item
+                +checkbox('Суббота', 'saturday', 'personal__schedule-checkbox', false, true)
+                .personal__schedule-time
+                  span С
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 08:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+                      -for (let i = 1; i < times.length; i++)
+                        a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  span до
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 16:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      -for (let i = 0; i < times.length; i++)
+                        if i === 8
+                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle)= times[i]
+                        else
+                          a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  a.personal__schedule-time-link(href="javascript:void(0)", data-schedule="1") Детальное расписание
+              .personal__schedule-item
+                +checkbox('Воскресенье', 'sunday', 'personal__schedule-checkbox')
+                .personal__schedule-time
+                  span С
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 08:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
+                      -for (let i = 1; i < times.length; i++)
+                        a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  span до
+                  .profile-schedule__time.dropdown.dropdown--caret
+                    p.profile-schedule__time-value.dropdown__value 17:00
+                    .profile-schedule__time-menu.dropdown__menu
+                      -for (let i = 0; i < times.length; i++)
+                        if i === 9
+                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle)= times[i]
+                        else
+                          a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
+                  a.personal__schedule-time-link(href="javascript:void(0)", data-schedule="1") Детальное расписание
+              +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
+          -for (let i = 0; i < 3; i++)
+            .personal__card(data-schedule-detail=i + 1)
+              p.personal__card-heading
+                a.personal__back(href="javascript:void(0)") Назад
+                |Детальное расписание
+              .profile-schedule__head
+                .profile-schedule__controls
+                  .profile-schedule__controls-buttons
+                    if i === 0
+                      button.profile-schedule__controls-button.profile-schedule__controls-button--prev.profile-schedule__controls-button--disabled
+                    else
+                      button.profile-schedule__controls-button.profile-schedule__controls-button--prev
+                    if i === 2
+                      button.profile-schedule__controls-button.profile-schedule__controls-button--next.profile-schedule__controls-button--disabled
+                    else
+                      button.profile-schedule__controls-button.profile-schedule__controls-button--next
+                  p.profile-schedule__controls-dates= `июль ${16 + i}, 2021`
+                .profile-schedule__timezone
+                  p.profile-schedule__timezone-label Ваш часовой пояс:
+                  .profile-schedule__timezone-dropdown.dropdown.dropdown--caret
+                    p.profile-schedule__timezone-value.dropdown__value UTC + 00:00
+                    .profile-schedule__timezone-menu.dropdown__menu
+                      a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) UTC + 00:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 01:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 02:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 03:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 04:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 05:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 06:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 07:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 08:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 09:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 10:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 11:00
+                      a.dropdown__menu-item(href="javascript:void(0)", data-toggle) UTC + 12:00
+              .personal__schedule-desc
+                p.personal__card-desc= `Расписание на ${16 + i} июля, 2021 (${i === 0 ? 'Пятница' : i === 1 ? 'Суббота' : 'Воскресенье'})`
+              form.personal__schedule-times(action="")
+                .personal__schedule-times-row
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 09:30
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`09:30_${16 + 1}_июль`, value="available")
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`09:30_${16 + 1}_июль`, value="unavailable", checked)
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 10:00
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`10:00_${16 + 1}_июль`, value="available", checked)
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`10:00_${16 + 1}_июль`, value="unavailable")
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 10:30
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`10:30_${16 + 1}_июль`, value="available", checked)
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`10:30_${16 + 1}_июль`, value="unavailable")
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 11:00
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`11:00_${16 + 1}_июль`, value="available", checked)
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`11:00_${16 + 1}_июль`, value="unavailable")
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 11:30
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`11:30_${16 + 1}_июль`, value="available", checked)
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`11:30_${16 + 1}_июль`, value="unavailable")
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 12:00
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`12:00_${16 + 1}_июль`, value="available", checked)
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`12:00_${16 + 1}_июль`, value="unavailable")
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 12:30
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`12:30_${16 + 1}_июль`, value="available", checked)
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`12:30_${16 + 1}_июль`, value="unavailable")
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 13:00
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`13:00_${16 + 1}_июль`, value="available", checked)
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`13:00_${16 + 1}_июль`, value="unavailable")
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 13:30
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`13:30_${16 + 1}_июль`, value="available", checked)
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`13:30_${16 + 1}_июль`, value="unavailable")
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 14:00
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`14:00_${16 + 1}_июль`, value="available")
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`14:00_${16 + 1}_июль`, value="unavailable", checked)
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 14:30
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`14:30_${16 + 1}_июль`, value="available")
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`14:30_${16 + 1}_июль`, value="unavailable", checked)
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 15:00
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`15:00_${16 + 1}_июль`, value="available", checked)
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`15:00_${16 + 1}_июль`, value="unavailable")
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 15:30
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`15:30_${16 + 1}_июль`, value="available", checked)
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`15:30_${16 + 1}_июль`, value="unavailable")
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 16:00
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`16:00_${16 + 1}_июль`, value="available")
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`16:00_${16 + 1}_июль`, value="unavailable", checked)
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                  .personal__schedule-times-item
+                    p.personal__schedule-times-value 16:30
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`16:30_${16 + 1}_июль`, value="available")
+                      p.personal__schedule-times-btn(data-value="available") Доступно
+                    label.personal__schedule-times-label
+                      input(type="radio", name=`16:30_${16 + 1}_июль`, value="unavailable", checked)
+                      p.personal__schedule-times-btn(data-value="unavailable") Недоступно
+                +button('primary', 'submit', 'Сохранить', 'personal__card-submit')

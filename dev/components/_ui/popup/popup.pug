@@ -3,7 +3,7 @@ include ../input/input
 include ../button/button
 include ../checkbox/checkbox
 
-mixin popup(type, id = type)
+mixin popup(type, id = type, mod)
   .popup.js-popup.js-close-popup(data-popup=id)
     .popup__backdrop
     .popup__container
@@ -28,6 +28,10 @@ mixin popup(type, id = type)
               +heading('Удалить переписку', 'popup__heading')
             if type === 'dialog-delete'
               +heading('Удалить cообщение', 'popup__heading')
+            if type === 'unlink-fb' || type === 'unlink-google'
+              +heading('Отвязать аккаунт', 'popup__heading')
+            if type === 'edit-photo'
+              +heading('Редактировать фото', 'popup__heading')
             .popup__close.js-close-popup
           .popup__content
             if type === 'restore'
@@ -91,6 +95,30 @@ mixin popup(type, id = type)
             if type === 'dialog-delete'
               p.popup__desc Вы уверены, что хотите удалить сообщение? Данное действие нельзя будет отменить
               +checkbox('Удалить у Анны Ивановой', 'deleteFromCompanion', 'popup__checkbox', false, true)
+            if type === 'unlink-fb'
+              p.popup__desc <b>Вы уверены, что хотите отвязать аккаунт Facebook <a href="http://facebook.com">Konstantin R</a> ?</b>
+            if type === 'unlink-google'
+              p.popup__desc <b>Вы уверены, что хотите отвязать аккаунт Google <a href="http://goggle.com">Konstantin R</a> ?</b>
+            if type === 'unlink-fb' || type === 'unlink-google'
+              .popup__actions
+                +button('primary', 'button', 'Да, отвязать', 'js-close-popup')
+                +button('secondary', 'button', 'Отмена', 'js-close-popup')
+            if type === 'edit-photo'
+              form.popup__photo(action="", data-photo-form)
+                .popup__photo-info
+                  label.popup__photo-input
+                    +button('secondary', 'plug', 'Выбрать файл', 'popup__photo-file', {link: 'javascript:void(0)'})
+                    input.js-photo-input(type="file", name="photo", accept="image/*", required)
+                  p.popup__photo-desc Минимальный размер – 200×200px, максимальный размер файла 7Mb.
+                  p.popup__photo-subheading Ваше фото
+                  .popup__photo-pic
+                .popup__photo-main
+                  .popup__photo-container
+                    if mod === 'empty'
+                      img.popup__photo-image(src='img/inhtml/no-avatar-big.png', alt="")
+                    else
+                      img.popup__photo-image(src='img/inhtml/student-1.jpg', alt="", data-uploaded)
+                  +button('primary', 'submit', 'Сохранить', 'popup__photo-btn')
           if type === 'dialog-clear' || type === 'dialog-delete'
             .popup__footer
               a.popup__footer-btn.popup__footer-btn--danger.js-close-popup(href="javascript:void(0)", data-delete) Да, удалить

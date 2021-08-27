@@ -1,0 +1,20 @@
+include ../components/cookies/cookies
+include ../components/header/header
+include ../components/auth/auth
+include ../components/footer/footer
+include ../components/_ui/popup/popup
+
+doctype
+html(lang="ru", prefix="og: http://ogp.me/ns#")
+  head
+    title Завершение регистрации | LetMeTutor
+    include assets/_metas
+    include assets/_links
+    include assets/_scripts
+  body
+    .page-wrapper
+      +header(true)
+      +auth('signup-tutor')
+      +footer(true)
+      +cookies
+    +popup('edit-photo', 'edit-photo', 'empty')

@@ -13,8 +13,10 @@ html(lang="ru", prefix="og: http://ogp.me/ns#")
     include assets/_scripts
   body
     .page-wrapper
-      +header
+      +header(true)
       +tutor(true, true)
       +footer(true)
       +cookies
-    +popup('request-auth')
+    +popup('request')
+    +popup('request-specific')
+    +popup('request-success')

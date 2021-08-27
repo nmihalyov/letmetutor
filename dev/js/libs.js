@@ -4,3 +4,4 @@
 @@include('../../node_modules/nouislider/dist/nouislider.js')
 @@include('../../node_modules/smoothscroll-polyfill/dist/smoothscroll.js')
 @@include('../../node_modules/decliner/dist/decliner.js')
+@@include('../../node_modules/cropperjs/dist/cropper.js')

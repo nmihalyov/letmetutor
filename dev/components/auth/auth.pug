@@ -3,10 +3,16 @@ include ../_ui/input/input
 include ../_ui/button/button
 include ../_ui/tabs/tabs
 include ../_ui/checkbox/checkbox
+include ../_ui/radio/radio
 include ../_ui/checkboxselect/checkboxselect
 include ../_ui/textarea/textarea
+include ../_ui/message/message
 
 mixin auth(type)
+  if type === 'signup-student'
+    +message('danger', 'Пока вы не завершите регистрацию, вы не сможете начать обучение')
+  if type === 'signup-tutor'
+    +message('danger', 'Пока вы не завершите регистрацию, вы не будете видны в поиске и в каталоге')
   section.auth.container
     .auth__wrapper.wrapper
       .auth__block
@@ -19,6 +25,8 @@ mixin auth(type)
             +heading('Вы успешно зарегистрировались!', 'auth__heading')
           if type === 'support'
             +heading('Тех. поддержка', 'auth__heading')
+          if type === 'signup-student' || type === 'signup-tutor'
+            +heading('Завершение регистрации', 'auth__heading')
         if type === 'login'
           form.auth__content(data-login-form)
             p.auth__subheading Войти с помощью:
@@ -79,3 +87,86 @@ mixin auth(type)
             .auth__actions
               +button('primary', 'submit', 'Отправить вопрос', 'auth__actions-btn')
               a.auth__actions-link(href="help.html") Помощь по сервису
+        if type === 'signup-student'
+          form.auth__content(data-signup-student-form)
+            p.auth__desc <b>Поздравляем! Ваш email успешно подтвержден!</b><br>Для завершения регистрации вам необходимо заполнить дополнительные данные
+            .personal__data
+              .personal__data-aside
+                .personal__data-image
+                  .personal__data-image-pic
+                  a.personal__data-image-change.js-open-popup(href="javascript:void(0)", data-popup="edit-photo") Загрузить фото
+                .personal__data-socials
+                  p.personal__data-socials-heading Привязать соц. сети
+                  .personal__data-socials-item
+                    a.personal__data-social(data-social="fb", href="#") Facebook
+                  .personal__data-socials-item
+                    a.personal__data-social(data-social="google", href="#") Gmail
+              .personal__data-main
+                +textarea('О себе', 'about', 'Введите краткую информацию о себе', 'auth__input')
+                .personal__specialization-grid
+                  .personal__specialization-item.js-copy-item
+                    .personal__specialization-row
+                      +input('text', 'Интересующий предмет <span>*</span>', 'subject', 'Выберите предмет', 'auth__input', {required: true, error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                      +input('text', 'Желаемая цена за час <span>*</span>', 'price', 'Введите цену', 'auth__input', {required: true, error: 'Введите цену'})
+                a.personal__add.js-personal-add(href="javascript:void(0)") Добавить еще предмет
+                .auth__global
+                  +checkbox('Выводить меня в глобальном поиске', 'globalSearch', 'auth__checkbox', false, false, {hint: 'В случае включения данной опции, ваш профиль будет выводится в общем каталоге учеников для репетитора. Репетитор сам может предложить вам свои услуги.'})
+            .auth__actions
+              +button('primary', 'submit', 'Завершить регистрацию', 'auth__actions-btn auth__actions-btn--full')
+        if type === 'signup-tutor'
+          form.auth__content(data-signup-tutor-form)
+            p.auth__desc <b>Поздравляем! Ваш email успешно подтвержден!</b><br>Для завершения регистрации вам необходимо заполнить дополнительные данные
+            .personal__data
+              .personal__data-aside
+                .personal__data-image
+                  .personal__data-image-pic
+                  a.personal__data-image-change.js-open-popup(href="javascript:void(0)", data-popup="edit-photo") Загрузить фото
+                .personal__data-socials
+                  p.personal__data-socials-heading Привязать соц. сети
+                  .personal__data-socials-item
+                    a.personal__data-social(data-social="fb", href="#") Facebook
+                  .personal__data-socials-item
+                    a.personal__data-social(data-social="google", href="#") Gmail
+              .personal__data-main
+                +textarea('О себе', 'about', 'Введите краткую информацию о себе', 'auth__input')
+                +input('text', 'Видео-приветствие', 'video', 'Вставьте ссылку с youtube', 'auth__input')
+                .personal__specialization-grid
+                  .personal__specialization-item.js-copy-item
+                    .personal__specialization-row
+                      +input('text', 'Специализация <span>*</span>', 'specialization', 'Выберите предмет', 'auth__input', {required: true, error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                      +input('text', 'Цена за час <span>*</span>', 'price', 'Введите цену', 'auth__input', {required: true, error: 'Введите цену'})
+                    .personal__specialization-row
+                      .personal__specialization-exp
+                        p.personal__specialization-exp-label Опыт работы <span>*</span>
+                        .profile-schedule__time.dropdown.dropdown--caret
+                          p.profile-schedule__time-value.dropdown__value 1 год
+                          .profile-schedule__time-menu.dropdown__menu
+                            a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 1 год
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 2 года
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 3 года
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 4 года
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 5 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 6 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 7 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 8 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 9 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 11 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 13 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 15 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 16 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 17 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 18 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 19 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20 лет
+                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Больше 20 лет
+                      +radio('Основная специализация', 'mainSpecialization', '', 'personal__specialization-radio', true, true)
+                a.personal__add.js-personal-add(href="javascript:void(0)") Добавить еще специализацию
+                .personal__specialization-type
+                  p.personal__specialization-label Тип проводимых занятий <span>*</span>
+                  +checkbox('Онлайн', 'online', 'personal__specialization-checkbox', false, true)
+                  +checkbox('Оффлайн', 'offline', 'personal__specialization-checkbox')
+            .auth__actions
+              +button('primary', 'submit', 'Завершить регистрацию', 'auth__actions-btn auth__actions-btn--full')

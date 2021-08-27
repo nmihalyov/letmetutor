@@ -6,6 +6,8 @@ mixin button(style, type, text, className, options)
 
   if type === 'link'
     a.button(class=className, href=options.link)= text
+  else if type === 'plug'
+    p.button(class=className)= text
   else if type === 'button'
     button.button(class=className, data-url=options && options.url)= text
   else if type === 'popup'

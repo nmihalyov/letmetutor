@@ -142,6 +142,18 @@
     &-menu
       left: 0
       width: 100%
+      .fakeScroll
+        &__wrap
+          max-height: 200px
+        &__content
+          max-height: 200px
+        &__track
+          z-index: 2
+          right: 10px
+          width: 4px
+          padding: 10px 0
+        &__bar
+          background-color: transparentize(#000, .8)
   &__pick
     display: none
     margin-top: 30px

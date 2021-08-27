@@ -1,5 +1,5 @@
 mixin input(type, label, name, placeholder, className, options)
-  label.input(class=`${className || ''}${(options && (options.dropdown || options.citiesSearch)) ? ' dropdown' : ''}`, data-cities=options.citiesSearch)
+  label.input(class=`${className || ''}${(options && (options.dropdown || options.citiesSearch)) ? ' dropdown' : ''}`, data-cities=options && options.citiesSearch, data-social=options && options.social)
     if label.length
       p.input__label!= label
     .input__wrapper

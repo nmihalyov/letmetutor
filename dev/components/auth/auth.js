@@ -34,6 +34,24 @@ const $authForms = [{
       $element.submit();
     }, 1000);
   }
+},
+{
+  $element: document.querySelector('form[data-signup-student-form]'),
+  callback: $element => {
+    setTimeout(() => {
+      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+      $element.submit();
+    }, 1000);
+  }
+},
+{
+  $element: document.querySelector('form[data-signup-tutor-form]'),
+  callback: $element => {
+    setTimeout(() => {
+      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+      $element.submit();
+    }, 1000);
+  }
 }];
 
 // apply validation on auth forms
@@ -46,9 +64,12 @@ $authForms.map(form => {
 });
 
 // set country value to cities input
-Array.from(document.querySelectorAll('.js-auth-country')).map(el => el.addEventListener('changeCountry', e => {
-  el.closest('form').querySelector('.js-auth-city').dataset.country = e.target.querySelector('input').value;
-}));
+Array.from(document.querySelectorAll('.js-auth-country')).map(el => {
+  el.addEventListener('changeCountry', e => {
+    el.closest('form').querySelector('.js-auth-city').dataset.country = e.target.querySelector('input').value;
+  });
+  el.dispatchEvent(changeCountryEvent);
+});
 
 // handling cities input
 if (document.querySelectorAll('.js-auth-city input').length) {

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: http://ogp.me/ns#">
+  <head>
+    <title>Личный кабинет | LetMeTutor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Платформа для репетиторов и учеников">
+    <meta name="keywords" content="letmetutor, let, me, tutor, репетитор, репетиторство">
+    <meta name="theme-color" content="#3964F9">
+    <meta name="copyright" content="nmihalyov.tk">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#3964F9">
+    <meta name="apple-mobile-web-app-title" content="LetMeTutor">
+    <meta name="msapplication-TileImage" content="img/favicons/144x144.png">
+    <meta name="msapplication-TileColor" content="#3964F9">
+    <meta name="format-detection" content="telephone=no">
+        <meta property="og:title" content="LetMeTutor">
+        <meta property="og:url" content="https://letmetutor.com/">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="">
+        <meta property="og:description" content="Платформа для репетиторов и учеников">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="shortcut icon" href="img/favicons/64x64.png" type="image/png">
+    <link rel="icon" href="img/favicons/152x152.png" type="image/png" sizes="152x152">
+    <link rel="icon" href="img/favicons/256x256.png" type="image/png" sizes="256x256">
+    <link rel="icon" href="img/favicons/512x512.png" type="image/png" sizes="512x512">
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-256.png" sizes="256x256">
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-512.png" sizes="512x512">
+    <link rel="manifest" href="manifest.json">
+    <script defer src="js/libs.min.js"></script>
+    <script defer src="js/common.min.js"></script>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="banner" style="background-image: url('img/inhtml/header-banner-bg.png'), linear-gradient(180deg, #FECD08 0%, #F2C94C 100%)"><img class="banner__img" src="img/inhtml/banner-img.svg" alt="" style="width: 94px; margin-top: 7px"/>
+        <p class="banner__title">Мы запустили YouDo Бизнес — сервис для работы компаний с самозанятыми.</p>
+        <div class="banner__close"></div>
+      </div>
+      <header class="header container">
+        <div class="header__wrapper wrapper"><a href="main.html"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/></a>
+          <nav class="header__nav"><a class="header__nav-link" href="catalog.html">Репетиторы</a><a class="header__nav-link" href="main.html">Как это работает</a><a class="header__nav-link" href="signup.html">Стать репетитором</a>
+            <div class="header__nav-link dropdown dropdown--arrow">Больше
+              <div class="header__nav-dropdown dropdown__menu"><a class="dropdown__menu-item" href="faq.html">Вопрос - ответ</a><a class="dropdown__menu-item" href="help.html">Помощь</a><a class="dropdown__menu-item" href="support.html">Тех. поддержка</a><a class="dropdown__menu-item" href="#">Правила сервиса</a></div>
+            </div>
+          </nav>
+          <div class="header__actions">
+            <div class="header__nav-link dropdown dropdown--arrow"> 
+              <p class="dropdown__value">RU</p>
+              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">RU</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UA</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">EN</a></div>
+            </div>
+            <div class="header__nav-link dropdown dropdown--arrow"> 
+              <p class="dropdown__value">RUB</p>
+              <div class="dropdown__menu dropdown__menu--small"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">RUB</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">USD</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">UAH</a></div>
+            </div>
+            <div class="header__profile">
+              <div class="header__profile-notifications dropdown">
+                <p class="header__profile-counter">3</p>
+                <div class="header__notifications dropdown__menu">
+                  <p class="header__notifications-title dropdown__menu-item">Уведомления</p>
+                  <div class="header__notifications-wrapper">
+                    <div class="header__notifications-item">
+                      <p class="header__notifications-date">03.07.2021</p>
+                      <p class="header__notifications-text">Ваши данные подтверждены</p>
+                    </div>
+                    <div class="header__notifications-item">
+                      <p class="header__notifications-date">03.07.2021</p>
+                      <p class="header__notifications-text"><b>Осталось только установить пароль</b><br>Чтобы не потерять доступ к вашему аккаунту, рекомендуем вам установить пароль. Сделать это можно в профиле, раздел "Настройки".</p>
+                    </div>
+                    <div class="header__notifications-item">
+                      <p class="header__notifications-date">03.07.2021</p>
+                      <p class="header__notifications-text">Вы успешно зарегистрировались в сервисе!</p>
+                    </div>
+                  </div>
+                </div>
+              </div><a class="header__profile-messages" href="#"></a><a class="header__profile-wallet" href="#">1 000 &#8381;</a><a class="header__profile-pic" style="background-image: url('img/inhtml/profile.png')" href="#"></a>
+            </div>
+            <div class="header__burger header__burger--has-notifications"></div>
+          </div>
+        </div>
+      </header>
+      <div class="header-menu">
+        <div class="header-menu__backdrop"></div>
+        <div class="header-menu__container">
+          <div class="header-menu__head"><a href="main.html"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/></a>
+            <div class="header-menu__close"></div>
+          </div>
+          <div class="header-menu__content"><a class="header-menu__profile" href="#">
+              <div class="header-menu__profile-pic" style="background-image: url('img/inhtml/profile.png')"></div><span class="header-menu__profile-name">Анастасия</span></a>
+            <div class="header-menu__actions">
+              <div class="header-menu__notifications dropdown">Уведомления
+                <p class="header-menu__notifications-counter">3</p>
+                <div class="header__notifications dropdown__menu">
+                  <p class="header__notifications-title">Уведомления</p>
+                  <div class="header__notifications-wrapper">
+                    <div class="header__notifications-item">
+                      <p class="header__notifications-date">03.07.2021</p>
+                      <p class="header__notifications-text">Ваши данные подтверждены</p>
+                    </div>
+                    <div class="header__notifications-item">
+                      <p class="header__notifications-date">03.07.2021</p>
+                      <p class="header__notifications-text"><b>Осталось только установить пароль</b><br>Чтобы не потерять доступ к вашему аккаунту, рекомендуем вам установить пароль. Сделать это можно в профиле, раздел "Настройки".</p>
+                    </div>
+                    <div class="header__notifications-item">
+                      <p class="header__notifications-date">03.07.2021</p>
+                      <p class="header__notifications-text">Вы успешно зарегистрировались в сервисе!                    </p>
+                    </div>
+                  </div>
+                </div>
+              </div><a class="header-menu__messages" href="#">Сообщения</a><a class="header-menu__wallet" href="#">Ваш баланс: <span>1 000 &#8381;</span></a>
+            </div>
+            <nav class="header-menu__nav"><a class="header-menu__nav-link" href="catalog.html">Репетиторы</a><a class="header-menu__nav-link" href="main.html">Как это работает</a><a class="header-menu__nav-link" href="#">Стать репетитором</a><a class="header-menu__nav-link" href="faq.html">Вопрос - ответ</a><a class="header-menu__nav-link" href="help.html">Помощь</a><a class="header-menu__nav-link" href="support.html">Тех. поддержка</a><a class="header-menu__nav-link" href="#">Правила сервиса</a></nav>
+            <div class="header-menu__footer">
+              <p class="header-menu__support">Служба поддержки</p>
+              <div class="header-menu__contacts"><a class="header-menu__phone" href="tel:+380675772532">+380 67 577 25 32</a><span class="header-menu__workhours">Будни: с 6 до 22, выходные: с 8 до 22</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="personal container">
+        <div class="personal__wrapper wrapper">
+          <aside class="personal__aside">
+            <nav class="personal__nav">
+              <p class="personal__nav-heading">Личный кабинет</p><a class="personal__nav-item personal__nav-item--current" href="lk-tutor-edit.html">Мой профиль</a><a class="personal__nav-item" href="#">Мой баланс</a><a class="personal__nav-item" href="#">Мои заявки</a><a class="personal__nav-item" href="lk-tutor-schedule.html">Мое расписание</a><a class="personal__nav-item" href="chat-tutor.html">Мои диалоги<span class="personal__nav-counter">10</span></a><a class="personal__nav-item personal__nav-item--green" href="#">Платные услуги</a><a class="personal__nav-item personal__nav-item--bold" href="#">Верификация аккаунта<span class="personal__nav-verified">подтвержден</span></a>
+            </nav>
+          </aside>
+          <main class="personal__main">
+            <div class="personal__card">
+              <p class="personal__card-heading">Личные данные</p>
+              <div class="personal__card-content">
+                <form class="personal__data" action="" data-personal-data="data-personal-data"> 
+                  <div class="personal__data-aside">
+                    <div class="personal__data-image">
+                      <div class="personal__data-image-pic" style="background-image: url('img/inhtml/student-1.jpg')"></div><a class="personal__data-image-change js-open-popup" href="javascript:void(0)" data-popup="edit-photo">Изменить фото</a>
+                    </div>
+                    <div class="personal__data-socials">
+                      <p class="personal__data-socials-heading">Привязать соц. сети</p>
+                      <div class="personal__data-socials-item"><a class="personal__data-social personal__data-social--disabled" data-social="fb" href="#">Facebook</a>
+                        <div class="personal__data-socials-acc">
+                          <p class="personal__data-socials-name">Konstantin R.</p><a class="personal__data-socials-unlink js-open-popup" href="javascript:void(0)" data-popup="unlink-fb">Отвязать</a>
+                        </div>
+                      </div>
+                      <div class="personal__data-socials-item"><a class="personal__data-social personal__data-social--disabled" data-social="google" href="#">Gmail</a>
+                        <div class="personal__data-socials-acc">
+                          <p class="personal__data-socials-name">Konstantin R.</p><a class="personal__data-socials-unlink js-open-popup" href="javascript:void(0)" data-popup="unlink-google">Отвязать</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="personal__data-main">
+                    <label class="input auth__input">
+                      <p class="input__label">Ваше имя <span>*</span></p>
+                      <div class="input__wrapper">
+                        <input class="input__field" type="text" name="name" required="required" placeholder="Введите ваше имя" value="Анна"/>
+                      </div>
+                      <p class="input__error">Введите корректные данные</p>
+                    </label>
+                    <label class="input auth__input">
+                      <p class="input__label">Ваша фамилия <span>*</span></p>
+                      <div class="input__wrapper">
+                        <input class="input__field" type="text" name="surname" required="required" placeholder="Введите вашу фамилию" value="Иванова"/>
+                      </div>
+                      <p class="input__error">Введите корректные данные</p>
+                    </label>
+                    <label class="input auth__input">
+                      <p class="input__label">Ваш email <span>*</span></p>
+                      <div class="input__wrapper">
+                        <input class="input__field" type="email" name="email" required="required" placeholder="Введите ваш email" value="mail@demolink.org"/>
+                      </div>
+                      <p class="input__error">Введите корректный email</p>
+                    </label>
+                    <label class="input auth__input">
+                      <p class="input__label">Номер телефона <span>*</span></p>
+                      <div class="input__wrapper">
+                        <div class="input__code dropdown" data-code-loc="ru" data-mask="+7 (999) 999-99-99">
+                          <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-code-loc="ru" data-mask="+7 (999) 999-99-99">Россия +7</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-code-loc="ua" data-mask="+380 (99) 999-99-99">Украина +380</a></div>
+                        </div>
+                        <input class="input__field" type="tel" name="phone" required="required" placeholder="+7 (___) ___-__-__" value="+7 495 000-00-00"/>
+                      </div>
+                      <p class="input__error">Введите корректный номер телефона</p>
+                    </label>
+                    <label class="input auth__input js-auth-country dropdown">
+                      <p class="input__label">Ваша страна <span>*</span></p>
+                      <div class="input__wrapper">
+                        <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Россия</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Украина</a></div>
+                        <input class="input__field" type="text" name="country" required="required" placeholder="Выберите страну" value="Россия" readonly="readonly"/>
+                      </div>
+                      <p class="input__error">Выберите страну из списка</p>
+                    </label>
+                    <label class="input auth__input js-auth-city dropdown" data-cities="data-cities">
+                      <p class="input__label">Ваш город <span>*</span></p>
+                      <div class="input__wrapper">
+                        <div class="input__dropdown dropdown__menu"></div>
+                        <input class="input__field" type="text" name="city" required="required" placeholder="Введите ваш город" value="Москва"/>
+                      </div>
+                      <p class="input__error">Выберите город</p>
+                    </label>
+                    <button class="button button--primary personal__card-submit" type="submit">Сохранить</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="personal__card">
+              <p class="personal__card-heading">Информация для учеников</p>
+              <div class="personal__card-content">
+                <form action="" data-personal-info="data-personal-info">
+                  <label class="textarea auth__input">
+                    <p class="textarea__label">О себе <span>*</span></p>
+                    <div class="textarea__wrapper">
+                      <textarea class="textarea__field" name="about" required="required" placeholder="Введите краткую информацию о себе">Привет!
+
+Меня зовут Оджасви. Моя цель как репетитора английского - помочь вам достичь своей!
+Почему я? Мои сильные стороны как наставника - терпение, страсть к обучению, получать удовольствие от занятий и сохранять интерактивность или коммуникативность!</textarea>
+                    </div>
+                    <p class="textarea__error">Ввведите информацию о себе</p>
+                  </label>
+                  <label class="input auth__input">
+                    <p class="input__label">Видео-приветствие</p>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="text" name="video" placeholder="Вставьте ссылку с youtube"/>
+                    </div>
+                  </label>
+                  <button class="button button--primary personal__card-submit" type="submit">Сохранить</button>
+                </form>
+              </div>
+            </div>
+            <div class="personal__card">
+              <p class="personal__card-heading">Специализация</p>
+              <div class="personal__card-content">
+                <form class="personal__specialization" action="" data-personal-experience="data-personal-experience">
+                  <div class="personal__specialization-grid">
+                    <div class="personal__specialization-item">
+                      <div class="personal__specialization-row">
+                        <label class="input auth__input dropdown">
+                          <p class="input__label">Специализация <span>*</span></p>
+                          <div class="input__wrapper">
+                            <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a></div>
+                            <input class="input__field" type="text" name="specialization" required="required" placeholder="Выберите предмет" readonly="readonly"/>
+                          </div>
+                          <p class="input__error">Выберите предмет</p>
+                        </label>
+                        <label class="input auth__input">
+                          <p class="input__label">Цена за час <span>*</span></p>
+                          <div class="input__wrapper">
+                            <input class="input__field" type="text" name="price" required="required" placeholder="Введите цену"/>
+                          </div>
+                          <p class="input__error">Введите цену</p>
+                        </label>
+                        <div class="personal__specialization-exp">
+                          <p class="personal__specialization-exp-label">Опыт работы <span>*</span></p>
+                          <div class="profile-schedule__time dropdown dropdown--caret">
+                            <p class="profile-schedule__time-value dropdown__value">1 год</p>
+                            <div class="profile-schedule__time-menu dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">1 год</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">3 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">4 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">5 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">6 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">7 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">8 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">9 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">10 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">11 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">12 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">13 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">14 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">15 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">16 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">17 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">18 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">19 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">20 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Больше 20 лет</a></div>
+                          </div>
+                        </div>
+                      </div>
+                      <label class="radio personal__specialization-radio">
+                        <input class="radio__input" type="radio" name="mainSpecialization" value="" required="required" checked="checked"/>
+                        <div class="radio__box"></div>
+                        <p class="radio__text">Основная специализация</p>
+                      </label>
+                    </div>
+                    <div class="personal__specialization-item js-copy-item">
+                      <div class="personal__specialization-row">
+                        <label class="input auth__input dropdown">
+                          <p class="input__label">Специализация</p>
+                          <div class="input__wrapper">
+                            <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a></div>
+                            <input class="input__field" type="text" name="specialization" placeholder="Выберите предмет" readonly="readonly"/>
+                          </div>
+                        </label>
+                        <label class="input auth__input">
+                          <p class="input__label">Цена за час</p>
+                          <div class="input__wrapper">
+                            <input class="input__field" type="text" name="price" placeholder="Введите цену"/>
+                          </div>
+                        </label>
+                        <div class="personal__specialization-exp">
+                          <p class="personal__specialization-exp-label">Опыт работы</p>
+                          <div class="profile-schedule__time dropdown dropdown--caret">
+                            <p class="profile-schedule__time-value dropdown__value">1 год</p>
+                            <div class="profile-schedule__time-menu dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">1 год</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">3 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">4 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">5 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">6 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">7 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">8 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">9 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">10 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">11 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">12 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">13 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">14 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">15 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">16 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">17 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">18 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">19 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">20 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Больше 20 лет</a></div>
+                          </div>
+                        </div>
+                      </div>
+                      <label class="radio personal__specialization-radio">
+                        <input class="radio__input" type="radio" name="mainSpecialization" value="" required="required"/>
+                        <div class="radio__box"></div>
+                        <p class="radio__text">Основная специализация</p>
+                      </label>
+                    </div>
+                  </div><a class="personal__add js-personal-add" href="javascript:void(0)">Добавить еще специализацию</a>
+                  <div class="personal__specialization-type">
+                    <p class="personal__specialization-label">Тип проводимых занятий <span>*</span></p>
+                    <label class="checkbox personal__specialization-checkbox">
+                      <input class="checkbox__input" type="checkbox" name="online" checked="checked"/>
+                      <div class="checkbox__box">
+                        <div class="checkbox__box-mark"></div>
+                      </div>
+                      <p class="checkbox__text">Онлайн <span>(вам желательно заполнить <a href="lk-tutor-schedule.html">свое расписание</a>)</span>
+                      </p>
+                    </label>
+                    <label class="checkbox personal__specialization-checkbox">
+                      <input class="checkbox__input" type="checkbox" name="offline"/>
+                      <div class="checkbox__box">
+                        <div class="checkbox__box-mark"></div>
+                      </div>
+                      <p class="checkbox__text">Оффлайн <span>(вам желательно заполнить <a href="lk-tutor-schedule.html">свое расписание</a>)</span>
+                      </p>
+                    </label>
+                  </div>
+                  <button class="button button--primary personal__card-submit" type="submit">Сохранить</button>
+                </form>
+              </div>
+            </div>
+            <div class="personal__card">
+              <p class="personal__card-heading">Опыт работы</p>
+              <div class="personal__card-content">
+                <p class="personal__card-desc">Вы можете указать ваше место работы, должность и период (необязательно для заполнения).</p>
+                <form class="personal__experience" action="" data-personal-experience="data-personal-experience">
+                  <div class="personal__experience-grid">
+                    <div class="personal__experience-item js-copy-item">
+                      <div class="personal__experience-row">
+                        <label class="input auth__input">
+                          <p class="input__label">Место работы</p>
+                          <div class="input__wrapper">
+                            <input class="input__field" type="text" name="workplace" placeholder="Название компании"/>
+                          </div>
+                        </label>
+                        <label class="input auth__input">
+                          <p class="input__label">Кем вы работали</p>
+                          <div class="input__wrapper">
+                            <input class="input__field" type="text" name="position" placeholder="Ваша должность"/>
+                          </div>
+                        </label>
+                      </div>
+                      <div class="personal__experience-years"><span>С</span>
+                        <div class="profile-schedule__time dropdown dropdown--caret">
+                          <p class="profile-schedule__time-value dropdown__value">2000</p>
+                          <div class="profile-schedule__time-menu dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">2000</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2001</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2002</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2003</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2004</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2005</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2006</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2007</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2008</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2009</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2010</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2011</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2012</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2013</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2014</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2015</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2016</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2017</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2018</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2019</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2020</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2021</a>
+                          </div>
+                        </div><span>по</span>
+                        <div class="profile-schedule__time dropdown dropdown--caret">
+                          <p class="profile-schedule__time-value dropdown__value">2000</p>
+                          <div class="profile-schedule__time-menu dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">2000</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2001</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2002</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2003</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2004</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2005</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2006</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2007</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2008</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2009</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2010</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2011</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2012</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2013</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2014</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2015</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2016</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2017</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2018</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2019</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2020</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2021</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div><a class="personal__add js-personal-add" href="javascript:void(0)">Добавить еще место работы</a>
+                  <button class="button button--primary personal__card-submit" type="submit">Сохранить</button>
+                </form>
+              </div>
+            </div>
+            <div class="personal__card">
+              <p class="personal__card-heading">Дополнительные контакты</p>
+              <div class="personal__card-content">
+                <p class="personal__card-desc">Данная информация будет видна у вас в профиле после оплаты учеником 1 занятия.</p>
+                <form action="" data-personal-contacts="data-personal-contacts">
+                  <label class="input auth__input" data-social="telegram">
+                    <div class="input__wrapper">
+                      <input class="input__field" type="text" name="telegram" placeholder="Telegram"/>
+                    </div>
+                  </label>
+                  <label class="input auth__input" data-social="viber">
+                    <div class="input__wrapper">
+                      <input class="input__field" type="text" name="viber" placeholder="Viber"/>
+                    </div>
+                  </label>
+                  <label class="input auth__input" data-social="whatsapp">
+                    <div class="input__wrapper">
+                      <input class="input__field" type="text" name="whatsapp" placeholder="WhatsApp"/>
+                    </div>
+                  </label>
+                  <label class="input auth__input" data-social="skype">
+                    <div class="input__wrapper">
+                      <input class="input__field" type="text" name="skype" placeholder="Skype"/>
+                    </div>
+                  </label>
+                  <button class="button button--primary personal__card-submit" type="submit">Сохранить</button>
+                </form>
+              </div>
+            </div>
+            <div class="personal__card">
+              <p class="personal__card-heading">Смена пароля</p>
+              <div class="personal__card-content">
+                <form action="" data-personal-pass="data-personal-pass">
+                  <label class="input auth__input">
+                    <p class="input__label">Старый пароль <span>*</span></p>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="password" name="oldPassword" required="required" placeholder="Введите старый пароль"/>
+                    </div>
+                    <p class="input__error">Введите пароль</p>
+                  </label>
+                  <label class="input auth__input">
+                    <p class="input__label">Новый пароль <span>*</span></p>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="password" name="password" required="required" placeholder="Введите новый пароль" data-pass="data-pass"/>
+                    </div>
+                    <p class="input__error">Введите новый пароль</p>
+                  </label>
+                  <label class="input auth__input">
+                    <p class="input__label">Новый пароль еще раз <span>*</span></p>
+                    <div class="input__wrapper">
+                      <input class="input__field" type="password" name="passwordRepeat" required="required" placeholder="Введите новый пароль" data-pass-repeat="data-pass-repeat"/>
+                    </div>
+                    <p class="input__error">Введите совпадающий новый пароль</p>
+                  </label>
+                  <button class="button button--primary personal__card-submit" type="submit">Изменить пароль</button>
+                </form>
+              </div>
+            </div>
+            <div class="personal__card">
+              <p class="personal__card-heading">Получать уведомления по почте</p>
+              <div class="personal__card-content">
+                <form action="" data-personal-notification="data-personal-notification">
+                  <label class="checkbox personal__card-checkbox">
+                    <input class="checkbox__input" type="checkbox" name="systemNotifications" checked="checked"/>
+                    <div class="checkbox__box">
+                      <div class="checkbox__box-mark"></div>
+                    </div>
+                    <p class="checkbox__text">Системные уведомления
+                    </p>
+                  </label>
+                  <label class="checkbox personal__card-checkbox">
+                    <input class="checkbox__input" type="checkbox" name="news"/>
+                    <div class="checkbox__box">
+                      <div class="checkbox__box-mark"></div>
+                    </div>
+                    <p class="checkbox__text">Я хочу получать новости сайта
+                    </p>
+                  </label>
+                  <button class="button button--primary personal__card-submit" type="submit">Сохранить</button>
+                </form>
+              </div>
+            </div>
+          </main>
+        </div>
+      </section>
+      <footer class="footer container footer--borderless">
+        <div class="footer__wrapper wrapper">
+          <div class="footer__top">
+            <div class="footer__col"><img class="footer__logo" src="img/logo-gray.svg" alt="LetMeTutor logo gray"/>
+              <p class="footer__copyright">&copy; 2021 letmetutor.com <br>Все права защищены</p>
+            </div>
+            <div class="footer__col">
+              <p class="footer__title">Главное</p><a class="footer__link" href="catalog.html">Репетиторы</a><a class="footer__link" href="main.html">Как это работает</a><a class="footer__link" href="signup.html">Стать репетитором</a>
+            </div>
+            <div class="footer__col">
+              <p class="footer__title">Полезная информация</p><a class="footer__link" href="faq.html">Вопрос - ответ</a><a class="footer__link" href="help.html">Помощь</a><a class="footer__link" href="support.html">Тех. поддержка</a><a class="footer__link" href="#">Правила сервиса</a>
+            </div>
+            <div class="footer__col">
+              <p class="footer__title">Служба поддержки</p>
+              <p class="footer__desc"><a href="tel:+380675772532">+380 67 577 25 32</a><br><br>Будни: с 6 до 22<br>Выходные: с 8 до 22</p>
+            </div>
+          </div>
+          <div class="footer__bottom"><a class="footer__policy" href="policy.html">Политика конфиденциальности</a>
+            <div class="footer__socials"><a class="footer__socials-item" href="https://facebook.com" target="_blank" rel="noopener noreferref" data-social="fb"></a><a class="footer__socials-item" href="https://instagram.com" target="_blank" rel="noopener noreferref" data-social="inst"></a><a class="footer__socials-item" href="https://vk.com" target="_blank" rel="noopener noreferref" data-social="vk"></a></div>
+          </div>
+        </div>
+      </footer>
+      <div class="cookies">
+        <p class="cookies__text">Мы используем cookies, для вашего удобства на сайте. Просматривая наш веб-сайт, вы соглашаетесь на использование нами файлов cookies.</p>
+        <button class="button button--primary cookies__btn">Хорошо!</button>
+      </div>
+    </div>
+    <div class="popup js-popup js-close-popup" data-popup="unlink-fb">
+      <div class="popup__backdrop"></div>
+      <div class="popup__container">
+        <div class="popup__wrapper">
+          <div class="popup__window">
+            <div class="popup__head">
+              <h3 class="heading popup__heading">Отвязать аккаунт</h3>
+              <div class="popup__close js-close-popup"></div>
+            </div>
+            <div class="popup__content">
+              <p class="popup__desc"><b>Вы уверены, что хотите отвязать аккаунт Facebook <a href="http://facebook.com">Konstantin R</a> ?</b></p>
+              <div class="popup__actions">
+                <button class="button button--primary js-close-popup">Да, отвязать</button>
+                <button class="button button--secondary js-close-popup">Отмена</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup js-popup js-close-popup" data-popup="unlink-google">
+      <div class="popup__backdrop"></div>
+      <div class="popup__container">
+        <div class="popup__wrapper">
+          <div class="popup__window">
+            <div class="popup__head">
+              <h3 class="heading popup__heading">Отвязать аккаунт</h3>
+              <div class="popup__close js-close-popup"></div>
+            </div>
+            <div class="popup__content">
+              <p class="popup__desc"><b>Вы уверены, что хотите отвязать аккаунт Google <a href="http://goggle.com">Konstantin R</a> ?</b></p>
+              <div class="popup__actions">
+                <button class="button button--primary js-close-popup">Да, отвязать</button>
+                <button class="button button--secondary js-close-popup">Отмена</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup js-popup js-close-popup" data-popup="edit-photo">
+      <div class="popup__backdrop"></div>
+      <div class="popup__container">
+        <div class="popup__wrapper">
+          <div class="popup__window">
+            <div class="popup__head">
+              <h3 class="heading popup__heading">Редактировать фото</h3>
+              <div class="popup__close js-close-popup"></div>
+            </div>
+            <div class="popup__content">
+              <form class="popup__photo" action="" data-photo-form="data-photo-form">
+                <div class="popup__photo-info">
+                  <label class="popup__photo-input">
+                    <p class="button button--secondary popup__photo-file">Выбрать файл</p>
+                    <input class="js-photo-input" type="file" name="photo" accept="image/*" required="required"/>
+                  </label>
+                  <p class="popup__photo-desc">Минимальный размер – 200×200px, максимальный размер файла 7Mb.</p>
+                  <p class="popup__photo-subheading">Ваше фото</p>
+                  <div class="popup__photo-pic"></div>
+                </div>
+                <div class="popup__photo-main">
+                  <div class="popup__photo-container"><img class="popup__photo-image" src="img/inhtml/student-1.jpg" alt="" data-uploaded="data-uploaded"/>
+                  </div>
+                  <button class="button button--primary popup__photo-btn" type="submit">Сохранить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
