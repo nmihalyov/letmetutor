@@ -11,6 +11,7 @@ window.onload = () => {
   @@include('../components/_ui/filters/filters.js')
   @@include('../components/_ui/tutorcard/tutorcard.js')
   @@include('../components/_ui/accordion/accordion.js')
+  @@include('../components/_ui/application/application.js')
   
   @@include('../components/banner/banner.js')
   @@include('../components/cookies/cookies.js')

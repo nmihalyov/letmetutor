@@ -1,0 +1,18 @@
+include ../components/cookies/cookies
+include ../components/header/header
+include ../components/catalog/catalog
+include ../components/footer/footer
+
+doctype
+html(lang="ru", prefix="og: http://ogp.me/ns#")
+  head
+    title Каталог учеников | LetMeTutor
+    include assets/_metas
+    include assets/_links
+    include assets/_scripts
+  body
+    .page-wrapper
+      +header(true)
+      +catalog('student', true)
+      +footer
+      +cookies

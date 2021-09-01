@@ -35,6 +35,37 @@
           color: transparentize($green, 0.2)
       &--bold
         font-weight: 500
+      &--back
+        position: relative
+        margin-top: -1px
+        padding-left: 25px
+        border-top: 1px solid $gray-4
+        color: $gray
+        font:
+          size: 15px
+          weight: 500
+        &:hover
+          color: $gray
+        &:before
+          content: ''
+          position: absolute
+          top: calc(50% - 8px)
+          left: 0
+          width: 16px
+          height: 16px
+          transform: rotate(180deg)
+          background:
+            image: url('../img/icons/arrow-gray.svg')
+            position: center
+            size: contain
+            repeat: no-repeat
+      span
+        margin-left: 5px
+        margin-top: 1px
+        color: $gray
+        font:
+          size: 13px
+          weight: 500
     &-counter
       margin-left: 5px
       padding: 0 5px
@@ -71,6 +102,9 @@
       margin-bottom: 30px
       padding: 20px 0
       border-bottom: 1px solid $gray-4
+      .catalog__sort-item
+        margin-left: auto
+    &-title
       font:
         size: 18px
         weight: 700
@@ -270,9 +304,24 @@
       justify-content: space-between
       .input
         width: 355px
+      .filters__input
+        padding-left: 0
+        &:before
+          display: none
+        &-field
+          width: 100%
+          padding: 15px 20px 16px
+          border: 1px solid #f0f0f0
+          font-size: 14px
+        &.dropdown--active .filters__dropdown
+          bottom: -10px
+        .filters__dropdown
+          left: 0
     &-years
       display: flex
       align-items: center
+      width: 355px
+      margin-bottom: 15px
       .dropdown
         width: 100px
         margin: 0 10px
@@ -330,7 +379,7 @@
       .dropdown
         width: 100px
         height: 51px
-        padding-top: 14px
+        padding-top: 17px
         &:after
           top: 22px
       &-link
@@ -419,6 +468,27 @@
         position: center
         size: contain
         repeat: no-repeat
+  &__applications
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-top: 30px
+    padding: 30px 0
+    border-top: 1px solid $gray-4
+    &:nth-child(2)
+      margin-top: 0
+      margin-bottom: 30px
+      padding-top: 0
+      border-top: none
+      border-bottom: 1px solid $gray-4
+    &-remove
+      color: $red
+      border-bottom: 1px dotted $red
+      font-size: 15px
+      &:hover
+        color: transparentize($red, 0.2)
+  &__more
+    width: 100%
 
 @media only screen and (max-width: $tablet)
   .personal
@@ -453,6 +523,9 @@
         font-size: 16px
       &-item
         padding: 10px 0
+        &--back
+          padding-left: 25px
+          font-size: 14px
     &__card
       padding: 10px 15px 20px
       &:not(:last-child)
@@ -463,6 +536,9 @@
         margin-bottom: 20px
         padding: 15px 0
         font-size: 16px
+        .catalog__sort-item
+          margin-top: 10px
+          margin-left: 0
       &-desc
         margin-bottom: 20px
         font-size: 14px
@@ -549,3 +625,11 @@
         left: 7px
         width: 14px
         height: 14px
+    &__applications
+      margin-top: 20px
+      padding: 20px 0
+      &:nth-child(2)
+        margin-bottom: 20px
+      &-remove
+        margin-top: 5px
+        font-size: 12px

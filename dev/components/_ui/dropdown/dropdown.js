@@ -38,10 +38,16 @@ document.addEventListener('click', e => {
       const $this = e.target;
       const newValue = $this.innerText;
       const $hiddenItem = $this.closest('.dropdown__menu').querySelector('.dropdown__menu-item--hidden');
-      const $dropdownValue = $this.closest('.dropdown').querySelector('.dropdown__value');
+      const $dropdown = $this.closest('.dropdown');
+      const $dropdownValue = $dropdown.querySelector('.dropdown__value');
+      const $dropdownInput = $dropdown.querySelector('input');
 
       if ($hiddenItem) {
         $hiddenItem.classList.remove('dropdown__menu-item--hidden');
+      }
+
+      if ($dropdownInput) {
+        $dropdownInput.value = newValue;
       }
 
       $dropdownMenuItem.classList.add('dropdown__menu-item--hidden'); 

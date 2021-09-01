@@ -32,6 +32,10 @@ mixin popup(type, id = type, mod)
               +heading('Отвязать аккаунт', 'popup__heading')
             if type === 'edit-photo'
               +heading('Редактировать фото', 'popup__heading')
+            if type === 'application-accept'
+              +heading('Заявка успешно подтверждена!', 'popup__heading')
+            if type === 'application-decline'
+              +heading('Отклонить заявку Анны Ивановой?!', 'popup__heading')
             .popup__close.js-close-popup
           .popup__content
             if type === 'restore'
@@ -109,6 +113,7 @@ mixin popup(type, id = type, mod)
                   label.popup__photo-input
                     +button('secondary', 'plug', 'Выбрать файл', 'popup__photo-file', {link: 'javascript:void(0)'})
                     input.js-photo-input(type="file", name="photo", accept="image/*", required)
+                    input(type="hidden", name="imageCropInfo")
                   p.popup__photo-desc Минимальный размер – 200×200px, максимальный размер файла 7Mb.
                   p.popup__photo-subheading Ваше фото
                   .popup__photo-pic
@@ -119,6 +124,16 @@ mixin popup(type, id = type, mod)
                     else
                       img.popup__photo-image(src='img/inhtml/student-1.jpg', alt="", data-uploaded)
                   +button('primary', 'submit', 'Сохранить', 'popup__photo-btn')
+            if type === 'application-accept'
+              p.popup__desc.popup__desc--centered <a href="chat-tutor.html">Свяжитесь</a> с <b>Анной Ивановой</b> для уточнения всех деталей.
+              p.popup__notice <b>Обращаем ваше внимание</b>, что вам <b>запрещено</b> обмениваться любыми контактами до оплаты учеником первого занятия через наш сервис! В случае нарушения данного условия, ваша учетная запись будет <b>заблокирована</b>.
+            if type === 'application-decline'
+              p.popup__desc <b>Данное действие нельзя будет отменить.</b>
+              +textarea('Если у вас есть какие-то уточняющие вопросы, задайте их напрямую:', 'message', 'Введите ваше сообщение', 'application__form-textarea')
+              p.popup__notice <b>Обращаем ваше внимание</b>, что вам <b>запрещено</b> обмениваться любыми контактами до оплаты учеником первого занятия через наш сервис! В случае нарушения данного условия, ваша учетная запись будет <b>заблокирована</b>.
+              .popup__actions
+                +button('primary', 'button', 'Да, отклонить', 'js-close-popup')
+                +button('secondary', 'button', 'Отмена', 'js-close-popup')
           if type === 'dialog-clear' || type === 'dialog-delete'
             .popup__footer
               a.popup__footer-btn.popup__footer-btn--danger.js-close-popup(href="javascript:void(0)", data-delete) Да, удалить

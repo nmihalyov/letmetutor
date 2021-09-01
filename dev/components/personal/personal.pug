@@ -3,6 +3,7 @@ include ../_ui/textarea/textarea
 include ../_ui/checkbox/checkbox
 include ../_ui/radio/radio
 include ../_ui/button/button
+include ../_ui/application/application
 
 -const times = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
 
@@ -11,24 +12,32 @@ mixin personal(type, page)
     .personal__wrapper.wrapper
       aside.personal__aside
         nav.personal__nav
-          p.personal__nav-heading Личный кабинет
           if type === 'tutor'
-            a.personal__nav-item(class=`${page === 'profile' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-edit.html") Мой профиль
-            a.personal__nav-item(href="#") Мой баланс
-            a.personal__nav-item(href="#") Мои заявки
-            a.personal__nav-item(class=`${page === 'schedule' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-schedule.html") Мое расписание
-            a.personal__nav-item(href="chat-tutor.html") Мои диалоги
-              span.personal__nav-counter 10
-            a.personal__nav-item.personal__nav-item--green(href="#") Платные услуги
-            a.personal__nav-item.personal__nav-item--bold(href="#") Верификация аккаунта
-              if page === 'profile-empty'
-                span.personal__nav-unverified не подтвержден
-              else
-                span.personal__nav-verified подтвержден
+            if ['applications-new', 'applications-accepted', 'applications-declined'].includes(page)
+              p.personal__nav-heading Мои заявки
+              a.personal__nav-item(class=`${page === 'applications-new' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-applications.html") Новые заявки <span>(2)</span>
+              a.personal__nav-item(class=`${page === 'applications-accepted' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-applications-accepted.html") Подтвержденные заявки <span>(11)</span>
+              a.personal__nav-item(class=`${page === 'applications-declined' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-applications-declined.html") Отклоненные заявки <span>(5)</span>
+              a.personal__nav-item.personal__nav-item--back(href="lk-tutor-edit.html") Личный кабинет
+            else
+              p.personal__nav-heading Личный кабинет
+              a.personal__nav-item(class=`${page === 'profile' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-edit.html") Мой профиль
+              a.personal__nav-item(href="#") Мой баланс
+              a.personal__nav-item(href="lk-tutor-applications.html") Мои заявки
+              a.personal__nav-item(class=`${page === 'schedule' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-schedule.html") Мое расписание
+              a.personal__nav-item(href="chat-tutor.html") Мои диалоги
+                span.personal__nav-counter 10
+              a.personal__nav-item.personal__nav-item--green(href="#") Платные услуги
+              a.personal__nav-item.personal__nav-item--bold(href="#") Верификация аккаунта
+                if page === 'profile-empty'
+                  span.personal__nav-unverified не подтвержден
+                else
+                  span.personal__nav-verified подтвержден
       main.personal__main
         if type === 'tutor' && (page === 'profile' || page === 'profile-empty')
           .personal__card
-            p.personal__card-heading Личные данные
+            .personal__card-heading
+              p.personal__card-title Личные данные
             .personal__card-content
               form.personal__data(action="", data-personal-data) 
                 .personal__data-aside
@@ -66,14 +75,16 @@ mixin personal(type, page)
                   +input('text', 'Ваш город <span>*</span>', 'city', 'Введите ваш город', 'auth__input js-auth-city', {required: true, error: 'Выберите город', citiesSearch: true, value: 'Москва'})
                   +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
           .personal__card
-            p.personal__card-heading Информация для учеников
+            .personal__card-heading
+              p.personal__card-title Информация для учеников
             .personal__card-content
               form(action="", data-personal-info)
                 +textarea('О себе <span>*</span>', 'about', 'Введите краткую информацию о себе', 'auth__input', {required: true, error: 'Ввведите информацию о себе', value: 'Привет!\n\nМеня зовут Оджасви. Моя цель как репетитора английского - помочь вам достичь своей!\nПочему я? Мои сильные стороны как наставника - терпение, страсть к обучению, получать удовольствие от занятий и сохранять интерактивность или коммуникативность!'})
                 +input('text', 'Видео-приветствие', 'video', 'Вставьте ссылку с youtube', 'auth__input')
                 +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
           .personal__card
-            p.personal__card-heading Специализация
+            .personal__card-heading
+              p.personal__card-title Специализация
             .personal__card-content
               form.personal__specialization(action="", data-personal-experience)
                 .personal__specialization-grid
@@ -84,6 +95,7 @@ mixin personal(type, page)
                       .personal__specialization-exp
                         p.personal__specialization-exp-label Опыт работы <span>*</span>
                         .profile-schedule__time.dropdown.dropdown--caret
+                          input(name="experience", value="1 год", type="hidden")
                           p.profile-schedule__time-value.dropdown__value 1 год
                           .profile-schedule__time-menu.dropdown__menu
                             a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 1 год
@@ -115,6 +127,7 @@ mixin personal(type, page)
                       .personal__specialization-exp
                         p.personal__specialization-exp-label Опыт работы
                         .profile-schedule__time.dropdown.dropdown--caret
+                          input(name="experience", value="1 год", type="hidden")
                           p.profile-schedule__time-value.dropdown__value 1 год
                           .profile-schedule__time-menu.dropdown__menu
                             a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 1 год
@@ -146,7 +159,8 @@ mixin personal(type, page)
                   +checkbox('Оффлайн <span>(вам желательно заполнить <a href="lk-tutor-schedule.html">свое расписание</a>)</span>', 'offline', 'personal__specialization-checkbox')
                 +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
           .personal__card
-            p.personal__card-heading Опыт работы
+            .personal__card-heading
+              p.personal__card-title Опыт работы
             .personal__card-content
               p.personal__card-desc Вы можете указать ваше место работы, должность и период (необязательно для заполнения).
               form.personal__experience(action="", data-personal-experience)
@@ -155,25 +169,30 @@ mixin personal(type, page)
                     .personal__experience-row
                       +input('text', 'Место работы', 'workplace', 'Название компании', 'auth__input')
                       +input('text', 'Кем вы работали', 'position', 'Ваша должность', 'auth__input')
-                    .personal__experience-years
-                      span С
-                      .profile-schedule__time.dropdown.dropdown--caret
-                        p.profile-schedule__time-value.dropdown__value 2000
-                        .profile-schedule__time-menu.dropdown__menu
-                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 2000
-                          -for (let i = 2001; i <= 2021; i++)
-                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= i
-                      span по
-                      .profile-schedule__time.dropdown.dropdown--caret
-                        p.profile-schedule__time-value.dropdown__value 2000
-                        .profile-schedule__time-menu.dropdown__menu
-                          a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 2000
-                          -for (let i = 2001; i <= 2021; i++)
-                            a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= i
+                    .personal__experience-row
+                      +input('text', '', 'specialization', 'Выберите специализацию', 'auth__input', {dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                      .personal__experience-years
+                        span С
+                        .profile-schedule__time.dropdown.dropdown--caret
+                          input(name="workFrom", value="2000", type="hidden")
+                          p.profile-schedule__time-value.dropdown__value 2000
+                          .profile-schedule__time-menu.dropdown__menu
+                            a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 2000
+                            -for (let i = 2001; i <= 2021; i++)
+                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= i
+                        span по
+                        .profile-schedule__time.dropdown.dropdown--caret
+                          input(name="workTo", value="2000", type="hidden")
+                          p.profile-schedule__time-value.dropdown__value 2000
+                          .profile-schedule__time-menu.dropdown__menu
+                            a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 2000
+                            -for (let i = 2001; i <= 2021; i++)
+                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= i
                 a.personal__add.js-personal-add(href="javascript:void(0)") Добавить еще место работы
                 +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
           .personal__card
-            p.personal__card-heading Дополнительные контакты
+            .personal__card-heading
+              p.personal__card-title Дополнительные контакты
             .personal__card-content
               p.personal__card-desc Данная информация будет видна у вас в профиле после оплаты учеником 1 занятия.
               form(action="", data-personal-contacts)
@@ -183,7 +202,8 @@ mixin personal(type, page)
                 +input('text', '', 'skype', 'Skype', 'auth__input', {social: 'skype'})
                 +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
           .personal__card
-            p.personal__card-heading Смена пароля
+            .personal__card-heading
+              p.personal__card-title Смена пароля
             .personal__card-content
               form(action="", data-personal-pass)
                 +input('password', 'Старый пароль <span>*</span>', 'oldPassword', 'Введите старый пароль', 'auth__input', {required: true, error: 'Введите пароль'})
@@ -191,7 +211,8 @@ mixin personal(type, page)
                 +input('password', 'Новый пароль еще раз <span>*</span>', 'passwordRepeat', 'Введите новый пароль', 'auth__input', {required: true, repeatPass: true, error: 'Введите совпадающий новый пароль'})
                 +button('primary', 'submit', 'Изменить пароль', 'personal__card-submit')
           .personal__card
-            p.personal__card-heading Получать уведомления по почте
+            .personal__card-heading
+              p.personal__card-title Получать уведомления по почте
             .personal__card-content
               form(action="", data-personal-notification)
                 +checkbox('Системные уведомления', 'systemNotifications', 'personal__card-checkbox', false, true)
@@ -199,11 +220,13 @@ mixin personal(type, page)
                 +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
         if type === 'tutor' && page === 'schedule'
           .personal__card(data-schedule-main)
-            p.personal__card-heading Мое расписание
+            .personal__card-heading
+              p.personal__card-title Мое расписание
             .personal__timezone
               .profile-schedule__timezone
                 p.profile-schedule__timezone-label Ваш часовой пояс:
                 .profile-schedule__timezone-dropdown.dropdown.dropdown--caret
+                  input(name="timezone", value="UTC + 00:00", type="hidden")
                   p.profile-schedule__timezone-value.dropdown__value UTC + 00:00
                   .profile-schedule__timezone-menu.dropdown__menu
                     a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) UTC + 00:00
@@ -226,6 +249,7 @@ mixin personal(type, page)
                 .personal__schedule-time
                   span С
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeFrom", value="08:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 08:00
                     .profile-schedule__time-menu.dropdown__menu
                       a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
@@ -233,6 +257,7 @@ mixin personal(type, page)
                         a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
                   span до
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeTo", value="17:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 17:00
                     .profile-schedule__time-menu.dropdown__menu
                       -for (let i = 0; i < times.length; i++)
@@ -246,6 +271,7 @@ mixin personal(type, page)
                 .personal__schedule-time
                   span С
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeFrom", value="08:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 08:00
                     .profile-schedule__time-menu.dropdown__menu
                       a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
@@ -253,6 +279,7 @@ mixin personal(type, page)
                         a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
                   span до
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeTo", value="17:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 17:00
                     .profile-schedule__time-menu.dropdown__menu
                       -for (let i = 0; i < times.length; i++)
@@ -266,6 +293,7 @@ mixin personal(type, page)
                 .personal__schedule-time
                   span С
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeFrom", value="08:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 08:00
                     .profile-schedule__time-menu.dropdown__menu
                       a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
@@ -273,6 +301,7 @@ mixin personal(type, page)
                         a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
                   span до
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeTo", value="17:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 17:00
                     .profile-schedule__time-menu.dropdown__menu
                       -for (let i = 0; i < times.length; i++)
@@ -286,6 +315,7 @@ mixin personal(type, page)
                 .personal__schedule-time
                   span С
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeFrom", value="08:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 08:00
                     .profile-schedule__time-menu.dropdown__menu
                       a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
@@ -293,6 +323,7 @@ mixin personal(type, page)
                         a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
                   span до
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeTo", value="17:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 17:00
                     .profile-schedule__time-menu.dropdown__menu
                       -for (let i = 0; i < times.length; i++)
@@ -315,6 +346,7 @@ mixin personal(type, page)
                           a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
                   span до
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeTo", value="17:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 17:00
                     .profile-schedule__time-menu.dropdown__menu
                       -for (let i = 0; i < times.length; i++)
@@ -328,6 +360,7 @@ mixin personal(type, page)
                 .personal__schedule-time
                   span С
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeFrom", value="08:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 08:00
                     .profile-schedule__time-menu.dropdown__menu
                       a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
@@ -335,6 +368,7 @@ mixin personal(type, page)
                         a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
                   span до
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeTo", value="16:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 16:00
                     .profile-schedule__time-menu.dropdown__menu
                       -for (let i = 0; i < times.length; i++)
@@ -348,6 +382,7 @@ mixin personal(type, page)
                 .personal__schedule-time
                   span С
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeFrom", value="08:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 08:00
                     .profile-schedule__time-menu.dropdown__menu
                       a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 08:00
@@ -355,6 +390,7 @@ mixin personal(type, page)
                         a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= times[i]
                   span до
                   .profile-schedule__time.dropdown.dropdown--caret
+                    input(name="timeTo", value="17:00", type="hidden")
                     p.profile-schedule__time-value.dropdown__value 17:00
                     .profile-schedule__time-menu.dropdown__menu
                       -for (let i = 0; i < times.length; i++)
@@ -366,9 +402,9 @@ mixin personal(type, page)
               +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
           -for (let i = 0; i < 3; i++)
             .personal__card(data-schedule-detail=i + 1)
-              p.personal__card-heading
+              .personal__card-heading
                 a.personal__back(href="javascript:void(0)") Назад
-                |Детальное расписание
+                p.personal__card-title Детальное расписание
               .profile-schedule__head
                 .profile-schedule__controls
                   .profile-schedule__controls-buttons
@@ -384,6 +420,7 @@ mixin personal(type, page)
                 .profile-schedule__timezone
                   p.profile-schedule__timezone-label Ваш часовой пояс:
                   .profile-schedule__timezone-dropdown.dropdown.dropdown--caret
+                    input(name="timezone", value="UTC + 00:00", type="hidden")
                     p.profile-schedule__timezone-value.dropdown__value UTC + 00:00
                     .profile-schedule__timezone-menu.dropdown__menu
                       a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) UTC + 00:00
@@ -524,3 +561,60 @@ mixin personal(type, page)
                       input(type="radio", name=`16:30_${16 + 1}_июль`, value="unavailable", checked)
                       p.personal__schedule-times-btn(data-value="unavailable") Недоступно
                 +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
+        if type === 'tutor' && page === 'applications-new'
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Новые заявки
+              .catalog__sort-item.dropdown.dropdown--caret.js-catalog-limit Показывать на странице:
+                p.dropdown__value 10
+                .dropdown__menu.dropdown__menu--small
+                  a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 10
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
+            .personal__card-content
+              +application('tutor', {person: {image: 'tutor-2.jpg', name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн']]})
+              +application('tutor', {person: {image: 'tutor-3.jpg', name: 'Анастасия Петрова'}, type: 'Бронирование даты', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']]})
+        if type === 'tutor' && page === 'applications-accepted'
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Подтвержденные заявки
+              .catalog__sort-item.dropdown.dropdown--caret.js-catalog-limit Показывать на странице:
+                p.dropdown__value 10
+                .dropdown__menu.dropdown__menu--small
+                  a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 10
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+            .personal__card-content
+              +application-past('tutor', {person: {name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн']], status: 'Ожидает оплаты'})
+              +application-past('tutor', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']], status: 'Оплачено'})
+              +application-past('tutor', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']], status: 'Оплачено'})
+              +application-past('tutor', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']], status: 'Оплачено'})
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+            +button('secondary', 'button', 'Загрузить еще', 'personal__more')
+        if type === 'tutor' && page === 'applications-declined'
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Отклоненные заявки
+              .catalog__sort-item.dropdown.dropdown--caret.js-catalog-limit Показывать на странице:
+                p.dropdown__value 10
+                .dropdown__menu.dropdown__menu--small
+                  a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 10
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+            .personal__card-content
+              +application-past('tutor', {person: {name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн']]})
+              +application-past('tutor', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']]})
+              +application-past('tutor', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']]})
+              +application-past('tutor', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']]})
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+            +button('secondary', 'button', 'Загрузить еще', 'personal__more')

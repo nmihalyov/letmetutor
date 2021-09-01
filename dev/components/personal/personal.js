@@ -60,7 +60,14 @@ const $personalForms = [{
   $element: document.querySelector('form[data-photo-form]'),
   callback: $element => {
     setTimeout(() => {
-      const file = croppedImage.getCroppedCanvas().toDataURL("image/png");
+      const fileData = croppedImage.getData();
+      const data = {
+        x: parseInt(fileData.x),
+        y: parseInt(fileData.y),
+        width: parseInt(fileData.width),
+        height: parseInt(fileData.height)
+      };
+      croppedImage.element.closest('.popup__photo').querySelector('input[name="imageCropInfo"]').value = JSON.stringify(data);
 
       $element.querySelector('button[type="submit"]').classList.remove('button--loading');
       $element.submit();

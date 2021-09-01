@@ -4,12 +4,16 @@ include ../_ui/tutorcard/tutorcard
 include ../_ui/pagination/pagination
 include ../_ui/button/button
 
-mixin catalog(notfound, login)
+mixin catalog(type, notfound, login)
   section.catalog
     .catalog__head.container
       .wrapper
-        +title('Поиск репетитора')
-        +filters('catalog__filters', ['subject', 'location', 'cost', 'term'])
+        if type === 'tutor'
+          +title('Поиск репетитора')
+          +filters('catalog__filters', ['subject', 'location', 'cost', 'term'])
+        if type === 'student'
+          +title('Поиск учеников')
+          +filters('catalog__filters', ['subject', 'location', 'cost'])
         .catalog__sort
           .catalog__sort-item.dropdown.dropdown--caret Сортировать по:
             p.dropdown__value Актуальности
@@ -33,13 +37,25 @@ mixin catalog(notfound, login)
             p.catalog__notfound-text По вашему запросу <a href="#">Французский язык</a> в <a href="#">России</a> <b>ничего не найдено.</b><br>Попробуйте поиск с другими параметрами.
         else
           .catalog__found
-            p.catalog__found-desc Найдено <b>213</b> репетиторов по предмету <a href="#">Английский язык</a> в <a href="#">России</a>
-            .catalog__items(data-total="10")
-              +tutorcard('Анна Иванова', 'tutor-1.jpg', true, true, login)
-              +tutorcard('Светлана Авдеева', 'tutor-2.jpg', false, true, login)
-              +tutorcard('Вероника Казакова', 'tutor-3.jpg', false, false, login, true)
-              +tutorcard('Лилия Савченко', 'tutor-4.jpg', false, true, login)
-              +tutorcard('Катерина Смит', 'tutor-5.jpg', false, true, login)
-            .catalog__bottom
-              +pagination
-              +button('primary', 'button', 'Показать еще', 'catalog__bottom-btn js-catalog-more')
+            if type === 'tutor'
+              p.catalog__found-desc Найдено <b>213</b> репетиторов по предмету <a href="#">Английский язык</a> в <a href="#">России</a>
+              .catalog__items(data-total="10")
+                +tutorcard('Анна Иванова', 'tutor-1.jpg', true, true, login)
+                +tutorcard('Светлана Авдеева', 'tutor-2.jpg', false, true, login)
+                +tutorcard('Вероника Казакова', 'tutor-3.jpg', false, false, login, true)
+                +tutorcard('Лилия Савченко', 'tutor-4.jpg', false, true, login)
+                +tutorcard('Катерина Смит', 'tutor-5.jpg', false, true, login)
+              .catalog__bottom
+                +pagination
+                +button('primary', 'button', 'Показать еще', 'catalog__bottom-btn js-catalog-more')
+            if type === 'student'
+              p.catalog__found-desc Найдено <b>100</b> учеников по предмету <a href="#">Английский язык</a> в <a href="#">России</a>
+              .catalog__items(data-total="10")
+                +tutorcard-student('Соня Иванова', 'student-4.jpg', false, '1000')
+                +tutorcard-student('Иоланта Соловьева', 'student-2.jpg', true, '1500')
+                +tutorcard-student('Анна Петрова', 'student-3.jpg', false, '1000')
+                +tutorcard-student('Соня Иванова', 'tutor-4.jpg', true, '1000')
+                +tutorcard-student('Соня Иванова', 'tutor-5.jpg', false, '1000')
+              .catalog__bottom
+                +pagination
+                +button('primary', 'button', 'Показать еще', 'catalog__bottom-btn js-catalog-more')

@@ -25,3 +25,33 @@ mixin tutorcard(name, image, top, verified, login, noReviews)
           p.tutorcard__cost-value 1000 &#8381;
           p.tutorcard__cost-desc в час
       +button(top ? 'primary' : 'secondary', 'popup', 'Оставить заявку', 'tutorcard__btn', {popup: login ? 'request' : 'request-auth'})
+
+mixin tutorcard-student(name, image, noReviews, price)
+  .tutorcard(class=top ? 'tutorcard--top' : '')
+    .tutorcard__image(style=`background-image: url('img/inhtml/${image}')`)
+    .tutorcard__info
+      div
+        p.tutorcard__name(class=verified ? 'tutorcard__name--verified' : '')
+          a(href="tutor.html")= name
+        p.tutorcard__location(data-loc="ru") Москва, Россия
+        .tutorcard__subjects
+          a.tutorcard__subjects-item.tutorcard__subjects-item--search(href="javascript:void(0)") Английский язык
+          a.tutorcard__subjects-item(href="javascript:void(0)") Немецкий язык
+          if !noReviews
+            a.tutorcard__subjects-item.tutorcard__subjects-item--hidden(href="javascript:void(0)") Итальянский язык
+            a.tutorcard__subjects-item.tutorcard__subjects-item--hidden(href="javascript:void(0)") Французский язык
+            a.tutorcard__subjects-more.js-tutorcard-more(href="javascript:void(0)") +2 предмета
+        if noReviews
+          p.tutorcard__desc
+        else
+          p.tutorcard__desc Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...
+      a.tutorcard__more(href="tutor.html") Подробнее
+    .tutorcard__actions
+      .tutorcard__actions-info
+        .tutorcard__rating(class=noReviews ? 'tutorcard__rating--empty' : '')
+          p.tutorcard__rating-rate= noReviews ? '0.0' : '4.9'
+          p.tutorcard__rating-reviews= noReviews ? '(0 отзывов)' : '(5 отзывов)'
+        .tutorcard__cost
+          p.tutorcard__cost-value!= `${price} &#8381; <span>в час</span>`
+          p.tutorcard__cost-desc.tutorcard__cost-desc--desired Желаемая цена
+      +button('secondary', 'popup', 'Предложить услуги', 'tutorcard__btn', {popup: 'offer'})

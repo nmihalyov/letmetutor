@@ -139,6 +139,7 @@ mixin auth(type)
                       .personal__specialization-exp
                         p.personal__specialization-exp-label Опыт работы <span>*</span>
                         .profile-schedule__time.dropdown.dropdown--caret
+                          input(name="experience", value="1 год", type="hidden")
                           p.profile-schedule__time-value.dropdown__value 1 год
                           .profile-schedule__time-menu.dropdown__menu
                             a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 1 год

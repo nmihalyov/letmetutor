@@ -121,12 +121,14 @@
         <div class="personal__wrapper wrapper">
           <aside class="personal__aside">
             <nav class="personal__nav">
-              <p class="personal__nav-heading">Личный кабинет</p><a class="personal__nav-item" href="lk-tutor-edit.html">Мой профиль</a><a class="personal__nav-item" href="#">Мой баланс</a><a class="personal__nav-item" href="#">Мои заявки</a><a class="personal__nav-item" href="lk-tutor-schedule.html">Мое расписание</a><a class="personal__nav-item" href="chat-tutor.html">Мои диалоги<span class="personal__nav-counter">10</span></a><a class="personal__nav-item personal__nav-item--green" href="#">Платные услуги</a><a class="personal__nav-item personal__nav-item--bold" href="#">Верификация аккаунта<span class="personal__nav-unverified">не подтвержден</span></a>
+              <p class="personal__nav-heading">Личный кабинет</p><a class="personal__nav-item" href="lk-tutor-edit.html">Мой профиль</a><a class="personal__nav-item" href="#">Мой баланс</a><a class="personal__nav-item" href="lk-tutor-applications.html">Мои заявки</a><a class="personal__nav-item" href="lk-tutor-schedule.html">Мое расписание</a><a class="personal__nav-item" href="chat-tutor.html">Мои диалоги<span class="personal__nav-counter">10</span></a><a class="personal__nav-item personal__nav-item--green" href="#">Платные услуги</a><a class="personal__nav-item personal__nav-item--bold" href="#">Верификация аккаунта<span class="personal__nav-unverified">не подтвержден</span></a>
             </nav>
           </aside>
           <main class="personal__main">
             <div class="personal__card">
-              <p class="personal__card-heading">Личные данные</p>
+              <div class="personal__card-heading">
+                <p class="personal__card-title">Личные данные</p>
+              </div>
               <div class="personal__card-content">
                 <form class="personal__data" action="" data-personal-data="data-personal-data"> 
                   <div class="personal__data-aside">
@@ -193,7 +195,9 @@
               </div>
             </div>
             <div class="personal__card">
-              <p class="personal__card-heading">Информация для учеников</p>
+              <div class="personal__card-heading">
+                <p class="personal__card-title">Информация для учеников</p>
+              </div>
               <div class="personal__card-content">
                 <form action="" data-personal-info="data-personal-info">
                   <label class="textarea auth__input">
@@ -217,7 +221,9 @@
               </div>
             </div>
             <div class="personal__card">
-              <p class="personal__card-heading">Специализация</p>
+              <div class="personal__card-heading">
+                <p class="personal__card-title">Специализация</p>
+              </div>
               <div class="personal__card-content">
                 <form class="personal__specialization" action="" data-personal-experience="data-personal-experience">
                   <div class="personal__specialization-grid">
@@ -241,6 +247,7 @@
                         <div class="personal__specialization-exp">
                           <p class="personal__specialization-exp-label">Опыт работы <span>*</span></p>
                           <div class="profile-schedule__time dropdown dropdown--caret">
+                            <input name="experience" value="1 год" type="hidden"/>
                             <p class="profile-schedule__time-value dropdown__value">1 год</p>
                             <div class="profile-schedule__time-menu dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">1 год</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">3 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">4 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">5 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">6 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">7 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">8 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">9 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">10 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">11 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">12 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">13 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">14 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">15 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">16 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">17 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">18 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">19 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">20 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Больше 20 лет</a></div>
                           </div>
@@ -270,6 +277,7 @@
                         <div class="personal__specialization-exp">
                           <p class="personal__specialization-exp-label">Опыт работы</p>
                           <div class="profile-schedule__time dropdown dropdown--caret">
+                            <input name="experience" value="1 год" type="hidden"/>
                             <p class="profile-schedule__time-value dropdown__value">1 год</p>
                             <div class="profile-schedule__time-menu dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">1 год</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">3 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">4 года</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">5 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">6 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">7 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">8 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">9 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">10 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">11 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">12 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">13 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">14 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">15 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">16 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">17 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">18 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">19 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">20 лет</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Больше 20 лет</a></div>
                           </div>
@@ -306,7 +314,9 @@
               </div>
             </div>
             <div class="personal__card">
-              <p class="personal__card-heading">Опыт работы</p>
+              <div class="personal__card-heading">
+                <p class="personal__card-title">Опыт работы</p>
+              </div>
               <div class="personal__card-content">
                 <p class="personal__card-desc">Вы можете указать ваше место работы, должность и период (необязательно для заполнения).</p>
                 <form class="personal__experience" action="" data-personal-experience="data-personal-experience">
@@ -326,15 +336,25 @@
                           </div>
                         </label>
                       </div>
-                      <div class="personal__experience-years"><span>С</span>
-                        <div class="profile-schedule__time dropdown dropdown--caret">
-                          <p class="profile-schedule__time-value dropdown__value">2000</p>
-                          <div class="profile-schedule__time-menu dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">2000</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2001</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2002</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2003</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2004</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2005</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2006</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2007</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2008</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2009</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2010</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2011</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2012</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2013</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2014</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2015</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2016</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2017</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2018</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2019</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2020</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2021</a>
+                      <div class="personal__experience-row">
+                        <label class="input auth__input dropdown">
+                          <div class="input__wrapper">
+                            <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a></div>
+                            <input class="input__field" type="text" name="specialization" placeholder="Выберите специализацию" readonly="readonly"/>
                           </div>
-                        </div><span>по</span>
-                        <div class="profile-schedule__time dropdown dropdown--caret">
-                          <p class="profile-schedule__time-value dropdown__value">2000</p>
-                          <div class="profile-schedule__time-menu dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">2000</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2001</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2002</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2003</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2004</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2005</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2006</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2007</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2008</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2009</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2010</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2011</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2012</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2013</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2014</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2015</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2016</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2017</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2018</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2019</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2020</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2021</a>
+                        </label>
+                        <div class="personal__experience-years"><span>С</span>
+                          <div class="profile-schedule__time dropdown dropdown--caret">
+                            <input name="workFrom" value="2000" type="hidden"/>
+                            <p class="profile-schedule__time-value dropdown__value">2000</p>
+                            <div class="profile-schedule__time-menu dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">2000</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2001</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2002</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2003</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2004</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2005</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2006</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2007</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2008</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2009</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2010</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2011</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2012</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2013</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2014</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2015</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2016</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2017</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2018</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2019</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2020</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2021</a>
+                            </div>
+                          </div><span>по</span>
+                          <div class="profile-schedule__time dropdown dropdown--caret">
+                            <input name="workTo" value="2000" type="hidden"/>
+                            <p class="profile-schedule__time-value dropdown__value">2000</p>
+                            <div class="profile-schedule__time-menu dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">2000</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2001</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2002</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2003</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2004</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2005</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2006</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2007</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2008</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2009</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2010</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2011</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2012</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2013</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2014</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2015</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2016</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2017</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2018</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2019</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2020</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">2021</a>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -345,7 +365,9 @@
               </div>
             </div>
             <div class="personal__card">
-              <p class="personal__card-heading">Дополнительные контакты</p>
+              <div class="personal__card-heading">
+                <p class="personal__card-title">Дополнительные контакты</p>
+              </div>
               <div class="personal__card-content">
                 <p class="personal__card-desc">Данная информация будет видна у вас в профиле после оплаты учеником 1 занятия.</p>
                 <form action="" data-personal-contacts="data-personal-contacts">
@@ -374,7 +396,9 @@
               </div>
             </div>
             <div class="personal__card">
-              <p class="personal__card-heading">Смена пароля</p>
+              <div class="personal__card-heading">
+                <p class="personal__card-title">Смена пароля</p>
+              </div>
               <div class="personal__card-content">
                 <form action="" data-personal-pass="data-personal-pass">
                   <label class="input auth__input">
@@ -403,7 +427,9 @@
               </div>
             </div>
             <div class="personal__card">
-              <p class="personal__card-heading">Получать уведомления по почте</p>
+              <div class="personal__card-heading">
+                <p class="personal__card-title">Получать уведомления по почте</p>
+              </div>
               <div class="personal__card-content">
                 <form action="" data-personal-notification="data-personal-notification">
                   <label class="checkbox personal__card-checkbox">
@@ -471,6 +497,7 @@
                   <label class="popup__photo-input">
                     <p class="button button--secondary popup__photo-file">Выбрать файл</p>
                     <input class="js-photo-input" type="file" name="photo" accept="image/*" required="required"/>
+                    <input type="hidden" name="imageCropInfo"/>
                   </label>
                   <p class="popup__photo-desc">Минимальный размер – 200×200px, максимальный размер файла 7Mb.</p>
                   <p class="popup__photo-subheading">Ваше фото</p>

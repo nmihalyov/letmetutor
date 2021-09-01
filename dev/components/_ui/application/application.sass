@@ -1,0 +1,243 @@
+.application
+  &:not(:last-child)
+    margin-bottom: 30px
+    padding-bottom: 30px
+    border-bottom: 1px dashed #DCDCDC
+  &--past .application
+    &__head
+      margin-bottom: 20px
+    &__about,
+    &__type
+      opacity: 0.5
+    &__info
+      align-items: flex-start
+    &__table
+      padding-left: 30px
+      &-row
+        opacity: 0.5
+    &__footer
+      display: flex
+      justify-content: space-between
+      align-items: center
+      padding-left: 25px
+    &__write
+      margin-left: 0
+    &__status
+      font:
+        size: 14px
+        weight: 500
+      &--wait
+        opacity: 0.5
+  &__head
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 10px
+  &__info
+    display: flex
+    align-items: center
+  &__image
+    width: 64px
+    height: 64px
+    margin-right: 15px
+    border-radius: 50%
+    background:
+      position: center
+      size: cover
+      repeat: no-repeat
+  &__name
+    margin-bottom: 5px
+    font-weight: 500
+    &--verified
+      position: relative
+      display: inline-block
+      &:before
+        content: ''
+        position: absolute
+        top: 2px
+        right: -24px
+        display: flex
+        justify-content: center
+        align-items: flex-end
+        width: 16px
+        height: 16px
+        background:
+          image: url('../img/icons/verified.svg')
+          size: contain
+          position: center
+  &__location
+    position: relative
+    padding-left: 25px
+    color: $gray
+    font-size: 14px
+    &:before
+      content: ''
+      position: absolute
+      top: 2px
+      left: 0
+      width: 16px
+      height: 16px
+      background:
+        size: contain
+        position: center
+        repeat: no-repeat
+    &[data-loc="ru"]:before
+      background-image: url('../img/icons/ru-gray.svg')
+    &[data-loc="ua"]:before
+      background-image: url('../img/icons/ua.svg')
+  &__type
+    width: 160px
+    padding: 7px
+    border-radius: 3px
+    background-color: $green
+    color: #fff
+    text-align: center
+    font:
+      size: 13px
+      weight: 500
+  &__table
+    padding-left: 80px
+    &-row
+      display: flex
+      margin-bottom: 15px
+    &-item
+      display: flex
+      align-items: baseline
+      width: 300px
+      &:first-child
+        font:
+          size: 15px
+          weight: 500
+      &:last-child
+        color: $gray
+        font-size: 15px
+      span
+        flex-grow: 1
+        height: 0
+        margin: 0 10px
+        border-bottom: 1px dotted #999
+  &__actions
+    display: flex
+    align-items: center
+  &__accept,
+  &__decline
+    position: relative
+    width: 200px
+    height: 42px
+    margin-right: 10px
+    padding-left: 40px
+    &:before
+      content: ''
+      position: absolute
+      top: calc(50% - 6px)
+      left: 45px
+      width: 12px
+      height: 12px
+      transition: all .3s ease
+      background:
+        position: center
+        size: contain
+        repeat: no-repeat
+  &__accept
+    &:before
+      background-image: url('../img/icons/check.svg')
+  &__decline
+    border-color: $red
+    color: $red
+    &:hover
+      background-color: $red
+      color: #fff
+      &:before
+        background-image: url('../img/icons/close-white.svg')
+    &:active
+      border-color: lighten($red, 7)
+      background-color: lighten($red, 7)
+      color: #fff
+      &:before
+        background-image: url('../img/icons/close-white.svg')
+    &:before
+      background-image: url('../img/icons/close-red.svg')
+  &__write
+    position: relative
+    margin-left: auto
+    color: $blue
+    border-bottom: 1px dotted $blue
+    font-size: 14px
+    &:hover
+      color: transparentize($blue, 0.2)
+    &:before
+      content: ''
+      position: absolute
+      top: calc(50% - 7px)
+      left: -25px
+      width: 14px
+      height: 14px
+      background:
+        image: url('../img/icons/messages-blue.svg')
+        position: center
+        size: contain
+        repeat: no-repeat
+  &__form
+    display: none
+    margin-top: 30px
+    padding-top: 25px
+    border-top: 1px solid $gray-4
+    &-textarea
+      margin-bottom: 15px
+    &-disclaimer
+      margin-bottom: 20px
+      padding: 4px 0 4px 12px
+      border-left: 1px solid $gray
+      color: $gray-5
+      font-size: 14px
+    &-send
+      width: 100%
+
+@media only screen and (max-width: $mobile)
+  .application
+    &:not(:last-child)
+      margin-bottom: 20px
+      padding-bottom: 20px
+    &--past .application
+      &__table,
+      &__footer
+        padding-left: 0
+      &__footer
+        flex-direction: column
+      &__status
+        margin-top: 5px
+    &__head
+      flex-direction: column
+      align-items: stretch
+    &__type
+      margin-top: 10px
+    &__table
+      padding-left: 0
+      &-row
+        display: block
+        margin-bottom: 10px
+      &-item
+        width: 100%
+        font-size: 14px !important
+        span
+          display: none
+    &__actions
+      flex-direction: column
+      align-items: center
+    &__accept,
+    &__decline
+      margin: 0 0 10px 0
+    &__accept
+      &:before
+        left: calc(50% - 65px)
+    &__decline
+      &:before
+        left: calc(50% - 55px)
+    &__write
+      margin: 0 -15px 0 0
+    &__form
+      &-textarea
+        .textarea__label
+          font-size: 13px
+      &-dsiclaimer
+        font-size: 13px

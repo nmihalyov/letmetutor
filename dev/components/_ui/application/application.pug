@@ -1,0 +1,53 @@
+include ../button/button
+include ../textarea/textarea
+include ../checkbox/checkbox
+
+mixin application(type, options)
+  .application
+    .application__head
+      .application__info
+        .application__image(style=`background-image: url("img/inhtml/${options.person.image}");`)
+        .application__about
+          p.application__name= options.person.name
+          p.application__location(data-loc="ru") Москва, Россия
+      p.application__type= options.type
+    .application__table
+      each item in options.table
+        .application__table-row
+          .application__table-item
+            = item[0]
+            span
+          .application__table-item= item[1]
+      .application__actions
+        +button('primary', 'popup', 'Подтвердить', 'application__accept', {popup: 'application-accept'})
+        +button('secondary', 'popup', 'Отклонить', 'application__decline', {popup: 'application-decline'})
+        a.application__write(href="javascript:void(0)", data-show="Написать сообщение", data-hide="Скрыть форму") Написать сообщение
+    form.application__form(action="")
+      +textarea('Если у вас есть какие-то уточняющие вопросы, задайте их напрямую:', 'message', 'Введите ваше сообщение', 'application__form-textarea')
+      p.application__form-disclaimer <b>Обращаем ваше внимание</b>, что вам <b>запрещено</b> обмениваться любыми контактами до оплаты учеником первого занятия через наш сервис! В случае нарушения данного условия, ваша учетная запись будет <b>заблокирована</b>.
+      +button('primary', 'submit', 'Отправить сообщение', 'application__form-send')
+
+mixin application-past(type, options)
+  .application.application--past
+    .application__head
+      .application__info
+        +checkbox('', 'application', 'application__checkbox')
+        .application__about
+          p.application__name= options.person.name
+          p.application__location(data-loc="ru") Москва, Россия
+      p.application__type= options.type
+    .application__table
+      each item in options.table
+        .application__table-row
+          .application__table-item
+            = item[0]
+            span
+          .application__table-item= item[1]
+      if options.status
+        .application__footer
+          a.application__write(href="javascript:void(0)", data-show="Написать сообщение", data-hide="Скрыть форму") Написать сообщение
+          p.application__status(class=`${options.status === 'Ожидает оплаты' ? 'application__status--wait' : ''}`)= options.status
+    form.application__form(action="")
+      +textarea('Если у вас есть какие-то уточняющие вопросы, задайте их напрямую:', 'message', 'Введите ваше сообщение', 'application__form-textarea')
+      p.application__form-disclaimer <b>Обращаем ваше внимание</b>, что вам <b>запрещено</b> обмениваться любыми контактами до оплаты учеником первого занятия через наш сервис! В случае нарушения данного условия, ваша учетная запись будет <b>заблокирована</b>.
+      +button('primary', 'submit', 'Отправить сообщение', 'application__form-send')
