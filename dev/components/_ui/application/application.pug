@@ -18,10 +18,20 @@ mixin application(type, options)
             = item[0]
             span
           .application__table-item= item[1]
-      .application__actions
-        +button('primary', 'popup', 'Подтвердить', 'application__accept', {popup: 'application-accept'})
-        +button('secondary', 'popup', 'Отклонить', 'application__decline', {popup: 'application-decline'})
-        a.application__write(href="javascript:void(0)", data-show="Написать сообщение", data-hide="Скрыть форму") Написать сообщение
+      if type === 'tutor'
+        .application__actions
+          +button('primary', 'popup', 'Подтвердить', 'application__accept', {popup: 'application-accept'})
+          +button('secondary', 'popup', 'Отклонить', 'application__decline', {popup: 'application-decline'})
+          a.application__write(href="javascript:void(0)", data-show="Написать сообщение", data-hide="Скрыть форму") Написать сообщение
+      if type === 'student'
+        .application__actions
+          a.application__write(href="javascript:void(0)", data-show="Написать сообщение", data-hide="Скрыть форму") Написать сообщение
+          p.application__status.application__status--wait Ожидает подтверждения
+      if type === 'student-accepted'
+        .application__actions
+          +button('primary', 'popup', 'Оплатить занятие', 'application__pay', {popup: 'application-pay'})
+          +button('quaternary', 'popup', 'Отказаться', 'application__refuse', {popup: 'application-refuse'})
+          a.application__write(href="javascript:void(0)", data-show="Написать сообщение", data-hide="Скрыть форму") Написать сообщение
     form.application__form(action="")
       +textarea('Если у вас есть какие-то уточняющие вопросы, задайте их напрямую:', 'message', 'Введите ваше сообщение', 'application__form-textarea')
       p.application__form-disclaimer <b>Обращаем ваше внимание</b>, что вам <b>запрещено</b> обмениваться любыми контактами до оплаты учеником первого занятия через наш сервис! В случае нарушения данного условия, ваша учетная запись будет <b>заблокирована</b>.
@@ -47,6 +57,16 @@ mixin application-past(type, options)
         .application__footer
           a.application__write(href="javascript:void(0)", data-show="Написать сообщение", data-hide="Скрыть форму") Написать сообщение
           p.application__status(class=`${options.status === 'Ожидает оплаты' ? 'application__status--wait' : ''}`)= options.status
+      if type === 'student-declined'
+        .application__declined
+          a.application__declined-link(href="javascript:void(0)") Посмотреть причину отказа
+          .application__declined-reason
+            .application__declined-image(style="background-image: url('img/inhtml/tutor-2.jpg');")
+            div
+              p.application__declined-name Анна Иванова
+              p.application__declined-text Здравствуйте, мне просто не хочется вас обучать, потому что вы мне не понравились и рейтинг у вас не очень!
+      if type === 'student-reject'
+          p.application__status.application__status--wait Отклонена без указания причины
     form.application__form(action="")
       +textarea('Если у вас есть какие-то уточняющие вопросы, задайте их напрямую:', 'message', 'Введите ваше сообщение', 'application__form-textarea')
       p.application__form-disclaimer <b>Обращаем ваше внимание</b>, что вам <b>запрещено</b> обмениваться любыми контактами до оплаты учеником первого занятия через наш сервис! В случае нарушения данного условия, ваша учетная запись будет <b>заблокирована</b>.

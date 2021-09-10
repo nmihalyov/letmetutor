@@ -22,10 +22,6 @@
       padding-left: 25px
     &__write
       margin-left: 0
-    &__status
-      font:
-        size: 14px
-        weight: 500
       &--wait
         opacity: 0.5
   &__head
@@ -120,11 +116,15 @@
     display: flex
     align-items: center
   &__accept,
-  &__decline
-    position: relative
+  &__decline,
+  &__pay,
+  &__refuse
     width: 200px
     height: 42px
     margin-right: 10px
+  &__accept,
+  &__decline,
+    position: relative
     padding-left: 40px
     &:before
       content: ''
@@ -159,10 +159,12 @@
       background-image: url('../img/icons/close-red.svg')
   &__write
     position: relative
-    margin-left: auto
-    color: $blue
+    margin-left: 25px
     border-bottom: 1px dotted $blue
+    color: $blue
     font-size: 14px
+    &:last-child
+      margin-left: auto
     &:hover
       color: transparentize($blue, 0.2)
     &:before
@@ -177,6 +179,13 @@
         position: center
         size: contain
         repeat: no-repeat
+  &__status
+    margin-left: auto
+    font:
+      size: 14px
+      weight: 500
+    &--wait
+      color: $gray
   &__form
     display: none
     margin-top: 30px
@@ -192,6 +201,51 @@
       font-size: 14px
     &-send
       width: 100%
+  &__declined
+    position: relative
+    &-link
+      color: $blue
+      border-bottom: 1px dotted $blue
+      font-size: 14px
+      &:hover
+        color: transparentize($blue, 0.2)
+        border-bottom-color: transparentize($blue, 0.2)
+    &-reason
+      z-index: 2
+      opacity: 0
+      visibility: hidden
+      position: absolute
+      left: -5px
+      bottom: calc(100% - 5px)
+      display: flex
+      width: 480px
+      padding: 20px
+      border-radius: 5px
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1)
+      background-color: #fff
+      transition: opacity .3s ease, visibility .3s ease, bottom .3s ease
+      &--active
+        opacity: 1
+        visibility: visible
+        bottom: calc(100% + 5px)
+    &-image
+      flex-shrink: 0
+      width: 32px
+      height: 32px
+      margin-right: 10px
+      border-radius: 50%
+      background:
+        size: cover
+        position: center
+        repeat: no-repeat
+    &-name
+      margin-bottom: 2px
+      font:
+        size: 14px
+        weight: 500
+    &-text
+      color: $gray-5
+      font-size: 14px
 
 @media only screen and (max-width: $mobile)
   .application
@@ -204,8 +258,6 @@
         padding-left: 0
       &__footer
         flex-direction: column
-      &__status
-        margin-top: 5px
     &__head
       flex-direction: column
       align-items: stretch
@@ -225,7 +277,9 @@
       flex-direction: column
       align-items: center
     &__accept,
-    &__decline
+    &__decline,
+    &__pay,
+    &__refuse
       margin: 0 0 10px 0
     &__accept
       &:before
@@ -234,10 +288,23 @@
       &:before
         left: calc(50% - 55px)
     &__write
-      margin: 0 -15px 0 0
+      margin: 0 auto
+      transform: translateX(15px)
+    &__status
+      margin: 5px auto 0
     &__form
       &-textarea
         .textarea__label
           font-size: 13px
       &-dsiclaimer
+        font-size: 13px
+    &__declined
+      &-reason
+        width: 100%
+        padding: 10px 15px
+      &-image
+        width: 28px
+        height: 28px
+      &-name,
+      &-text
         font-size: 13px

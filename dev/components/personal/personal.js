@@ -7,7 +7,7 @@ const $personalForms = [{
   callback: $element => {
     setTimeout(() => {
       $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      $element.submit();
+      showNotification('success');
     }, 1000);
   }
 },
@@ -16,7 +16,7 @@ const $personalForms = [{
   callback: $element => {
     setTimeout(() => {
       $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      $element.submit();
+      showNotification('success');
     }, 1000);
   }
 },
@@ -25,7 +25,7 @@ const $personalForms = [{
   callback: $element => {
     setTimeout(() => {
       $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      $element.submit();
+      showNotification('success');
     }, 1000);
   }
 },
@@ -34,7 +34,7 @@ const $personalForms = [{
   callback: $element => {
     setTimeout(() => {
       $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      $element.submit();
+      showNotification('success');
     }, 1000);
   }
 },
@@ -43,7 +43,7 @@ const $personalForms = [{
   callback: $element => {
     setTimeout(() => {
       $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      $element.submit();
+      showNotification('success');
     }, 1000);
   }
 },
@@ -52,7 +52,7 @@ const $personalForms = [{
   callback: $element => {
     setTimeout(() => {
       $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      $element.submit();
+      showNotification('success');
     }, 1000);
   }
 },
@@ -70,7 +70,7 @@ const $personalForms = [{
       croppedImage.element.closest('.popup__photo').querySelector('input[name="imageCropInfo"]').value = JSON.stringify(data);
 
       $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      $element.submit();
+      showNotification('success');
     }, 1000);
   }
 }];

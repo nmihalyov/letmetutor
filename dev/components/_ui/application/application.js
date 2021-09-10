@@ -34,3 +34,16 @@ document.querySelectorAll('.application__checkbox input').forEach(el => el.addEv
 
   $toggleCheckboxes.forEach(el => el.querySelector('input').checked = isChecked);
 }));
+
+// toggle application reason
+document.querySelectorAll('.application__declined-link').forEach(el => el.addEventListener('click', () => {
+  el.nextElementSibling.classList.toggle('application__declined-reason--active');
+}));
+
+document.addEventListener('click', e => {
+  const $activeReason = document.querySelector('.application__declined-reason--active');
+
+  if ($activeReason && !e.target.closest('.application__declined')) {
+    $activeReason.classList.remove('application__declined-reason--active');
+  }
+});

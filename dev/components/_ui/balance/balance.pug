@@ -1,0 +1,17 @@
+include ../radio/radio
+include ../button/button
+
+- titles = {card: 'Банковская карта (Visa, MasterCard)', yoomoney: 'ЮMoney'}
+
+mixin balance(options)
+  form.balance&attributes({[options.form]: options.form})
+    .balance__main
+      p.balance__heading На какую сумму хотите пополнить баланс?
+      input.balance__input(type="text", name="sum", value=options.sum || 0, required)
+      p.balance__method Выберите способ пополнения
+      each method, i in options.methods
+        +radio(titles[method], 'method', method, 'balance__radio', true, i === 0, method)
+      +button('primary', 'submit', options.button, 'balance__btn')
+    .balance__aside
+      p.balance__current Ваш текущий баланс
+      p.balance__money 1 000 &#8381;

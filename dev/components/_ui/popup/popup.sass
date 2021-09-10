@@ -109,6 +109,10 @@
     font-size: 14px
     &:not(:last-child)
       margin-bottom: 20px
+  &__footnote
+    margin-top: 25px
+    color: $gray-5
+    font-size: 14px
   &__submit
     width: 320px
   &__restore
@@ -173,6 +177,11 @@
     &-btn
       width: 100%
       margin-top: 20px
+  &__refuse
+    &-input
+      margin-top: 20px
+  &__paysuccess
+    padding: 50px 0 75px
   &__footer
     display: flex
     padding: 15px 20px 20px
@@ -228,6 +237,8 @@
         text-align: center
       &-pic
         display: none
+    &__paysuccess
+      padding: 30px 0 50px
 
 @media only screen and (max-width: $mobile)
   .popup
@@ -255,6 +266,9 @@
         width: 100%
         &:not(:last-child)
           margin-bottom: 10px
+    &__footnote
+      margin-top: 15px
+      font-size: 13px
     &__photo
       &-main
         width: 100%
@@ -268,3 +282,5 @@
         height: 250px
     &__notice
       font-size: 13px
+    &__paysuccess
+      padding: 20px 0

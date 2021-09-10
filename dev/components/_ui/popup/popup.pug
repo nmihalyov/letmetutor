@@ -35,7 +35,13 @@ mixin popup(type, id = type, mod)
             if type === 'application-accept'
               +heading('Заявка успешно подтверждена!', 'popup__heading')
             if type === 'application-decline'
-              +heading('Отклонить заявку Анны Ивановой?!', 'popup__heading')
+              +heading('Отклонить заявку Анны Ивановой?', 'popup__heading')
+            if type === 'application-pay'
+              +heading('Оплата занятия у Анны Ивановой', 'popup__heading')
+            if type === 'application-refuse'
+              +heading('Отказаться от обучения с Анной Ивановой?', 'popup__heading')
+            if type === 'application-pay-success'
+              +heading('Оплата успешно завершена!', 'popup__heading')
             .popup__close.js-close-popup
           .popup__content
             if type === 'restore'
@@ -134,6 +140,27 @@ mixin popup(type, id = type, mod)
               .popup__actions
                 +button('primary', 'button', 'Да, отклонить', 'js-close-popup')
                 +button('secondary', 'button', 'Отмена', 'js-close-popup')
+            if type === 'application-pay'
+              form.popup__pay(data-pay)
+                div(style="margin-bottom: 15px;")
+                  p.popup__desc <b>Со счета вашего баланса (<a href="#">1 000 ₽</a>) будет списано <a href="#">500 ₽</a>.*</b>
+                div(style="margin-bottom: 15px;")
+                  p.popup__desc <b>Данное действие нельзя будет отменить.</b>
+                .popup__actions
+                  +button('primary', 'submit', 'Да, оплатить')
+                  +button('secondary', 'plug', 'Отмена', 'js-close-popup')
+                p.popup__footnote * - Сразу после оплаты вы сможете свободно обмениваться любыми контактами.
+            if type === 'application-refuse'
+              form.popup__refuse(data-refuse)
+                p.popup__desc <b>Подтвержденная заявка будет автоматически удалена. Данное действие нельзя будет отменить.</b>
+                +input('text', 'Выберите причину вашего отказа <span>*</span>', 'reason', 'Выберите причину', 'popup__refuse-input auth__input', {required: true, error: 'Выберите причину', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Передумал</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Другая причина</a>'})
+                .popup__actions
+                  +button('primary', 'submit', 'Да, отказаться')
+                  +button('secondary', 'plug', 'Отмена', 'js-close-popup')
+            if type === 'application-pay-success'
+              form.popup__paysuccess
+                p.popup__desc.popup__desc--centered <b>Поздравляем,</b> ваш текущий баланс - <a href="#">500 ₽</a>
+                p.popup__desc.popup__desc--centered <a href="chat-student.html">Свяжитесь</a> с <b>Анной Ивановой</b> для уточнения всех деталей.
           if type === 'dialog-clear' || type === 'dialog-delete'
             .popup__footer
               a.popup__footer-btn.popup__footer-btn--danger.js-close-popup(href="javascript:void(0)", data-delete) Да, удалить

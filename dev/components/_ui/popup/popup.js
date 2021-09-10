@@ -59,6 +59,32 @@ const $popupForms = [{
   }
 },
 {
+  $element: document.querySelector('form[data-refuse]'),
+  callback: $element => {
+    setTimeout(() => {
+      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+      $element.submit();
+    }, 1000);
+  }
+},
+{
+  $element: document.querySelector('form[data-pay]'),
+  callback: $element => {
+    const $popup = document.querySelector('.js-popup[data-popup="application-pay"]');
+    const $successPopup = document.querySelector('.js-popup[data-popup="application-pay-success"]');
+  
+    setTimeout(() => {
+      $api.popup($popup, {
+        onHide() {
+          Array.from($popup.querySelectorAll('input')).map(el => el.value = '');
+          $api.popup($successPopup).show();
+          $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+        }
+      }).hide();
+    }, 1000);
+  }
+},
+{
   $element: document.querySelector('form[data-offer-form]'),
   callback: $element => {
     const $popup = document.querySelector('.js-popup[data-popup="offer"]');

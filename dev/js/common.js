@@ -1,5 +1,6 @@
 window.onload = () => {
 
+  @@include('./assets/utils.js')
   @@include('./assets/api.js')
 
   @@include('../components/_ui/popup/popup.js')
@@ -12,6 +13,7 @@ window.onload = () => {
   @@include('../components/_ui/tutorcard/tutorcard.js')
   @@include('../components/_ui/accordion/accordion.js')
   @@include('../components/_ui/application/application.js')
+  @@include('../components/_ui/balance/balance.js')
   
   @@include('../components/banner/banner.js')
   @@include('../components/cookies/cookies.js')

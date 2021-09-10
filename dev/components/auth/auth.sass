@@ -19,6 +19,9 @@
       .personal__specialization-item
         padding-bottom: 20px
         border-bottom: 1px solid $gray-4
+    &--info
+      padding-top: 140px
+      padding-bottom: 180px
     .personal__data
       padding-top: 30px
       &-main
@@ -42,6 +45,12 @@
     font-weight: 500
   &__desc
     font-size: 15px
+    &--centered
+      text-align: center
+    a
+      color: $blue
+      &:hover
+        color: transparentize($blue, 0.2)
   &__socials
     display: flex
     justify-content: space-between
@@ -123,6 +132,9 @@
       padding: 25px 15px
     &__content
       padding: 30px 45px 40px
+      &--info
+        padding-top: 80px
+        padding-bottom: 100px
       .personal__data
         flex-direction: column
         align-items: center
@@ -152,6 +164,9 @@
       padding: 20px 10px
     &__content
       padding: 15px 20px 25px
+      &--info
+        padding-top: 50px
+        padding-bottom: 60px
       .personal__data
         &-main
           width: 100%

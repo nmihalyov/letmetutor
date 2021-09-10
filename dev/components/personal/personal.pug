@@ -33,6 +33,23 @@ mixin personal(type, page)
                   span.personal__nav-unverified не подтвержден
                 else
                   span.personal__nav-verified подтвержден
+          if type === 'student'
+            if ['applications', 'applications-accepted', 'applications-paid', 'applications-declined'].includes(page)
+              p.personal__nav-heading Мои заявки
+              a.personal__nav-item(class=`${page === 'applications' ? 'personal__nav-item--current' : ''}`, href="lk-student-applications.html") Активные заявки <span>(1)</span>
+              a.personal__nav-item(class=`${page === 'applications-accepted' ? 'personal__nav-item--current' : ''}`, href="lk-student-applications-accepted.html") Подтвержденные заявки <span>(2)</span>
+              a.personal__nav-item(class=`${page === 'applications-paid' ? 'personal__nav-item--current' : ''}`, href="lk-student-applications-paid.html") Оплаченные заявки <span>(1)</span>
+              a.personal__nav-item(class=`${page === 'applications-declined' ? 'personal__nav-item--current' : ''}`, href="lk-student-applications-declined.html") Отклоненные заявки <span>(2)</span>
+              a.personal__nav-item.personal__nav-item--back(href="lk-student-edit.html") Личный кабинет
+            else
+              p.personal__nav-heading Личный кабинет
+              a.personal__nav-item(class=`${page === 'profile' ? 'personal__nav-item--current' : ''}`, href="lk-student-edit.html") Мой профиль
+              a.personal__nav-item(href="#") Мой баланс
+              a.personal__nav-item(href="lk-student-applications.html") Мои заявки
+              a.personal__nav-item(class=`${page === 'schedule' ? 'personal__nav-item--current' : ''}`, href="lk-student-schedule.html") Мое расписание
+              a.personal__nav-item(href="chat-student.html") Мои диалоги
+                span.personal__nav-counter 10
+              a.personal__nav-item.personal__nav-item--green(href="#") Предложения репетиторов
       main.personal__main
         if type === 'tutor' && (page === 'profile' || page === 'profile-empty')
           .personal__card
@@ -618,3 +635,65 @@ mixin personal(type, page)
               +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
               a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
             +button('secondary', 'button', 'Загрузить еще', 'personal__more')
+        if type === 'student' && page === 'applications'
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Активные заявки
+              .catalog__sort-item.dropdown.dropdown--caret.js-catalog-limit Показывать на странице:
+                p.dropdown__value 10
+                .dropdown__menu.dropdown__menu--small
+                  a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 10
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
+            .personal__card-content
+              +application('student', {person: {image: 'tutor-2.jpg', name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн'], ['Стоимость часа', '1000 ₽']]})
+        if type === 'student' && page === 'applications-accepted'
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Подтвержденные заявки
+              .catalog__sort-item.dropdown.dropdown--caret.js-catalog-limit Показывать на странице:
+                p.dropdown__value 10
+                .dropdown__menu.dropdown__menu--small
+                  a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 10
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
+            .personal__card-content
+              +application('student-accepted', {person: {image: 'tutor-2.jpg', name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн']]})
+              +application('student-accepted', {person: {image: 'tutor-2.jpg', name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн']]})
+        if type === 'student' && page === 'applications-paid'
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Оплаченные заявки
+              .catalog__sort-item.dropdown.dropdown--caret.js-catalog-limit Показывать на странице:
+                p.dropdown__value 10
+                .dropdown__menu.dropdown__menu--small
+                  a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 10
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+            .personal__card-content
+              +application-past('student', {person: {name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн']]})
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+        if type === 'student' && page === 'applications-declined'
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Отклоненные заявки
+              .catalog__sort-item.dropdown.dropdown--caret.js-catalog-limit Показывать на странице:
+                p.dropdown__value 10
+                .dropdown__menu.dropdown__menu--small
+                  a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 10
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20
+                  a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+            .personal__card-content
+              +application-past('student-declined', {person: {name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн']]})
+              +application-past('student-reject', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']]})
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные

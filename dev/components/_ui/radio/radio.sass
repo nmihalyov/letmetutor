@@ -41,3 +41,21 @@
       transition: opacity .3s ease
   &__text
     font-size: 15px
+    &[data-icon]
+      position: relative
+      padding-left: 40px
+      &:before
+        position: absolute
+        content: ''
+        top: -3px
+        left: 0
+        width: 24px
+        height: 24px
+        background:
+          size: contain
+          position: center
+          repeat: no-repeat
+    &[data-icon="card"]:before
+      background-image: url('../img/icons/card.svg')
+    &[data-icon="yoomoney"]:before
+      background-image: url('../img/icons/yoomoney.svg')

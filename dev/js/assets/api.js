@@ -52,6 +52,7 @@ $api.popup = ($popup, { onHide, onShow } = {}) => {
 
 // API для валидации форм
 $api.validate = (form, request) => {
+  let $firstInvalidField = null;
   const emailRegexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const setInvalidInput = input => {
     if (input.closest('.input')) {
@@ -59,9 +60,11 @@ $api.validate = (form, request) => {
     } else if (input.closest('.textarea')) {
       input.closest('.textarea').classList.add('textarea--error');
     }
+    $firstInvalidField = input;
     input.focus();
   };
   const setInvalidCheckbox = input => {
+    $firstInvalidField = input;
     input.closest('.checkbox').classList.add('checkbox--error');
   };
 
@@ -73,6 +76,8 @@ $api.validate = (form, request) => {
     const $checkboxSelect = form.querySelectorAll('.checkboxselect');
 
     $formInputs.reverse().map(el => {
+      $firstInvalidField = null;
+
       if (el.dataset.passRepeat && el.value !== el.closest('form').querySelector('input[data-pass]').value) {
         setInvalidInput(el);
       }
@@ -131,6 +136,8 @@ $api.validate = (form, request) => {
     if (formIsValid) {
       e.currentTarget.classList.add('button--loading');
       request();
+    } else {
+      scrollTo(0, $firstInvalidField.closest('.input').getBoundingClientRect().y + pageYOffset - document.querySelector('.header').offsetHeight - 10);
     }
   });
 

@@ -7,6 +7,7 @@ include ../_ui/radio/radio
 include ../_ui/checkboxselect/checkboxselect
 include ../_ui/textarea/textarea
 include ../_ui/message/message
+include ../_ui/balance/balance
 
 mixin auth(type)
   if type === 'signup-student'
@@ -27,6 +28,10 @@ mixin auth(type)
             +heading('Тех. поддержка', 'auth__heading')
           if type === 'signup-student' || type === 'signup-tutor'
             +heading('Завершение регистрации', 'auth__heading')
+          if type === 'replenishment'
+            +heading('Пополнение баланса', 'auth__heading')
+          if type === 'replenishment-success'
+            +heading('Операция завершена', 'auth__heading')
         if type === 'login'
           form.auth__content(data-login-form)
             p.auth__subheading Войти с помощью:
@@ -171,3 +176,10 @@ mixin auth(type)
                   +checkbox('Оффлайн', 'offline', 'personal__specialization-checkbox')
             .auth__actions
               +button('primary', 'submit', 'Завершить регистрацию', 'auth__actions-btn auth__actions-btn--full')
+        if type === 'replenishment'
+          .auth__content
+            p.auth__desc На вашем счету недостаточно средств, вам не хватает <a href="#">500 ₽</a> для оплаты занятия.
+            +balance({sum: 500, methods: ['card', 'yoomoney'], button: 'Пополнить и оплатить', form: 'data-balance-replensih'})
+        if type === 'replenishment-success'
+          .auth__content.auth__content--info
+            p.auth__desc.auth__desc--centered <b>Поздравляем</b>, оплата занятия у <b>Анны Ивановой</b> прошла успешно.<br><br><a href="chat-student.html">Свяжитесь</a> с ней для уточнения всех деталей.
