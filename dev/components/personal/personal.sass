@@ -258,6 +258,10 @@
     &-grid
       margin-bottom: 20px
       border-bottom: 1px solid $gray-4
+      &--up
+        margin-top: 25px
+        margin-bottom: 0
+        border-bottom: none
     &-item
       margin-bottom: 20px
     &-row
@@ -265,6 +269,9 @@
       justify-content: space-between
       .input
         width: 280px
+      &--big
+        .input
+          width: 355px
     &-exp
       width: 140px
       &-label
@@ -294,6 +301,9 @@
       a
         color: $blue
         border-bottom: 0
+  &__global
+    padding: 20px 0
+    border-top: 1px solid $gray-4
   &__experience
     &-item
       margin-bottom: 20px
@@ -502,8 +512,11 @@
     &__data
       &-main
         width: 470px
-    &__specialization-row .input
-      width: 260px
+    &__specialization-row
+      .input
+        width: 260px
+      &--big .input
+        width: 335px
     &__experience-row .input
       width: 335px
     &__schedule-times-item
