@@ -40,8 +40,10 @@ mixin popup(type, id = type, mod)
               +heading('Оплата занятия у Анны Ивановой', 'popup__heading')
             if type === 'application-refuse'
               +heading('Отказаться от обучения с Анной Ивановой?', 'popup__heading')
-            if type === 'application-pay-success'
+            if (type === 'application-pay-success'|| type === 'service-pay-success')
               +heading('Оплата успешно завершена!', 'popup__heading')
+            if type === 'service-pay'
+              +heading('Оплата услуги «<span class="popup__heading-service">ТОП репетиторов на главной</span>»', 'popup__heading')
             .popup__close.js-close-popup
           .popup__content
             if type === 'restore'
@@ -161,6 +163,20 @@ mixin popup(type, id = type, mod)
               form.popup__paysuccess
                 p.popup__desc.popup__desc--centered <b>Поздравляем,</b> ваш текущий баланс - <a href="#">500 ₽</a>
                 p.popup__desc.popup__desc--centered <a href="chat-student.html">Свяжитесь</a> с <b>Анной Ивановой</b> для уточнения всех деталей.
+            if type === 'service-pay'
+              form.popup__pay(data-service-pay)
+                div(style="margin-bottom: 15px;")
+                  p.popup__desc <b>Со счета вашего баланса (<a href="#">1 099 ₽</a>) будет списано <a href="#"><span data-service-cost>1 099 ₽</span></a>.*</b>
+                div(style="margin-bottom: 15px;")
+                  p.popup__desc <b>Данное действие нельзя будет отменить.</b>
+                .popup__actions
+                  +button('primary', 'submit', 'Да, оплатить')
+                  +button('secondary', 'plug', 'Отмена', 'js-close-popup')
+                p.popup__footnote * - Ваша усулуга будет активирована 31.08.2021
+            if type === 'service-pay-success'
+              form.popup__paysuccess
+                p.popup__desc.popup__desc--centered <b>Поздравляем,</b> ваш текущий баланс - <a href="#">500 ₽</a>
+                p.popup__desc.popup__desc--centered Ваша услуга будет активирована <a href="chat-student.html">31.08.2021</a>
           if type === 'dialog-clear' || type === 'dialog-delete'
             .popup__footer
               a.popup__footer-btn.popup__footer-btn--danger.js-close-popup(href="javascript:void(0)", data-delete) Да, удалить

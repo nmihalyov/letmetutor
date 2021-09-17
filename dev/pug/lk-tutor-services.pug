@@ -1,0 +1,21 @@
+include ../components/cookies/cookies
+include ../components/header/header
+include ../components/personal/personal
+include ../components/footer/footer
+include ../components/_ui/popup/popup
+
+doctype
+html(lang="ru", prefix="og: http://ogp.me/ns#")
+  head
+    title Личный кабинет | LetMeTutor
+    include assets/_metas
+    include assets/_links
+    include assets/_scripts
+  body
+    .page-wrapper
+      +header(true)
+      +personal('tutor', 'services')
+      +footer(true)
+      +cookies
+    +popup('service-pay')
+    +popup('service-pay-success')

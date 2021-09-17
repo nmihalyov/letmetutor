@@ -222,3 +222,42 @@ if (document.querySelector('.personal__schedule')) {
     document.querySelector(`[data-schedule-detail="${currentScheduleId + 1}"]`).style.display = 'block';
   }));
 }
+
+const setSelectedServiceTerm = () => {
+  const $checkedRadio = document.querySelector('.personal__services-terms--active input:checked');
+
+  if ($checkedRadio) {
+    const term = $checkedRadio.parentElement.querySelector('.radio__text').innerHTML.split('<span>')[0].trim();
+    const cost = $checkedRadio.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' &#8381;';
+  
+    document.querySelector('.personal__services-selected span[data-selected="term"]').innerText = term;
+    document.querySelector('.personal__services-topay span').innerHTML = cost;
+
+    document.querySelector('.personal__services-footer').classList.remove('personal__services-footer--hidden');
+    if (document.querySelector('span[data-service-cost]')) {
+      document.querySelector('span[data-service-cost]').innerHTML = cost;
+    }
+  } else {
+    document.querySelector('.personal__services-footer').classList.add('personal__services-footer--hidden');
+  }
+};
+
+// handle service toggler
+document.querySelectorAll('.personal__services-label input').forEach(el => el.addEventListener('change', () => {
+  const value = el.value;
+  const title = el.parentElement.querySelector('.personal__services-heading').innerText;
+
+  document.querySelector('.personal__services-terms--active').classList.remove('personal__services-terms--active');
+  document.querySelector(`.personal__services-terms[data-terms="${value}"]`).classList.add('personal__services-terms--active');
+
+  document.querySelector('.personal__services-selected span[data-selected="service"]').innerHTML = '&laquo;' + title + '&raquo;';
+
+  if (document.querySelector('.popup__heading-service')) {
+    document.querySelector('.popup__heading-service').innerText = title;
+  }
+
+  setSelectedServiceTerm();
+}));
+
+// handle service term toggler
+document.querySelectorAll('.personal__services-radio input').forEach(el => el.addEventListener('change', setSelectedServiceTerm));

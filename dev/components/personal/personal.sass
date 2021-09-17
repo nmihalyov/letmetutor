@@ -28,7 +28,7 @@
         border-bottom: 1px dashed $gray-4
       &--current
         pointer-events: none
-        color: $blue
+        color: $blue !important
       &--green
         color: $green
         &:hover
@@ -75,6 +75,7 @@
       font-size: 11px
     &-unverified,
     &-verified
+      flex-shrink: 0
       margin-left: 5px
       padding: 0 5px 1px
       border-radius: 3px
@@ -499,6 +500,134 @@
         color: transparentize($red, 0.2)
   &__more
     width: 100%
+  &__services
+    &-grid
+      display: flex
+      justify-content: space-between
+      align-items: stretch
+      margin-bottom: 40px
+    &-label
+      width: 355px
+      input
+        position: absolute
+        opacity: 0
+        visibility: hidden
+        width: 0
+        height: 0
+        margin: 0
+        &:checked ~ .personal__services-item
+          pointer-events: none
+          border: 1px solid $blue
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.04)
+    &-item
+      display: flex
+      flex-direction: column
+      height: 100%
+      padding: 25px 20px 40px
+      border-radius: 5px
+      border: 1px dashed #D7D7D7
+      cursor: pointer
+      transition: all .3s ease
+      &--hit
+        overflow: hidden
+        position: relative
+        border-top-left-radius: 0
+        &:before
+          content: 'ХИТ'
+          position: absolute
+          top: -43px
+          left: -43px
+          display: flex
+          justify-content: center
+          align-items: flex-end
+          width: 85px
+          height: 85px
+          padding-bottom: 5px
+          background-color: $blue
+          color: #fff
+          transform: rotate(-45deg)
+          font:
+            size: 13px
+            weight: 700
+    &-heading
+      margin-bottom: 15px
+      padding-bottom: 20px
+      border-bottom: 1px solid $gray-4
+      text-align: center
+      font-weight: 500
+    &-desc
+      margin-bottom: 25px
+      color: $gray-5
+      text-align: center
+      font-size: 15px
+    &-price
+      width: 180px
+      margin: auto auto 0
+      padding: 7px 0 10px
+      border: 2px solid $blue
+      border-radius: 50px
+      text-align: center
+      color: $blue
+      font:
+        size: 24px
+        weight: 500
+      span
+        font-size: 15px
+    &-subheading
+      margin-bottom: 15px
+      font:
+        size: 15px
+        weight: 500
+    &-terms
+      display: none
+      &--active
+        display: block
+    &-radio
+      margin-bottom: 15px
+      span
+        color: $gray
+        font-size: 13px
+    &-footer
+      margin-top: 30px
+      padding-top: 25px
+      border-top: 1px solid $gray-4
+      &--hidden
+        display: none
+    &-selected
+      margin-bottom: 30px
+      font-size: 15px
+      span
+        color: $blue
+        font-weight: 500
+    &-notice
+      margin-bottom: 20px
+      padding: 15px 20px
+      border: 1px solid $gray-4
+      background-color: $gray-2
+      border-radius: 5px
+      color: $gray-5
+      font-size: 14px
+    &-warn
+      padding: 15px 20px
+      border: 1px solid #F5C6CB
+      background-color: #F8D7DA
+      border-radius: 5px
+      color: #721C24
+      font-size: 14px
+    &-actions
+      display: flex
+      align-items: center
+      .button
+        margin-left: 15px
+    &-topay
+      font:
+        size: 15px
+        weight: 500
+      span
+        color: $blue
+        font:
+          size: 24px
+          weight: 300
 
 @media only screen and (max-width: $tablet)
   .personal
@@ -523,6 +652,8 @@
       width: 101px
       &:nth-child(7n)
         width: 81px
+    &__services-label
+      width: calc(50% - 10px)
 
 @media only screen and (max-width: $mobile)
   .personal
@@ -646,3 +777,55 @@
       &-remove
         margin-top: 5px
         font-size: 12px
+    &__services
+      &-grid
+        display: block
+        margin-bottom: 30px
+      &-label
+        display: block
+        width: 100%
+        margin: 0 0 20px
+      &-item
+        padding: 20px 20px 30px
+        &--hit
+          &:before
+            top: -30px
+            left: -30px
+            width: 60px
+            height: 60px
+            padding-bottom: 2px
+            color: #fff
+            font-size: 12px
+      &-heading
+        margin-bottom: 10px
+        padding-bottom: 15px
+      &-desc
+        margin-bottom: 20px
+        font-size: 14px
+      &-price
+        width: 150px
+        font-size: 20px
+        span
+          font-size: 13px
+      &-subheading
+        font-size: 14px
+      &-footer
+        margin-top: 25px
+        padding-top: 20px
+      &-selected
+        margin-bottom: 20px
+        font-size: 13px
+      &-warn,
+      &-notice
+        padding: 10px 15px
+        font-size: 13px
+      &-actions
+        .button
+          max-width: 170px
+          margin-left: auto
+      &-topay
+        flex-shrink: 0
+        font-size: 14px
+        span
+          display: block
+          font-size: 22px

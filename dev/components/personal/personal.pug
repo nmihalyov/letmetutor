@@ -27,7 +27,7 @@ mixin personal(type, page)
               a.personal__nav-item(class=`${page === 'schedule' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-schedule.html") Мое расписание
               a.personal__nav-item(href="chat-tutor.html") Мои диалоги
                 span.personal__nav-counter 10
-              a.personal__nav-item.personal__nav-item--green(href="#") Платные услуги
+              a.personal__nav-item.personal__nav-item--green(class=`${page === 'services' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-services.html") Платные услуги
               a.personal__nav-item.personal__nav-item--bold(href="#") Верификация аккаунта
                 if page === 'profile-empty'
                   span.personal__nav-unverified не подтвержден
@@ -658,6 +658,47 @@ mixin personal(type, page)
               +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
               a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
             +button('secondary', 'button', 'Загрузить еще', 'personal__more')
+        if type === 'tutor' && (page === 'services' || page === 'services-rated')
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Платные услуги
+            .personal__card-content
+              form.personal__services(action="", data-service-form) 
+                .personal__services-grid
+                  label.personal__services-label
+                    input(type="radio", name="service", value="top", checked)
+                    .personal__services-item.personal__services-item--hit
+                      p.personal__services-heading Топ репетиторов на главной
+                      p.personal__services-desc Привлеките максимальное количество учеников к вашему профилю!
+                      p.personal__services-price <span>от</span> 1 099 &#8381;
+                  label.personal__services-label
+                    input(type="radio", name="service", value="priority")
+                    .personal__services-item
+                      p.personal__services-heading Приоритет в поиске
+                      p.personal__services-desc Привлеките максимальное количество учеников к вашему профилю!
+                      p.personal__services-price <span>от</span> 999 &#8381;
+                .personal__services-terms.personal__services-terms--active(data-terms="top")
+                  if page === 'services-rated'
+                    p.personal__services-warn <b>Ваш рейтинг ниже 4 баллов!</b><br><br>Репетиторам, чей рейтинг ниже 4 баллов <b>недоступна</b> данная услуга.<br>Чтобы воспользоваться данной услугой, вам необходимо поднять рейтинг, для ускорения ускорения данного процесса, вы можете приобрести услугу <b>«Приоритет в поиске»</b>
+                  else
+                    p.personal__services-subheading Выберите период размещения:
+                    +radio('1 неделя <span>(стоимость 1 099 &#8381;)</span>', 'topTerm', '1099', 'personal__services-radio', true, true)
+                    +radio('2 недели <span>(стоимость 2 099 &#8381;)</span>', 'topTerm', '2099', 'personal__services-radio', true)
+                    +radio('4 недели <span>(стоимость 4 099 &#8381;)</span>', 'topTerm', '4099', 'personal__services-radio', true)
+                .personal__services-terms(data-terms="priority")
+                  p.personal__services-subheading Выберите период размещения:
+                  +radio('1 неделя <span>(стоимость 999 &#8381;)</span>', 'priorityTerm', '999', 'personal__services-radio', true, true)
+                  +radio('2 недели <span>(стоимость 1 099 &#8381;)</span>', 'priorityTerm', '1099', 'personal__services-radio', true)
+                  +radio('4 недели <span>(стоимость 2 099 &#8381;)</span>', 'priorityTerm', '2099', 'personal__services-radio', true)
+                .personal__services-footer(class=`${page === 'services-rated' ? 'personal__services-footer--hidden' : ''}`)
+                  p.personal__services-selected Выбрана услуга <span data-selected="service">&laquo;Топ репетиторов на главной&raquo;</span> сроком <span data-selected="term">1 неделя</span>
+                  p.personal__services-notice <b>Обращаем ваше внимание</b>, что все места распроданы до <b>31.08.2021</b>.<br>Ваш заказ будет автоматически активирован сразу по наступлению данной даты.
+                  .personal__services-actions
+                    p.personal__services-topay К оплате: <span>1 099 &#8381;</span>
+                    if page === 'services-rated'
+                      +button('primary', 'link', 'Оплатить услугу', 'personal__card-submit', {link: 'replenishment.html'})
+                    else
+                      +button('primary', 'popup', 'Оплатить услугу', 'personal__card-submit', {popup: 'service-pay'})
         if type === 'student' && page === 'applications'
           .personal__card
             .personal__card-heading
