@@ -628,6 +628,103 @@
         font:
           size: 24px
           weight: 300
+  &__verify
+    &-grid
+      display: flex
+      align-items: start
+      margin-bottom: 30px
+    &-anonymous
+      width: 355px
+      margin-top: 20px
+      padding: 25px 0 20px 20px
+      border-radius: 5px 0 0 5px
+      border: 1px dashed #D7D7D7
+      border-right: none
+      &-item
+        position: relative
+        display: block
+        padding-left: 15px
+        color: $gray-5
+        font-size: 15px
+        &:before
+          content: ''
+          position: absolute
+          top: 7px
+          left: 0
+          width: 5px
+          height: 5px
+          border-radius: 50%
+          background-color: #C4C4C4
+        &:not(:last-child)
+          margin-bottom: 10px
+    &-verified
+      width: 375px
+      padding: 45px 20px 40px 20px
+      border-radius: 5px
+      background-color: $blue
+      color: #fff
+      .personal__verify-title
+        border-bottom-color: transparentize($gray-4, .8)
+      &-item
+        position: relative
+        display: block
+        padding-left: 22px
+        font-size: 15px
+        &:before
+          content: ''
+          position: absolute
+          top: 4px
+          left: 0
+          width: 12px
+          height: 12px
+          border-radius: 50%
+          background:
+            image: url('../img/icons/check.svg')
+            size: contain
+            position: center
+            repeat: no-repeat
+        &:not(:last-child)
+          margin-bottom: 10px
+    &-title
+      margin-bottom: 20px
+      padding-bottom: 20px
+      border-bottom: 1px solid $gray-4
+      font-weight: 500
+    &-arrow
+      width: 50px
+      height: 50px
+      margin: 0 auto
+      background:
+        image: url('../img/icons/verify-btn.svg')
+        size: contain
+        position: center
+        repeat: no-repeat
+  &__verification
+    &-heading
+      margin-bottom: 30px
+      padding-top: 20px
+      text-align: center
+      font:
+        size: 18px
+        weight: 700
+    &-item
+      margin-bottom: 45px
+    &-image
+      display: block
+      margin: 0 auto 20px
+    &-title
+      margin-bottom: 10px
+      text-align: center
+      font-size: 18px
+    &-desc
+      max-width: 600px
+      margin: 0 auto
+      color: $gray-5
+      text-align: center
+      font-size: 15px
+    &-btn
+      display: flex
+      justify-content: center
 
 @media only screen and (max-width: $tablet)
   .personal
@@ -829,3 +926,38 @@
         span
           display: block
           font-size: 22px
+    &__verify
+      &-grid
+        flex-direction: column
+        margin-bottom: 25px
+      &-anonymous
+        width: 100%
+        margin-top: 0
+        padding: 25px 20px
+        border-radius: 5px 5px 0 0
+        border-right: 1px dashed #D7D7D7
+        border-bottom: none
+        &-item
+          font-size: 14px
+      &-verified
+        width: 100%
+        padding: 20px
+        border-radius: 0 0 5px 5px
+        &-item
+          font-size: 14px
+      &-title
+        margin-bottom: 15px
+        padding-bottom: 15px
+      &-arrow
+        width: 40px
+        height: 40px
+    &__verification
+      &-item
+        margin-bottom: 30px
+      &-image
+        max-height: 150px
+        width: 100%
+      &-title
+        font-size: 16px
+      &-description
+        font-size: 14px

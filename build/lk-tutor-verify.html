@@ -124,63 +124,58 @@
         <div class="personal__wrapper wrapper">
           <aside class="personal__aside">
             <nav class="personal__nav">
-              <p class="personal__nav-heading">Личный кабинет</p><a class="personal__nav-item" href="lk-tutor-edit.html">Мой профиль</a><a class="personal__nav-item" href="#">Мой баланс</a><a class="personal__nav-item" href="lk-tutor-applications.html">Мои заявки</a><a class="personal__nav-item" href="lk-tutor-schedule.html">Мое расписание</a><a class="personal__nav-item" href="chat-tutor.html">Мои диалоги<span class="personal__nav-counter">10</span></a><a class="personal__nav-item personal__nav-item--green" href="lk-tutor-services.html">Платные услуги</a><a class="personal__nav-item personal__nav-item--bold" href="lk-tutor-verify.html">Верификация аккаунта<span class="personal__nav-verified">подтвержден</span></a>
+              <p class="personal__nav-heading">Личный кабинет</p><a class="personal__nav-item" href="lk-tutor-edit.html">Мой профиль</a><a class="personal__nav-item" href="#">Мой баланс</a><a class="personal__nav-item" href="lk-tutor-applications.html">Мои заявки</a><a class="personal__nav-item" href="lk-tutor-schedule.html">Мое расписание</a><a class="personal__nav-item" href="chat-tutor.html">Мои диалоги<span class="personal__nav-counter">10</span></a><a class="personal__nav-item personal__nav-item--green" href="lk-tutor-services.html">Платные услуги</a><a class="personal__nav-item personal__nav-item--bold personal__nav-item--current" href="lk-tutor-verify.html">Верификация аккаунта<span class="personal__nav-unverified">не подтвержден</span></a>
             </nav>
           </aside>
           <main class="personal__main">
             <div class="personal__card">
               <div class="personal__card-heading">
-                <p class="personal__card-title">Платные услуги</p>
+                <p class="personal__card-title">Верификация аккаунта</p>
               </div>
               <div class="personal__card-content">
-                <form class="personal__services" action="" data-service-form="data-service-form"> 
-                  <div class="personal__services-grid">
-                    <label class="personal__services-label">
-                      <input type="radio" name="service" value="top" checked="checked"/>
-                      <div class="personal__services-item personal__services-item--hit">
-                        <p class="personal__services-heading">Топ репетиторов на главной</p>
-                        <p class="personal__services-desc">Привлеките максимальное количество учеников к вашему профилю!</p>
-                        <p class="personal__services-price"><span>от</span> 1 099 &#8381;</p>
-                      </div>
-                    </label>
-                    <label class="personal__services-label">
-                      <input type="radio" name="service" value="priority"/>
-                      <div class="personal__services-item">
-                        <p class="personal__services-heading">Приоритет в поиске</p>
-                        <p class="personal__services-desc">Привлеките максимальное количество учеников к вашему профилю!</p>
-                        <p class="personal__services-price"><span>от</span> 999 &#8381;</p>
-                      </div>
-                    </label>
-                  </div>
-                  <div class="personal__services-terms personal__services-terms--active" data-terms="top">
-                    <p class="personal__services-warn"><b>Ваш рейтинг ниже 4 баллов!</b><br><br>Репетиторам, чей рейтинг ниже 4 баллов <b>недоступна</b> данная услуга.<br>Чтобы воспользоваться данной услугой, вам необходимо поднять рейтинг, для ускорения ускорения данного процесса, вы можете приобрести услугу <b>«Приоритет в поиске»</b></p>
-                  </div>
-                  <div class="personal__services-terms" data-terms="priority">
-                    <p class="personal__services-subheading">Выберите период размещения:</p>
-                    <label class="radio personal__services-radio">
-                      <input class="radio__input" type="radio" name="priorityTerm" value="999" required="required" checked="checked"/>
-                      <div class="radio__box"></div>
-                      <p class="radio__text">1 неделя <span>(стоимость 999 &#8381;)</span></p>
-                    </label>
-                    <label class="radio personal__services-radio">
-                      <input class="radio__input" type="radio" name="priorityTerm" value="1099" required="required"/>
-                      <div class="radio__box"></div>
-                      <p class="radio__text">2 недели <span>(стоимость 1 099 &#8381;)</span></p>
-                    </label>
-                    <label class="radio personal__services-radio">
-                      <input class="radio__input" type="radio" name="priorityTerm" value="2099" required="required"/>
-                      <div class="radio__box"></div>
-                      <p class="radio__text">4 недели <span>(стоимость 2 099 &#8381;)</span></p>
-                    </label>
-                  </div>
-                  <div class="personal__services-footer personal__services-footer--hidden">
-                    <p class="personal__services-selected">Выбрана услуга <span data-selected="service">&laquo;Топ репетиторов на главной&raquo;</span> сроком <span data-selected="term">1 неделя</span></p>
-                    <p class="personal__services-notice"><b>Обращаем ваше внимание</b>, что все места распроданы до <b>31.08.2021</b>.<br>Ваш заказ будет автоматически активирован сразу по наступлению данной даты.</p>
-                    <div class="personal__services-actions">
-                      <p class="personal__services-topay">К оплате: <span>1 099 &#8381;</span></p><a class="button button--primary personal__card-submit" href="replenishment.html">Оплатить услугу</a>
+                <div class="personal__verify">
+                  <div class="personal__verify-grid">
+                    <div class="personal__verify-anonymous">
+                      <p class="personal__verify-title">Анонимный аккаунт</p>
+                      <ul class="personal__verify-anonymous-list">
+                        <li class="personal__verify-anonymous-item">Вывод средств 7 дней</li>
+                        <li class="personal__verify-anonymous-item">Без приоритета в поиске</li>
+                        <li class="personal__verify-anonymous-item">Отсутствие доверия у учеников</li>
+                        <li class="personal__verify-anonymous-item">Без скидок на платные услуги</li>
+                      </ul>
+                    </div>
+                    <div class="personal__verify-verified">
+                      <p class="personal__verify-title">Верифицированный аккаунт</p>
+                      <ul class="personal__verify-verified-list">
+                        <li class="personal__verify-verified-item">Моментальный вывод средств</li>
+                        <li class="personal__verify-verified-item">Приоритет в поиске</li>
+                        <li class="personal__verify-verified-item">Повышенное доверие у учеников</li>
+                        <li class="personal__verify-verified-item">Скидка на услугу ТОП репетиторов</li>
+                      </ul>
                     </div>
                   </div>
-                </form>
+                  <div class="personal__verify-arrow"></div>
+                </div>
+              </div>
+            </div>
+            <div class="personal__card">
+              <div class="personal__verification">
+                <p class="personal__verification-heading">3 простых шага для верификации</p>
+                <div class="personal__verification-item"><img class="personal__verification-image" src="img/inhtml/verification-1.svg" alt=""/>
+                  <p class="personal__verification-title">1. Собеседование по скайпу</p>
+                  <p class="personal__verification-desc">После рассмотрения вашей заявки, мы связываемся с вами для утверждения конкретного времени для звонка.</p>
+                </div>
+                <div class="personal__verification-item"><img class="personal__verification-image" src="img/inhtml/verification-2.svg" alt=""/>
+                  <p class="personal__verification-title">2. Подтверждение документов</p>
+                  <p class="personal__verification-desc">Вы показываете рядом с собой разворот паспорта/ВУ с фотографией, так, чтобы вас было отчетливо видно.</p>
+                </div>
+                <div class="personal__verification-item"><img class="personal__verification-image" src="img/inhtml/verification-3.svg" alt=""/>
+                  <p class="personal__verification-title">3. Подтверждение сертификатов и дипломов</p>
+                  <p class="personal__verification-desc">Вы демонстрируете на камеру ваш диплом или различные сертификаты так, чтобы можно было прочитать на них текст и высылаете нам сканы документов.</p>
+                </div>
+                <p class="personal__services-notice"><b>Обращаем ваше внимание</b>, что ваша заявка будет рассмотрена в течение <b>5 рабочих дней</b>.<br>С вами свяжется представитель нашего сервиса через сайт, чтобы договориться о дате и времени видеозвонка.</p>
+                <div class="personal__verification-btn"><a class="button button--primary " href="#">Отправить заявку</a>
+                </div>
               </div>
             </div>
           </main>
