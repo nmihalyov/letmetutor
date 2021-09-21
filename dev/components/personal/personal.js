@@ -261,3 +261,11 @@ document.querySelectorAll('.personal__services-label input').forEach(el => el.ad
 
 // handle service term toggler
 document.querySelectorAll('.personal__services-radio input').forEach(el => el.addEventListener('change', setSelectedServiceTerm));
+
+// scroll to verification
+document.querySelector('.personal__verify-arrow').addEventListener('click', () => {
+  scrollTo({
+    top: document.querySelector('.personal__verification-btn').getBoundingClientRect().top + window.pageYOffset - document.querySelector('.header').offsetHeight - 20,
+    behavior: 'smooth'
+  });
+});
