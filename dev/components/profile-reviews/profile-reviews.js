@@ -4,13 +4,13 @@ if ($reviewsMoreBtn) {
   // reviews pages state
   const reviewsPages = {
     current: 1,
-    total: 3
+    total: parseInt(document.querySelector('meta[name="reviews-total"]').content)
   };
   // generate review element
   const reviewElement = ({ image, name, date, rating, feedback, tag }) => `
     <div class="profile-reviews__feedback">
       ${image ?
-        `<div class="profile-reviews__feedback-image" style="background-image: url('img/inhtml/${image}')"></div>` :
+        `<div class="profile-reviews__feedback-image" style="background-image: url('${image}')"></div>` :
         '<div class="profile-reviews__feedback-image"></div>'
       }
       <div class="profile-reviews__feedback-info">
@@ -41,8 +41,10 @@ if ($reviewsMoreBtn) {
     ++reviewsPages.current;
     
     // load reviews
-    fetch(`${url}?page=${reviewsPages.current}`).then(res => res.json()).then(data => {
-      data.map(review => {
+    fetch(`${url}?page=${reviewsPages.current}`)
+    .then(res => res.json())
+    .then(data => {
+      data.data.map(review => {
         document.querySelector('.profile-reviews__feedbacks').insertAdjacentHTML('beforeend', reviewElement(review));
 
         if (reviewsPages.current === reviewsPages.total) {

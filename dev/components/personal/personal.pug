@@ -6,6 +6,7 @@ include ../_ui/button/button
 include ../_ui/application/application
 
 -const times = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+-const exps = ['2 года', '3 года', '4 года', '5 лет', '6 лет', '7 лет', '8 лет', '9 лет', '10 лет', '11 лет', '12 лет', '13 лет', '14 лет', '15 лет', '16 лет', '17 лет', '18 лет', '19 лет', '20 лет', 'Больше 20 лет']
 
 mixin personal(type, page)
   section.personal.container
@@ -124,72 +125,35 @@ mixin personal(type, page)
               .personal__card-heading
                 p.personal__card-title Специализация
               .personal__card-content
-                form.personal__specialization(action="", data-personal-experience)
+                form.personal__specialization(action="", data-personal-specialization)
                   .personal__specialization-grid
                     .personal__specialization-item
                       .personal__specialization-row
-                        +input('text', 'Специализация <span>*</span>', 'specialization', 'Выберите предмет', 'auth__input', {required: true, error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
-                        +input('text', 'Цена за час <span>*</span>', 'price', 'Введите цену', 'auth__input', {required: true, error: 'Введите цену'})
+                        +input('text', 'Специализация <span>*</span>', 'specialization[]', 'Выберите предмет', 'auth__input', {required: true, error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                        +input('text', 'Цена за час <span>*</span>', 'price[]', 'Введите цену', 'auth__input', {required: true, error: 'Введите цену'})
                         .personal__specialization-exp
                           p.personal__specialization-exp-label Опыт работы <span>*</span>
                           .profile-schedule__time.dropdown.dropdown--caret
-                            input(name="experience", value="1 год", type="hidden")
+                            input(name="experience[]", value="1 год", type="hidden")
                             p.profile-schedule__time-value.dropdown__value 1 год
                             .profile-schedule__time-menu.dropdown__menu
                               a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 1 год
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 2 года
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 3 года
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 4 года
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 5 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 6 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 7 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 8 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 9 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 11 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 13 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 15 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 16 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 17 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 18 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 19 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Больше 20 лет
-                      +radio('Основная специализация', 'mainSpecialization', '', 'personal__specialization-radio', true, true)
-                    .personal__specialization-item.js-copy-item
+                              -for (let i = 0; i < exps.length; i++)
+                                a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= exps[i]
+                    .personal__specialization-item.js-copy-item(style="display: none;")
                       .personal__specialization-row
-                        +input('text', 'Специализация', 'specialization', 'Выберите предмет', 'auth__input', {dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
-                        +input('text', 'Цена за час', 'price', 'Введите цену', 'auth__input')
+                        +input('text', 'Специализация <span>*</span>', 'specialization[]', 'Выберите предмет', 'auth__input', {error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                        +input('text', 'Цена за час <span>*</span>', 'price[]', 'Введите цену', 'auth__input', {error: 'Введите цену'})
                         .personal__specialization-exp
-                          p.personal__specialization-exp-label Опыт работы
+                          p.personal__specialization-exp-label Опыт работы <span>*</span>
                           .profile-schedule__time.dropdown.dropdown--caret
-                            input(name="experience", value="1 год", type="hidden")
+                            input(name="experience[]", value="1 год", type="hidden")
                             p.profile-schedule__time-value.dropdown__value 1 год
                             .profile-schedule__time-menu.dropdown__menu
                               a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 1 год
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 2 года
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 3 года
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 4 года
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 5 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 6 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 7 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 8 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 9 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 10 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 11 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 12 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 13 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 14 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 15 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 16 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 17 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 18 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 19 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 20 лет
-                              a.dropdown__menu-item(href="javascript:void(0)", data-toggle) Больше 20 лет
-                      +radio('Основная специализация', 'mainSpecialization', '', 'personal__specialization-radio', true, false)
+                              -for (let i = 0; i < exps.length; i++)
+                                a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= exps[i]
+                      a.personal__remove.js-personal-remove(href="javascript:void(0)") Удалить специализацию
                   a.personal__add.js-personal-add(href="javascript:void(0)") Добавить еще специализацию
                   .personal__specialization-type
                     p.personal__specialization-label Тип проводимых занятий <span>*</span>
@@ -204,7 +168,7 @@ mixin personal(type, page)
                 p.personal__card-desc Вы можете указать ваше место работы, должность и период (необязательно для заполнения).
                 form.personal__experience(action="", data-personal-experience)
                   .personal__experience-grid
-                    .personal__experience-item.js-copy-item
+                    .personal__experience-item
                       .personal__experience-row
                         +input('text', 'Место работы', 'workplace', 'Название компании', 'auth__input')
                         +input('text', 'Кем вы работали', 'position', 'Ваша должность', 'auth__input')
@@ -227,6 +191,31 @@ mixin personal(type, page)
                               a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 2000
                               -for (let i = 2001; i <= 2021; i++)
                                 a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= i
+                      a.personal__remove.js-personal-remove(href="javascript:void(0)") Удалить место работы
+                    .personal__experience-item.js-copy-item(style="display:none;")
+                      .personal__experience-row
+                        +input('text', 'Место работы', 'workplace', 'Название компании', 'auth__input')
+                        +input('text', 'Кем вы работали', 'position', 'Ваша должность', 'auth__input')
+                      .personal__experience-row
+                        +input('text', '', 'specialization', 'Выберите специализацию', 'auth__input', {dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                        .personal__experience-years
+                          span С
+                          .profile-schedule__time.dropdown.dropdown--caret
+                            input(name="workFrom", value="2000", type="hidden")
+                            p.profile-schedule__time-value.dropdown__value 2000
+                            .profile-schedule__time-menu.dropdown__menu
+                              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 2000
+                              -for (let i = 2001; i <= 2021; i++)
+                                a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= i
+                          span по
+                          .profile-schedule__time.dropdown.dropdown--caret
+                            input(name="workTo", value="2000", type="hidden")
+                            p.profile-schedule__time-value.dropdown__value 2000
+                            .profile-schedule__time-menu.dropdown__menu
+                              a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) 2000
+                              -for (let i = 2001; i <= 2021; i++)
+                                a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= i
+                      a.personal__remove.js-personal-remove(href="javascript:void(0)") Удалить место работы
                   a.personal__add.js-personal-add(href="javascript:void(0)") Добавить еще место работы
                   +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
           if type === 'tutor'

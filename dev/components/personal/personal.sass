@@ -33,6 +33,10 @@
         color: $green
         &:hover
           color: transparentize($green, 0.2)
+      &--red
+        color: $red
+        &:hover
+          color: transparentize($red, 0.2)
       &--bold
         font-weight: 500
       &--back
@@ -368,6 +372,29 @@
       height: 15px
       background:
         image: url('../img/icons/add.svg')
+        size: contain
+        position: center
+        repeat: no-repeat
+  &__remove
+    position: relative
+    display: inline-block
+    margin-bottom: 20px
+    margin-left: 23px
+    border-bottom: 1px dashed $red
+    color: $red
+    transition: opacity .3s ease
+    &:hover
+      opacity: .8
+      color: $red
+    &:before
+      content: ''
+      position: absolute
+      top: 4px
+      left: -23px
+      width: 15px
+      height: 15px
+      background:
+        image: url('../img/icons/remove.svg')
         size: contain
         position: center
         repeat: no-repeat

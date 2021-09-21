@@ -5,55 +5,47 @@ let croppedImage = null;
 const $personalForms = [{
   $element: document.querySelector('form[data-personal-data]'),
   callback: $element => {
-    setTimeout(() => {
-      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      showNotification('success');
-    }, 1000);
+    sendForm('/ajax/account/basic', $element);
   }
 },
 {
   $element: document.querySelector('form[data-personal-experience]'),
   callback: $element => {
-    setTimeout(() => {
-      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      showNotification('success');
-    }, 1000);
+    sendForm('/ajax/account/experiences', $element);
+  }
+},
+{
+  $element: document.querySelector('form[data-personal-specialization]'),
+  callback: $element => {
+    document.querySelector('.errortype').style.display = 'none';
+
+    sendForm('/ajax/account/specialization', $element, function(error) {
+      if(error == 'error.type') document.querySelector('.errortype').style.display = 'block';
+    });
   }
 },
 {
   $element: document.querySelector('form[data-personal-contacts]'),
   callback: $element => {
-    setTimeout(() => {
-      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      showNotification('success');
-    }, 1000);
+    sendForm('/ajax/account/contacts', $element);
   }
 },
 {
   $element: document.querySelector('form[data-personal-pass]'),
   callback: $element => {
-    setTimeout(() => {
-      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      showNotification('success');
-    }, 1000);
+    sendForm('/ajax/account/password', $element);
   }
 },
 {
   $element: document.querySelector('form[data-personal-notification]'),
   callback: $element => {
-    setTimeout(() => {
-      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      showNotification('success');
-    }, 1000);
+    sendForm('/ajax/account/notifications', $element);
   }
 },
 {
   $element: document.querySelector('form[data-personal-info]'),
   callback: $element => {
-    setTimeout(() => {
-      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      showNotification('success');
-    }, 1000);
+    sendForm('/ajax/account/info', $element);
   }
 },
 {
@@ -69,9 +61,8 @@ const $personalForms = [{
       };
       croppedImage.element.closest('.popup__photo').querySelector('input[name="imageCropInfo"]').value = JSON.stringify(data);
 
-      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
-      showNotification('success');
-    }, 1000);
+      $element.submit();
+    }, 0);
   }
 }];
 
@@ -90,6 +81,19 @@ Array.from(document.querySelectorAll('.js-personal-add')).map(el => el.addEventL
   const $clonedElement = $element.cloneNode(true);
   const $inputDropdown = $clonedElement.querySelector('.input.dropdown');
 
+  $clonedElement.style.display = 'block';
+
+  Array.from($clonedElement.querySelectorAll('input')).map(el => {
+    el.required = true;
+  });
+
+  Array.from($clonedElement.querySelectorAll('input')).map(el => {
+    el.addEventListener('input', function(e) {
+      e.target.parentNode.parentNode.classList.remove('input--error');
+    });
+    
+  });
+
   Array.from($clonedElement.querySelectorAll('.fakeScroll__content')).map(el => {
     const $menu = el.closest('.dropdown__menu');
 
@@ -107,7 +111,12 @@ Array.from(document.querySelectorAll('.js-personal-add')).map(el => el.addEventL
   });
 
   $element.parentNode.insertAdjacentElement('beforeend', $clonedElement);
-  
+
+  // Remove event
+  Array.from(document.querySelectorAll('.js-personal-remove')).map(el => el.addEventListener('click', () => {
+    el.parentNode.remove();
+  }));
+
   if ($inputDropdown) {
     $inputDropdown.addEventListener('click', () => {
       const $dropdown = $inputDropdown.querySelector('.dropdown__menu');
@@ -127,6 +136,11 @@ Array.from(document.querySelectorAll('.js-personal-add')).map(el => el.addEventL
       el.closest('.input').classList.remove('input--error');
     }));
   }
+}));
+
+// remove button
+Array.from(document.querySelectorAll('.js-personal-remove')).map(el => el.addEventListener('click', () => {
+  el.parentNode.remove();
 }));
 
 // initialize image cropper

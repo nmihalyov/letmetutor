@@ -31,8 +31,16 @@ document.addEventListener('click', e => {
 // handle close popup
 Array.from(document.querySelectorAll('.js-close-popup')).map(el =>
   el.addEventListener('click', e => {
-    if(!e.target.closest('.popup__window') || !e.currentTarget.classList.contains('js-popup')) {
+    if (!e.target.closest('.popup__window') || !e.currentTarget.classList.contains('js-popup')) {
       const $popup = e.currentTarget.closest('.popup');
+
+      if (el.dataset.link) {
+        fetch(el.dataset.link)
+        .then(response => response.text())
+        .then(text => {
+          location.reload();
+        });
+      }
 
       $api.popup($popup).hide();
     }

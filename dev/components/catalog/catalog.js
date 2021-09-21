@@ -13,9 +13,9 @@ if ($catalogMoreBtn) {
 
   // set pagination current page
   const setCurrentPage = currentPage => {
+    window.scrollTo(0, 0);
     Array.from(document.querySelectorAll('.pagination__page--current')).map(el => el.classList.remove('pagination__page--current'));
     document.querySelector(`.pagination__page[data-page="${currentPage}"]`).classList.add('pagination__page--current');
-    window.scrollTo(0, 0);
   };
 
   // set pagination break
@@ -61,6 +61,7 @@ if ($catalogMoreBtn) {
     });
 
     formattedURL += `&limit=${document.querySelector('.js-catalog-limit .dropdown__value').innerText}`;
+    formattedURL += `&filter=${document.querySelector('.js-catalog-filter .dropdown__value').innerText}`;
 
     return formattedURL;
   };
@@ -68,16 +69,16 @@ if ($catalogMoreBtn) {
   // generate catalog item element
   const catalogItemElement = ({ top, image, verified, name, country, subjects, location, description, link, rating, reviews, price }) => `
     <div class="tutorcard${top ? ' tutorcard--top' : ''}">
-      <div class="tutorcard__image" style="background-image: url('img/inhtml/${image}')"></div>
+      <div class="tutorcard__image" style="background-image: url('${image}')"></div>
       <div class="tutorcard__info">
         <div>
-          <p class="tutorcard__name${verified ? ' tutorcard__name--verified' : ''}">${name}</p>
+          <p class="tutorcard__name${verified ? ' tutorcard__name--verified' : ''}"><a href="${link}">${name}</a></p>
           <p class="tutorcard__location" data-loc=${country}>${location}</p>
           <div class="tutorcard__subjects">
             ${subjects.map(el => `
               <a class="tutorcard__subjects-item${el.search ? ' tutorcard__subjects-item--search' : ''}${el.hidden ? ' tutorcard__subjects-item--hidden' : ''}" href="javascript:void(0)">${el.name} <span>(опыт <b>${el.experience}</b>)</span></a>
             `).join('')}
-            <a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+${['предмет', 'предмета', 'предметов'].decline(subjects.length - 2, true)}</a>
+            ${subjects.length > 2 ? '<a class="tutorcard__subjects-more js-tutorcard-more" href="javascript:void(0)">+'+['предмет', 'предмета', 'предметов'].decline(subjects.length - 2, true)+'</a>' : ''}
           </div>
           <p class="tutorcard__desc">${description}</p>
         </div><a class="tutorcard__more" href=${link}>Подробнее</a>
@@ -93,7 +94,7 @@ if ($catalogMoreBtn) {
             <p class="tutorcard__cost-desc">в час</p>
           </div>
         </div>
-        <button class="button js-open-popup${top ? ' button--primary' : ' button--secondary'} tutorcard__btn" data-popup="request-auth">Оставить заявку</button>
+        <button class="button js-open-popup${top ? ' button--primary' : ' button--secondary'} tutorcard__btn" data-popup="${document.querySelector('.header__profile') !== null ? 'request' : 'request-auth'}">Оставить заявку</button>
       </div>
     </div>
   `;
@@ -105,7 +106,7 @@ if ($catalogMoreBtn) {
     $catalogMoreBtn.classList.add('button--loading');
 
     const latestPage = catalogPages.current[catalogPages.current.length - 1] + 1;
-    const queryUrl = formatURL(`json/catalog.json?page=${latestPage}`);
+    const queryUrl = formatURL(`/json/catalog.json?page=${latestPage}`);
 
     // set current pages
     catalogPages.current.push(latestPage);
@@ -168,7 +169,7 @@ if ($catalogMoreBtn) {
     e.preventDefault();
 
     const currentPage = catalogPages.current[catalogPages.current.length - 1] + 1;
-    const queryUrl = formatURL(`json/catalog.json?page=${currentPage}`);
+    const queryUrl = formatURL(`/json/catalog.json?page=${currentPage}`);
 
     catalogPages.current = [currentPage];
 
@@ -201,7 +202,7 @@ if ($catalogMoreBtn) {
 
     if ($this.classList.contains('pagination__page')) {
       const currentPage = parseInt($this.dataset.page);
-      const queryUrl = formatURL(`json/catalog.json?page=${currentPage}`);
+      const queryUrl = formatURL(`/json/catalog.json?page=${currentPage}`);
 
       catalogPages.current = [currentPage];
 

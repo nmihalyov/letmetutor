@@ -90,8 +90,8 @@ if (document.querySelectorAll('.filters__input-field').length) {
 Array.from(document.querySelectorAll('.filters__cost-range')).map($range => {
   const min = +$range.dataset.min;
   const max = +$range.dataset.max;
-  const smin = +$range.dataset.min;
-  const smax = +$range.dataset.max;
+  const smin = +$range.dataset.smin;
+  const smax = +$range.dataset.smax;
 
   noUiSlider.create($range, {
     start: [smin, smax],
