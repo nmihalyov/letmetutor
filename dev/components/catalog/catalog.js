@@ -12,41 +12,41 @@ if ($catalogMoreBtn) {
   };
 
   // set pagination current page
-  const setCurrentPage = currentPage => {
-    window.scrollTo(0, 0);
-    Array.from(document.querySelectorAll('.pagination__page--current')).map(el => el.classList.remove('pagination__page--current'));
-    document.querySelector(`.pagination__page[data-page="${currentPage}"]`).classList.add('pagination__page--current');
-  };
+  // const setCurrentPage = currentPage => {
+  //   window.scrollTo(0, 0);
+  //   Array.from(document.querySelectorAll('.pagination__page--current')).map(el => el.classList.remove('pagination__page--current'));
+  //   document.querySelector(`.pagination__page[data-page="${currentPage}"]`).classList.add('pagination__page--current');
+  // };
 
   // set pagination break
-  const setBreak = latestPage => {
-    const $beforeSeparatorItem = $separator.previousElementSibling;
-    const $firstItem = document.querySelector('.pagination__page');
+  // const setBreak = latestPage => {
+  //   const $beforeSeparatorItem = $separator.previousElementSibling;
+  //   const $firstItem = document.querySelector('.pagination__page');
 
-    if (+$beforeSeparatorItem.dataset.page === latestPage) {
-      if (latestPage === catalogPages.total - 2) {
-        $firstItem.remove();
-        $separator.classList.add('pagination__separator--hidden');
-        $separator.insertAdjacentHTML('beforebegin', `<a class="pagination__page" href="javascript:void(0)" data-page="${latestPage + 1}">${latestPage + 1}</a>`);
-      } else if (latestPage < catalogPages.total - 2) {
-        $firstItem.remove();
-        $separator.insertAdjacentHTML('beforebegin', `<a class="pagination__page" href="javascript:void(0)" data-page="${latestPage + 1}">${latestPage + 1}</a>`);
-        $separator.classList.remove('pagination__separator--hidden');
-      }
-    } else if (+$firstItem.dataset.page === latestPage && latestPage !== 1) {
-      $beforeSeparatorItem.remove();
-      document.querySelector('.pagination__pages').insertAdjacentHTML('afterbegin', `<a class="pagination__page" href="javascript:void(0)" data-page="${latestPage - 1}">${latestPage - 1}</a>`);
-      $separator.classList.remove('pagination__separator--hidden');
-    } else if (latestPage === catalogPages.total && !$separator.classList.contains('pagination__separator--')) {
-      const $paginationPages = document.querySelectorAll('.pagination__page');
+  //   if (+$beforeSeparatorItem.dataset.page === latestPage) {
+  //     if (latestPage === catalogPages.total - 2) {
+  //       $firstItem.remove();
+  //       $separator.classList.add('pagination__separator--hidden');
+  //       $separator.insertAdjacentHTML('beforebegin', `<a class="pagination__page" href="javascript:void(0)" data-page="${latestPage + 1}">${latestPage + 1}</a>`);
+  //     } else if (latestPage < catalogPages.total - 2) {
+  //       $firstItem.remove();
+  //       $separator.insertAdjacentHTML('beforebegin', `<a class="pagination__page" href="javascript:void(0)" data-page="${latestPage + 1}">${latestPage + 1}</a>`);
+  //       $separator.classList.remove('pagination__separator--hidden');
+  //     }
+  //   } else if (+$firstItem.dataset.page === latestPage && latestPage !== 1) {
+  //     $beforeSeparatorItem.remove();
+  //     document.querySelector('.pagination__pages').insertAdjacentHTML('afterbegin', `<a class="pagination__page" href="javascript:void(0)" data-page="${latestPage - 1}">${latestPage - 1}</a>`);
+  //     $separator.classList.remove('pagination__separator--hidden');
+  //   } else if (latestPage === catalogPages.total && !$separator.classList.contains('pagination__separator--')) {
+  //     const $paginationPages = document.querySelectorAll('.pagination__page');
 
-      $separator.classList.add('pagination__separator--hidden');
-      Array.from($paginationPages).reverse().map((el, i) => {
-        el.innerText = latestPage - i;
-        el.dataset.page = latestPage - i;
-      });
-    }
-  };
+  //     $separator.classList.add('pagination__separator--hidden');
+  //     Array.from($paginationPages).reverse().map((el, i) => {
+  //       el.innerText = latestPage - i;
+  //       el.dataset.page = latestPage - i;
+  //     });
+  //   }
+  // };
 
   // forming query url with filters values from url paramertres
   const formatURL = url => {
@@ -100,101 +100,179 @@ if ($catalogMoreBtn) {
   `;
 
   // load more catalog items
-  $catalogMoreBtn.addEventListener('click', e => {
-    e.preventDefault();
+  document.addEventListener('click', e => {
+    const $catalogMoreBtn = e.target.closest('.js-catalog-more');
 
-    $catalogMoreBtn.classList.add('button--loading');
-
-    const latestPage = catalogPages.current[catalogPages.current.length - 1] + 1;
-    const queryUrl = formatURL(`/json/catalog.json?page=${latestPage}`);
-
-    // set current pages
-    catalogPages.current.push(latestPage);
-
-    // set current pagintaion pages
-    Array.from(document.querySelectorAll('.pagination__page')).map(el => {
-      if (catalogPages.current.includes(parseInt(el.innerText))) {
-        el.classList.add('pagination__page--current');
-      }
-    });
-
-    fetch(queryUrl).then(res => res.json()).then(data => {
-      data.map(item => {
-        document.querySelector('.catalog__items').insertAdjacentHTML('beforeend', catalogItemElement(item));
-      });
-
-      if (latestPage === catalogPages.total) {
-        $catalogMoreBtn.classList.add('catalog__bottom-btn--hidden');
-        $nextArrow.classList.add('pagination__arrow--disabled');
-      }
-
-      $catalogMoreBtn.classList.remove('button--loading');
-    });
-  });
-
-  // go to previous page
-  $prevArrow.addEventListener('click', e => {
-    e.preventDefault();
-
-    const currentPage = catalogPages.current[0] - 1;
-    const queryUrl = formatURL(`json/catalog.json?page=${currentPage}`);
-
-    catalogPages.current = [currentPage];
-
-    fetch(queryUrl).then(res => res.json()).then(data => {
-      let $elements = '';
+    if ($catalogMoreBtn) {
+      e.preventDefault();
   
-      data.map(item => {
-        $elements += catalogItemElement(item);
+      $catalogMoreBtn.classList.add('button--loading');
+  
+      const latestPage = catalogPages.current[catalogPages.current.length - 1] + 1;
+      const queryUrl = formatURL(`/json/catalog.json?page=${latestPage}`);
+  
+      // set current pages
+      catalogPages.current.push(latestPage);
+  
+      fetch(queryUrl).then(res => res.json()).then(data => {
+        data.data.map(item => {
+          document.querySelector('.catalog__items').insertAdjacentHTML('beforeend', catalogItemElement(item));
+        });
+  
+        document.querySelector('.catalog__bottom').innerHTML = data.paginator;
+  
+        if (latestPage === catalogPages.total) {
+          $catalogMoreBtn.classList.add('catalog__bottom-btn--hidden');
+          $nextArrow.classList.add('pagination__arrow--disabled');
+        }
+  
+        $catalogMoreBtn.classList.remove('button--loading');
       });
-
-      document.querySelector('.pagination__arrow--next').classList.remove('pagination__arrow--disabled');
-      setCurrentPage(currentPage);
-
-      if (currentPage === 1) {
-        $prevArrow.classList.add('pagination__arrow--disabled');
-      }
-
-      $catalogMoreBtn.classList.remove('catalog__bottom-btn--hidden');
-      document.querySelector('.catalog__items').innerHTML = $elements;
-    });
-
-    if ($separator) {
-      setBreak(currentPage);
     }
   });
+  // $catalogMoreBtn.addEventListener('click', e => {
+  //   e.preventDefault();
+
+  //   $catalogMoreBtn.classList.add('button--loading');
+
+  //   const latestPage = catalogPages.current[catalogPages.current.length - 1] + 1;
+  //   const queryUrl = formatURL(`/json/catalog.json?page=${latestPage}`);
+
+  //   // set current pages
+  //   catalogPages.current.push(latestPage);
+
+  //   // set current pagintaion pages
+  //   Array.from(document.querySelectorAll('.pagination__page')).map(el => {
+  //     if (catalogPages.current.includes(parseInt(el.innerText))) {
+  //       el.classList.add('pagination__page--current');
+  //     }
+  //   });
+
+  //   fetch(queryUrl).then(res => res.json()).then(data => {
+  //     data.map(item => {
+  //       document.querySelector('.catalog__items').insertAdjacentHTML('beforeend', catalogItemElement(item));
+  //     });
+
+  //     if (latestPage === catalogPages.total) {
+  //       $catalogMoreBtn.classList.add('catalog__bottom-btn--hidden');
+  //       $nextArrow.classList.add('pagination__arrow--disabled');
+  //     }
+
+  //     $catalogMoreBtn.classList.remove('button--loading');
+  //   });
+  // });
+
+  // go to previous page
+  document.addEventListener('click', e => {
+    const $prevArrow = e.target.closest('.pagination__arrow--prev');
+
+    if ($prevArrow) {
+      e.preventDefault();
+  
+      const currentPage = catalogPages.current[0] - 1;
+      const queryUrl = formatURL(`json/catalog.json?page=${currentPage}`);
+  
+      catalogPages.current = [currentPage];
+  
+      fetch(queryUrl).then(res => res.json()).then(data => {
+        let $elements = '';
+    
+        data.data.map(item => {
+          $elements += catalogItemElement(item);
+        });
+  
+        document.querySelector('.catalog__items').innerHTML = $elements;
+        window.scrollTo(0, 0);
+        document.querySelector('.catalog__bottom').innerHTML = data.paginator;
+      });
+    }
+  });
+  // $prevArrow.addEventListener('click', e => {
+  //   e.preventDefault();
+
+  //   const currentPage = catalogPages.current[0] - 1;
+  //   const queryUrl = formatURL(`json/catalog.json?page=${currentPage}`);
+
+  //   catalogPages.current = [currentPage];
+
+  //   fetch(queryUrl).then(res => res.json()).then(data => {
+  //     let $elements = '';
+  
+  //     data.map(item => {
+  //       $elements += catalogItemElement(item);
+  //     });
+
+  //     document.querySelector('.pagination__arrow--next').classList.remove('pagination__arrow--disabled');
+  //     setCurrentPage(currentPage);
+
+  //     if (currentPage === 1) {
+  //       $prevArrow.classList.add('pagination__arrow--disabled');
+  //     }
+
+  //     $catalogMoreBtn.classList.remove('catalog__bottom-btn--hidden');
+  //     document.querySelector('.catalog__items').innerHTML = $elements;
+  //   });
+
+  //   if ($separator) {
+  //     setBreak(currentPage);
+  //   }
+  // });
 
   // go to next page
-  $nextArrow.addEventListener('click', e => {
-    e.preventDefault();
+  document.addEventListener('click', e => {
+    const $nextArrow = e.target.closest('.pagination__arrow--next');
 
-    const currentPage = catalogPages.current[catalogPages.current.length - 1] + 1;
-    const queryUrl = formatURL(`/json/catalog.json?page=${currentPage}`);
-
-    catalogPages.current = [currentPage];
-
-    fetch(queryUrl).then(res => res.json()).then(data => {
-      let $elements = '';
+    if ($nextArrow) {
+      e.preventDefault();
   
-      data.map(item => {
-        $elements += catalogItemElement(item);
+      const currentPage = catalogPages.current[catalogPages.current.length - 1] + 1;
+      const queryUrl = formatURL(`/json/catalog.json?page=${currentPage}`);
+  
+      catalogPages.current = [currentPage];
+  
+      fetch(queryUrl).then(res => res.json()).then(data => {
+        let $elements = '';
+    
+        data.data.map(item => {
+          $elements += catalogItemElement(item);
+        });
+  
+        document.querySelector('.catalog__items').innerHTML = $elements;
+        window.scrollTo(0, 0);
+        document.querySelector('.catalog__bottom').innerHTML = data.paginator;
       });
-
-      document.querySelector('.pagination__arrow--prev').classList.remove('pagination__arrow--disabled');
-      setCurrentPage(currentPage);
-
-      if (currentPage === catalogPages.total) {
-        $catalogMoreBtn.classList.add('catalog__bottom-btn--hidden');
-        $nextArrow.classList.add('pagination__arrow--disabled');
-      }
-
-      document.querySelector('.catalog__items').innerHTML = $elements;
-  
-      if ($separator) {
-        setBreak(currentPage);
-      }
-    });
+    }
   });
+  // $nextArrow.addEventListener('click', e => {
+  //   e.preventDefault();
+
+  //   const currentPage = catalogPages.current[catalogPages.current.length - 1] + 1;
+  //   const queryUrl = formatURL(`/json/catalog.json?page=${currentPage}`);
+
+  //   catalogPages.current = [currentPage];
+
+  //   fetch(queryUrl).then(res => res.json()).then(data => {
+  //     let $elements = '';
+  
+  //     data.map(item => {
+  //       $elements += catalogItemElement(item);
+  //     });
+
+  //     document.querySelector('.pagination__arrow--prev').classList.remove('pagination__arrow--disabled');
+  //     setCurrentPage(currentPage);
+
+  //     if (currentPage === catalogPages.total) {
+  //       $catalogMoreBtn.classList.add('catalog__bottom-btn--hidden');
+  //       $nextArrow.classList.add('pagination__arrow--disabled');
+  //     }
+
+  //     document.querySelector('.catalog__items').innerHTML = $elements;
+  
+  //     if ($separator) {
+  //       setBreak(currentPage);
+  //     }
+  //   });
+  // });
 
   // go to specific page
   document.addEventListener('click', e => {
@@ -209,32 +287,54 @@ if ($catalogMoreBtn) {
       fetch(queryUrl).then(res => res.json()).then(data => {
         let $elements = '';
     
-        data.map(item => {
+        data.data.map(item => {
           $elements += catalogItemElement(item);
         });
   
-        setCurrentPage(currentPage);
-  
-        if (currentPage === catalogPages.total) {
-          $prevArrow.classList.remove('pagination__arrow--disabled');
-          $nextArrow.classList.add('pagination__arrow--disabled');
-          $catalogMoreBtn.classList.add('catalog__bottom-btn--hidden');
-        } else if (currentPage === 1) {
-          $prevArrow.classList.add('pagination__arrow--disabled');
-          $nextArrow.classList.remove('pagination__arrow--disabled');
-          $catalogMoreBtn.classList.remove('catalog__bottom-btn--hidden');
-        } else {
-          $prevArrow.classList.remove('pagination__arrow--disabled');
-          $nextArrow.classList.remove('pagination__arrow--disabled');
-          $catalogMoreBtn.classList.remove('catalog__bottom-btn--hidden');
-        }
-
-        if ($separator) {
-          setBreak(currentPage);
-        }
-
         document.querySelector('.catalog__items').innerHTML = $elements;
+        window.scrollTo(0, 0);
+        document.querySelector('.catalog__bottom').innerHTML = data.paginator;
       });
     }
   });
+  // document.addEventListener('click', e => {
+  //   const $this = e.target;
+
+  //   if ($this.classList.contains('pagination__page')) {
+  //     const currentPage = parseInt($this.dataset.page);
+  //     const queryUrl = formatURL(`/json/catalog.json?page=${currentPage}`);
+
+  //     catalogPages.current = [currentPage];
+
+  //     fetch(queryUrl).then(res => res.json()).then(data => {
+  //       let $elements = '';
+    
+  //       data.map(item => {
+  //         $elements += catalogItemElement(item);
+  //       });
+  
+  //       setCurrentPage(currentPage);
+  
+  //       if (currentPage === catalogPages.total) {
+  //         $prevArrow.classList.remove('pagination__arrow--disabled');
+  //         $nextArrow.classList.add('pagination__arrow--disabled');
+  //         $catalogMoreBtn.classList.add('catalog__bottom-btn--hidden');
+  //       } else if (currentPage === 1) {
+  //         $prevArrow.classList.add('pagination__arrow--disabled');
+  //         $nextArrow.classList.remove('pagination__arrow--disabled');
+  //         $catalogMoreBtn.classList.remove('catalog__bottom-btn--hidden');
+  //       } else {
+  //         $prevArrow.classList.remove('pagination__arrow--disabled');
+  //         $nextArrow.classList.remove('pagination__arrow--disabled');
+  //         $catalogMoreBtn.classList.remove('catalog__bottom-btn--hidden');
+  //       }
+
+  //       if ($separator) {
+  //         setBreak(currentPage);
+  //       }
+
+  //       document.querySelector('.catalog__items').innerHTML = $elements;
+  //     });
+  //   }
+  // });
 }

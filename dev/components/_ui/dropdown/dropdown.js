@@ -75,7 +75,7 @@ document.addEventListener('click', e => {
 
     if ($dropdownMenuItem.getAttribute('data-toggle')) {
       const $this = e.target;
-      const newValue = $this.innerText;
+      const newValue = $this.dataset.value || $this.innerText;
       const $hiddenItem = $this.closest('.dropdown__menu').querySelector('.dropdown__menu-item--hidden');
       const $dropdown = $this.closest('.dropdown');
       const $dropdownValue = $dropdown.querySelector('.dropdown__value');
@@ -93,18 +93,18 @@ document.addEventListener('click', e => {
       $dropdownValue.innerText = newValue;
 
       // search filters
-      if($this.closest('.dropdown').classList.contains('catalog__sort-item')) {
+      if ($this.closest('.dropdown').classList.contains('catalog__sort-item')) {
         document.location.href = formatURL('/search');
       }
 
       // currency filters
-      if($this.closest('.dropdown').classList.contains('js-currency-change')) {
-        changeActions('/ajax/action/currency_change?currency='+newValue);   
+      if ($this.closest('.dropdown').classList.contains('js-currency-change')) {
+        changeActions('/ajax/action/currency_change?currency=' + newValue);   
       }
       
       // language filters
-      if($this.closest('.dropdown').classList.contains('js-language-change')) {
-        changeActions('/ajax/action/language_change?language='+newValue);
+      if ($this.closest('.dropdown').classList.contains('js-language-change')) {
+        changeActions('/ajax/action/language_change?language=' + newValue);
       }
     }
   }

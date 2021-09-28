@@ -14,8 +14,9 @@ document.querySelectorAll('.application__write').forEach(el => el.addEventListen
 $toggleCheckboxes.forEach(el => el.addEventListener('click', () => {
   const checked = el.querySelector('input').checked;
   
-  document.querySelectorAll('.application__checkbox input').forEach(el => el.checked = checked);
-  $toggleCheckboxes.forEach(item => {
+  el.closest('.personal__card').querySelectorAll('.application__checkbox input').forEach(el => el.checked = checked);
+
+  el.closest('.personal__card').querySelectorAll('.personal__applications-checkbox').forEach(item => {
     if (item !== el) {
       item.querySelector('input').checked = checked;
     }

@@ -144,7 +144,7 @@
                   </div>
                   <p class="checkbox__text">Отметить все
                   </p>
-                </label><a class="personal__applications-remove" href="javascript:void(0)">Удалить отмеченные</a>
+                </label><a class="personal__applications-remove js-open-popup" href="javascript:void(0)" data-popup="applications-delete">Удалить отмеченные</a>
               </div>
               <div class="personal__card-content">
                 <div class="application application--past">
@@ -392,7 +392,7 @@
                   </div>
                   <p class="checkbox__text">Отметить все
                   </p>
-                </label><a class="personal__applications-remove" href="javascript:void(0)">Удалить отмеченные</a>
+                </label><a class="personal__applications-remove js-open-popup" href="javascript:void(0)" data-popup="applications-delete">Удалить отмеченные</a>
               </div>
               <button class="button button--secondary personal__more">Загрузить еще</button>
             </div>
@@ -424,6 +424,40 @@
       <div class="cookies">
         <p class="cookies__text">Мы используем cookies, для вашего удобства на сайте. Просматривая наш веб-сайт, вы соглашаетесь на использование нами файлов cookies.</p>
         <button class="button button--primary cookies__btn">Хорошо!</button>
+      </div>
+    </div>
+    <div class="popup js-popup js-close-popup" data-popup="applications-delete">
+      <div class="popup__backdrop"></div>
+      <div class="popup__container">
+        <div class="popup__wrapper">
+          <div class="popup__window popup__window--sm">
+            <div class="popup__head">
+              <h3 class="heading popup__heading">Удалить отмеченные</h3>
+              <div class="popup__close js-close-popup"></div>
+            </div>
+            <div class="popup__content">
+              <p class="popup__desc">Вы уверены, что хотите удалить отмеченные предложения?<br><br><b>Данное действие нельзя будет отменить</b></p>
+            </div>
+            <div class="popup__footer"><a class="popup__footer-btn popup__footer-btn--danger js-close-popup" href="javascript:void(0)" data-delete="data-delete">Да, удалить</a><a class="popup__footer-btn popup__footer-btn--light js-close-popup" href="javascript:void(0)">Отменить</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup js-popup js-close-popup" data-popup="offers-delete">
+      <div class="popup__backdrop"></div>
+      <div class="popup__container">
+        <div class="popup__wrapper">
+          <div class="popup__window popup__window--sm">
+            <div class="popup__head">
+              <h3 class="heading popup__heading">Удалить отмеченные</h3>
+              <div class="popup__close js-close-popup"></div>
+            </div>
+            <div class="popup__content">
+              <p class="popup__desc">Вы уверены, что хотите удалить отмеченные предложения?<br><br>Отмеченные предложения будут сразу удалены из вашего профиля, минуя архив, а репетитор автоматически получит отказ<br><br><b>Данное действие нельзя будет отменить</b></p>
+            </div>
+            <div class="popup__footer"><a class="popup__footer-btn popup__footer-btn--danger js-close-popup" href="javascript:void(0)" data-delete="data-delete">Да, удалить</a><a class="popup__footer-btn popup__footer-btn--light js-close-popup" href="javascript:void(0)">Отменить</a></div>
+          </div>
+        </div>
       </div>
     </div>
   </body>

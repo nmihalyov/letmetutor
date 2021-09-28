@@ -1,0 +1,25 @@
+include ../components/cookies/cookies
+include ../components/header/header
+include ../components/personal/personal
+include ../components/footer/footer
+include ../components/_ui/popup/popup
+
+doctype
+html(lang="ru", prefix="og: http://ogp.me/ns#")
+  head
+    title Личный кабинет | LetMeTutor
+    include assets/_metas
+    include assets/_links
+    include assets/_scripts
+  body
+    .page-wrapper
+      +header(true)
+      +personal('student', 'offers')
+      +footer(true)
+      +cookies
+    +popup('application-offer-pay')
+    +popup('application-offer-balance')
+    +popup('application-offer-refuse')
+    +popup('application-pay-success')
+    +popup('applications-delete')
+    +popup('offers-delete')

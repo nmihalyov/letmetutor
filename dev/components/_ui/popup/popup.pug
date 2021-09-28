@@ -8,7 +8,7 @@ mixin popup(type, id = type, mod)
     .popup__backdrop
     .popup__container
       .popup__wrapper
-        .popup__window(class=`${type === 'dialog-clear' || type === 'dialog-delete' ? 'popup__window--sm' : ''}`)
+        .popup__window(class=`${['dialog-clear', 'dialog-delete', 'applications-delete', 'offers-delete'].includes(type) ? 'popup__window--sm' : ''}`)
           .popup__head
             if type === 'restore'
               +heading('Восстановление пароля', 'popup__heading')
@@ -38,12 +38,16 @@ mixin popup(type, id = type, mod)
               +heading('Отклонить заявку Анны Ивановой?', 'popup__heading')
             if type === 'application-pay'
               +heading('Оплата занятия у Анны Ивановой', 'popup__heading')
+            if type === 'application-offer-pay' || type === 'application-offer-balance'
+              +heading('Подтверждение предложения Анны Ивановой', 'popup__heading')
             if type === 'application-refuse'
               +heading('Отказаться от обучения с Анной Ивановой?', 'popup__heading')
             if (type === 'application-pay-success'|| type === 'service-pay-success')
               +heading('Оплата успешно завершена!', 'popup__heading')
             if type === 'service-pay'
               +heading('Оплата услуги «<span class="popup__heading-service">ТОП репетиторов на главной</span>»', 'popup__heading')
+            if type === 'applications-delete' || type === 'offers-delete'
+              +heading('Удалить отмеченные', 'popup__heading')
             .popup__close.js-close-popup
           .popup__content
             if type === 'restore'
@@ -68,11 +72,11 @@ mixin popup(type, id = type, mod)
               form.popup__request(data-request-form)
                 p.popup__warn <b>Обращаем ваше внимание</b>, что первое занятие с репетитором оплачивается онлайн через наш сервис.
                 .popup__request-row
-                  +input('text', 'Цель занятий <span>*</span>', 'purpose', 'Выберите цель занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите цель занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Подтянуть уровень языка</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Выучить язык с нуля</a>'})
-                  +input('text', 'Количество раз в неделю <span>*</span>', 'lessons', 'Выберите количество занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите количество занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>1 раз</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>2 раза</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>3 раза</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>4 раз</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>5 раз</a>'})
+                  +input('text', 'Цель занятий <span>*</span>', 'purpose', 'Выберите цель занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите цель занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Подтянуть уровень языка</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Выучить язык с нуля</a>'})
+                  +input('text', 'Количество раз в неделю <span>*</span>', 'lessons', 'Выберите количество занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите количество занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">1 раз</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">2 раза</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">3 раза</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">4 раза</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="5">5 раз</a>'})
                 .popup__request-row
-                  +input('text', 'Желаемое время <span>*</span>', 'time', 'Выберите желаемое время', 'popup__request-input auth__input', {required: true, error: 'Выберите желаемое время', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>9:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>10:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>11:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>12:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>13:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>14:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>15:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>16:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>17:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>18:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>19:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>20:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>21:00</a>'})
-                  +input('text', 'Тип занятий <span>*</span>', 'type', 'Выберите тип занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите тип занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Онлайн</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Офлайн</a>'})
+                  +input('text', 'Желаемое время <span>*</span>', 'time', 'Выберите желаемое время', 'popup__request-input auth__input', {required: true, error: 'Выберите желаемое время', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">9:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">10:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">11:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">12:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="5">13:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="6">14:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="7">15:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="8">16:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="9">17:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="10">18:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="11">19:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="12">20:00</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="13">21:00</a>'})
+                  +input('text', 'Тип занятий <span>*</span>', 'type', 'Выберите тип занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите тип занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Онлайн</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Офлайн</a>'})
                 .auth__actions
                   +button('primary', 'submit', 'Отправить заявку', 'auth__actions-btn')
                   a.auth__actions-link(href="#") Помощь по сервису
@@ -80,11 +84,11 @@ mixin popup(type, id = type, mod)
               form.popup__request(data-request-specific-form)
                 p.popup__warn <b>Обращаем ваше внимание</b>, что первое занятие с репетитором оплачивается онлайн через наш сервис.
                 .popup__request-row
-                  +input('text', 'Предмет <span>*</span>', 'lessons', 'Выберите желаемый предмет', 'popup__request-input auth__input', {required: true, error: 'Выберите желаемый предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
-                  +input('text', 'Цель занятий <span>*</span>', 'purpose', 'Выберите цель занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите цель занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Подтянуть уровень языка</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Выучить язык с нуля</a>'})
+                  +input('text', 'Предмет <span>*</span>', 'lessons', 'Выберите желаемый предмет', 'popup__request-input auth__input', {required: true, error: 'Выберите желаемый предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a>'})
+                  +input('text', 'Цель занятий <span>*</span>', 'purpose', 'Выберите цель занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите цель занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Подтянуть уровень языка</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Выучить язык с нуля</a>'})
                 .popup__request-row
                   +input('text', 'Выбранное время <span>*</span>', 'time', 'Выберите желаемое время', 'popup__request-input auth__input', {required: true, error: 'Выберите желаемое время', readonly: true})
-                  +input('text', 'Тип занятий <span>*</span>', 'type', 'Выберите тип занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите тип занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Онлайн</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Офлайн</a>'})
+                  +input('text', 'Тип занятий <span>*</span>', 'type', 'Выберите тип занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите тип занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Онлайн</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Офлайн</a>'})
                 .auth__actions
                   +button('primary', 'submit', 'Отправить заявку', 'auth__actions-btn')
                   a.auth__actions-link(href="#") Помощь по сервису
@@ -92,8 +96,8 @@ mixin popup(type, id = type, mod)
               form.popup__request(data-offer-form)
                 p.popup__warn <b>Обращаем ваше внимание</b>, что первое занятие с репетитором оплачивается онлайн через наш сервис.
                 .popup__request-row
-                  +input('text', 'Предмет <span>*</span>', 'lessons', 'Выберите желаемый предмет', 'popup__request-input auth__input', {required: true, error: 'Выберите желаемый предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
-                  +input('text', 'Тип занятий <span>*</span>', 'type', 'Выберите тип занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите тип занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Онлайн</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Офлайн</a>'})
+                  +input('text', 'Предмет <span>*</span>', 'lessons', 'Выберите желаемый предмет', 'popup__request-input auth__input', {required: true, error: 'Выберите желаемый предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown> data-value="3"Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a>'})
+                  +input('text', 'Тип занятий <span>*</span>', 'type', 'Выберите тип занятий', 'popup__request-input auth__input', {required: true, error: 'Выберите тип занятий', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Онлайн</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Офлайн</a>'})
                 .auth__actions
                   +button('primary', 'submit', 'Отправить предложение', 'auth__actions-btn')
                   a.auth__actions-link(href="#") Помощь по сервису
@@ -107,6 +111,10 @@ mixin popup(type, id = type, mod)
             if type === 'dialog-delete'
               p.popup__desc Вы уверены, что хотите удалить сообщение? Данное действие нельзя будет отменить
               +checkbox('Удалить у Анны Ивановой', 'deleteFromCompanion', 'popup__checkbox', false, true)
+            if type === 'applications-delete'
+              p.popup__desc Вы уверены, что хотите удалить отмеченные предложения?<br><br><b>Данное действие нельзя будет отменить</b>
+            if type === 'offers-delete'
+              p.popup__desc Вы уверены, что хотите удалить отмеченные предложения?<br><br>Отмеченные предложения будут сразу удалены из вашего профиля, минуя архив, а репетитор автоматически получит отказ<br><br><b>Данное действие нельзя будет отменить</b>
             if type === 'unlink-fb'
               p.popup__desc <b>Вы уверены, что хотите отвязать аккаунт Facebook <a href="http://facebook.com">Konstantin R</a> ?</b>
             if type === 'unlink-google'
@@ -152,10 +160,35 @@ mixin popup(type, id = type, mod)
                   +button('primary', 'submit', 'Да, оплатить')
                   +button('secondary', 'plug', 'Отмена', 'js-close-popup')
                 p.popup__footnote * - Сразу после оплаты вы сможете свободно обмениваться любыми контактами.
+            if type === 'application-offer-pay'
+              form.popup__pay(data-pay)
+                div(style="margin-bottom: 15px;")
+                  p.popup__desc <b>Со счета вашего баланса (<a href="#">1 000 ₽</a>) будет списано <a href="#">500 ₽</a> за первое занятие.*</b>
+                div(style="margin-bottom: 15px;")
+                  p.popup__desc <b>Данное действие нельзя будет отменить.</b>
+                .popup__actions
+                  +button('primary', 'submit', 'Да, оплатить')
+                  +button('secondary', 'plug', 'Отмена', 'js-close-popup')
+                p.popup__footnote * - Сразу после оплаты вы сможете свободно обмениваться любыми контактами.
+            if type === 'application-offer-balance'
+              form.popup__pay(data-pay)
+                div(style="margin-bottom: 15px;")
+                  p.popup__desc <b>На вашем балансе (<a href="#">0 ₽</a>) не хватает <a href="#">1 500 ₽</a> на оплату первого занятия.*</b>
+                .popup__actions
+                  +button('primary', 'link', 'Пополнить и оплатить', '', {link: 'replenishment.html'})
+                  +button('secondary', 'plug', 'Отмена', 'js-close-popup')
+                p.popup__footnote * - Сразу после оплаты вы сможете свободно обмениваться любыми контактами.
             if type === 'application-refuse'
               form.popup__refuse(data-refuse)
+                p.popup__desc <b>Предложение будет автоматически перемещено в архив. Данное действие нельзя будет отменить.</b>
+                +input('text', 'Выберите причину вашего отказа <span>*</span>', 'reason', 'Выберите причину', 'popup__refuse-input auth__input', {required: true, error: 'Выберите причину', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Не интересует</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Другая причина</a>'})
+                .popup__actions
+                  +button('primary', 'submit', 'Да, отказаться')
+                  +button('secondary', 'plug', 'Отмена', 'js-close-popup')
+            if type === 'application-offer-refuse'
+              form.popup__refuse(data-refuse)
                 p.popup__desc <b>Подтвержденная заявка будет автоматически удалена. Данное действие нельзя будет отменить.</b>
-                +input('text', 'Выберите причину вашего отказа <span>*</span>', 'reason', 'Выберите причину', 'popup__refuse-input auth__input', {required: true, error: 'Выберите причину', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Передумал</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Другая причина</a>'})
+                +input('text', 'Выберите причину вашего отказа <span>*</span>', 'reason', 'Выберите причину', 'popup__refuse-input auth__input', {required: true, error: 'Выберите причину', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Передумал</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Другая причина</a>'})
                 .popup__actions
                   +button('primary', 'submit', 'Да, отказаться')
                   +button('secondary', 'plug', 'Отмена', 'js-close-popup')
@@ -177,7 +210,7 @@ mixin popup(type, id = type, mod)
               form.popup__paysuccess
                 p.popup__desc.popup__desc--centered <b>Поздравляем,</b> ваш текущий баланс - <a href="#">500 ₽</a>
                 p.popup__desc.popup__desc--centered Ваша услуга будет активирована <a href="chat-student.html">31.08.2021</a>
-          if type === 'dialog-clear' || type === 'dialog-delete'
+          if ['dialog-clear', 'dialog-delete', 'applications-delete', 'offers-delete'].includes(type)
             .popup__footer
               a.popup__footer-btn.popup__footer-btn--danger.js-close-popup(href="javascript:void(0)", data-delete) Да, удалить
               a.popup__footer-btn.popup__footer-btn--light.js-close-popup(href="javascript:void(0)") Отменить

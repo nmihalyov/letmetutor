@@ -28,6 +28,7 @@ mixin personal(type, page)
               a.personal__nav-item(class=`${page === 'schedule' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-schedule.html") Мое расписание
               a.personal__nav-item(href="chat-tutor.html") Мои диалоги
                 span.personal__nav-counter 10
+              a.personal__nav-item(class=`${page === 'ref' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-ref.html") Партнерская программа
               a.personal__nav-item.personal__nav-item--green(class=`${page === 'services' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-services.html") Платные услуги
               a.personal__nav-item.personal__nav-item--bold(class=`${page === 'verify' ? 'personal__nav-item--current' : ''}`, href="lk-tutor-verify.html") Верификация аккаунта
                 if page === 'profile-empty' || page === 'verify'
@@ -49,7 +50,9 @@ mixin personal(type, page)
               a.personal__nav-item(href="lk-student-applications.html") Мои заявки
               a.personal__nav-item(href="chat-student.html") Мои диалоги
                 span.personal__nav-counter 10
-              a.personal__nav-item(href="#") Предложения репетиторов
+              a.personal__nav-item(class=`${(page === 'offers' || page === 'offers-none') ? 'personal__nav-item--current' : ''}`, href="lk-student-offers.html") Предложения репетиторов
+                if page !== 'offers-none'
+                  span.personal__nav-counter 2
       main.personal__main
         if (type === 'tutor' || type === 'student') && (page === 'profile' || page === 'profile-empty')
           .personal__card
@@ -88,7 +91,7 @@ mixin personal(type, page)
                   +input('text', 'Ваша фамилия <span>*</span>', 'surname', 'Введите вашу фамилию', 'auth__input', {required: true, error: 'Введите корректные данные', value: 'Иванова'})
                   +input('email', 'Ваш email <span>*</span>', 'email', 'Введите ваш email', 'auth__input', {required: true, error: 'Введите корректный email', value: 'mail@demolink.org'})
                   +input('tel', 'Номер телефона <span>*</span>', 'phone', '+7 (___) ___-__-__', 'auth__input', {required: true, error: 'Введите корректный номер телефона', value: '+7 495 000-00-00'})
-                  +input('text', 'Ваша страна <span>*</span>', 'country', 'Выберите страну', 'auth__input js-auth-country', {required: true, error: 'Выберите страну из списка', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Россия</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Украина</a>', value: 'Россия'})
+                  +input('text', 'Ваша страна <span>*</span>', 'country', 'Выберите страну', 'auth__input js-auth-country', {required: true, error: 'Выберите страну из списка', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Россия</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Украина</a>', value: 'Россия'})
                   +input('text', 'Ваш город <span>*</span>', 'city', 'Введите ваш город', 'auth__input js-auth-city', {required: true, error: 'Выберите город', citiesSearch: true, value: 'Москва'})
                   +button('primary', 'submit', 'Сохранить', 'personal__card-submit')
           if type === 'tutor'
@@ -110,11 +113,11 @@ mixin personal(type, page)
                   .personal__specialization-grid.personal__specialization-grid--up
                     .personal__specialization-item
                       .personal__specialization-row.personal__specialization-row--big
-                        +input('text', 'Интересующий предмет <span>*</span>', 'subject', 'Выберите предмет', 'auth__input', {required: true, error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                        +input('text', 'Интересующий предмет <span>*</span>', 'subject', 'Выберите предмет', 'auth__input', {required: true, error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a>'})
                         +input('text', 'Желаемая цена за час <span>*</span>', 'price', 'Введите цену', 'auth__input', {required: true, error: 'Введите цену'})
                     .personal__specialization-item.js-copy-item
                       .personal__specialization-row.personal__specialization-row--big
-                        +input('text', 'Интересующий предмет', 'subject', 'Выберите предмет', 'auth__input', {dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                        +input('text', 'Интересующий предмет', 'subject', 'Выберите предмет', 'auth__input', {dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a>'})
                         +input('text', 'Желаемая цена за час', 'price', 'Введите цену', 'auth__input')
                   a.personal__add.js-personal-add(href="javascript:void(0)") Добавить еще специализацию
                   .personal__global
@@ -129,7 +132,7 @@ mixin personal(type, page)
                   .personal__specialization-grid
                     .personal__specialization-item
                       .personal__specialization-row
-                        +input('text', 'Специализация <span>*</span>', 'specialization[]', 'Выберите предмет', 'auth__input', {required: true, error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                        +input('text', 'Специализация <span>*</span>', 'specialization[]', 'Выберите предмет', 'auth__input', {required: true, error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a>'})
                         +input('text', 'Цена за час <span>*</span>', 'price[]', 'Введите цену', 'auth__input', {required: true, error: 'Введите цену'})
                         .personal__specialization-exp
                           p.personal__specialization-exp-label Опыт работы <span>*</span>
@@ -142,7 +145,7 @@ mixin personal(type, page)
                                 a.dropdown__menu-item(href="javascript:void(0)", data-toggle)= exps[i]
                     .personal__specialization-item.js-copy-item(style="display: none;")
                       .personal__specialization-row
-                        +input('text', 'Специализация <span>*</span>', 'specialization[]', 'Выберите предмет', 'auth__input', {error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                        +input('text', 'Специализация <span>*</span>', 'specialization[]', 'Выберите предмет', 'auth__input', {error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a>'})
                         +input('text', 'Цена за час <span>*</span>', 'price[]', 'Введите цену', 'auth__input', {error: 'Введите цену'})
                         .personal__specialization-exp
                           p.personal__specialization-exp-label Опыт работы <span>*</span>
@@ -173,7 +176,7 @@ mixin personal(type, page)
                         +input('text', 'Место работы', 'workplace', 'Название компании', 'auth__input')
                         +input('text', 'Кем вы работали', 'position', 'Ваша должность', 'auth__input')
                       .personal__experience-row
-                        +input('text', '', 'specialization', 'Выберите специализацию', 'auth__input', {dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                        +input('text', '', 'specialization', 'Выберите специализацию', 'auth__input', {dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a>'})
                         .personal__experience-years
                           span С
                           .profile-schedule__time.dropdown.dropdown--caret
@@ -197,7 +200,7 @@ mixin personal(type, page)
                         +input('text', 'Место работы', 'workplace', 'Название компании', 'auth__input')
                         +input('text', 'Кем вы работали', 'position', 'Ваша должность', 'auth__input')
                       .personal__experience-row
-                        +input('text', '', 'specialization', 'Выберите специализацию', 'auth__input', {dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a>'})
+                        +input('text', '', 'specialization', 'Выберите специализацию', 'auth__input', {dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a>'})
                         .personal__experience-years
                           span С
                           .profile-schedule__time.dropdown.dropdown--caret
@@ -615,7 +618,7 @@ mixin personal(type, page)
                   a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
             .personal__applications
               +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
-              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="applications-delete") Удалить отмеченные
             .personal__card-content
               +application-past('tutor', {person: {name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн']], status: 'Ожидает оплаты'})
               +application-past('tutor', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']], status: 'Оплачено'})
@@ -623,7 +626,7 @@ mixin personal(type, page)
               +application-past('tutor', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']], status: 'Оплачено'})
             .personal__applications
               +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
-              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="applications-delete") Удалить отмеченные
             +button('secondary', 'button', 'Загрузить еще', 'personal__more')
         if type === 'tutor' && page === 'applications-declined'
           .personal__card
@@ -637,7 +640,7 @@ mixin personal(type, page)
                   a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
             .personal__applications
               +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
-              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="applications-delete") Удалить отмеченные
             .personal__card-content
               +application-past('tutor', {person: {name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн']]})
               +application-past('tutor', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']]})
@@ -645,7 +648,7 @@ mixin personal(type, page)
               +application-past('tutor', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']]})
             .personal__applications
               +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
-              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="applications-delete") Удалить отмеченные
             +button('secondary', 'button', 'Загрузить еще', 'personal__more')
         if type === 'tutor' && (page === 'services' || page === 'services-rated')
           .personal__card
@@ -728,6 +731,110 @@ mixin personal(type, page)
               p.personal__services-notice <b>Обращаем ваше внимание</b>, что ваша заявка будет рассмотрена в течение <b>5 рабочих дней</b>.<br>С вами свяжется представитель нашего сервиса через сайт, чтобы договориться о дате и времени видеозвонка.
               .personal__verification-btn
                 +button('primary', 'link', 'Отправить заявку', '', {link: '#'})
+        if type === 'tutor' && page === 'ref'
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title О партнерской программе
+            .personal__card-content
+              p.personal__desc Партнерская программа построена таким образом что вы получаете бонус с заработка приглашенного вами репетитора на проект. Бонус составляет 15% от стоимости первого занятия ученика с приглашенным вами репетитором. Чем более активные ваши рефералы, тем больше заработка вы получаете.
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Ваша реферальная ссылка
+            .personal__card-content
+              .personal__ref
+                .personal__ref-link
+                  +input('text', '', 'link', 'Реферальная ссылка', 'personal__ref-input', {readonly: true, value: 'https://letmetutor.com/invite/12'})
+                  a.personal__ref-copy(href="javascript:void(0)") Скопировать
+                  +button('primary', 'button', 'Пригласить друзей', 'personal__ref-invite')
+                  .personal__ref-share
+                    p.personal__ref-share-heading Отправить ссылку через:
+                    a.personal__ref-share-link(href="tg://msg?text=https://letmetutor.com/invite/12", data-share="telegram")
+                    a.personal__ref-share-link(href="viber://forward?text=https://letmetutor.com/invite/12", data-share="viber")
+                    a.personal__ref-share-link(href="whatsapp://send?text=https://letmetutor.com/invite/12", data-share="whatsapp")
+                .personal__ref-about
+                  .personal__ref-about-item
+                    p.personal__ref-about-title Общее кол-во рефералов
+                    p.personal__ref-about-value 12
+                  .personal__ref-about-item
+                    p.personal__ref-about-title Общий заработок
+                    p.personal__ref-about-value 1000 <span>&#8381;</span>
+                p.personal__services-notice <b>Обращаем ваше внимание</b>, что минимальная сумма для вывода через нашу партнерскую программу составляет <b>1000 ₽</b>.
+                .personal__ref-actions
+                  p.personal__ref-balance На балансе: <span>500 &#8381;</span>
+                  +button('primary', 'link', 'Вывести средства', '', {link: '#', disabled: true})
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Список рефералов
+            .personal__card-content
+              .personal__reflist
+                .personal__reflist-head
+                  .personal__reflist-cell
+                    p.personal__reflist-heading Реферал
+                  .personal__reflist-cell
+                    p.personal__reflist-heading Общая сумма
+                .personal__reflist-row
+                  .personal__reflist-cell
+                    .personal__reflist-img(style="background-image: url('img/inhtml/tutor-3.jpg')")
+                    p.personal__reflist-name Анастасия Петрова
+                  .personal__reflist-cell
+                    p.personal__reflist-price 500 &#8381;
+                .personal__reflist-row
+                  .personal__reflist-cell
+                    .personal__reflist-img(style="background-image: url('img/inhtml/tutor-1.jpg')")
+                    p.personal__reflist-name Анастасия Петрова
+                  .personal__reflist-cell
+                    p.personal__reflist-price 500 &#8381;
+                .personal__reflist-row
+                  .personal__reflist-cell
+                    .personal__reflist-img(style="background-image: url('img/inhtml/tutor-2.jpg')")
+                    p.personal__reflist-name Анастасия Петрова
+                  .personal__reflist-cell
+                    p.personal__reflist-price 500 &#8381;
+                .personal__reflist-row
+                  .personal__reflist-cell
+                    .personal__reflist-img(style="background-image: url('img/inhtml/tutor-4.jpg')")
+                    p.personal__reflist-name Анастасия Петрова
+                  .personal__reflist-cell
+                    p.personal__reflist-price 500 &#8381;
+                .personal__reflist-row
+                  .personal__reflist-cell
+                    .personal__reflist-img(style="background-image: url('img/inhtml/student-1.jpg')")
+                    p.personal__reflist-name Анастасия Петрова
+                  .personal__reflist-cell
+                    p.personal__reflist-price 500 &#8381;
+                +button('secondary', 'button', 'Показать еще', 'personal__reflist-btn')
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title История операций
+            .personal__card-content
+              .personal__refhistory
+                .personal__refhistory-head
+                  .personal__refhistory-cell
+                    p.personal__refhistory-heading Дата
+                  .personal__refhistory-cell
+                    p.personal__refhistory-heading Тип операции
+                  .personal__refhistory-cell
+                    p.personal__refhistory-heading Сумма
+                .personal__refhistory-row
+                  p.personal__refhistory-cell 10.08.2021
+                  p.personal__refhistory-cell Реферальное начисление от <a href="tutor">Анастасии И.</a>
+                  p.personal__refhistory-cell 400 &#8381;
+                .personal__refhistory-row
+                  p.personal__refhistory-cell 05.08.2021
+                  p.personal__refhistory-cell Вывод средств
+                  p.personal__refhistory-cell 1000 &#8381;
+                .personal__refhistory-row
+                  p.personal__refhistory-cell 04.08.2021
+                  p.personal__refhistory-cell Вывод средств
+                  p.personal__refhistory-cell 400 &#8381;
+                .personal__refhistory-row
+                  p.personal__refhistory-cell 02.08.2021
+                  p.personal__refhistory-cell Реферальное начисление от <a href="tutor">Антона К.</a>
+                  p.personal__refhistory-cell 100 &#8381;
+                .personal__refhistory-row
+                  p.personal__refhistory-cell 01.06.2021
+                  p.personal__refhistory-cell Вывод средств
+                  p.personal__refhistory-cell 400 &#8381;
         if type === 'student' && page === 'applications'
           .personal__card
             .personal__card-heading
@@ -765,12 +872,12 @@ mixin personal(type, page)
                   a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
             .personal__applications
               +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
-              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="applications-delete") Удалить отмеченные
             .personal__card-content
               +application-past('student', {person: {name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн']]})
             .personal__applications
               +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
-              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="applications-delete") Удалить отмеченные
         if type === 'student' && page === 'applications-declined'
           .personal__card
             .personal__card-heading
@@ -783,10 +890,42 @@ mixin personal(type, page)
                   a.dropdown__menu-item(href="javascript:void(0)", data-toggle) 30
             .personal__applications
               +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
-              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="applications-delete") Удалить отмеченные
             .personal__card-content
               +application-past('student-declined', {person: {name: 'Анна Иванова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Количество раз в неделю', '3'], ['Желаемое время', '15:00'], ['Тип занятия', 'Онлайн']]})
               +application-past('student-reject', {person: {name: 'Анастасия Петрова'}, type: 'Заявка на занятия', table: [['Предмет', 'Английский язык'], ['Цель занятий', 'Подтянуть уровень языка'], ['Дата занятия', '16.07.2021'], ['Время занятия', '08:00'], ['Тип занятия', 'Онлайн']]})
             .personal__applications
               +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
-              a.personal__applications-remove(href="javascript:void(0)") Удалить отмеченные
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="applications-delete") Удалить отмеченные
+        if type === 'student' && page === 'offers'
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Предложения репетиторов
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="applications-delete") Удалить отмеченные
+            .personal__card-content
+              +application('student-offer-pay', {person: {name: 'Анна Иванова', image: 'tutor-2.jpg'}, type: 'Новое', table: [['Предмет', 'Английский язык'], ['Тип занятия', 'Онлайн']]})
+              +application('student-offer-balance', {person: {name: 'Анастасия Петрова', image: 'tutor-1.jpg'}, type: 'Новое', table: [['Предмет', 'Английский язык'], ['Тип занятия', 'Онлайн']]})
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="applications-delete") Удалить отмеченные
+          .personal__card
+            .personal__card-heading
+              p.personal__card-title Архив предложений
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="offers-delete") Удалить отмеченные
+            .personal__card-content
+              +application-past('student-offer-archive', {person: {name: 'Анна Иванова'}, type: 'Оплачено', table: [['Предмет', 'Английский язык'], ['Тип занятия', 'Онлайн']]})
+              +application-past('student-offer-archive', {person: {name: 'Анастасия Петрова'}, type: 'Отклонено', table: [['Предмет', 'Английский язык'], ['Тип занятия', 'Онлайн']]})
+            .personal__applications
+              +checkbox('Отметить все', 'checkAllApplications', 'personal__applications-checkbox')
+              a.personal__applications-remove.js-open-popup(href="javascript:void(0)", data-popup="applications-delete") Удалить отмеченные
+            +button('secondary', 'button', 'Загрузить еще', 'personal__applications-more')
+        if type === 'student' && page === 'offers-none'
+          .personal__card
+            .personal__empty
+              p.personal__empty-heading У вас пока нет предложений от репетиторов
+              .personal__empty-btn
+                +button('primary', 'link', 'Найти репетитора', '', {link: 'catalog.html'})

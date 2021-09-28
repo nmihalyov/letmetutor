@@ -30,7 +30,7 @@ Array.from(document.querySelectorAll('.input__dropdown-item[data-code-loc]')).ma
 
 // Change input dropdown value
 Array.from(document.querySelectorAll('.input__dropdown-item[data-dropdown]')).map(el => el.addEventListener('click', () => {
-  const value = el.innerText;
+  const value = el.dataset.value || el.innerText;
   
   el.closest('.input').querySelector('input').value = value;
   el.closest('.input').classList.remove('input--error');

@@ -314,11 +314,11 @@
             </div>
             <div class="popup__content">
               <form class="popup__refuse" data-refuse="data-refuse">
-                <p class="popup__desc"><b>Подтвержденная заявка будет автоматически удалена. Данное действие нельзя будет отменить.</b></p>
+                <p class="popup__desc"><b>Предложение будет автоматически перемещено в архив. Данное действие нельзя будет отменить.</b></p>
                 <label class="input popup__refuse-input auth__input dropdown">
                   <p class="input__label">Выберите причину вашего отказа <span>*</span></p>
                   <div class="input__wrapper">
-                    <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Передумал</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Другая причина</a></div>
+                    <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Не интересует</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Другая причина</a></div>
                     <input class="input__field" type="text" name="reason" required="required" placeholder="Выберите причину" readonly="readonly"/>
                   </div>
                   <p class="input__error">Выберите причину</p>

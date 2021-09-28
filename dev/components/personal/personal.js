@@ -112,7 +112,7 @@ Array.from(document.querySelectorAll('.js-personal-add')).map(el => el.addEventL
 
   $element.parentNode.insertAdjacentElement('beforeend', $clonedElement);
 
-  // Remove event
+  // remove event
   Array.from(document.querySelectorAll('.js-personal-remove')).map(el => el.addEventListener('click', () => {
     el.parentNode.remove();
   }));
@@ -277,9 +277,47 @@ document.querySelectorAll('.personal__services-label input').forEach(el => el.ad
 document.querySelectorAll('.personal__services-radio input').forEach(el => el.addEventListener('change', setSelectedServiceTerm));
 
 // scroll to verification
-document.querySelector('.personal__verify-arrow').addEventListener('click', () => {
-  scrollTo({
-    top: document.querySelector('.personal__verification-btn').getBoundingClientRect().top + window.pageYOffset - document.querySelector('.header').offsetHeight - 20,
-    behavior: 'smooth'
+if (document.querySelector('.personal__verify-arrow')) {
+  document.querySelector('.personal__verify-arrow').addEventListener('click', () => {
+    scrollTo({
+      top: document.querySelector('.personal__verification-btn').getBoundingClientRect().top + window.pageYOffset - document.querySelector('.header').offsetHeight - 20,
+      behavior: 'smooth'
+    });
   });
+}
+
+// copy to clipboard
+const $copyBtn = document.querySelector('.personal__ref-copy');
+
+if ($copyBtn) {
+  $copyBtn.addEventListener('click', () => {
+    const $input = $copyBtn.parentNode.querySelector('input');
+    const type = $input.getAttribute('type');
+    $input.setAttribute('type', 'text');
+    
+    $input.select();
+    $input.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+    $input.setAttribute('type', type);
+  });
+}
+
+// share menu handling
+const $shareMenu = document.querySelector('.personal__ref-share');
+
+if (document.querySelector('.personal__ref-invite')) {
+  document.querySelector('.personal__ref-invite').addEventListener('click', () => {
+    setTimeout(() => {
+      $shareMenu.classList.add('personal__ref-share--active');
+    });
+  });
+}
+
+// close share menu on outer click
+document.addEventListener('click', e => {
+  const $activeShareMenu = document.querySelector('.personal__ref-share--active');
+
+  if ($activeShareMenu && !e.target.closest('.personal__ref-share')) {
+    $activeShareMenu.classList.remove('personal__ref-share--active');
+  }
 });

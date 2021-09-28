@@ -124,7 +124,7 @@
         <div class="personal__wrapper wrapper">
           <aside class="personal__aside">
             <nav class="personal__nav">
-              <p class="personal__nav-heading">Личный кабинет</p><a class="personal__nav-item personal__nav-item--current" href="lk-tutor-edit.html">Мой профиль</a><a class="personal__nav-item" href="#">Мой баланс</a><a class="personal__nav-item" href="lk-tutor-applications.html">Мои заявки</a><a class="personal__nav-item" href="lk-tutor-schedule.html">Мое расписание</a><a class="personal__nav-item" href="chat-tutor.html">Мои диалоги<span class="personal__nav-counter">10</span></a><a class="personal__nav-item personal__nav-item--green" href="lk-tutor-services.html">Платные услуги</a><a class="personal__nav-item personal__nav-item--bold" href="lk-tutor-verify.html">Верификация аккаунта<span class="personal__nav-verified">подтвержден</span></a>
+              <p class="personal__nav-heading">Личный кабинет</p><a class="personal__nav-item personal__nav-item--current" href="lk-tutor-edit.html">Мой профиль</a><a class="personal__nav-item" href="#">Мой баланс</a><a class="personal__nav-item" href="lk-tutor-applications.html">Мои заявки</a><a class="personal__nav-item" href="lk-tutor-schedule.html">Мое расписание</a><a class="personal__nav-item" href="chat-tutor.html">Мои диалоги<span class="personal__nav-counter">10</span></a><a class="personal__nav-item" href="lk-tutor-ref.html">Партнерская программа</a><a class="personal__nav-item personal__nav-item--green" href="lk-tutor-services.html">Платные услуги</a><a class="personal__nav-item personal__nav-item--bold" href="lk-tutor-verify.html">Верификация аккаунта<span class="personal__nav-verified">подтвержден</span></a>
             </nav>
           </aside>
           <main class="personal__main">
@@ -187,7 +187,7 @@
                     <label class="input auth__input js-auth-country dropdown">
                       <p class="input__label">Ваша страна <span>*</span></p>
                       <div class="input__wrapper">
-                        <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Россия</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Украина</a></div>
+                        <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Россия</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Украина</a></div>
                         <input class="input__field" type="text" name="country" required="required" placeholder="Выберите страну" value="Россия" readonly="readonly"/>
                       </div>
                       <p class="input__error">Выберите страну из списка</p>
@@ -243,7 +243,7 @@
                         <label class="input auth__input dropdown">
                           <p class="input__label">Специализация <span>*</span></p>
                           <div class="input__wrapper">
-                            <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a></div>
+                            <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a></div>
                             <input class="input__field" type="text" name="specialization[]" required="required" placeholder="Выберите предмет" readonly="readonly"/>
                           </div>
                           <p class="input__error">Выберите предмет</p>
@@ -271,7 +271,7 @@
                         <label class="input auth__input dropdown">
                           <p class="input__label">Специализация <span>*</span></p>
                           <div class="input__wrapper">
-                            <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a></div>
+                            <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a></div>
                             <input class="input__field" type="text" name="specialization[]" placeholder="Выберите предмет" readonly="readonly"/>
                           </div>
                           <p class="input__error">Выберите предмет</p>
@@ -344,7 +344,7 @@
                       <div class="personal__experience-row">
                         <label class="input auth__input dropdown">
                           <div class="input__wrapper">
-                            <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a></div>
+                            <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a></div>
                             <input class="input__field" type="text" name="specialization" placeholder="Выберите специализацию" readonly="readonly"/>
                           </div>
                         </label>
@@ -382,7 +382,7 @@
                       <div class="personal__experience-row">
                         <label class="input auth__input dropdown">
                           <div class="input__wrapper">
-                            <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a></div>
+                            <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a></div>
                             <input class="input__field" type="text" name="specialization" placeholder="Выберите специализацию" readonly="readonly"/>
                           </div>
                         </label>

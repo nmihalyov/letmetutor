@@ -162,7 +162,7 @@
               </form>
             </div>
             <div class="catalog__sort">
-              <div class="catalog__sort-item dropdown dropdown--caret">Сортировать по:
+              <div class="catalog__sort-item dropdown dropdown--caret js-catalog-filter">Сортировать по:
                 <p class="dropdown__value">Актуальности</p>
                 <div class="catalog__sort-dropdown dropdown__menu"><a class="dropdown__menu-item dropdown__menu-item--hidden" href="javascript:void(0)" data-toggle="data-toggle">Актуальности</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Популярности</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Цене: от высокой к низкой</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Цене: от низкой к высокой</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Количеству отзывов</a><a class="dropdown__menu-item" href="javascript:void(0)" data-toggle="data-toggle">Высокому рейтингу</a></div>
               </div>
@@ -357,7 +357,7 @@
                   <label class="input popup__request-input auth__input dropdown">
                     <p class="input__label">Предмет <span>*</span></p>
                     <div class="input__wrapper">
-                      <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Французский язык</a></div>
+                      <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown> data-value="3"Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a></div>
                       <input class="input__field" type="text" name="lessons" required="required" placeholder="Выберите желаемый предмет" readonly="readonly"/>
                     </div>
                     <p class="input__error">Выберите желаемый предмет</p>
@@ -365,7 +365,7 @@
                   <label class="input popup__request-input auth__input dropdown">
                     <p class="input__label">Тип занятий <span>*</span></p>
                     <div class="input__wrapper">
-                      <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Онлайн</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown>Офлайн</a></div>
+                      <div class="input__dropdown dropdown__menu"><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Онлайн</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Офлайн</a></div>
                       <input class="input__field" type="text" name="type" required="required" placeholder="Выберите тип занятий" readonly="readonly"/>
                     </div>
                     <p class="input__error">Выберите тип занятий</p>

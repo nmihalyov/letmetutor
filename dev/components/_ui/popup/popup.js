@@ -78,7 +78,7 @@ const $popupForms = [{
 {
   $element: document.querySelector('form[data-pay]'),
   callback: $element => {
-    const $popup = document.querySelector('.js-popup[data-popup="application-pay"]');
+    const $popup = document.querySelector('.js-popup[data-popup="application-pay"]') || document.querySelector('.js-popup[data-popup="application-offer-pay"]');
     const $successPopup = document.querySelector('.js-popup[data-popup="application-pay-success"]');
   
     setTimeout(() => {

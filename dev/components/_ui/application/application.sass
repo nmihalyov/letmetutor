@@ -82,8 +82,7 @@
     &[data-loc="ua"]:before
       background-image: url('../img/icons/ua.svg')
   &__type
-    width: 160px
-    padding: 7px
+    padding: 7px 10px
     border-radius: 3px
     background-color: $green
     color: #fff
@@ -91,6 +90,15 @@
     font:
       size: 13px
       weight: 500
+    &--paid
+      opacity: 1 !important
+      border: 2px solid $blue
+      background-color: #fff
+      color: $blue
+    &--declined
+      border: 2px solid $gray
+      background-color: #fff
+      color: $gray
   &__table
     padding-left: 80px
     &-row

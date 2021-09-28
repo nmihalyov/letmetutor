@@ -6,6 +6,8 @@ mixin application(type, options)
   .application
     .application__head
       .application__info
+        if type === 'student-offer-pay' || type === 'student-offer-balance'
+          +checkbox('', 'application', 'application__checkbox')
         .application__image(style=`background-image: url("img/inhtml/${options.person.image}");`)
         .application__about
           p.application__name= options.person.name
@@ -32,6 +34,11 @@ mixin application(type, options)
           +button('primary', 'popup', 'Оплатить занятие', 'application__pay', {popup: 'application-pay'})
           +button('quaternary', 'popup', 'Отказаться', 'application__refuse', {popup: 'application-refuse'})
           a.application__write(href="javascript:void(0)", data-show="Написать сообщение", data-hide="Скрыть форму") Написать сообщение
+      if type === 'student-offer-pay' || type === 'student-offer-balance'
+        .application__actions
+          +button('primary', 'popup', 'Подтвердить', 'application__accept', {popup: type === 'student-offer-pay' ? 'application-offer-pay' : 'application-offer-balance'})
+          +button('secondary', 'popup', 'Отклонить', 'application__decline', {popup: 'application-offer-refuse'})
+          a.application__write(href="javascript:void(0)", data-show="Написать сообщение", data-hide="Скрыть форму") Написать сообщение
     form.application__form(action="")
       +textarea('Если у вас есть какие-то уточняющие вопросы, задайте их напрямую:', 'message', 'Введите ваше сообщение', 'application__form-textarea')
       p.application__form-disclaimer <b>Обращаем ваше внимание</b>, что вам <b>запрещено</b> обмениваться любыми контактами до оплаты учеником первого занятия через наш сервис! В случае нарушения данного условия, ваша учетная запись будет <b>заблокирована</b>.
@@ -45,7 +52,7 @@ mixin application-past(type, options)
         .application__about
           p.application__name= options.person.name
           p.application__location(data-loc="ru") Москва, Россия
-      p.application__type= options.type
+      p.application__type(class=`${options.type === 'Оплачено' ? 'application__type--paid' : options.type === 'Отклонено' ? 'application__type--declined' : ''}`)= options.type
     .application__table
       each item in options.table
         .application__table-row

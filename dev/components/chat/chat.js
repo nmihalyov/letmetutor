@@ -56,9 +56,9 @@ if ($dialogWarning) {
 }
 
 // go back to dialog lists on mobile devices
-// document.querySelector('.chat__head-back').addEventListener('click', () => {
-//   $dialogContainer.classList.remove('chat__grid--inner');
-// });
+document.querySelector('.chat__head-back').addEventListener('click', () => {
+  $dialogContainer.classList.remove('chat__grid--inner');
+});
 
 // toggle current dialog
 if ($dialogListItems) {

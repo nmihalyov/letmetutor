@@ -15,7 +15,7 @@ mixin catalog(type, notfound, login)
           +title('Поиск учеников')
           +filters('catalog__filters', ['subject', 'location', 'cost'])
         .catalog__sort
-          .catalog__sort-item.dropdown.dropdown--caret Сортировать по:
+          .catalog__sort-item.dropdown.dropdown--caret.js-catalog-filter Сортировать по:
             p.dropdown__value Актуальности
             .catalog__sort-dropdown.dropdown__menu
               a.dropdown__menu-item.dropdown__menu-item--hidden(href="javascript:void(0)", data-toggle) Актуальности

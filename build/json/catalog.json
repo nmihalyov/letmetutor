@@ -1,161 +1,166 @@
-[{
-  "top": true,
-  "image": "tutor-1.jpg",
-  "verified": true,
-  "name": "Анна Иванова",
-  "country": "ru",
-  "location": "Москва, Россия",
-  "subjects": [
-    {
-      "search": true,
-      "name": "Английский язык",
-      "experience": "5 лет"
-    },
-    {
-      "name": "Немецкий язык",
-      "experience": "2 года"
-    },
-    {
-      "hidden": true,
-      "name": "Французский язык",
-      "experience": "2 года"
-    }
-  ],
-  "description": "Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...",
-  "link": "tutor.html",
-  "rating": "4.9",
-  "reviews": "50 отзывов",
-  "price": "1000"
-},
 {
-  "image": "tutor-2.jpg",
-  "verified": false,
-  "name": "Анна Иванова",
-  "country": "ru",
-  "location": "Москва, Россия",
-  "subjects": [
+  "data": [
     {
-      "search": true,
-      "name": "Английский язык",
-      "experience": "5 лет"
+      "top": true,
+      "image": "tutor-1.jpg",
+      "verified": true,
+      "name": "Анна Иванова",
+      "country": "ru",
+      "location": "Москва, Россия",
+      "subjects": [
+        {
+          "search": true,
+          "name": "Английский язык",
+          "experience": "5 лет"
+        },
+        {
+          "name": "Немецкий язык",
+          "experience": "2 года"
+        },
+        {
+          "hidden": true,
+          "name": "Французский язык",
+          "experience": "2 года"
+        }
+      ],
+      "description": "Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...",
+      "link": "tutor.html",
+      "rating": "4.9",
+      "reviews": "50 отзывов",
+      "price": "1000"
     },
     {
-      "name": "Немецкий язык",
-      "experience": "2 года"
+      "image": "tutor-2.jpg",
+      "verified": false,
+      "name": "Анна Иванова",
+      "country": "ru",
+      "location": "Москва, Россия",
+      "subjects": [
+        {
+          "search": true,
+          "name": "Английский язык",
+          "experience": "5 лет"
+        },
+        {
+          "name": "Немецкий язык",
+          "experience": "2 года"
+        },
+        {
+          "hidden": true,
+          "name": "Итальянский язык",
+          "experience": "8 лет"
+        },
+        {
+          "hidden": true,
+          "name": "Французский язык",
+          "experience": "2 года"
+        }
+      ],
+      "description": "Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...",
+      "link": "tutor.html",
+      "rating": "4.9",
+      "reviews": "50 отзывов",
+      "price": "1000"
     },
     {
-      "hidden": true,
-      "name": "Итальянский язык",
-      "experience": "8 лет"
+      "image": "tutor-3.jpg",
+      "verified": true,
+      "name": "Анна Иванова",
+      "country": "ua",
+      "location": "Киев, Украина",
+      "subjects": [
+        {
+          "search": true,
+          "name": "Английский язык",
+          "experience": "5 лет"
+        },
+        {
+          "name": "Немецкий язык",
+          "experience": "2 года"
+        },
+        {
+          "hidden": true,
+          "name": "Итальянский язык",
+          "experience": "8 лет"
+        },
+        {
+          "hidden": true,
+          "name": "Французский язык",
+          "experience": "2 года"
+        }
+      ],
+      "description": "Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...",
+      "link": "tutor.html",
+      "rating": "0.0",
+      "reviews": "0 отзывов",
+      "price": "1000"
     },
     {
-      "hidden": true,
-      "name": "Французский язык",
-      "experience": "2 года"
+      "image": "tutor-4.jpg",
+      "verified": true,
+      "name": "Анна Иванова",
+      "country": "ru",
+      "location": "Москва, Россия",
+      "subjects": [
+        {
+          "search": true,
+          "name": "Английский язык",
+          "experience": "5 лет"
+        },
+        {
+          "name": "Немецкий язык",
+          "experience": "2 года"
+        },
+        {
+          "hidden": true,
+          "name": "Итальянский язык",
+          "experience": "8 лет"
+        },
+        {
+          "hidden": true,
+          "name": "Французский язык",
+          "experience": "2 года"
+        }
+      ],
+      "description": "Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...",
+      "link": "tutor.html",
+      "rating": "4.9",
+      "reviews": "50 отзывов",
+      "price": "1000"
+    },
+    {
+      "image": "tutor-5.jpg",
+      "verified": true,
+      "name": "Анна Иванова",
+      "country": "ru",
+      "location": "Москва, Россия",
+      "subjects": [
+        {
+          "search": true,
+          "name": "Английский язык",
+          "experience": "5 лет"
+        },
+        {
+          "name": "Немецкий язык",
+          "experience": "2 года"
+        },
+        {
+          "hidden": true,
+          "name": "Итальянский язык",
+          "experience": "8 лет"
+        },
+        {
+          "hidden": true,
+          "name": "Французский язык",
+          "experience": "2 года"
+        }
+      ],
+      "description": "Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...",
+      "link": "tutor.html",
+      "rating": "4.9",
+      "reviews": "50 отзывов",
+      "price": "1000"
     }
   ],
-  "description": "Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...",
-  "link": "tutor.html",
-  "rating": "4.9",
-  "reviews": "50 отзывов",
-  "price": "1000"
-},
-{
-  "image": "tutor-3.jpg",
-  "verified": true,
-  "name": "Анна Иванова",
-  "country": "ua",
-  "location": "Киев, Украина",
-  "subjects": [
-    {
-      "search": true,
-      "name": "Английский язык",
-      "experience": "5 лет"
-    },
-    {
-      "name": "Немецкий язык",
-      "experience": "2 года"
-    },
-    {
-      "hidden": true,
-      "name": "Итальянский язык",
-      "experience": "8 лет"
-    },
-    {
-      "hidden": true,
-      "name": "Французский язык",
-      "experience": "2 года"
-    }
-  ],
-  "description": "Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...",
-  "link": "tutor.html",
-  "rating": "0.0",
-  "reviews": "0 отзывов",
-  "price": "1000"
-},
-{
-  "image": "tutor-4.jpg",
-  "verified": true,
-  "name": "Анна Иванова",
-  "country": "ru",
-  "location": "Москва, Россия",
-  "subjects": [
-    {
-      "search": true,
-      "name": "Английский язык",
-      "experience": "5 лет"
-    },
-    {
-      "name": "Немецкий язык",
-      "experience": "2 года"
-    },
-    {
-      "hidden": true,
-      "name": "Итальянский язык",
-      "experience": "8 лет"
-    },
-    {
-      "hidden": true,
-      "name": "Французский язык",
-      "experience": "2 года"
-    }
-  ],
-  "description": "Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...",
-  "link": "tutor.html",
-  "rating": "4.9",
-  "reviews": "50 отзывов",
-  "price": "1000"
-},
-{
-  "image": "tutor-5.jpg",
-  "verified": true,
-  "name": "Анна Иванова",
-  "country": "ru",
-  "location": "Москва, Россия",
-  "subjects": [
-    {
-      "search": true,
-      "name": "Английский язык",
-      "experience": "5 лет"
-    },
-    {
-      "name": "Немецкий язык",
-      "experience": "2 года"
-    },
-    {
-      "hidden": true,
-      "name": "Итальянский язык",
-      "experience": "8 лет"
-    },
-    {
-      "hidden": true,
-      "name": "Французский язык",
-      "experience": "2 года"
-    }
-  ],
-  "description": "Привет друзья!<br>Меня зовут Соня и я очень люблю английский.<br>Гарантирую, что со мной вы тоже его полюбите...",
-  "link": "tutor.html",
-  "rating": "4.9",
-  "reviews": "50 отзывов",
-  "price": "1000"
-}]
+  "paginator": "<div class=\"pagination\"><a class=\"pagination__arrow pagination__arrow--prev pagination__arrow--disabled\" href=\"javascript:void(0)\"></a><div class=\"pagination__pages\"><a class=\"pagination__page pagination__page--current\" href=\"javascript:void(0)\" data-page=\"1\">1</a><a class=\"pagination__page\" href=\"javascript:void(0)\" data-page=\"2\">2</a><a class=\"pagination__page\" href=\"javascript:void(0)\" data-page=\"3\">3</a><a class=\"pagination__page\" href=\"javascript:void(0)\" data-page=\"4\">4</a><a class=\"pagination__page\" href=\"javascript:void(0)\" data-page=\"5\">5</a><a class=\"pagination__page\" href=\"javascript:void(0)\" data-page=\"6\">6</a><span class=\"pagination__separator\">...</span><a class=\"pagination__page\" href=\"javascript:void(0)\" data-page=\"9\">9</a><a class=\"pagination__page\" href=\"javascript:void(0)\" data-page=\"10\">10</a></div><a class=\"pagination__arrow pagination__arrow--next\" href=\"javascript:void(0)\"></a></div><button class=\"button button--primary catalog__bottom-btn js-catalog-more\" data-type=\"0\">Показать еще</button>"
+}
