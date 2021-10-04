@@ -1,0 +1,23 @@
+include ../components/cookies/cookies
+include ../components/header/header
+include ../components/hero/hero
+include ../components/advantages/advantages
+include ../components/popular/popular
+include ../components/hiw/hiw
+include ../components/top/top
+include ../components/reviews/reviews
+include ../components/footer/footer
+
+doctype
+html(lang="ru", prefix="og: http://ogp.me/ns#")
+  head
+    title Как это работает | LetMeTutor
+    include assets/_metas
+    include assets/_links
+    include assets/_scripts
+  body
+    .page-wrapper
+      +header
+      +hiw-full
+      +footer(true)
+      +cookies
