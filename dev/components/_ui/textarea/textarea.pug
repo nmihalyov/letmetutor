@@ -7,6 +7,7 @@ mixin textarea(label, name, placeholder, className, options)
         name=name,
         required=options && options.required,
         placeholder=placeholder,
+        data-min=options && options.min,
         readonly=options && options.readonly)= options && options.value
     if options && options.error
       p.textarea__error= options.error

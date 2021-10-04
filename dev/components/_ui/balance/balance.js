@@ -11,6 +11,14 @@ const $balanceForms = [{
       $element.querySelector('button[type="submit"]').classList.remove('button--loading');
       $element.submit();
     }, 1000);
+  },
+}, {
+  $element: document.querySelector('form[data-balance-withdraw]'),
+  callback: $element => {
+    setTimeout(() => {
+      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+      $element.submit();
+    }, 1000);
   }
 }];
 

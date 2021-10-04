@@ -170,7 +170,7 @@ if ($catalogMoreBtn) {
       e.preventDefault();
   
       const currentPage = catalogPages.current[0] - 1;
-      const queryUrl = formatURL(`json/catalog.json?page=${currentPage}`);
+      const queryUrl = formatURL(`/json/catalog.json?page=${currentPage}`);
   
       catalogPages.current = [currentPage];
   
@@ -191,7 +191,7 @@ if ($catalogMoreBtn) {
   //   e.preventDefault();
 
   //   const currentPage = catalogPages.current[0] - 1;
-  //   const queryUrl = formatURL(`json/catalog.json?page=${currentPage}`);
+  //   const queryUrl = formatURL(`/json/catalog.json?page=${currentPage}`);
 
   //   catalogPages.current = [currentPage];
 

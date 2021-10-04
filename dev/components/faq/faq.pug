@@ -1,0 +1,8 @@
+include ../_ui/heading/heading
+include ../_ui/accordion/accordion
+
+mixin faq
+  section.faq.container
+    .faq__wrapper.wrapper
+      +heading('Частые вопросы')
+      +accordion('faq')

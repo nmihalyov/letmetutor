@@ -32,6 +32,8 @@ mixin auth(type)
             +heading('Пополнение баланса', 'auth__heading')
           if type === 'replenishment-success'
             +heading('Операция завершена', 'auth__heading')
+          if type === 'commercial'
+            +heading('Оставить заявку', 'auth__heading')
         if type === 'login'
           form.auth__content(data-login-form)
             p.auth__subheading Войти с помощью:
@@ -107,12 +109,12 @@ mixin auth(type)
                   .personal__data-socials-item
                     a.personal__data-social(data-social="google", href="#") Gmail
               .personal__data-main
-                +textarea('О себе', 'about', 'Введите краткую информацию о себе', 'auth__input')
+                +textarea('О себе', 'about', 'Введите краткую информацию о себе', 'auth__input', {error: 'Введите информацию о себе (минимум 80 символов)', min: 80})
                 .personal__specialization-grid
                   .personal__specialization-item.js-copy-item
                     .personal__specialization-row
                       +input('text', 'Интересующий предмет <span>*</span>', 'subject', 'Выберите предмет', 'auth__input', {required: true, error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a>'})
-                      +input('text', 'Желаемая цена за час <span>*</span>', 'price', 'Введите цену', 'auth__input', {required: true, error: 'Введите цену'})
+                      +input('number', 'Желаемая цена за час <span>*</span>', 'price', 'Введите цену', 'auth__input', {required: true, error: 'Введите цену не менее 100&#8381;', min: 100})
                 a.personal__add.js-personal-add(href="javascript:void(0)") Добавить еще предмет
                 .auth__global
                   +checkbox('Выводить меня в глобальном поиске', 'globalSearch', 'auth__checkbox', false, false, {hint: 'В случае включения данной опции, ваш профиль будет выводится в общем каталоге учеников для репетитора. Репетитор сам может предложить вам свои услуги.'})
@@ -133,13 +135,13 @@ mixin auth(type)
                   .personal__data-socials-item
                     a.personal__data-social(data-social="google", href="#") Gmail
               .personal__data-main
-                +textarea('О себе', 'about', 'Введите краткую информацию о себе', 'auth__input')
+                +textarea('О себе', 'about', 'Введите краткую информацию о себе', 'auth__input', {error: 'Введите информацию о себе (минимум 80 символов)', min: 80})
                 +input('text', 'Видео-приветствие', 'video', 'Вставьте ссылку с youtube', 'auth__input')
                 .personal__specialization-grid
                   .personal__specialization-item.js-copy-item
                     .personal__specialization-row
                       +input('text', 'Специализация <span>*</span>', 'specialization', 'Выберите предмет', 'auth__input', {required: true, error: 'Выберите предмет', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">Английский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">Немецкий язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="3">Итальянский язык</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="4">Французский язык</a>'})
-                      +input('text', 'Цена за час <span>*</span>', 'price', 'Введите цену', 'auth__input', {required: true, error: 'Введите цену'})
+                      +input('number', 'Цена за час <span>*</span>', 'price', 'Введите цену', 'auth__input', {required: true, error: 'Введите цену не менее 100&#8381;', min: 100})
                     .personal__specialization-row
                       .personal__specialization-exp
                         p.personal__specialization-exp-label Опыт работы <span>*</span>
@@ -183,3 +185,12 @@ mixin auth(type)
         if type === 'replenishment-success'
           .auth__content.auth__content--info
             p.auth__desc.auth__desc--centered <b>Поздравляем</b>, оплата занятия у <b>Анны Ивановой</b> прошла успешно.<br><br><a href="chat-student.html">Свяжитесь</a> с ней для уточнения всех деталей.
+        if type === 'commercial'
+          form.auth__content(data-commercial-form)
+            +input('text', 'Ваше имя <span>*</span>', 'fullname', 'Введите ваше имя', 'auth__input', {required: true, error: 'Введите корректные данные'})
+            +input('email', 'Ваш email <span>*</span>', 'email', 'Введите ваш email', 'auth__input', {required: true, error: 'Введите корректный email'})
+            +input('tel', 'Номер телефона <span>*</span>', 'phone', '+7 (___) ___-__-__', 'auth__input', {required: true, error: 'Введите корректный номер телефона'})
+            +input('text', 'Расположение баннера <span>*</span>', 'subject', 'Выберите расположение', 'auth__input', {required: true, error: 'Выберите расположение баннера', dropdown: '<a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="1">На главной странице</a><a class="input__dropdown-item dropdown__menu-item" href="javascript: void(0)" data-dropdown data-value="2">На всех страницах</a>'})
+            +checkbox('Я согласен с <a href="#" target="_blank">правилами сервиса</a>', 'rulesAgreement', 'auth__checkbox', true, true)
+            .auth__actions
+              +button('primary', 'submit', 'Отправить заявку', 'auth__actions-btn auth__actions-btn--full')

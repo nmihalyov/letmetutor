@@ -6,3 +6,19 @@ mixin hero
     .hero__wrapper.wrapper
       h1.hero__heading Мы поможем вам найти лучшего репетитора
       +filters('hero__filters', ['subject', 'location'])
+
+mixin hero-join
+  section.hero.container(style="background-image: url('img/inhtml/hero-join-bg.png')")
+    .hero__wrapper.wrapper
+      h1.hero__heading.hero__heading--full Обучайте онлайн или оффлайн
+      p.hero__desc Зарабатывайте в удобное время и любом месте
+      .hero__action
+        +button('primary', 'link', 'Стать репетитором', 'hero__btn', {link: 'signup.html'})
+
+mixin hero-join-bottom
+  section.hero.container(style="background-image: url('img/inhtml/hero-join-bottom-bg.png')")
+    .hero__wrapper.wrapper
+      h1.hero__heading.hero__heading--full Все еще сомневаетесь?
+      p.hero__desc Попробуйте сами и вы не пожалеете
+      .hero__action
+        +button('primary', 'link', 'Стать репетитором', 'hero__btn', {link: 'signup.html'})

@@ -1,0 +1,44 @@
+include ../_ui/heading/heading
+include ../_ui/button/button
+
+mixin joined
+  section.joined.container
+    .joined__wrapper.wrapper
+      +heading('Они уже выбрали нас и не жалеют!')
+      .joined__slider.swiper-container
+        .swiper-wrapper
+          .joined__slide.swiper-slide
+            .joined__slide-image(style="background-image: url('img/inhtml/tutor-6.jpg');")
+          .joined__slide.swiper-slide
+            .joined__slide-image(style="background-image: url('img/inhtml/tutor-5.jpg');")
+          .joined__slide.swiper-slide
+            .joined__slide-image(style="background-image: url('img/inhtml/tutor-1.jpg');")
+          .joined__slide.swiper-slide
+            .joined__slide-image(style="background-image: url('img/inhtml/tutor-2.jpg');")
+          .joined__slide.swiper-slide
+            .joined__slide-image(style="background-image: url('img/inhtml/tutor-3.jpg');")
+          .joined__slide.swiper-slide
+            .joined__slide-image(style="background-image: url('img/inhtml/student-1.jpg');")
+        .swiper-button-prev
+        .swiper-button-next
+      .joined__content
+        .joined__info.joined__info--active(data-content="1")
+          p.joined__name Алина Петрова
+          p.joined__desc Благодаря LetMeTutor я могу зарабатывать, не выходя из дома!<br>Я преподаю английский на LetMeTutor, чтобы проводить больше времени со своим сыном.
+        .joined__info(data-content="2")
+          p.joined__name Анна Иванова
+          p.joined__desc Благодаря LetMeTutor я могу зарабатывать, не выходя из дома!<br>Я преподаю английский на LetMeTutor, чтобы проводить больше времени со своим сыном.
+        .joined__info(data-content="3")
+          p.joined__name Светлана Авдеева
+          p.joined__desc Благодаря LetMeTutor я могу зарабатывать, не выходя из дома!<br>Я преподаю английский на LetMeTutor, чтобы проводить больше времени со своим сыном.
+        .joined__info(data-content="4")
+          p.joined__name Вероника Казакова
+          p.joined__desc Благодаря LetMeTutor я могу зарабатывать, не выходя из дома!<br>Я преподаю английский на LetMeTutor, чтобы проводить больше времени со своим сыном.
+        .joined__info(data-content="5")
+          p.joined__name Лилия Савченко
+          p.joined__desc Благодаря LetMeTutor я могу зарабатывать, не выходя из дома!<br>Я преподаю английский на LetMeTutor, чтобы проводить больше времени со своим сыном.
+        .joined__info(data-content="6")
+          p.joined__name Катерина Смит
+          p.joined__desc Благодаря LetMeTutor я могу зарабатывать, не выходя из дома!<br>Я преподаю английский на LetMeTutor, чтобы проводить больше времени со своим сыном.
+      .joined__action
+        +button('primary', 'link', 'Присоединиться', '', {link: 'signup.html'})

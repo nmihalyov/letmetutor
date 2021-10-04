@@ -52,6 +52,15 @@ const $authForms = [{
       $element.submit();
     }, 1000);
   }
+},
+{
+  $element: document.querySelector('form[data-commercial-form]'),
+  callback: $element => {
+    setTimeout(() => {
+      $element.querySelector('button[type="submit"]').classList.remove('button--loading');
+      $element.submit();
+    }, 1000);
+  }
 }];
 
 // apply validation on auth forms

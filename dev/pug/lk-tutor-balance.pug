@@ -1,0 +1,18 @@
+include ../components/cookies/cookies
+include ../components/header/header
+include ../components/personal/personal
+include ../components/footer/footer
+
+doctype
+html(lang="ru", prefix="og: http://ogp.me/ns#")
+  head
+    title Личный кабинет | LetMeTutor
+    include assets/_metas
+    include assets/_links
+    include assets/_scripts
+  body
+    .page-wrapper
+      +header(true)
+      +personal('tutor', 'balance')
+      +footer(true)
+      +cookies

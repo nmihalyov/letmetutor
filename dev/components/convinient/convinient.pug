@@ -1,0 +1,16 @@
+include ../_ui/heading/heading
+include ../_ui/button/button
+
+mixin convinient
+  section.convinient.container
+    .wrapper
+      +heading('Почему с нами удобно работать?', 'convinient__heading')
+      ul.convinient__list
+        li.convinient__list-item Удобный и простой интерфейс
+        li.convinient__list-item Каждый день новые ученики
+        li.convinient__list-item Моментальный вывод средств
+        li.convinient__list-item Минимальная комиссия
+        li.convinient__list-item Круглосуточная тех. поддержка
+        li.convinient__list-item Партнерская программа и многое другое
+      +button('primary', 'link', 'Стать репетитором', 'hero__btn', {link: 'signup.html'})
+      .convinient__screenshot

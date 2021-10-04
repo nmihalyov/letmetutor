@@ -38,6 +38,8 @@
     width: 100%
   &__aside
     padding: 30px 0 0 20px
+    &--border
+      border-left: 1px dashed #DCDCDC
   &__current
     margin-bottom: 2px
     white-space: nowrap
@@ -52,16 +54,21 @@
 
 @media only screen and (max-width: $tablet)
   .balance
-    flex-direction: column-reverse
-    &__main
-      padding: 0
-    &__aside
-      padding: 25px 0
+    &:not(.balance--full) .balance
+      flex-direction: column-reverse
+      &__main
+        padding: 0
+      &__aside
+        padding: 25px 0
+        &--border
+          border-left: none
 
 @media only screen and (max-width: $mobile)
   .balance
+    flex-direction: column-reverse
     &__main
       width: 100%
+      padding: 0
     &__heading
       margin-bottom: 10px
       font-size: 15px
@@ -72,6 +79,8 @@
       margin-bottom: 10px
     &__aside
       padding: 20px 0
+      &--border
+        border-left: 0
     &__current
       font-size: 14px
     &__money

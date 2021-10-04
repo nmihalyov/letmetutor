@@ -1,0 +1,29 @@
+include ../components/cookies/cookies
+include ../components/header/header
+include ../components/hero/hero
+include ../components/advantages/advantages
+include ../components/convinient/convinient
+include ../components/joined/joined
+include ../components/faq/faq
+include ../components/action/action
+include ../components/footer/footer
+
+doctype
+html(lang="ru", prefix="og: http://ogp.me/ns#")
+  head
+    title Стать репетитором | LetMeTutor
+    include assets/_metas
+    include assets/_links
+    include assets/_scripts
+  body
+    .page-wrapper
+      +header
+      +hero-join
+      +advantages
+      +convinient
+      +joined
+      +faq
+      +action('Не нашли ответа на свой вопрос?', {name: 'Написать в тех. поддержку', href: 'support.html'}, {name: 'Начать зарабатывать', href: 'signup.html'})
+      +hero-join-bottom
+      +footer(true)
+      +cookies

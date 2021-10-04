@@ -39,7 +39,7 @@
       </div>
       <header class="header container">
         <div class="header__wrapper wrapper"><a href="main.html"><img class="header__logo" src="img/logo.svg" alt="LetMeTutor logo"/></a>
-          <nav class="header__nav"><a class="header__nav-link" href="catalog.html">Репетиторы</a><a class="header__nav-link" href="main.html">Как это работает</a><a class="header__nav-link" href="signup.html">Стать репетитором</a>
+          <nav class="header__nav"><a class="header__nav-link" href="catalog.html">Репетиторы</a><a class="header__nav-link" href="main.html">Как это работает</a><a class="header__nav-link" href="join.html">Стать репетитором</a>
             <div class="header__nav-link dropdown dropdown--arrow">Больше
               <div class="header__nav-dropdown dropdown__menu"><a class="dropdown__menu-item" href="faq.html">Вопрос - ответ</a><a class="dropdown__menu-item" href="help.html">Помощь</a><a class="dropdown__menu-item" href="support.html">Тех. поддержка</a><a class="dropdown__menu-item" href="#">Правила сервиса</a></div>
             </div>
@@ -112,7 +112,7 @@
                 </div>
               </div><a class="header-menu__messages" href="#">Сообщения</a><a class="header-menu__wallet" href="#">Ваш баланс: <span>1 000 &#8381;</span></a>
             </div>
-            <nav class="header-menu__nav"><a class="header-menu__nav-link" href="catalog.html">Репетиторы</a><a class="header-menu__nav-link" href="main.html">Как это работает</a><a class="header-menu__nav-link" href="#">Стать репетитором</a><a class="header-menu__nav-link" href="faq.html">Вопрос - ответ</a><a class="header-menu__nav-link" href="help.html">Помощь</a><a class="header-menu__nav-link" href="support.html">Тех. поддержка</a><a class="header-menu__nav-link" href="#">Правила сервиса</a></nav>
+            <nav class="header-menu__nav"><a class="header-menu__nav-link" href="catalog.html">Репетиторы</a><a class="header-menu__nav-link" href="main.html">Как это работает</a><a class="header-menu__nav-link" href="join.html">Стать репетитором</a><a class="header-menu__nav-link" href="faq.html">Вопрос - ответ</a><a class="header-menu__nav-link" href="help.html">Помощь</a><a class="header-menu__nav-link" href="support.html">Тех. поддержка</a><a class="header-menu__nav-link" href="#">Правила сервиса</a></nav>
             <div class="header-menu__footer">
               <p class="header-menu__support">Служба поддержки</p>
               <div class="header-menu__contacts"><a class="header-menu__phone" href="tel:+380675772532">+380 67 577 25 32</a><span class="header-menu__workhours">Будни: с 6 до 22, выходные: с 8 до 22</span></div>
@@ -124,7 +124,7 @@
         <div class="personal__wrapper wrapper">
           <aside class="personal__aside">
             <nav class="personal__nav">
-              <p class="personal__nav-heading">Личный кабинет</p><a class="personal__nav-item personal__nav-item--current" href="lk-tutor-edit.html">Мой профиль</a><a class="personal__nav-item" href="#">Мой баланс</a><a class="personal__nav-item" href="lk-tutor-applications.html">Мои заявки</a><a class="personal__nav-item" href="lk-tutor-schedule.html">Мое расписание</a><a class="personal__nav-item" href="chat-tutor.html">Мои диалоги<span class="personal__nav-counter">10</span></a><a class="personal__nav-item" href="lk-tutor-ref.html">Партнерская программа</a><a class="personal__nav-item personal__nav-item--green" href="lk-tutor-services.html">Платные услуги</a><a class="personal__nav-item personal__nav-item--bold" href="lk-tutor-verify.html">Верификация аккаунта<span class="personal__nav-verified">подтвержден</span></a>
+              <p class="personal__nav-heading">Личный кабинет</p><a class="personal__nav-item personal__nav-item--current" href="lk-tutor-edit.html">Мой профиль</a><a class="personal__nav-item" href="lk-tutor-balance.html">Мой баланс</a><a class="personal__nav-item" href="lk-tutor-applications.html">Мои заявки</a><a class="personal__nav-item" href="lk-tutor-schedule.html">Мое расписание</a><a class="personal__nav-item" href="chat-tutor.html">Мои диалоги<span class="personal__nav-counter">10</span></a><a class="personal__nav-item" href="lk-tutor-ref.html">Партнерская программа</a><a class="personal__nav-item personal__nav-item--green" href="lk-tutor-services.html">Платные услуги</a><a class="personal__nav-item personal__nav-item--bold" href="lk-tutor-verify.html">Верификация аккаунта<span class="personal__nav-verified">подтвержден</span></a>
             </nav>
           </aside>
           <main class="personal__main">
@@ -214,12 +214,12 @@
                   <label class="textarea auth__input">
                     <p class="textarea__label">О себе <span>*</span></p>
                     <div class="textarea__wrapper">
-                      <textarea class="textarea__field" name="about" required="required" placeholder="Введите краткую информацию о себе">Привет!
+                      <textarea class="textarea__field" name="about" required="required" placeholder="Введите краткую информацию о себе" data-min="80">Привет!
 
 Меня зовут Оджасви. Моя цель как репетитора английского - помочь вам достичь своей!
 Почему я? Мои сильные стороны как наставника - терпение, страсть к обучению, получать удовольствие от занятий и сохранять интерактивность или коммуникативность!</textarea>
                     </div>
-                    <p class="textarea__error">Ввведите информацию о себе</p>
+                    <p class="textarea__error">Ввведите информацию о себе (минимум 80 символов)</p>
                   </label>
                   <label class="input auth__input">
                     <p class="input__label">Видео-приветствие</p>
@@ -251,9 +251,9 @@
                         <label class="input auth__input">
                           <p class="input__label">Цена за час <span>*</span></p>
                           <div class="input__wrapper">
-                            <input class="input__field" type="text" name="price[]" required="required" placeholder="Введите цену"/>
+                            <input class="input__field" type="number" name="price[]" required="required" placeholder="Введите цену" data-min="100"/>
                           </div>
-                          <p class="input__error">Введите цену</p>
+                          <p class="input__error">Введите цену не менее 100&#8381;</p>
                         </label>
                         <div class="personal__specialization-exp">
                           <p class="personal__specialization-exp-label">Опыт работы <span>*</span></p>
@@ -279,9 +279,9 @@
                         <label class="input auth__input">
                           <p class="input__label">Цена за час <span>*</span></p>
                           <div class="input__wrapper">
-                            <input class="input__field" type="text" name="price[]" placeholder="Введите цену"/>
+                            <input class="input__field" type="number" name="price[]" placeholder="Введите цену" data-min="100"/>
                           </div>
-                          <p class="input__error">Введите цену</p>
+                          <p class="input__error">Введите цену не менее 100&#8381;</p>
                         </label>
                         <div class="personal__specialization-exp">
                           <p class="personal__specialization-exp-label">Опыт работы <span>*</span></p>
@@ -505,7 +505,7 @@
               <p class="footer__copyright">&copy; 2021 letmetutor.com <br>Все права защищены</p>
             </div>
             <div class="footer__col">
-              <p class="footer__title">Главное</p><a class="footer__link" href="catalog.html">Репетиторы</a><a class="footer__link" href="main.html">Как это работает</a><a class="footer__link" href="signup.html">Стать репетитором</a>
+              <p class="footer__title">Главное</p><a class="footer__link" href="catalog.html">Репетиторы</a><a class="footer__link" href="main.html">Как это работает</a><a class="footer__link" href="join.html">Стать репетитором</a>
             </div>
             <div class="footer__col">
               <p class="footer__title">Полезная информация</p><a class="footer__link" href="faq.html">Вопрос - ответ</a><a class="footer__link" href="help.html">Помощь</a><a class="footer__link" href="support.html">Тех. поддержка</a><a class="footer__link" href="#">Правила сервиса</a>

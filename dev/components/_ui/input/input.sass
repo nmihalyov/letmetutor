@@ -151,6 +151,11 @@
       size: 14px
     &[type="tel"]
       padding-left: 97px
+    &[type="number"]
+      &::-webkit-inner-spin-button, 
+      &::-webkit-outer-spin-button
+        -webkit-appearance: none
+        margin: 0
     &:focus
       border-color: $dark-blue
     &::placeholder

@@ -1,0 +1,26 @@
+include ../_ui/button/button
+
+mixin commercial
+  section.commercial
+    .commercial__hero.container
+      .commercial__wrapper.wrapper
+        h1.commercial__heading Реклама на сайте
+        p.commercial__desc Баннерная реклама — отличный способ повысить узнаваемость бренда и найти новых клиентов и покупателей
+        .commercial__button
+          +button('primary', 'anchor', 'Оставить заявку', '', {anchor: 'auth'})
+    .commercial__about.container
+      .commercial__wrapper.wrapper
+        h1.commercial__subheading Стоимость и условия размещения
+        .commercial__grid
+          img.commercial__image(src="img/inhtml/commercial.png", alt="")
+          div
+            .commercial__item
+              p.commercial__title Баннер «Растяжка» на главной странице
+              p.commercial__char <b>Размер:</b> 100% x 64px
+              p.commercial__char <b>Тип:</b> статичный
+              p.commercial__price <span>1500 &#8381;</span> в сутки <i>(стоимость разработки дизайна включена)</i>
+            .commercial__item
+              p.commercial__title Баннер «Растяжка» на всех страницах
+              p.commercial__char <b>Размер:</b> 100% x 64px
+              p.commercial__char <b>Тип:</b> статичный
+              p.commercial__price <span>2500 &#8381;</span> в сутки <i>(стоимость разработки дизайна включена)</i>

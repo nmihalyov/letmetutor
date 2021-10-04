@@ -85,13 +85,19 @@ $api.validate = (form, request) => {
       switch(el.getAttribute('type')) {
         case 'text':
         case 'password':
-          if (el.value === '') {
+          if (el.value.trim() === '') {
             setInvalidInput(el);
             formIsValid = false;
           }
           break;
         case 'tel':
-          if (el.value === '' || el.value.includes('_')) {
+          if (el.value.trim() === '' || el.value.includes('_')) {
+            setInvalidInput(el);
+            formIsValid = false;
+          }
+          break;
+        case 'number':
+          if (+el.value < +el.dataset.min) {
             setInvalidInput(el);
             formIsValid = false;
           }
@@ -109,7 +115,10 @@ $api.validate = (form, request) => {
           }
           break;
         default:
-          if (el.value === '') {
+          if (el.dataset.min > el.value.trim().length) {
+            setInvalidInput(el);
+            formIsValid = false;
+          } else if (el.value.trim() === '') {
             setInvalidInput(el);
             formIsValid = false;
           }
@@ -137,7 +146,8 @@ $api.validate = (form, request) => {
       e.currentTarget.classList.add('button--loading');
       request();
     } else {
-      scrollTo(0, $firstInvalidField.closest('.input').getBoundingClientRect().y + pageYOffset - document.querySelector('.header').offsetHeight - 10);
+      const $input = $firstInvalidField.closest('.input') || $firstInvalidField.closest('.textarea');
+      scrollTo(0, $input.getBoundingClientRect().y + pageYOffset - document.querySelector('.header').offsetHeight - 10);
     }
   });
 

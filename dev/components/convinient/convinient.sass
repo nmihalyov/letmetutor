@@ -1,0 +1,60 @@
+.convinient
+  overflow: hidden
+  padding: 130px 0 100px
+  .wrapper
+    position: relative
+  &__heading
+    text-align: left
+  &__list
+    list-style: none
+    margin-bottom: 30px
+    &-item
+      position: relative
+      margin-bottom: 15px
+      padding-left: 25px
+      font:
+        size: 16px
+        weight: 500
+      &:before
+        content: ''
+        position: absolute
+        top: 3px
+        left: 0
+        width: 14px
+        height: 14px
+        background:
+          image: url('../img/icons/check-blue.svg')
+          size: contain
+          position: center
+          repeat: no-repeat
+  &__screenshot
+    position: absolute
+    right: 0
+    bottom: -135px
+    width: 709px
+    height: 560px
+    background:
+      image: url('../img/inhtml/convinient-screenshot.png')
+      size: contain
+      position: center
+      repeat: no-repeat
+
+@media only screen and (max-width: $tablet)
+  .convinient
+    padding: 100px 0 80px
+    &__screenshot
+      left: 370px
+      width: 600px
+      height: auto
+      aspect-ratio: 709/560
+
+@media only screen and (max-width: $mobile)
+  .convinient
+    padding: 50px 0 0
+    &__list
+      &-item
+        font-size: 15px
+    &__screenshot
+      position: static
+      width: 100%
+      transform: translateY(7%)

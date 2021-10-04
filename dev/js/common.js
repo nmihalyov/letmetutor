@@ -4,6 +4,7 @@ window.onload = () => {
   @@include('./assets/api.js')
 
   @@include('../components/_ui/popup/popup.js')
+  @@include('../components/_ui/button/button.js')
   @@include('../components/_ui/dropdown/dropdown.js')
   @@include('../components/_ui/tabs/tabs.js')
   @@include('../components/_ui/input/input.js')
@@ -29,5 +30,6 @@ window.onload = () => {
   @@include('../components/profile-schedule/profile-schedule.js')
   @@include('../components/chat/chat.js')
   @@include('../components/personal/personal.js')
+  @@include('../components/joined/joined.js')
 
 }

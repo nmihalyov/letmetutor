@@ -321,3 +321,15 @@ document.addEventListener('click', e => {
     $activeShareMenu.classList.remove('personal__ref-share--active');
   }
 });
+
+// toggle personal tabs
+document.querySelectorAll('.personal__tabs-toggle').forEach(el => el.addEventListener('click', () => {
+  const $tabs = el.closest('.personal__tabs');
+  const target = el.dataset.tab;
+
+  $tabs.querySelector('.personal__tabs-toggle--active').classList.remove('personal__tabs-toggle--active');
+  $tabs.querySelector('.personal__tabs-content--active').classList.remove('personal__tabs-content--active');
+
+  el.classList.add('personal__tabs-toggle--active');
+  $tabs.querySelector(`.personal__tabs-content[data-tab="${target}"]`).classList.add('personal__tabs-content--active');
+}));

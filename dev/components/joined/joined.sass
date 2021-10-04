@@ -1,0 +1,102 @@
+.joined
+  padding: 100px 0
+  background-color: $gray-2
+  .swiper-container
+    opacity: 0
+    transition: opacity .3s ease
+    &.swiper-container-initialized
+      opacity: 1
+  &__slider
+    overflow: hidden
+    position: relative
+    width: 800px
+    margin: 0 auto 20px
+    .swiper-slide
+      z-index: 2
+      opacity: 0
+      transform: scale(0.6)
+      transition: all .3s ease
+    .swiper-slide-prev
+      opacity: 1
+      transform: scale(0.6) translateX(100px)
+    .swiper-slide-next
+      opacity: 1
+      transform: scale(0.6) translateX(-100px)
+    .swiper-slide-active
+      z-index: 3
+      opacity: 1
+      transform: none
+    .swiper-button-prev,
+    .swiper-button-next
+      width: 24px
+      height: 24px
+      background:
+        image: url('../img/icons/slider-arrow.svg')
+        size: contain
+        position: center
+        repeat: no-repeat
+      &:after
+        display: none
+    .swiper-button-prev
+      transform: rotate(180deg)
+  &__slide
+    &-image
+      width: 300px
+      height: 300px
+      margin: 0 auto
+      border: 15px solid #fff
+      border-radius: 50%
+      background:
+        size: cover
+        position: center
+        repeat: no-repeat
+  &__content
+    max-width: 770px
+    margin: 0 auto 50px
+  &__info
+    display: none
+    &--active
+      display: block
+  &__name
+    margin-bottom: 15px
+    text-align: center
+    font:
+      size: 18px
+      weight: 500
+  &__desc
+    color: $gray-5
+    text-align: center
+  &__action
+    display: flex
+    justify-content: center
+
+@media only screen and (max-width: $tablet)
+  .joined
+    padding: 80px 0
+    &__slider
+      width: 100%
+      .swiper-slide-prev
+        transform: scale(.6) translateX(190px)
+      .swiper-slide-next
+        transform: scale(.6) translateX(-190px)
+    &__slide
+      &-image
+        width: 200px
+        height: 200px
+        border-width: 10px
+
+@media only screen and (max-width: $mobile)
+  .joined
+    padding: 50px 0
+    &__slider
+      .swiper-slide-prev
+        transform: scale(.6)
+      .swiper-slide-next
+        transform: scale(.6)
+    &__slide
+      &-image
+        width: 180px
+        height: 180px
+        border-width: 8px
+    &__content
+      margin-bottom: 30px

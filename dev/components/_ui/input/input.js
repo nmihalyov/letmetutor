@@ -29,16 +29,20 @@ Array.from(document.querySelectorAll('.input__dropdown-item[data-code-loc]')).ma
 }));
 
 // Change input dropdown value
-Array.from(document.querySelectorAll('.input__dropdown-item[data-dropdown]')).map(el => el.addEventListener('click', () => {
-  const value = el.dataset.value || el.innerText;
-  
-  el.closest('.input').querySelector('input').value = value;
-  el.closest('.input').classList.remove('input--error');
+document.addEventListener('click', e => {
+  const $inputDropdownItem = e.target.closest('.input__dropdown-item[data-dropdown]');
 
-  if (el.closest('.input').classList.contains('js-auth-country')) {
-    el.closest('.input').dispatchEvent(changeCountryEvent);
+  if ($inputDropdownItem) {
+    const value = $inputDropdownItem.dataset.value || $inputDropdownItem.innerText;
+    
+    $inputDropdownItem.closest('.input').querySelector('input').value = value;
+    $inputDropdownItem.closest('.input').classList.remove('input--error');
+    
+    if ($inputDropdownItem.closest('.input').classList.contains('js-auth-country')) {
+      $inputDropdownItem.closest('.input').dispatchEvent(changeCountryEvent);
+    }
   }
-}));
+});
 
 // Masking phone input
 Array.from(document.querySelectorAll('input[type="tel"]')).map(el => {

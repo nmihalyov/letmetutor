@@ -51,11 +51,11 @@ mixin catalog(type, notfound, login)
             if type === 'student'
               p.catalog__found-desc Найдено <b>100</b> учеников по предмету <a href="#">Английский язык</a> в <a href="#">России</a>
               .catalog__items(data-total="10")
-                +tutorcard-student('Соня Иванова', 'student-4.jpg', false, '1000')
+                +tutorcard-student('Анна Иванова', 'student-4.jpg', false, '1000')
                 +tutorcard-student('Иоланта Соловьева', 'student-2.jpg', true, '1500')
-                +tutorcard-student('Анна Петрова', 'student-3.jpg', false, '1000')
-                +tutorcard-student('Соня Иванова', 'tutor-4.jpg', true, '1000')
-                +tutorcard-student('Соня Иванова', 'tutor-5.jpg', false, '1000')
+                +tutorcard-student('Светлана Авдеева', 'student-3.jpg', false, '1000')
+                +tutorcard-student('Вероника Казакова', 'tutor-4.jpg', true, '1000')
+                +tutorcard-student('Лилия Савченко', 'tutor-5.jpg', false, '1000')
               .catalog__bottom
                 +pagination
                 +button('primary', 'button', 'Показать еще', 'catalog__bottom-btn js-catalog-more')

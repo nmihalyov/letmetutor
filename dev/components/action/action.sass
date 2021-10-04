@@ -11,6 +11,13 @@
     font:
       size: 22px
       weight: 700
+  &__group
+    display: flex
+    justify-content: center
+    align-items: center
+  &__or
+    margin: 0 20px
+
 
 @media only screen and (max-width: $mobile)
   .action
@@ -18,3 +25,7 @@
     &__title
       margin-bottom: 15px
       font-size: 18px
+    &__group
+      flex-direction: column
+    &__or
+      margin: 10px 0

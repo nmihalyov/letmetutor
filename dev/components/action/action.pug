@@ -1,7 +1,13 @@
 include ../_ui/button/button
 
-mixin action(title, button)
+mixin action(title, button, button2)
   section.action.container
     .action__wrapper.wrapper
       p.action__title= title
-      +button('primary', 'link', button.name, '', {link: button.href})
+      .action__group
+        if button2
+          +button('secondary', 'link', button.name, '', {link: button.href})
+          p.action__or Или
+          +button('primary', 'link', button2.name, '', {link: button2.href})
+        else
+          +button('primary', 'link', button.name, '', {link: button.href})

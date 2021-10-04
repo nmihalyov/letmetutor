@@ -1,3 +1,5 @@
+include ../_ui/button/button
+
 mixin advantages
   section.advantages.container
     .advantages__wrapper.wrapper
@@ -11,3 +13,22 @@ mixin advantages
         .advantages__item
           p.advantages__heading Безопасность
           p.advantages__desc Полноценная платформа для связи и тщательная проверка преподавателей перед доступом к работе.
+
+mixin advantages
+  section.advantages.advantages--join.container
+    .advantages__wrapper.wrapper
+      .advantages__grid
+        .advantages__item
+          .advantages__icon(data-icon="bid")
+          p.advantages__heading Выберите почасовую ставку
+          p.advantages__desc Установите почасовую ставку, которую можно изменить в любое время.
+        .advantages__item
+          .advantages__icon(data-icon="teach")
+          p.advantages__heading Преподавайте где и когда угодно
+          p.advantages__desc Решайте сами, когда и где преподавать, без фиксированного графика
+        .advantages__item
+          .advantages__icon(data-icon="withdraw")
+          p.advantages__heading Моментальный вывод средств
+          p.advantages__desc Вывод средств осуществляется моментально и с минимальной комиссией
+      .advantages__btn
+        +button('primary', 'link', 'Стать репетитором', '', {link: 'signup.html'})

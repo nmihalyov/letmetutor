@@ -645,6 +645,11 @@
       border-radius: 5px
       color: #721C24
       font-size: 14px
+      a
+        color: #721C24
+        text-decoration: underline
+        &:hover
+          color: transparentize(#721C24, 0.2)
     &-actions
       display: flex
       align-items: center
@@ -957,6 +962,10 @@
         width: 395px
       &:last-child
         width: 160px
+      &--success
+        color: $green
+      &--danger
+        color: $red
       a
         color: $blue
         &:hover
@@ -977,6 +986,31 @@
     &-btn
       display: flex
       justify-content: center
+  &__balance
+    margin: -10px 0 -30px
+  &__tabs
+    &-togglers
+      display: flex
+      margin-bottom: 10px
+      border-bottom: 1px solid $gray-4
+    &-toggle
+      width: 200px
+      margin-bottom: -1px
+      padding: 15px 0
+      text-align: center
+      color: $gray
+      border-bottom: 2px solid #D7D7D7
+      font:
+        size: 15px
+        weight: 500
+      &--active
+        pointer-events: none
+        border-bottom-color: $blue
+        color: $blue
+    &-content
+      display: none
+      &--active
+        display: block
 
 @media only screen and (max-width: $tablet)
   .personal
@@ -1300,3 +1334,14 @@
       padding: 50px 0 50px
       &-heading
         font-size: 16px
+    &__balance
+      margin: 0
+    &__tabs
+      &-togglers
+        margin-bottom: 0
+      &-toggle
+        flex-grow: 1
+        width: auto
+        margin-bottom: -1px
+        padding: 10px 0
+        font-size: 13px
