@@ -22,5 +22,7 @@ mixin input(type, label, name, placeholder, className, options)
         data-min=options && options.min,
         data-pass=options && options.pass,
         data-pass-repeat=options && options.repeatPass)
+    if options && options.dropdown
+      input.input__value(type="hidden", name=name + '_value')
     if options && options.error
       p.input__error!= options.error

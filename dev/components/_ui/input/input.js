@@ -33,9 +33,11 @@ document.addEventListener('click', e => {
   const $inputDropdownItem = e.target.closest('.input__dropdown-item[data-dropdown]');
 
   if ($inputDropdownItem) {
-    const value = $inputDropdownItem.dataset.value || $inputDropdownItem.innerText;
+    const text = $inputDropdownItem.innerText;
+    const value = $inputDropdownItem.dataset.value;
     
-    $inputDropdownItem.closest('.input').querySelector('input').value = value;
+    $inputDropdownItem.closest('.input').querySelector('input').value = text;
+    $inputDropdownItem.closest('.input').querySelector('input.input__value').value = value;
     $inputDropdownItem.closest('.input').classList.remove('input--error');
     
     if ($inputDropdownItem.closest('.input').classList.contains('js-auth-country')) {
