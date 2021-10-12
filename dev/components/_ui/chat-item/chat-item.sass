@@ -15,7 +15,6 @@
         color: #fff
   &__container
     display: flex
-    align-items: center
     padding: 10px
   &__delete
     display: none
@@ -48,7 +47,9 @@
       size: 12px
       weight: 500
   &__content
+    flex-grow: 1
     max-width: calc(100% - 60px)
+    padding-top: 5px
   &__body
     display: flex
     align-items: baseline
